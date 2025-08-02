@@ -27,9 +27,19 @@ const Header = () => {
           Coming Soon
         </button>
 
-        <p className={`${styles.title} ${plusJakartaSans.className}`}>
-          Join our <span className={styles.mailingList}>mailing list.</span>
-        </p>
+        <div className={`${styles.title} ${plusJakartaSans.className}`}>
+          Join our{" "}
+          <div className={styles.mailingList}>
+            mailing list.
+            <Image
+              src="/svg/curved-border.svg"
+              alt="mailing list"
+              width={393}
+              height={3}
+              className={styles.curvedBorder}
+            />
+          </div>
+        </div>
         <p className={`${styles.description} `}>
           This service is currently undergoing construction! Be the first to
           know when this service is live by subscribing to our newsletter.

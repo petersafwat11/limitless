@@ -43,7 +43,15 @@
 }
 .mailingList {
   color: #049cff;
-  border-bottom: 1px solid #049cff;
+  position: relative;
+}
+.curvedBorder {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
 }
 .description {
   color: rgba(255, 255, 255, 0.64);
@@ -51,6 +59,7 @@
   font-weight: 400;
   line-height: 124%;
   letter-spacing: 0.64px;
+  text-align: center;
 }
 .inputContainer {
   display: flex;
