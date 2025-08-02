@@ -1,0 +1,9 @@
+.cardsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  padding: 0 6.4rem;
+  margin-top: -17.3rem;
+  margin-bottom: 8.2rem;
+}

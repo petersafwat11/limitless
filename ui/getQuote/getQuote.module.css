@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  width: 58.5rem;
+  padding: 3.8rem 3.8rem 3.5rem 3.8rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.6rem;
+  border-radius: 1.8rem;
+  background: #fff;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+}
+.label {
+  color: #000822;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+}
+.inputContainer,
+.selectionContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.6rem;
+  width: 100%;
+  border-radius: 1.2rem;
+  background: #ecf0fe;
+  height: 6.4rem;
+}
+.inputSpan {
+  width: 5.2rem;
+  height: 5.2rem;
+  border-radius: 1rem;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000822;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+}
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  color: rgba(0, 8, 34, 0.4);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+  background: transparent;
+}
+.selectionItem,
+.selectedItem {
+  display: flex;
+  width: 16.5rem;
+  height: 5.0162rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.8rem;
+  background: transparent;
+  box-shadow: 0 0.4rem 0.84rem 0 rgba(0, 8, 34, 0.04);
+  color: #000822;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.selectedItem {
+  background: #06112b;
+  color: #fff;
+}
+.selectionSpan {
+  display: flex;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #000822;
+}
+.selectedSpan {
+  background: #0388ff;
+  border: 1px solid transparent;
+  outline: 1px solid #0388ff;
+}
+.button {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 6.2rem;
+  border-radius: 1.2rem;
+  background: #0388ff;
+  box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
+  gap: 1.6rem;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 124%;
+  letter-spacing: 0.64px;
+  border: none;
+  cursor: pointer;
+}
+.notYet {
+  color: rgba(0, 8, 34, 0.7);
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 124%;
+  letter-spacing: 0.64px;
+  margin: auto;
+}
