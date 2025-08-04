@@ -1,11 +1,13 @@
-import React from 'react'
-import Header from './_components/header/Header'
-import styles from './page.module.css'
-import Card from './_components/card/Card'
-import { features } from './data'
+import React from "react";
+import Header from "./_components/header/Header";
+import styles from "./page.module.css";
+import Card from "./_components/card/Card";
+import { features } from "./data";
 const page = () => {
   return (
-    <div>
+    <div className={styles.page}>
+      <span className={styles.squareLight}></span>
+      <span className={styles.squareLight2}></span>
       <Header />
       <div className={styles.cardsContainer}>
         {features.map((feature, index) => (
@@ -13,7 +15,7 @@ const page = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

@@ -4,6 +4,8 @@
   align-items: center;
   margin: 1.1%;
   padding: 1.8rem 1.8rem 0;
+  position: relative;
+  z-index: 2;
 }
 .logoContainer {
   display: flex;

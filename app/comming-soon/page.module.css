@@ -3,7 +3,35 @@
   align-items: center;
   justify-content: center;
   gap: 2.4rem;
-  padding: 0 6.4rem;
+  padding: 0 4.4%;
   margin-top: -17.3rem;
   margin-bottom: 8.2rem;
+  position: relative;
+  z-index: 2;
+}
+.squareLight {
+  position: absolute;
+  z-index: 1;
+  top: -3.7rem;
+  right: 1.1%;
+  width: calc(34.6rem - 1.1%);
+  height: 80.6rem;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 136, 255, 0) 0%,
+    rgba(3, 136, 255, 0.48) 100%
+  );
+}
+.squareLight2 {
+  position: absolute;
+  z-index: 1;
+  top: -3.7rem;
+  right: 34.6rem;
+  width: 35.2rem;
+  height: 51.6rem;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 136, 255, 0) 0%,
+    rgba(3, 136, 255, 0.48) 100%
+  );
 }

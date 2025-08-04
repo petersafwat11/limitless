@@ -1,0 +1,83 @@
+.squares {
+  position: absolute;
+  top: calc(0rem + 1.1%);
+  right: calc(-39rem - 1.1%);
+}
+.contact {
+  position: absolute;
+  /* top: 17.5rem; */
+  top: -6rem;
+  left: 55%;
+  transform: translateX(-50%);
+}
+/* .container {
+  overflow: hidden;
+} */
+.content {
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rem 4.4% 7.15% 2.6%;
+}
+.headers {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-bottom: 6rem;
+}
+.subTitle {
+  color: #049cff;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+}
+.title {
+  color: #fff;
+  font-size: 7.4rem;
+  font-weight: 700;
+  line-height: 94%;
+  position: relative;
+  width: max-content;
+  white-space: nowrap;
+}
+.curvedBorder {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+}
+.contactOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.contactOption {
+  display: flex;
+  align-items: center;
+  gap: 4.3rem;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.infoTitle {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+.infoDescription {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+}

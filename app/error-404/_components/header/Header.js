@@ -4,10 +4,7 @@ import Image from "next/image";
 import { Manrope } from "next/font/google";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { FaArrowRightLong } from "react-icons/fa6";
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
+import Link from "next/link";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -16,22 +13,28 @@ const Header = () => {
   return (
     <div className="headerContainer">
       <Image
-        src="/svg/squares.svg"
+        src="/svg/squares-2.svg"
         alt="squares"
         width={1394}
         height={706}
         className={styles.squares}
       />
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <button className={`${styles.commingSoon} ${manrope.className}`}>
-            Coming Soon
-          </button>
-
+      <div className={styles.error404Container}>
+        <Image
+          src="/svg/error-404.svg"
+          alt="squares"
+          width={220}
+          height={220}
+          className={styles.error404}
+        />
+        <div className={styles.error404Span}></div>
+      </div>
+      <div className={styles.content}>
+        <div className={styles.right}>
           <div className={`${styles.title} ${plusJakartaSans.className}`}>
-            Join our{" "}
+            OOPS! Page
             <div className={styles.mailingList}>
-              mailing list.
+              not Found{" "}
               <Image
                 src="/svg/curved-border.svg"
                 alt="mailing list"
@@ -42,19 +45,22 @@ const Header = () => {
             </div>
           </div>
           <p className={`${styles.description} `}>
-            This service is currently undergoing construction! Be the first to
-            know when this service is live by subscribing to our newsletter.
+            {`Sorry, the page you are looking for does not exist or an error has
+          occurred :(`}
           </p>
-          <div className={styles.inputContainer}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className={styles.input}
+          <Link href="/" className={styles.returnHome}>
+            Return Home <FaArrowRightLong className={styles.arrow} />
+          </Link>
+        </div>
+        <div className={styles.left}>
+          <div className={styles.imageContainer}>
+            <Image
+              src="/svg/error.svg"
+              alt="error-404"
+              width={500}
+              height={500}
+              className={styles.car}
             />
-            <button className={styles.subscribeButton}>
-              Subscribe
-              <FaArrowRightLong className={styles.arrow} />
-            </button>
           </div>
         </div>
       </div>
