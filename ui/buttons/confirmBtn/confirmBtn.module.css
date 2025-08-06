@@ -1,0 +1,24 @@
+.confirmBtn {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  display: flex;
+  height: 6.4rem;
+  padding: 1rem 2.4rem;
+  align-items: center;
+  border-radius: 1.2rem;
+  background: #0388ff;
+  box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 124%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.confirmBtn:hover {
+  background: rgba(3, 137, 255, 0.8);
+}

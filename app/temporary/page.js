@@ -1,8 +1,10 @@
 import React from 'react'
-
+import TermsAndConditions from '@/ui/insurance-quotes/termsAndConditions/TermsAndConditions'
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <TermsAndConditions />
+    </div>
   )
 }
 

@@ -1,0 +1,26 @@
+.container {
+  width: 37.8rem;
+  border-radius: 16px;
+  background: #fff;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.4rem 2.4rem 1.5rem;
+}
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.value {
+  display: flex;
+  align-items: center;
+  padding: 2.6rem 2.4rem 2.9rem 2.2rem;
+}
+.valueTitle {
+  color: #000;
+  font-size: 2.4rem;
+  font-weight: 700;
+}

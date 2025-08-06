@@ -1,0 +1,101 @@
+.container {
+  padding: 2.4rem 1.6rem 4.1rem 2.4rem;
+  width: 48.8rem;
+  border-radius: 18px;
+  background: #000822;
+  position: relative;
+}
+.title {
+  color: #fff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 124%;
+  letter-spacing: 1.12px;
+}
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.3rem 3.5rem 2.3rem;
+  margin: 1.8rem 0 4.2rem;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.total {
+  display: flex;
+  align-items: center;
+  display: flex;
+  height: 3rem;
+  padding: 1rem 0;
+  gap: 1rem;
+  border-radius: 100px;
+  background: #fff;
+}
+.totalTitle {
+  color: #0388ff;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+}
+.totalPrice {
+  color: #049cff;
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 100%;
+  margin-bottom: 0.5rem;
+}
+.totalPriceDescription {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.64px;
+}
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+.featureItemTitle {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.64px;
+}
+.background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 9.5rem;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(3, 136, 255, 0) 0%, #0388ff 184.11%);
+}
+.background2 {
+  position: absolute;
+  top: 0;
+  right: 9.5rem;
+  width: 9.5rem;
+  height: 100%;
+  opacity: 0.82;
+  background: linear-gradient(180deg, rgba(3, 136, 255, 0) 0%, #0388ff 184.11%);
+}
+.background3 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 19rem;
+  width: 9.5rem;
+  height: 100%;
+  opacity: 0.6;
+  background: linear-gradient(180deg, rgba(3, 136, 255, 0) 0%, #0388ff 184.11%);
+}

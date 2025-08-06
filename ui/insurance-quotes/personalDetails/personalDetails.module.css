@@ -1,0 +1,18 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  padding: 3.4rem;
+}
+.row {
+  display: flex;
+  gap: 1.8rem;
+}
+.row div {
+  flex: 1;
+}
+.selections {
+  display: flex;
+  width: 100%;
+  gap: 1.8rem;
+}

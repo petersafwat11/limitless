@@ -8,7 +8,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "What Are Cookies?",
       description1:
@@ -88,7 +88,7 @@ export const content = [
   },
 
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Third-Party Cookies",
       description1:
@@ -96,7 +96,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "How We Use Data Collected via Cookies",
       description1: "Information collected through cookies may be used for:",
@@ -112,7 +112,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Updates to This Policy",
       description1:
@@ -120,7 +120,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Contact Us",
       description1:

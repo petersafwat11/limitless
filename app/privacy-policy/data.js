@@ -8,7 +8,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Information We Collect",
       description1:
@@ -23,7 +23,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "How We Use Your Information",
       description1:
@@ -40,7 +40,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "How We Share Your Information",
       description1:
@@ -57,7 +57,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Cookies and Tracking Technologies",
       description1:
@@ -72,7 +72,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Data Security",
       description1:
@@ -80,7 +80,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Your Rights and Choices",
       description1:
@@ -99,7 +99,7 @@ export const content = [
   },
 
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Retention of Data",
       description1:
@@ -107,7 +107,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "International Transfers",
       description1:
@@ -115,7 +115,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Children’s Privacy",
       description1:
@@ -123,7 +123,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Changes to This Privacy Policy",
       description1:
@@ -131,7 +131,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Contact Us",
       description1:

@@ -1,0 +1,51 @@
+.squares {
+  position: absolute;
+  top: -36rem;
+  right: -74rem;
+}
+.wrapper {
+  padding: 2.5rem 0 7.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7.1rem;
+}
+.titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.subTitle {
+  color: #049cff;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+}
+.title {
+  color: #fff;
+  font-size: 7.4rem;
+  font-weight: 700;
+  line-height: 94%; /* 69.56px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+.titleSpan {
+  color: #049cff;
+  position: relative;
+}
+.curvedBorder {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+}

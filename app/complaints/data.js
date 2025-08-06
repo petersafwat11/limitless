@@ -8,7 +8,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Submitting a Complaint",
       description1:
@@ -22,7 +22,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Complaint Acknowledgement",
       description1:
@@ -30,7 +30,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Quick Resolution",
       description1:
@@ -38,7 +38,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Investigation Process",
       description1:
@@ -46,7 +46,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Ongoing Updates",
       description1:
@@ -54,7 +54,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Our Final Response",
       description1:
@@ -69,12 +69,13 @@ export const content = [
   },
 
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Referring to the Financial Ombudsman Service (FOS)",
       description1:
         "If we can’t reach a resolution that satisfies you—or if eight weeks pass without a final decision—you have the right to contact the Financial Ombudsman Service (FOS)",
-      subDescription:". You must refer the complaint to the FOS within six months of receiving our final response. The FOS is an independent organisation that helps resolve disputes between financial businesses and their customers.",
+      subDescription:
+        ". You must refer the complaint to the FOS within six months of receiving our final response. The FOS is an independent organisation that helps resolve disputes between financial businesses and their customers.",
       subDescription: "FOS Contact Details",
       description2:
         "We will include full FOS contact details in our final response letter.",
@@ -86,7 +87,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Continuous Improvement & Root Cause Analysis",
       description1:
@@ -94,7 +95,7 @@ export const content = [
     },
   },
   {
-    type: "listWithDescription",
+    type: "list",
     value: {
       title: "Keeping Records",
       description1:

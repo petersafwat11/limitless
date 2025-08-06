@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  padding: 2.7rem 1.4rem 1.4rem;
+  border-radius: 18px;
+  background: #e5ebfe;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+.title {
+  color: #000822;
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 100%;
+}
