@@ -6,7 +6,8 @@ import LastUpdated from "@/ui/company-pages/lastUpdated/LastUpdated";
 import ListItem from "@/ui/company-pages/listItem/listItem";
 import DoubleList from "@/ui/company-pages/doubleList/DoubleList";
 import NestedListItem from "@/ui/company-pages/nestedLists/NestedLists";
-import ListWithDescription from "@/ui/company-pages/listWithDescription/ListWithDescription";
+import ListWithDescription from "@/ui/company-pages/AnotherList/ListWithDescription";
+// l;;
 const page = () => {
   return (
     <div className={styles.page}>
