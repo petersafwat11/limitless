@@ -1,9 +1,15 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./details.module.css";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import InputWithData from "@/ui/InputWithData/InputWithData";
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+});
 const Details = () => {
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.header}>
         <Image
           src="/svg/insurance-quote.svg"
@@ -11,19 +17,20 @@ const Details = () => {
           width={60}
           height={60}
         />
-        <p className={styles.headerTitle}>Your Details</p>
+        <p className={`${styles.headerTitle} ${plusJakartaSans.className}`}>
+          Your Details
+        </p>
       </div>
-      {[
-        { label: "ww", value: "Roland Maguire" },
-        { label: "Date of Birth", value: "12/02/1990" },
-        { label: "Licence Hold for", value: "5-8 Years" },
-        { label: "Licence Expiry", value: "12/02/2025" },
-      ].map((item, index) => (
-        <div className={styles.item} key={index}>
-          <p className={styles.label}>{item.label}</p>
-          <p className={styles.value}>{item.value}</p>
-        </div>
-      ))}
+      <div className={styles.content}>
+        {[
+          { label: "Full Name", value: "Roland Maguire" },
+          { label: "Date of Birth", value: "12/02/1990" },
+          { label: "Licence Hold for", value: "5-8 Years" },
+          { label: "Licence Expiry", value: "12/02/2025" },
+        ].map((item, index) => (
+          <InputWithData item={item} index={index} key={index} />
+        ))}
+      </div>
     </div>
   );
 };

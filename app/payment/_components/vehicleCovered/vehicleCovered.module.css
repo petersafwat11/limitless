@@ -1,8 +1,54 @@
+.container {
+  width: 770px;
+  border-radius: 16px;
+  background: #fff;
+  padding: 0 1.8rem 1.8rem;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1.8rem 2.4rem;
+}
+.headerTitle {
+  color: #0388ff;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.64px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  padding: 2.8rem 1.8rem 1.8rem;
+}
+.vetype {
+  color: #000822;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 124%;
+  letter-spacing: 0.72px;
+}
+.vehicleNumber {
+  color: #000822;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 8, 34, 0.24);
+  gap: 2.2rem;
+  padding: 0.6rem;
+}
 .inputSpan {
   width: 5.2rem;
   height: 5.2rem;
   border-radius: 1rem;
-  background: #fff;
+  background: linear-gradient(0deg, #ecf0fe 0%, #ecf0fe 100%),
+    linear-gradient(52deg, rgba(255, 255, 255, 0.3) 18.09%, #0388ff 88.9%);
   display: flex;
   align-items: center;
   justify-content: center;

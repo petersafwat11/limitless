@@ -1,0 +1,19 @@
+.left {
+  border-radius: 18px;
+  background: #e5ebfe;
+  width: 80rem;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.container {
+  padding: 0 4.4%;
+  display: flex;
+  justify-content: space-between;
+  margin: 4.2rem 0 8.2rem;
+}
+.durationContainer {
+  display: flex;
+  gap: 1.4rem;
+}

@@ -14,6 +14,8 @@ const page = () => {
       <div className={styles.container}>
         <div className={styles.left}>
           <VehicleCovered />
+          <div className={styles.durationContainer}>
+
           <Duration
             img={"/svg/duration.svg"}
             title="Duration"
@@ -26,6 +28,7 @@ const page = () => {
             value="Policy starts immediately"
             editIcon={true}
           />
+          </div>
           <Details />
         </div>
         <div className={styles.right}>

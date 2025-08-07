@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+import Stepper from "../stepper/Stepper";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -15,8 +16,8 @@ const manrope = Manrope({
 
 const Header = ({ title }) => {
   const words = title.split(" ");
-  const lastWord = words[words.length - 2] + " " + words[words.length - 1];
-  const withoutLastWord = words.slice(0, -2).join(" ");
+  const lastWord = words[words.length - 1];
+  const withoutLastWord = words.slice(0, -1).join(" ");
   return (
     <div className="headerContainer">
       <Image
@@ -27,23 +28,9 @@ const Header = ({ title }) => {
         className={styles.squares}
       />
       <div className={styles.wrapper}>
-        <Image
-          src="/svg/payment-background.svg"
-          alt="contact-us"
-          width={585}
-          height={776}
-          className={styles.contact}
-        />
-
-        <Image
-          src="/svg/payment-success.svg"
-          alt="success"
-          width={136}
-          height={151}
-        />
         <div className={styles.titles}>
           <p className={`${styles.subTitle} ${manrope.className}`}>
-            lorem ipsum dolos sit
+            specialized for vehicle insurance
           </p>
 
           <div className={`${styles.title} ${plusJakartaSans.className}`}>
@@ -59,6 +46,24 @@ const Header = ({ title }) => {
               />
             </div>
           </div>
+        </div>
+        <div className={styles.steps}>
+          <Stepper
+            steps={[
+              {
+                img: { src: "/svg/vehicle.svg", width: 82, height: 82 },
+                title: "Vehicle",
+              },
+              {
+                img: { src: "/svg/quote.svg", width: 72, height: 72 },
+                title: "Quote",
+              },
+              {
+                img: { src: "/svg/payment.svg", width: 72, height: 72 },
+                title: "Payment",
+              },
+            ]}
+          />
         </div>
       </div>
     </div>

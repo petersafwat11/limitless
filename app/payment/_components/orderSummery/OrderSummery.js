@@ -63,16 +63,16 @@ const OrderSummery = () => {
             <path
               d="M22.457 1.66272L30.226 9.00005L22.457 16.3374"
               stroke="#0388FF"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M30.2598 9.01691H1.74023"
               stroke="#0388FF"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </button>
