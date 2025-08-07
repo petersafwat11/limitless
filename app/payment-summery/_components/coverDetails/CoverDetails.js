@@ -2,11 +2,11 @@ import React from "react";
 import HeaderTitle from "../headerTitle/HeaderTitle";
 import Image from "next/image";
 import styles from "./coverDetails.module.css";
+import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWrapper";
 
 const CoverDetails = () => {
   return (
-    <div className={styles.container}>
-      <HeaderTitle title="Cover Details" />
+    <ComponentWrapper title="Cover Details" icon={{width: 62, height: 62}}>
       <div className={styles.content}>
         <div className={styles.first}>
           <h3 className={styles.title}>What type of vehicle is it?</h3>
@@ -61,7 +61,7 @@ const CoverDetails = () => {
           </div>
         </div>
       </div>
-    </div>
+    </ComponentWrapper>
   );
 };
 

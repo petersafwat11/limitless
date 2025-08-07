@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 6rem 4.4%;
+}
+.first {
+  max-width: 80rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+}
+.second {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}

@@ -2,12 +2,13 @@ import React from "react";
 import styles from "./personalDetails.module.css";
 import HeaderTitle from "../headerTitle/HeaderTitle";
 import InputWithData from "@/ui/InputWithData/InputWithData";
+import SelectedItem from "../selectedItem/SelectedItem";
+import CarUsage from "../carUsage/CarUsage";
+import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWrapper";
 
 const PersonalDetails = () => {
   return (
-    <div className={styles.container}>
-      <HeaderTitle title="Personal Details" />
-
+    <ComponentWrapper title="Personal Details" icon={{width: 62, height: 62}}>
       <div className={styles.content}>
         <div className={styles.row}>
           <InputWithData
@@ -75,9 +76,21 @@ const PersonalDetails = () => {
         />
       </div>
       <div className={styles.selections}>
-        
+        <SelectedItem
+          item="Office or factory car park"
+          title="Where do you keep your car during the day?"
+          description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
+          img="/svg/day.svg"
+        />
+        <SelectedItem
+          item="Street outside home"
+          title="Where do you keep your car during the day?"
+          description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
+          img="/svg/night.svg"
+        />
       </div>
-    </div>
+      <CarUsage />
+    </ComponentWrapper>
   );
 };
 

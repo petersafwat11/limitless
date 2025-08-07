@@ -52,3 +52,137 @@ a {
     color-scheme: dark;
   }
 }
+body .react-datepicker {
+  border: none !important;
+  border-radius: 1.6rem !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%) !important;
+  box-shadow: 0 8px 32px rgba(79, 99, 215, 0.15), 0 4px 16px rgba(0, 8, 34, 0.08) !important;
+  font-size: 1.6rem !important;
+  width: 32rem !important;
+  padding: 1.2rem !important;
+}
+
+body .react-datepicker__header {
+  background: linear-gradient(135deg, #4f63d7 0%, #6b7cef 100%) !important;
+  border-bottom: none !important;
+  border-radius: 1.2rem !important;
+  padding: 2rem 1.6rem !important;
+  margin-bottom: 1.2rem !important;
+}
+
+body .react-datepicker__current-month {
+  color: #ffffff !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  margin-bottom: 1rem !important;
+}
+
+body .react-datepicker__day-names {
+  margin-bottom: 0.8rem !important;
+}
+
+body .react-datepicker__day-name {
+  color: #ffffff !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  margin: 0.6rem !important;
+  width: 3.6rem !important;
+  line-height: 3.6rem !important;
+}
+
+body .react-datepicker__month {
+  margin: 0 !important;
+  padding: 0.8rem !important;
+}
+
+body .react-datepicker__week {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-bottom: 0.4rem !important;
+}
+
+body .react-datepicker__day {
+  color: #000822 !important;
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  margin: 0.2rem !important;
+  border-radius: 1rem !important;
+  width: 3.6rem !important;
+  height: 3.6rem !important;
+  line-height: 3.6rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+
+body .react-datepicker__day:hover {
+  background: linear-gradient(135deg, #ecf0fe 0%, #dce7fd 100%) !important;
+  color: #4f63d7 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(79, 99, 215, 0.2) !important;
+}
+
+body .react-datepicker__day--selected {
+  background: linear-gradient(135deg, #4f63d7 0%, #6b7cef 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(79, 99, 215, 0.4) !important;
+  transform: scale(1.05) !important;
+  font-weight: 700 !important;
+}
+
+body .react-datepicker__day--today {
+  background: linear-gradient(135deg, #fef7cd 0%, #fef3c0 100%) !important;
+  color: #92400e !important;
+  border: 2px solid #f59e0b !important;
+  font-weight: 600 !important;
+}
+
+    body .react-datepicker__day--today:hover {
+  background: linear-gradient(135deg, #fef3c0 0%, #fed7aa 100%) !important;
+  color: #92400e !important;
+}
+
+body .react-datepicker__day--keyboard-selected {
+  background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%) !important;
+  color: #4f63d7 !important;
+}
+
+body .react-datepicker__day--outside-month {
+  color: rgba(0, 8, 34, 0.3) !important;
+}
+
+body .react-datepicker__navigation {
+  top: 2.4rem !important;
+  width: 3.2rem !important;
+  height: 3.2rem !important;
+  border-radius: 0.8rem !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(8px) !important;
+  transition: all 0.3s ease !important;
+}
+
+body .react-datepicker__navigation:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: scale(1.1) !important;
+}
+
+body .react-datepicker__navigation--previous {
+  left: 1.6rem !important;
+  border-right-color: #ffffff !important;
+  border-width: 0.8rem 0.8rem 0.8rem 0 !important;
+}
+
+:global(.react-datepicker__navigation--next) {
+  right: 1.6rem !important;
+  border-left-color: #ffffff !important;
+  border-width: 0.8rem 0 0.8rem 0.8rem !important;
+}
+
+:global(.react-datepicker__navigation--next:hover),
+:global(.react-datepicker__navigation--previous:hover) {
+  border-color: #ffffff !important;
+}

@@ -3,7 +3,6 @@ import React from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
-import Stepper from "../stepper/Stepper";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -46,24 +45,6 @@ const Header = ({ title }) => {
               />
             </div>
           </div>
-        </div>
-        <div className={styles.steps}>
-          <Stepper
-            steps={[
-              {
-                img: { src: "/svg/vehicle.svg", width: 82, height: 82 },
-                title: "Vehicle",
-              },
-              {
-                img: { src: "/svg/quote.svg", width: 72, height: 72 },
-                title: "Quote",
-              },
-              {
-                img: { src: "/svg/payment.svg", width: 72, height: 72 },
-                title: "Payment",
-              },
-            ]}
-          />
         </div>
       </div>
     </div>

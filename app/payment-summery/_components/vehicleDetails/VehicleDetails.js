@@ -3,12 +3,11 @@ import styles from "./vehicleDetails.module.css";
 import HeaderTitle from "../headerTitle/HeaderTitle";
 import VehicleCovered from "@/app/payment/_components/vehicleCovered/VehicleCovered";
 import Duration from "@/app/payment/_components/duration/Duration";
+import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWrapper";
 
 const VehicleDetails = () => {
   return (
-    <div className={styles.container}>
-      <HeaderTitle title="Vehicle Details" />
-
+    <ComponentWrapper title="Vehicle Details" icon={{width: 62, height: 62}}>
       <div className={styles.content}>
         {/* <div className={styles.Vehicle}>
           <div className={styles.header}>
@@ -55,7 +54,7 @@ const VehicleDetails = () => {
           ))}
         </div>
       </div>
-    </div>
+    </ComponentWrapper>
   );
 };
 

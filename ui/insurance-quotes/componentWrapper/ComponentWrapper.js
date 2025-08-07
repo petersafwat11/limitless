@@ -8,15 +8,15 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-const ComponentWrapper = ({ children, title }) => {
+const ComponentWrapper = ({ children, title, icon }) => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <Image
           src="/svg/insurance-quote.svg"
           alt="terms-and-conditions"
-          width={100}
-          height={100}
+          width={icon?.width || 100}
+          height={icon?.height || 100}
         />
         <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
           {title}
