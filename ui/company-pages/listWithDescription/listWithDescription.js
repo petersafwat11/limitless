@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./list.module.css";
 import Title from "../title/Title";
 import Description from "../description/Description";
-import List from "../list/List";
 const listWithDescription = ({ data }) => {
   return (
     <div className={styles.container}>
