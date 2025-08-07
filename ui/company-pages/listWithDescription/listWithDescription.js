@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./list.module.css";
 import Title from "../title/Title";
 import Description from "../description/Description";
-const listWithDescription = ({ data }) => {
+const ListWithDescription = ({ data }) => {
   return (
     <div className={styles.container}>
       <Title title={data.title} />
@@ -24,4 +24,4 @@ const listWithDescription = ({ data }) => {
   );
 };
 
-export default listWithDescription;
+export default ListWithDescription;
