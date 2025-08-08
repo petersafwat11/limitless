@@ -1,35 +1,18 @@
-.container {
-  display: flex;
-  gap: 1.8rem;
-}
 .option {
   display: flex;
   gap: 1.5rem;
-  cursor: pointer;
   align-items: flex-start;
   transition: all 0.3s ease;
-  padding: 2.2rem 3.2rem 2.2rem;
+  padding: 2.1rem 2rem 2.2rem;
   border-radius: 12px;
-  background: #ecf0fe;
+  border: 1px solid rgba(0, 8, 34, 0.24);
   flex: 1;
-}
-.selectionSpan {
-  display: flex;
-  min-width: 1.6rem;
-  min-height: 1.6rem;
-  border-radius: 50%;
-  background: transparent;
-  border: 1px solid #000822;
-}
-.selectedSpan {
-  background: #0388ff;
-  border: 2px solid white;
-  outline: 1px solid #0388ff;
 }
 .optionContent {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  max-width: 23rem;
 }
 .title {
   color: #000822;

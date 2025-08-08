@@ -4,13 +4,24 @@
   right: -74rem;
 }
 .wrapper {
-  padding: 2.5rem 0 7.7rem;
+  padding: 12.5rem 0 16.1rem;
+  margin-top: -10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 7.1rem;
+  position: relative;
+  overflow: hidden;
 }
+.contact {
+  position: absolute;
+  /* top: 17.5rem; */
+  top: -17rem;
+  left: 33rem;
+  transform: translateX(-50%);
+}
+
 .titles {
   display: flex;
   flex-direction: column;

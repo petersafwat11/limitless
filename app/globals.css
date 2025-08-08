@@ -176,13 +176,13 @@ body .react-datepicker__navigation--previous {
   border-width: 0.8rem 0.8rem 0.8rem 0 !important;
 }
 
-:global(.react-datepicker__navigation--next) {
+body .react-datepicker__navigation--next {
   right: 1.6rem !important;
   border-left-color: #ffffff !important;
   border-width: 0.8rem 0 0.8rem 0.8rem !important;
 }
 
-:global(.react-datepicker__navigation--next:hover),
-:global(.react-datepicker__navigation--previous:hover) {
+body .react-datepicker__navigation--next:hover,
+body .react-datepicker__navigation--previous:hover {
   border-color: #ffffff !important;
 }

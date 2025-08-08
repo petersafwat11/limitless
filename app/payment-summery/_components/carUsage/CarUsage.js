@@ -3,11 +3,20 @@ import styles from "./carUsage.module.css";
 import HeaderTitle from "../headerTitle/HeaderTitle";
 import InputWithData from "@/ui/InputWithData/InputWithData";
 import SelectedItem2 from "../selectedItem2/SelectedItem2";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+});
+
 const CarUsage = () => {
   return (
     <div className={styles.container}>
-      <HeaderTitle title="Car Usage" />
-      <div className={styles.content}>
+      <div className={styles.first}>
+        <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
+          What do you use the car for?
+        </h3>
         <SelectedItem2
           option={{
             title: "Social use only",
@@ -15,63 +24,65 @@ const CarUsage = () => {
               "Personal use such as shopping or visiting friends and family.",
           }}
         />
-        <div className={styles.data}>
-          <div className={styles.row}>
-            <InputWithData
-              item={{
-                label: "License Type",
-                value: "Lorem Ipsum",
-              }}
-            />
-            <InputWithData
-              item={{
-                label: "License Held",
-                value: "Lorem Ipsum",
-              }}
-            />
-            <InputWithData
-              item={{
-                label: "License No. (Optional)",
-                value: "Lorem Ipsum",
-              }}
-            />
-          </div>
-          <div className={styles.row}>
-            <InputWithData
-              item={{
-                label: "No Claims Bonus (NCB) Years",
-                value: "Lorem Ipsum",
-              }}
-            />
-            <InputWithData
-              item={{
-                label: "Voluntary Excess",
-                value: "Lorem Ipsum",
-              }}
-            />
-          </div>
+      </div>
+      <div className={styles.second}>
+        <div className={styles.row}>
           <InputWithData
             item={{
-              label:
-                "Do you have any unspent or outstanding criminal convictions?",
-              value: "No",
+              label: "License Type",
+              value: "Lorem Ipsum",
             }}
           />
           <InputWithData
             item={{
-              label:
-                "Do you have any medical conditions that are notifible to the DVLA?",
-              value: "No",
+              label: "License Held",
+              value: "Lorem Ipsum",
             }}
           />
           <InputWithData
             item={{
-              label:
-                "Have you ever had insurance cancelled, a claim refused, a policy voided, or any special terms imposed? Unspent or outstanding criminal convictions?",
-              value: "No",
+              label: "License No. (Optional)",
+              value: "Lorem Ipsum",
             }}
           />
         </div>
+        <div className={styles.row}>
+          <InputWithData
+            item={{
+              label: "No Claims Bonus (NCB) Years",
+              value: "Lorem Ipsum",
+            }}
+          />
+          <InputWithData
+            item={{
+              label: "Voluntary Excess",
+              value: "Lorem Ipsum",
+            }}
+          />
+        </div>
+      </div>
+      <div className={styles.third}>
+        <InputWithData
+          item={{
+            label:
+              "Do you have any unspent or outstanding criminal convictions?",
+            value: "No",
+          }}
+        />
+        <InputWithData
+          item={{
+            label:
+              "Do you have any medical conditions that are notifible to the DVLA?",
+            value: "No",
+          }}
+        />
+        <InputWithData
+          item={{
+            label:
+              "Have you ever had insurance cancelled, a claim refused, a policy voided, or any special terms imposed? Unspent or outstanding criminal convictions?",
+            value: "No",
+          }}
+        />
       </div>
     </div>
   );

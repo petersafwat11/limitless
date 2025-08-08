@@ -1,20 +1,23 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  /* gap: 4rem; */
   border-radius: 16px;
   background: #fff;
-  padding: 2.4rem 2.4rem 4.1rem 2.4rem;
+  /* padding: 2.4rem 2.4rem 4.1rem 2.4rem; */
 }
 .header {
   display: flex;
-  gap: 3.9rem;
-  width: 85%;
+  width: 100%;
+  gap: 3rem;
+  padding: 2.3rem 2.6rem 2.2rem;
+  border-bottom: 1px solid rgba(0, 8, 34, 0.18);
 }
 .headerContent {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  width: 77%;
 }
 .title {
   color: #000822;
@@ -30,45 +33,28 @@
   line-height: 124%;
   letter-spacing: 0.56px;
 }
-.selectionContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
 .selectionItem,
 .selectedItem {
   flex: 1;
   display: flex;
-  padding: 1rem 0 1rem 2.4rem;
-  max-width: 30rem;
+  padding: 1rem 2.4rem;
+  max-width: 28.2rem;
   height: 5rem;
   align-items: center;
-  gap: 3.4rem;
+  gap: 2.4rem;
   border-radius: 0.8rem;
   background: transparent;
   box-shadow: 0 0.4rem 0.84rem 0 rgba(0, 8, 34, 0.04);
   color: #000822;
+  margin: 2.2rem 2.6rem 3rem;
+}
+.selectedItem {
+  background: #06112b;
+  color: #fff;
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 124%;
   letter-spacing: 0.56px;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-.selectedItem {
-  background: #06112b;
-  color: #fff;
-}
-.selectionSpan {
-  display: flex;
-  width: 1.6rem;
-  height: 1.6rem;
-  border-radius: 50%;
-  background: transparent;
-  border: 1px solid #000822;
-}
-.selectedSpan {
-  background: #0388ff;
-  border: 2px solid white;
-  outline: 1px solid #0388ff;
 }

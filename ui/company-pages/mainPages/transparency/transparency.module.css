@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  background: #000822;
+}
+.content {
+  display: flex;
+  background: #07102d;
+}
+.title {
+  color: #fff;
+  font-size: 7.4rem;
+  font-weight: 700;
+  line-height: 94%; /* 69.56px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+.titleSpan {
+  color: #049cff;
+  position: relative;
+}
+.curvedBorder {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.getQuoteBtn,
+.membersPortalBtn {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  display: flex;
+  height: 6.4rem;
+  padding: 1rem 2.4rem;
+  align-items: center;
+  border-radius: 1.2rem;
+  background: #0388ff;
+  box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 124%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.getQuoteBtn:hover {
+  background: rgba(3, 137, 255, 0.8);
+}
+.membersPortalBtn {
+  background: linear-gradient(0deg, #262e47 0%, #262e47 100%);
+  box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
+}
+/* .membersPortalBtn:hover {
+  background: linear-gradient(0deg, #262e47 0%, #262e47 100%);
+} */

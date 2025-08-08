@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  /* padding: 0 1.8rem; */
+  border-radius: 16px;
+  background: #fff;
+}
+.title {
+  color: #000822;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 124%;
+  letter-spacing: 0.72px;
+}
+.row {
+  display: flex;
+  gap: 1.4rem;
+}
+.first,
+.second,
+.third {
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
+}
+.first {
+  gap: 1.8rem;
+}
+
+.first {
+  padding: 2rem 1.8rem 2.6rem;
+}
+.second {
+  padding: 2.6rem 1.8rem;
+}
+.third {
+  padding: 2.6rem 1.8rem 2rem;
+}
+.first,
+.second {
+  border-bottom: 1px solid rgba(0, 8, 34, 0.24);
+}

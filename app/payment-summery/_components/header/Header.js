@@ -27,6 +27,14 @@ const Header = ({ title }) => {
         className={styles.squares}
       />
       <div className={styles.wrapper}>
+        <Image
+          src="/svg/payment-background.svg"
+          alt="contact-us"
+          width={585}
+          height={776}
+          className={styles.contact}
+        />
+
         <div className={styles.titles}>
           <p className={`${styles.subTitle} ${manrope.className}`}>
             specialized for vehicle insurance

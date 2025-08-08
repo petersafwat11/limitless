@@ -22,13 +22,9 @@ const SelectedItem = ({ item, title, description, img }) => {
           <p className={styles.description}>{description}</p>
         </div>
       </div>
-      <div className={styles.selectionContainer}>
-        <div className={`${styles.selectionItem} ${styles.selectedItem}`}>
-          <span
-            className={`${styles.selectionSpan} ${styles.selectedSpan}`}
-          ></span>
-          {item}
-        </div>
+      <div className={`${styles.selectionItem} ${styles.selectedItem}`}>
+        <Image src="/svg/included.svg" alt="check" width={18} height={18} />
+        {item}
       </div>
     </div>
   );

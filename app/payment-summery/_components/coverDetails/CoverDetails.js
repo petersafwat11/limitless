@@ -3,13 +3,22 @@ import HeaderTitle from "../headerTitle/HeaderTitle";
 import Image from "next/image";
 import styles from "./coverDetails.module.css";
 import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWrapper";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import InputWithData from "@/ui/InputWithData/InputWithData";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+});
 
 const CoverDetails = () => {
   return (
-    <ComponentWrapper title="Cover Details" icon={{width: 62, height: 62}}>
+    <ComponentWrapper title="Cover Details" icon={{ width: 62, height: 62 }}>
       <div className={styles.content}>
         <div className={styles.first}>
-          <h3 className={styles.title}>What type of vehicle is it?</h3>
+          <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
+            What type of vehicle is it?
+          </h3>
           <div className={styles.duration}>
             <p className={styles.durationQuestion}>
               How long will you need it?
@@ -26,38 +35,24 @@ const CoverDetails = () => {
           </div>
         </div>
         <div className={styles.second}>
-          <h3 className={styles.title}>
+          <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
             When would you like the cover to start?
           </h3>
           <div className={styles.row}>
-            <div className={styles.dataGroup}>
-              <p className={styles.label}>Date</p>
-              <div className={styles.data}>
-                <div className={styles.iconWrapper}>
-                  <Image
-                    src="/svg/date.svg"
-                    alt="calendar "
-                    width={24}
-                    height={24}
-                  />
-                </div>
-                <p className={styles.dataAnswer}>01/01/1998</p>
-              </div>
-            </div>
-            <div className={styles.dataGroup}>
-              <p className={styles.label}>Start Time</p>
-              <div className={styles.data}>
-                <div className={styles.iconWrapper}>
-                  <Image
-                    src="/svg/time.svg"
-                    alt="calendar "
-                    width={24}
-                    height={24}
-                  />
-                </div>
-                <p className={styles.dataAnswer}>03:33:17</p>
-              </div>
-            </div>
+            <InputWithData
+              item={{
+                label: "Date",
+                type: "date",
+                value: "01/01/1998",
+              }}
+            />
+            <InputWithData
+              item={{
+                label: "Start Time",
+                type: "time",
+                value: "03:33:17",
+              }}
+            />
           </div>
         </div>
       </div>
