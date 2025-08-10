@@ -11,7 +11,9 @@ const FastAndFair = () => {
         height={515}
       />
       <div className={styles.content}>
-        <h2 className={styles.title}>Fast. Flexible. Fair.</h2>
+        <h2 className={styles.title}>
+          Fast. <span>Flexible . Fair.</span>
+        </h2>
         <p className={styles.description}>
           Our policies are designed to adapt to your life, not the other way
           around. Whether you need short-term cover, specialist insurance, or a

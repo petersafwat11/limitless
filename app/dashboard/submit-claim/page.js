@@ -4,6 +4,7 @@ import ClaimFeature from "./_components/claimFeature/ClaimFeature";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import Submitted from "./_components/submitted/Submitted";
 import ClaimReason from "./_components/claimReason/ClaimReason";
+import Guidelines from "./_components/guidelines/Guidelines";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -80,9 +81,9 @@ const page = () => {
         <h2 className={`${styles.claimsTitle} ${plusJakartaSans.className}`}>
           Choose your Claim
         </h2>
-        {/* <Submitted /> */}
+        <Submitted />
         <ClaimReason />
-        {/* <div className={styles.claimsContainer}>
+        <div className={styles.claimsContainer}>
           <ClaimFeature
             img={firstClaim.img}
             title={firstClaim.title}
@@ -97,7 +98,35 @@ const page = () => {
             features={secondClaim.features}
             btnText="Optional Cover claims"
           />
-        </div> */}
+        </div>
+        <Guidelines
+          data={[
+            {
+              title: "Breakdown Cover",
+              content: [
+                "For RAC breakdown cover claims, please call 0345 168 5586.",
+                "Lines are open 24 hours a day.",
+                "You can also report a breakdown 24/7 on the MyRAC app - download.",
+              ],
+            },
+            {
+              title: "Windscreen Protection",
+              content: [
+                "If your policy is provided by AXA Assistance (UK) Limited you can make a claim 24/7 using the Online Claims Portal or if you prefer to speak to someone please call 0345 164 0894.",
+                "Lines are open 9am-5pm, Mon-Fri.",
+              ],
+            },
+            {
+              title: "Key Protection",
+              content: [
+                "If your policy is provided by AXA Assistance (UK) Limited, please call 0345 164 0893. ",
+                "Lines are open 24 hours a day.",
+                "If your policy is provided by Ageas Insurance Limited, please call 0345 165 0571.",
+                "Lines are open 24 hours a day.",
+              ],
+            },
+          ]}
+        />
       </div>
     </div>
   );

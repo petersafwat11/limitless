@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 98%;
+  padding: 6rem 8.1% 12.2rem 3.6%;
+  margin: 0 1%;
+  border-radius: 20px;
+  background: linear-gradient(
+    180deg,
+    #0168ff -345.34%,
+    rgba(1, 104, 255, 0) 76.17%
+  );
+}
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 3.4rem;
+  flex-basis: 37%;
+}
+.title {
+  color: #000822;
+  font-size: 5.8rem;
+  font-weight: 700;
+  line-height: 100%; /* 58px */
+}
+.title span {
+  color: #049cff;
+}
+.description {
+  color: rgba(0, 8, 34, 0.54);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 124%; /* 19.84px */
+  letter-spacing: 0.64px;
+}

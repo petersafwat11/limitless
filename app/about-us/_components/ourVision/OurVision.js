@@ -1,6 +1,15 @@
 import React from "react";
 import styles from "./ourVision.module.css";
 import Image from "next/image";
+import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+});
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["500"],
+});
 const OurVision = () => {
   return (
     <div className={styles.container}>
@@ -12,8 +21,10 @@ const OurVision = () => {
         height={515}
       />
       <div className={styles.content}>
-        <h2 className={styles.title}>Our Vision</h2>
-        <p className={styles.description}>
+        <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
+          Our <span>Vision</span>
+        </h2>
+        <p className={`${styles.description} ${manrope.className}`}>
           {`At Limitless Cover, our vision is to make vehicle insurance
           accessible, affordable, and flexible for all drivers. We are dedicated
           to offering the cheapest rates on the market without compromising on
