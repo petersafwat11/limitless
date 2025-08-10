@@ -40,7 +40,7 @@
   line-height: 124%;
 }
 .buttons {
-  width: 30.4rem;
+  /* width: 30.4rem; */
   height: 6.4rem;
   border-radius: 12px;
   background: #151d39;
@@ -48,6 +48,7 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  padding: 0.8rem;
 }
 .loginBtn {
   color: #fff;
@@ -83,4 +84,13 @@
   line-height: 124%;
   border: none;
   cursor: pointer;
+}
+.chatIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.1);
+  backdrop-filter: blur(39.92727279663086px);
+  padding: 1rem 1.4rem;
 }

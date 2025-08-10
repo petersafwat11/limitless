@@ -22,6 +22,13 @@ body {
   padding: calc(1.1% + 7.8rem + 8.5rem) 0 0;
   position: relative;
 }
+.dashboard-content{
+  margin: 0 4.4%;
+  width: calc(100% - 8.8%);
+  display: flex;
+  align-items: flex-start;
+  gap: 4.7rem;
+}
 .companyPageContainer {
   width: 100%;
   padding: 12rem 13.8% 11.6rem;

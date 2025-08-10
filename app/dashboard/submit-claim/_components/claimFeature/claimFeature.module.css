@@ -1,0 +1,71 @@
+.container {
+  width: 466px;
+  height: 527px;
+  flex-shrink: 0;
+  border-radius: 18px;
+  background: #fdfdfd;
+  padding: 0.4rem 1.8rem 2.1rem;
+}
+.img {
+  margin-left: 1.8rem;
+}
+.claimFeatureText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 4.1rem 0 3.3rem;
+}
+.claimFeatureTitle {
+  color: #000822;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 124%;
+  letter-spacing: 1.12px;
+}
+.claimFeatureDescription {
+  color: rgba(0, 8, 34, 0.54);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+  min-height: 3.5rem;
+}
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background: #ecf0fe;
+  min-height: 18.2rem;
+}
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.featureText {
+  color: #000822;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.64px;
+}
+.btn {
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: linear-gradient(0deg, #0388ff 0%, #0388ff 100%), #fff;
+  box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 124%;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1.4rem;
+}

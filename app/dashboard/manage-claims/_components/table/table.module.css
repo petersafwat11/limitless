@@ -1,0 +1,148 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 3.8rem;
+  background: #fff;
+  border-radius: 18px;
+  padding-top: 2.8rem;
+}
+.title {
+  color: #000822;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 124%;
+  letter-spacing: 0.72px;
+  margin-left: 3.4rem;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  /* box-shadow: 0 2px 8px rgba(0, 8, 34, 0.08); */
+}
+
+.tableHeaderRow,
+.tableRow {
+  border-bottom: 1px solid rgba(0, 8, 34, 0.18);
+  /* padding: 0 4.2rem 0 3.4rem; */
+}
+
+.tableHeaderCell {
+  color: rgba(0, 8, 34, 0.44);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+  text-align: left;
+  padding-bottom: 2.2rem;
+}
+.tableHeaderCell:first-child {
+  padding-left: 3.4rem;
+}
+.tableCell:first-child {
+  padding-left: 3.4rem;
+}
+.tableRow {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:hover {
+  background-color: #f8fafc;
+}
+
+.tableCell {
+  padding: 2.2rem 0 2.5rem;
+  vertical-align: center;
+  text-align: start;
+}
+.dateAndRef {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.date {
+  color: rgba(0, 8, 34, 0.44);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.ref {
+  color: #000822;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+}
+.statusBadge {
+  display: inline-flex;
+  min-height: 3rem;
+  padding: 0 1.2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+}
+.pending {
+  background: rgba(6, 205, 19, 0.16);
+  color: #06cd13;
+}
+.cancelled {
+  background: rgba(255, 3, 3, 0.16);
+  color: #ff0303;
+}
+.completed {
+  background: rgba(4, 156, 255, 0.16);
+  color: #049cff;
+}
+.claimant {
+  color: #000822;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+}
+.pendingActionsCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.pendingActions:first-child {
+  color: #8f929e;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+}
+.pendingActions:last-child {
+  color: #000822;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+}
+.view {
+  color: #0388ff;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.8rem 1.6rem;
+  border-radius: 6px;
+}
+
+.view:hover {
+  background: rgba(3, 136, 255, 0.1);
+  color: #0266cc;
+}
+
+.view:focus {
+  outline: 2px solid #0388ff;
+  outline-offset: 2px;
+}

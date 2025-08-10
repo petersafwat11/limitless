@@ -1,0 +1,59 @@
+.squares {
+  position: absolute;
+  top: -36rem;
+  right: -74rem;
+}
+.dashHeader {
+  position: absolute;
+  top: -24rem;
+  right: 14rem;
+}
+.wrapper {
+  margin: -18rem 0 5.8rem;
+  padding: 4rem 11.7% 5.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+.titles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+.subTitle {
+  color: #049cff;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+}
+.title {
+  color: #fff;
+  font-size: 7.4rem;
+  font-weight: 700;
+  line-height: 94%; /* 69.56px */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.titleSpan {
+  color: #049cff;
+  position: relative;
+}
+.curvedBorder {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+}

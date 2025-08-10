@@ -1,0 +1,22 @@
+.page {
+  margin-bottom: 10rem;
+  width: 100%;
+}
+.claims {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  margin-top: 7.5rem;
+}
+.claimsTitle {
+  color: #000822;
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 100%;
+}
+.claimsContainer {
+  display: flex;
+  gap: 1.5rem;
+}

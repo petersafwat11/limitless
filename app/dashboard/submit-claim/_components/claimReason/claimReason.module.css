@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rem;
+  width: 100%;
+  margin-top: 8.6rem;
+}
+.title {
+  color: #000822;
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 100%;
+}
+.reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  width: 100%;
+}
+.reason {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2.8rem 2.5rem 2.3rem;
+  border-radius: 18px;
+  background: #fdfdfd;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 3.8rem;
+}
+
+.reasonTitle {
+  color: #000822;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 124%;
+  letter-spacing: 0.72px;
+}

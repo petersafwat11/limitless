@@ -1,0 +1,64 @@
+import React from "react";
+import styles from "./submitted.module.css";
+import Image from "next/image";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+});
+
+const Submitted = () => {
+  return (
+    <div className={styles.container}>
+      <Image
+        src="/svg/submitted.svg"
+        alt="submitted"
+        width={136}
+        height={151}
+      />
+
+      <div className={`${styles.title} ${plusJakartaSans.className}`}>
+        Claim Successfully
+        <div className={styles.titleSpan}>
+          submitted
+          <Image
+            src="/svg/curved-border.svg"
+            alt="curved border"
+            width={393}
+            height={3}
+            className={styles.curvedBorder}
+          />
+        </div>
+      </div>
+      <div className={styles.header}>
+        <div className={styles.headerItem}>
+          <Image
+            src="/svg/insurance-quote.svg"
+            alt="order-summary"
+            width={36}
+            height={36}
+          />
+          <p className={styles.headerItemTitle}>Order Reference</p>
+        </div>
+        <p className={styles.headerItemValue}>#kL10AFJJ019</p>
+      </div>
+
+      <p className={styles.description}>
+        Your claim has been submitted successfully.
+      </p>
+
+      <button className={styles.claimsPortal}>
+        Claims Portal
+        <Image
+          src="/svg/arrow-right.svg"
+          alt="arrow-right"
+          width={28}
+          height={14}
+        />
+      </button>
+    </div>
+  );
+};
+
+export default Submitted;

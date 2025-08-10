@@ -10,7 +10,7 @@ const manrope = Manrope({
 });
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["700"],
 });
 const Header = () => {
   return (
