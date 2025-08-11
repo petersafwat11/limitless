@@ -1,11 +1,20 @@
 import React from "react";
 import styles from "./eligability.module.css";
 import Image from "next/image";
+import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+});
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["500"],
+});
 const Eligability = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h3 className={styles.title}>
+        <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
           Check your eligibility for impound car insurance
         </h3>
         <p className={styles.description}>
@@ -16,12 +25,14 @@ const Eligability = () => {
         <div className={styles.first}>
           <div className={styles.header}>
             <Image
-              src={"/svgs/driver-must.svg"}
+              src={"/svg/driver-must.svg"}
               alt="arrow-right"
               width={132}
               height={169}
             />
-            <h4 className={styles.title}>Driver eligibility</h4>
+            <h4 className={`${styles.title} ${plusJakartaSans.className}`}>
+              Driver eligibility
+            </h4>
           </div>
           <div className={styles.features}>
             {[
@@ -31,12 +42,14 @@ const Eligability = () => {
             ].map((item, index) => (
               <div className={styles.feature} key={index}>
                 <Image
-                  src={"/svgs/gray-check.svg"}
+                  src={"/svg/gray-check.svg"}
                   alt="arrow-right"
                   width={24}
                   height={24}
                 />
-                <p className={styles.description}>{item}</p>
+                <p className={`${styles.featureText} ${manrope.className}`}>
+                  {item}
+                </p>
               </div>
             ))}
           </div>
@@ -44,12 +57,14 @@ const Eligability = () => {
         <div className={styles.second}>
           <div className={styles.header}>
             <Image
-              src={"/svgs/car-must.svg"}
+              src={"/svg/car-must.svg"}
               alt="arrow-right"
               width={177}
               height={145}
             />
-            <h4 className={styles.title}>Your car must</h4>
+            <h4 className={`${styles.title} ${plusJakartaSans.className}`}>
+              Your car must
+            </h4>
           </div>
           <div className={styles.features}>
             {[
@@ -61,12 +76,14 @@ const Eligability = () => {
             ].map((item, index) => (
               <div className={styles.feature} key={index}>
                 <Image
-                  src={"/svgs/gray-check.svg"}
+                  src={"/svg/gray-check.svg"}
                   alt="arrow-right"
                   width={24}
                   height={24}
                 />
-                <p className={styles.description}>{item}</p>
+                <p className={`${styles.featureText} ${manrope.className}`}>
+                  {item}
+                </p>
               </div>
             ))}
           </div>

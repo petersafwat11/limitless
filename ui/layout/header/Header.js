@@ -4,7 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import styles from "./header.module.css";
+import { useRouter } from "next/navigation";
 const Header = () => {
+  const router = useRouter();
   const pathname = usePathname();
   const isDashboard = pathname === "/dashboard";
   return pathname === "/login" ? null : (
@@ -51,7 +53,12 @@ const Header = () => {
             <Image src="/svg/live-chat.svg" alt="chat" width={30} height={30} />
           </div>
         ) : (
-          <button className={styles.loginBtn}>Login</button>
+          <button
+            className={styles.loginBtn}
+            onClick={() => router.push("/login")}
+          >
+            Login
+          </button>
         )}
         <button className={styles.quoteBtn}>
           {isDashboard ? "Live chat" : "Get Quote"}

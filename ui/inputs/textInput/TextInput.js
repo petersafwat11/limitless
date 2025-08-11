@@ -11,7 +11,7 @@ const TextInput = ({
 }) => {
   return (
     <div className={styles.inputGroup}>
-      <lable className={styles.label}>{label}</lable>
+      <label className={styles.label}>{label}</label>
       <div className={styles.wrapper}>
         <div className={styles.inputContainer}>
           {reg && <span className={styles.inputSpan}> GB</span>}

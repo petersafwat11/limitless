@@ -1,0 +1,19 @@
+.container {
+    padding: 7.7rem 4.4% 11.3rem;
+}
+.title {
+  color: #000822;
+  text-align: center;
+  font-size: 5.8rem;
+  font-weight: 700;
+  line-height: 100%; /* 58px */
+}
+.title span {
+  color: #0388ff;
+}
+.cardsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+}
