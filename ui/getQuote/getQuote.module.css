@@ -8,6 +8,8 @@
   gap: 2.6rem;
   border-radius: 1.8rem;
   background: #fff;
+  position: relative;
+  z-index: 1;
 }
 .inputGroup {
   display: flex;

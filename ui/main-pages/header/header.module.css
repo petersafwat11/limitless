@@ -3,73 +3,32 @@
   top: -36rem;
   right: -74rem;
 }
+.contact {
+  position: absolute;
+  top: 10.6rem;
+  right: 23rem;
+
+}
 .wrapper {
-  padding: 0.8rem 0 1.8rem;
+  padding: 0 0 1.8rem;
   display: flex;
   flex-direction: column;
-  gap: 7.4rem;
+  gap: 8.5rem;
 }
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0 7% 0 2.7%;
-}
-.imageContainer {
-  position: relative;
-  flex-basis: 40%;
-  height: 48rem;
-}
-.blueBackground {
-  position: absolute;
-  width: 284px;
-  height: 671px;
-  flex-shrink: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(3, 136, 255, 0) 0%,
-    rgba(3, 136, 255, 0.48) 100%
-  );
-  top: 0;
-  right: 7%;
-}
-.blueBackground2 {
-  position: absolute;
-  width: 281px;
-  height: 430px;
-  background: linear-gradient(
-    180deg,
-    rgba(3, 136, 255, 0) 0%,
-    rgba(3, 136, 255, 0.48) 100%
-  );
-  top: 24.4rem;
-  right: calc(7% + 284px);
-}
-.image1,
-.image2,
-.image3 {
-  position: absolute;
-}
-.image1 {
-  bottom: 0;
-  right: 7.7rem;
-}
-.image2 {
-  right: 7.7rem;
-  top: 0;
-}
-.image3 {
-  top: 7rem;
-  right: 2.8rem;
+  padding: 0 5% 0 2.6%;
 }
 .content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 1.5rem;
-  flex-basis: 35.5%;
+  gap: 2.8rem;
+  flex-basis: 39.5%;
 }
 
 .subTitle {
@@ -103,7 +62,7 @@
   font-weight: 400;
   line-height: 124%;
   letter-spacing: 0.64px;
-  margin-bottom: 2.9rem;
+  margin-bottom: 1rem;
 }
 .curvedBorder {
   position: absolute;
@@ -113,11 +72,12 @@
   width: 100%;
   height: auto;
 }
+
 .features {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin: 0 1.1%;
+  margin: 0 1.3%;
 }
 .confirmBtn {
   display: flex;

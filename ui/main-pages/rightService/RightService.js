@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./rightService.module.css";
 import Card from "@/app/comming-soon/_components/card/Card";
-import Image from "next/image";
 import { features } from "@/app/comming-soon/data";
 const RightService = () => {
   return (

@@ -5,7 +5,7 @@ const Form = () => {
   return (
     <div className={styles.container}>
       <div className={styles.inputGroup}>
-        <lable className={styles.label}>Select the Appropriate Option</lable>
+        <label className={styles.label}>Select the Appropriate Option</label>
         <div className={styles.selectionContainer}>
           <div className={styles.selectionItem}>
             {" "}
@@ -23,7 +23,7 @@ const Form = () => {
       </div>
       <div className={styles.row}>
         <div className={styles.inputGroup}>
-          <lable className={styles.label}>Full Name</lable>
+          <label className={styles.label}>Full Name</label>
           <div className={styles.inputContainer}>
             <input
               type="text"
@@ -33,7 +33,7 @@ const Form = () => {
           </div>
         </div>
         <div className={styles.inputGroup}>
-          <lable className={styles.label}>Email Address</lable>
+          <label className={styles.label}>Email Address</label>
           <div className={styles.inputContainer}>
             <input
               type="email"
@@ -44,7 +44,7 @@ const Form = () => {
         </div>
       </div>
       <div className={styles.inputGroup}>
-        <lable className={styles.label}>Message</lable>
+          <label className={styles.label}>Message</label>
         <div className={styles.inputContainer}>
           <textarea
             placeholder="Enter your Message"

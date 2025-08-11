@@ -6,14 +6,14 @@ const getQuote = () => {
   return (
     <div className={styles.container}>
       <div className={styles.inputGroup}>
-        <lable className={styles.label}>Enter your Registration number</lable>
+        <label className={styles.label}>Enter your Registration number</label>
         <div className={styles.inputContainer}>
           <span className={styles.inputSpan}> GB</span>
           <input type="text" placeholder="Enter your Registration number" className={styles.input} />
         </div>
       </div>
       <div className={styles.inputGroup}>
-        <lable className={styles.label}>How long will you need it?</lable>
+        <label className={styles.label}>How long will you need it?</label>
         <div className={styles.selectionContainer}>
           <div className={styles.selectionItem}>
             {" "}
@@ -30,7 +30,7 @@ const getQuote = () => {
         </div>
       </div>
       <div className={styles.inputGroup}>
-        <lable className={styles.label}>How long will you need it?</lable>
+          <label className={styles.label}>How long will you need it?</label>
         <div className={styles.selectionContainer}>
           <div className={styles.selectionItem}>
             <span className={styles.selectionSpan}></span>
