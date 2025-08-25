@@ -61,3 +61,34 @@
 .button:hover .arrow {
   color: #fff;
 }
+
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 2.4rem 1.8rem 1.8rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    gap: 4.6rem;
+  }
+  .img {
+    width: auto;
+    height: 7.2rem;
+  }
+  .content {
+    gap: 1.6rem;
+  }
+  .title {
+    font-size: 2.4rem;
+  }
+  .description {
+    font-size: 1.4rem;
+  }
+  .button {
+    font-size: 1.4rem;
+    margin-top: 1rem;
+  }
+  .arrow {
+    width: 3rem;
+    height: 1.7rem;
+  }
+}

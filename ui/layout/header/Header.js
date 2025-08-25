@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import styles from "./header.module.css";
 import { useRouter } from "next/navigation";
+
 const Header = () => {
   const router = useRouter();
   const pathname = usePathname();

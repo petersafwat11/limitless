@@ -41,20 +41,6 @@
   background: #ecf0fe;
   height: 6.4rem;
 }
-/* .inputSpan {
-  width: 5.2rem;
-  height: 5.2rem;
-  border-radius: 1rem;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #000822;
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 124%;
-  letter-spacing: 0.56px;
-} */
 .input,
 .textarea {
   flex: 1;
@@ -66,6 +52,7 @@
   line-height: 124%;
   letter-spacing: 0.56px;
   background: transparent;
+  padding: 2.2rem 2.4rem;
 }
 .selectionItem,
 .selectedItem {
@@ -120,4 +107,120 @@
   letter-spacing: 0.64px;
   border: none;
   cursor: pointer;
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 46.8rem;
+    padding: 3.04rem 3.04rem 2.8rem 3.04rem;
+    gap: 2.08rem;
+    border-radius: 1.44rem;
+    z-index: 1.6;
+  }
+
+  .inputGroup {
+    gap: 0.96rem;
+    width: 100%;
+  }
+
+  .row {
+    gap: 0.96rem;
+    width: 100%;
+  }
+
+  .label {
+    font-size: 1.12rem;
+    font-weight: 320; /* 400 × 0.8 */
+    line-height: 99.2%;
+    letter-spacing: 0.45px;
+  }
+
+  .inputContainer,
+  .selectionContainer {
+    gap: 0.96rem;
+    padding: 0.48rem;
+    width: 100%;
+    border-radius: 0.96rem;
+    height: 5.12rem;
+  }
+  .input,
+  .textarea {
+    font-size: 1.12rem;
+    font-weight: 320;
+    line-height: 99.2%;
+    letter-spacing: 0.45px;
+  }
+
+  .selectionItem,
+  .selectedItem {
+    width: 13.2rem;
+    height: 4.01rem; /* 5.0162 × 0.8 */
+    gap: 0.8rem;
+    border-radius: 0.64rem;
+    box-shadow: 0 0.32rem 0.672rem 0 rgba(0, 8, 34, 0.04);
+    font-size: 1.12rem;
+    font-weight: 480;
+    line-height: 99.2%;
+    letter-spacing: 0.45px;
+    transition: all 0.24s ease; /* 0.3 × 0.8 */
+  }
+
+  .selectionSpan {
+    width: 1.28rem;
+    height: 1.28rem;
+    border-radius: 40%;
+    border: 0.8px solid; /* 1px × 0.8 */
+  }
+
+  .selectedSpan {
+    border: 0.8px solid transparent;
+    outline: 0.8px solid; /* 1px × 0.8 */
+  }
+
+  .button {
+    width: 100%;
+    height: 4.96rem;
+    border-radius: 0.96rem;
+    box-shadow: 0 3.2px 67.2px 0 rgba(0, 8, 34, 0.04);
+    gap: 1.28rem;
+    font-size: 1.28rem;
+    font-weight: 400; /* 500 × 0.8 */
+    line-height: 99.2%;
+    letter-spacing: 0.51px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    width: min(100%, 50rem);
+    padding: 2.1rem 2rem;
+    gap: 2rem;
+  }
+
+  .inputGroup {
+    gap: 1.4rem;
+  }
+  .row {
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .inputContainer,
+  .selectionContainer {
+    gap: 1.2rem;
+    padding: 0.6rem;
+    height: 5.4rem;
+  }
+  .selectionItem,
+  .selectedItem {
+    width: 100%;
+    height: 4.2rem;
+    font-size: 1.4rem;
+    line-height: 100%;
+    letter-spacing: 0.56px;
+  }
+  .button {
+    height: 5.4rem;
+    gap: 1.8rem;
+    font-size: 1.4rem;
+    line-height: 100%;
+    letter-spacing: 0.56px;
+  }
 }

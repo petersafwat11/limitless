@@ -42,11 +42,6 @@ export const data = [
         answer:
           "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
       },
-      {
-        title: "What if I have a driving conviction?",
-        answer:
-          "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
-      },
     ],
   },
   {

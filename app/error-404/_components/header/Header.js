@@ -53,6 +53,17 @@ const Header = () => {
           </Link>
         </div>
         <div className={styles.left}>
+          <div className={styles.errorMobile}>
+            <Image
+              src="/svg/error-404.svg"
+              alt="squares"
+              width={114}
+              height={144}
+              className={styles.error404}
+            />
+            <div className={styles.error404Span}></div>
+          </div>
+
           <div className={styles.imageContainer}>
             <Image
               src="/svg/error.svg"
@@ -62,6 +73,14 @@ const Header = () => {
               className={styles.car}
             />
           </div>
+        </div>
+        <div className={styles.mobileImageContainer}>
+          <Image
+            src="/svg/error-mobile.svg"
+            alt="error-404"
+            width={369}
+            height={514}
+          />
         </div>
       </div>
     </div>

@@ -166,3 +166,50 @@
 .iconActive .icon {
   transform: rotate(180deg);
 }
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+    gap: 3.4rem;
+  }
+  .header {
+    gap: 1.8rem;
+  }
+  .title {
+    font-size: 3.4rem;
+  }
+  .questions {
+    gap: .8rem;
+  }
+
+  
+  .question,
+  .questionActive {
+    padding: 2rem ;
+    border-radius: 18px;
+  }
+
+  .content {
+    gap: 1.8rem;
+    margin-top: .9rem;
+  }
+  .questionTitle {
+    font-size: 1.6rem;
+  }
+
+  .questionAnswer {
+    font-size: 1.4rem;
+  }
+
+
+
+  /* Icon container and animations */
+  .iconContainer {
+    min-width: 3.4rem;
+    min-height: 3.4rem;
+  }
+
+  .icon {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+}

@@ -26,6 +26,14 @@ const Header = ({ title }) => {
         height={706}
         className={styles.squares}
       />
+      <Image
+        src="/svg/squares-mobile.svg"
+        alt="squares"
+        width={485}
+        height={246}
+        className={styles.squaresMobile}
+      />
+
       <div className={styles.wrapper}>
         <div className={`${styles.title} ${plusJakartaSans.className}`}>
           {withoutLastWord}{" "}

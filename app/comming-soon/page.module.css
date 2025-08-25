@@ -35,3 +35,33 @@
     rgba(3, 136, 255, 0.48) 100%
   );
 }
+@media screen and (max-width: 1200px) {
+  .squareLight {
+    z-index: 0.8;
+    top: -2.96rem;
+    right: 0.88%;
+    width: calc(27.68rem - 0.88%);
+    height: 64.48rem;
+  }
+
+  .squareLight2 {
+    z-index: 0.8;
+    top: -2.96rem;
+    right: 27.68rem;
+    width: 28.16rem;
+    height: 41.28rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.2rem;
+    margin-top: -4rem;
+  }
+  .squareLight,
+  .squareLight2 {
+    display: none;
+  }
+}

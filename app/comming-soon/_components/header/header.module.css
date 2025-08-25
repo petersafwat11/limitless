@@ -115,3 +115,66 @@
   color: #fff;
   transition: all 0.3s ease;
 }
+@media screen and (max-width: 900px) {
+  .squares {
+    display: none;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+    padding: 2.4rem 3.5% 8.2rem;
+  }
+  .content {
+    gap: 2.1rem;
+    width: 100%;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .commingSoon {
+    display: flex;
+    /* margin: 0 auto; */
+    width: 14.2rem;
+    height: 3.8rem;
+    border-radius: 10rem;
+    font-size: 1.4rem;
+    line-height: 100%;
+  }
+  .title {
+    font-size: 4.8rem;
+    text-align: left;
+  }
+  .description {
+    font-size: 1.4rem;
+  }
+  .commingSoon,
+  .title,
+  .description {
+    margin-left: 1rem;
+  }
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.9rem;
+    width: 100%;
+    height: auto;
+    padding: 0.8rem;
+  }
+  .input {
+    height: auto;
+    width: 100%;
+    font-size: 1.4rem;
+    line-height: 100%;
+    padding: 1rem 2.4rem;
+  }
+  .subscribeButton {
+    width: 100%;
+    width: 100%;
+    height: 4.8rem;
+    font-size: 1.4rem;
+  }
+  .arrow {
+    width: 3.3rem;
+    height: 1.7rem;
+  }
+}
