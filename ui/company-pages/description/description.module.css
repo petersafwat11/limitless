@@ -5,3 +5,8 @@
   line-height: 124%;
   letter-spacing: 0.64px;
 }
+@media (max-width: 900px) {
+  .description {
+    font-size: 1.4rem;
+  }
+}

@@ -22,7 +22,7 @@ body {
   padding: calc(1.1% + 7.8rem + 8.5rem) 0 0;
   position: relative;
 }
-.dashboard-content{
+.dashboard-content {
   margin: 0 4.4%;
   width: calc(100% - 8.8%);
   display: flex;
@@ -43,6 +43,19 @@ body {
   flex-direction: column;
   gap: 4.8rem;
 }
+@media (max-width: 900px) {
+  .headerContainer {
+    border-radius: 18px;
+    background: #000822;
+    margin: 2.6rem 2% 0;
+    padding: 0;
+  }
+  .companyPageContainer {
+    padding: 7.2rem 5.8% 8.5rem;
+    gap: 4.4rem;
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -63,7 +76,8 @@ body .react-datepicker {
   border: none !important;
   border-radius: 1.6rem !important;
   background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%) !important;
-  box-shadow: 0 8px 32px rgba(79, 99, 215, 0.15), 0 4px 16px rgba(0, 8, 34, 0.08) !important;
+  box-shadow: 0 8px 32px rgba(79, 99, 215, 0.15),
+    0 4px 16px rgba(0, 8, 34, 0.08) !important;
   font-size: 1.6rem !important;
   width: 32rem !important;
   padding: 1.2rem !important;
@@ -148,7 +162,7 @@ body .react-datepicker__day--today {
   font-weight: 600 !important;
 }
 
-    body .react-datepicker__day--today:hover {
+body .react-datepicker__day--today:hover {
   background: linear-gradient(135deg, #fef3c0 0%, #fed7aa 100%) !important;
   color: #92400e !important;
 }

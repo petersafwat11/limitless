@@ -29,3 +29,12 @@
   color: #004499;
   text-decoration: underline;
 }
+@media (max-width: 900px) {
+  .list {
+    margin-left: 1.6rem;
+  }
+
+  .listItem {
+    font-size: 1 4rem;
+  }
+}

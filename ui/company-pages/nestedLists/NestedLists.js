@@ -2,10 +2,12 @@ import React from "react";
 import Title from "../title/Title";
 import List from "../list/List";
 import styles from "./list.module.css";
+import Description from "../description/Description";
 const NestedListItem = ({ data }) => {
   return (
     <div className={styles.container}>
       <Title title={data.title} />
+      {data.description1 && <Description description={data.description1} />}
       {data.lists.map((list, index) => (
         <div key={index} className={styles.listContainer}>
           <h4 className={styles.title}>{list.title}</h4>

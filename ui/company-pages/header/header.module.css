@@ -16,6 +16,8 @@
   gap: 0.3rem;
   margin-bottom: 11.5rem;
   /* text-align: center; */
+  position: relative;
+  z-index: 1;
 }
 .titleSpan {
   color: #049cff;
@@ -38,6 +40,8 @@
   width: 100%;
   gap: 2.2rem;
   padding-bottom: 3.6rem;
+  position: relative;
+  z-index: 1;
 }
 .menuLink,
 .activeMenuLink {
@@ -54,4 +58,44 @@
 .menuLink:hover,
 .activeMenuLink:hover {
   color: #049cff;
+}
+.squaresMobile {
+  display: none;
+}
+@media (max-width: 900px) {
+  .squares {
+    display: none;
+  }
+  .squaresMobile {
+    display: block;
+    position: absolute;
+    top: -5rem;
+    right: -7rem;
+
+  }
+  .content {
+    padding: 10.7rem 0 3.3rem;
+  }
+  .title {
+    font-size: 4.8rem;
+    font-weight: 600;
+    margin: 0 0 8.2rem;
+  }
+  .menu {
+    gap: 2.2rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .menuLink,
+  .activeMenuLink {
+    font-size: 1.6rem;
+    white-space: nowrap;
+  }
 }

@@ -74,9 +74,9 @@ export const content = [
       title: "Referring to the Financial Ombudsman Service (FOS)",
       description1:
         "If we can’t reach a resolution that satisfies you—or if eight weeks pass without a final decision—you have the right to contact the Financial Ombudsman Service (FOS)",
-      subDescription:
+      subDescription1:
         ". You must refer the complaint to the FOS within six months of receiving our final response. The FOS is an independent organisation that helps resolve disputes between financial businesses and their customers.",
-      subDescription: "FOS Contact Details",
+      subDescription2: "FOS Contact Details",
       description2:
         "We will include full FOS contact details in our final response letter.",
       list: [

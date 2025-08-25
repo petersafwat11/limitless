@@ -6,6 +6,7 @@ const LastUpdated = ({ data }) => {
     <div className={styles.lastUpdated}>
       <div className={styles.title}>
         <Image
+          className={styles.lastUpdatedIcon}
           src="/svg/last-updated.svg"
           alt="lastUpdated"
           width={42}

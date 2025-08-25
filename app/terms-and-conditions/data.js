@@ -143,7 +143,7 @@ export const content = [
         "When using the services of Limitless Cover, you agree to take full responsibility for ensuring that all information provided is accurate, that you understand your insurance coverage, and that you act in accordance with the law and the terms of your policy. You acknowledge and accept that failure to uphold these responsibilities could lead to invalidation of your policy, refusal of claims, or cancellation of your cover.",
       lists: [
         {
-          title: "A.  Accurate Information",
+          title: "A.  Acceptable Use",
           description:
             "You must provide honest, complete, and accurate information when:",
           description2: "This includes, but is not limited to:",

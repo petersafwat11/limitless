@@ -8,10 +8,19 @@ const ListItem = ({ data }) => {
     <div className={styles.container}>
       <Title title={data.title} />
       <Description description={data.description1} />
-      {data.subDescription && <Description description={data.subDescription} />}
+      {data.subDescription1 && (
+        <div className={styles.subDesc}>
+          <Description description={data.subDescription1} />
+        </div>
+      )}
+      {data.subDescription2 && (
+        <div className={styles.subDesc}>
+          <Description description={data.subDescription2} />
+        </div>
+      )}
       {data.list && <List list={data.list} />}
       {data.description2 && <Description description={data.description2} />}
-    </div>  
+    </div>
   );
 };
 
