@@ -13,33 +13,34 @@ const page = () => {
     <div className={styles.page}>
       <div className={styles.header}>
         <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
-          Your Claims{" "}
+          Your Policy{" "}
         </h2>
         <button className={styles.button}>
           <Image src="/svg/plus.svg" alt="plus" width={24} height={24} />
-          Create a new claim{" "}
+          Create a new policy
         </button>
       </div>
       <Table
-        title="Pending Claims"
+        title="Active Policies"
+        tableType="active"
         columns={[
-          "Date of Claim",
-          "Status",
-          "Claimant",
-          "Pending Actions",
-          "Actions",
+          "Policy Number",
+          "Remaining",
+          "Name",
+          "Vehicle Reg",
+          "Details",
         ]}
         data={[
           {
-            date: "2025-01-01",
-            ref: "Claim Reference CI-273782",
-            status: "Pending",
-            claimant: "John Doe",
-            pendingActions: "Feb 21 2025",
+            policyNumber: "CI-273782",
+            remaining: "25 days",
+            name : "Policy Holder",
+            vehicleReg: "ZV12 LPM",
+            details: "View",
           },
         ]}
       />
-      <Table
+      {/* <Table
         title="Claim history"
         columns={[
           "Date of Claim",
@@ -64,7 +65,7 @@ const page = () => {
             pendingActions: "Feb 21 2025",
           },
         ]}
-      />
+      /> */}
     </div>
   );
 };

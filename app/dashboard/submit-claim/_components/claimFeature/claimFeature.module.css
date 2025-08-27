@@ -69,3 +69,33 @@
   width: 100%;
   margin-top: 1.4rem;
 }
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+    height: auto;
+    padding: 2.5rem 1.6rem;
+  }
+  .img {
+    margin-left: 1.8rem;
+  }
+  .claimFeatureText {
+    gap: 1.6rem;
+    margin: 3.4rem 0 2.4rem;
+  }
+  .claimFeatureTitle {
+    font-size: 2.4rem;
+  }
+  .claimFeatureDescription {
+    font-size: 1.4rem;
+  }
+  .features {
+    min-height: auto;
+  }
+
+  .featureText {
+    font-size: 1.4rem;
+  }
+  .btn {
+    height: 48px;
+  }
+}

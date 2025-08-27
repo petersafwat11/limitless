@@ -22,6 +22,7 @@ const Stepper = ({ steps }) => {
             className={styles.stepperItem}
           >
             <Image
+              className={styles.stepperItemImage} 
               src={step.img.src}
               alt="stepper"
               width={step.img.width}
@@ -41,6 +42,7 @@ const Stepper = ({ steps }) => {
           {index === 0 && (
             <div className={styles.stepperLine}>
               <svg
+                className={styles.stepperLine1}
                 xmlns="http://www.w3.org/2000/svg"
                 width="147"
                 height="2"
@@ -73,6 +75,7 @@ const Stepper = ({ steps }) => {
           {(index === 1 || index === 2) && (
             <div className={styles.stepperLine2}>
               <svg
+                className={styles.stepperLine2Svg}
                 xmlns="http://www.w3.org/2000/svg"
                 width="147"
                 height="2"

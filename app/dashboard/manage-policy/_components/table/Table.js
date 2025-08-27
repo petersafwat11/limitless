@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./table.module.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import Image from "next/image";
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
 
-const Table = ({ title, columns, data }) => {
+const Table = ({ title, columns, data, tableType }) => {
   return (
     <div className={styles.container}>
       <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
@@ -27,16 +27,26 @@ const Table = ({ title, columns, data }) => {
           {data.map((row, index) => (
             <tr key={index} className={styles.tableRow}>
               <td className={styles.tableCell}>
-                <span className={styles.datacell}>{row.document}</span>
+                <span className={styles.claimant}>{row.policyNumber}</span>
+              </td>
+
+              <td className={styles.tableCell}>
+                <span
+                  className={`${styles.statusBadge} ${
+                    tableType === "active" ? styles.active : styles.inactive
+                  }`}
+                >
+                  {row.remaining}
+                </span>
               </td>
               <td className={styles.tableCell}>
-                <span className={styles.datacell}>{row.documentNumber}</span>
+                <span className={styles.claimant}>{row.name}</span>
               </td>
               <td className={styles.tableCell}>
-                <div className={styles.documentType}>
-                  <Image src="/svg/pdf.svg" alt="pdf" width={24} height={24} />
-                  <span className={styles.datacell}>{row.documentType}</span>
-                </div>
+                <span className={`${styles.claimant} ${styles.vehicleReg}`}>{row.vehicleReg}</span>
+              </td>
+              <td className={styles.tableCell}>
+                <button className={styles.view}>View</button>
               </td>
             </tr>
           ))}

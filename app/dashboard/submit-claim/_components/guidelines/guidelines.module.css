@@ -53,3 +53,33 @@
   line-height: 124%;
   letter-spacing: 0.64px;
 }
+@media screen and (max-width: 900px) {
+  .container {
+    gap: 3.8rem;
+  }
+  .title {
+    font-size: 2.4rem;
+  }
+  .guidelines {
+    gap: 2.2rem;
+  }
+  .guideline {
+    gap: 0;
+  }
+  .header {
+    gap: 2.5rem;
+    padding: 2.4rem 2rem 2.6rem;
+  }
+  .headerTitle {
+    font-size: 1.8rem;
+  }
+
+  .content {
+    gap: 1.2rem;
+    padding: 2.6rem 2.9rem 2.4rem;
+  }
+
+  .contentTitle {
+    font-size: 1.4rem;
+  }
+}

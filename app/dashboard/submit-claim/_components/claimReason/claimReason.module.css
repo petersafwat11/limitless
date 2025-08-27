@@ -40,3 +40,70 @@
   line-height: 124%;
   letter-spacing: 0.72px;
 }
+@media screen and (max-width: 1200px) {
+  .container {
+    gap: 2.76rem; 
+    margin-top: 5.75rem; 
+  }
+
+  .title {
+    font-size: 2.76rem; 
+  }
+
+  .reasons {
+    gap: 0.92rem; 
+  }
+
+  .reason {
+    padding: 1.96rem 2.07rem 1.96rem 2.42rem; 
+  }
+
+  .content {
+    gap: 1.38rem; 
+  }
+
+  .reasonTitle {
+    font-size: 1.84rem; 
+  }
+
+  .arrow {
+    width: 2.76rem; 
+    height: 2.76rem; 
+  }
+
+  .img {
+    width: 4.6rem; 
+    height: 3.22rem; 
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    gap: 2.4rem;
+    margin-top: 5rem;
+  }
+  .title {
+    font-size: 2.4rem;
+  }
+  .reasons {
+    gap: 0.8rem;
+  }
+  .reason {
+    padding: 1.7rem 1.8rem 1.7rem 2.1rem;
+  }
+
+  .content {
+    gap: 1.2rem;
+  }
+
+  .reasonTitle {
+    font-size: 1.6rem;
+  }
+  .arrow {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+  .img {
+    width: 4rem;
+    height: 2.8rem;
+  }
+}

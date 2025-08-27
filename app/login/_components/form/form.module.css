@@ -117,3 +117,53 @@
 .eyeButton:hover .eyeIcon {
   color: #0388ff;
 }
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+    padding: 4.1rem 2rem 2.3rem;
+  }
+  .title {
+    font-size: 2.4rem;
+  }
+  .inputsContainer {
+    gap: 1.8rem;
+    margin: 3.9rem 0 2rem;
+  }
+  .inputGroup {
+    gap: 1.4rem;
+  }
+
+  .label {
+    font-size: 1.4rem;
+    line-height: 100%;
+    letter-spacing: 0.56px;
+  }
+  .inputContainer {
+    gap: 1.8rem;
+  }
+  .iconWrapper {
+    width: 42px;
+    height: 42px;
+  }
+
+  .input {
+    font-size: 1.4rem;
+  }
+
+  .dontKnow {
+    font-size: 1.4rem;
+    margin-bottom: 3.8rem;
+  }
+
+  .eyeButton {
+    padding: 0.8rem;
+    border-radius: 8px;
+  }
+
+  .eyeIcon {
+    width: 2rem;
+    height: 2rem;
+    color: rgba(0, 8, 34, 0.6);
+    transition: color 0.2s ease;
+  }
+}

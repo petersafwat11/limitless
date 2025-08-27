@@ -10,7 +10,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
-const page = () => {
+const page = async ({ searchParams }) => {
+  const { type } = await searchParams;
+
   const steps = [
     {
       title: "Claim",
@@ -77,28 +79,32 @@ const page = () => {
     <div className={styles.page}>
       <Stepper steps={steps} />
 
-      <div className={styles.claims}>
-        <h2 className={`${styles.claimsTitle} ${plusJakartaSans.className}`}>
-          Choose your Claim
-        </h2>
-        <Submitted />
-        <ClaimReason />
-        <div className={styles.claimsContainer}>
-          <ClaimFeature
-            img={firstClaim.img}
-            title={firstClaim.title}
-            description={firstClaim.description}
-            features={firstClaim.features}
-            btnText="Make a car insurance claims"
-          />
-          <ClaimFeature
-            img={secondClaim.img}
-            title={secondClaim.title}
-            description={secondClaim.description}
-            features={secondClaim.features}
-            btnText="Optional Cover claims"
-          />
+      {type === "submitted" && <Submitted />}
+      {type === "reason" && <ClaimReason />}
+      {type === "claim" && (
+        <div className={styles.claims}>
+          <h2 className={`${styles.claimsTitle} ${plusJakartaSans.className}`}>
+            Choose your Claim
+          </h2>
+          <div className={styles.claimsContainer}>
+            <ClaimFeature
+              img={firstClaim.img}
+              title={firstClaim.title}
+              description={firstClaim.description}
+              features={firstClaim.features}
+              btnText="Make a car insurance claims"
+            />
+            <ClaimFeature
+              img={secondClaim.img}
+              title={secondClaim.title}
+              description={secondClaim.description}
+              features={secondClaim.features}
+              btnText="Optional Cover claims"
+            />
+          </div>
         </div>
+      )}
+      {type === "guidelines" && (
         <Guidelines
           data={[
             {
@@ -127,7 +133,7 @@ const page = () => {
             },
           ]}
         />
-      </div>
+      )}
     </div>
   );
 };

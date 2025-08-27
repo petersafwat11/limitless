@@ -70,6 +70,7 @@ const ClaimReason = () => {
           <div className={styles.reason} key={index}>
             <div className={styles.content}>
               <Image
+                className={styles.img}  
                 src={reason.img.src}
                 alt={reason.title}
                 width={reason.img.width}
@@ -80,6 +81,7 @@ const ClaimReason = () => {
               </p>
             </div>
             <Image
+              className={styles.arrow}
               src="/svg/right-arrow-2.svg"
               alt="right-arrow"
               width={48}

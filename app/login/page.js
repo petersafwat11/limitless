@@ -19,7 +19,6 @@ const page = () => {
           height={706}
           className={styles.squares}
         />
-
         <Image
           className={styles.image1}
           src={"/svg/login-1.svg"}
@@ -40,6 +39,13 @@ const page = () => {
           alt="login-1"
           width={154}
           height={169}
+        />{" "}
+        <Image
+          className={styles.image4}
+          src={"/svg/login-mobile.svg"}
+          alt="login-1"
+          width={293}
+          height={389}
         />
       </div>
       <div className={styles.form}>

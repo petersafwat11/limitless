@@ -16,6 +16,7 @@ const Submitted = () => {
         alt="submitted"
         width={136}
         height={151}
+        className={styles.submittedImage}
       />
 
       <div className={`${styles.title} ${plusJakartaSans.className}`}>
@@ -38,6 +39,7 @@ const Submitted = () => {
             alt="order-summary"
             width={36}
             height={36}
+            className={styles.headerItemIcon}
           />
           <p className={styles.headerItemTitle}>Order Reference</p>
         </div>

@@ -47,3 +47,33 @@
   font-weight: 700;
   line-height: 100%;
 }
+@media screen and (max-width: 900px) {
+  .stepper {
+    gap: 1.6rem;
+  }
+  .stepperItemImage {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+  .stepperItemImage:first-child {
+    width: 4.2rem;
+    height: 4.2rem;
+  }
+  .stepperItem {
+    gap: 1.2rem;
+    margin: 0.4rem 0 0 !important;
+  }
+  .stepperItem:first-child {
+    margin: 0 !important;
+  }
+  .stepperItemText {
+    gap: 0.5rem;
+  }
+  .stepperLine svg,
+  .stepperLine2 svg {
+    margin-top: -4rem;
+  }
+  .stepperTitle {
+    font-size: 1.4rem;
+  }
+}

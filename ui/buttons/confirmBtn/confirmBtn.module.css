@@ -22,3 +22,11 @@
 .confirmBtn:hover {
   background: rgba(3, 137, 255, 0.8);
 }
+@media screen and (max-width: 900px) {
+  .confirmBtn {
+    height: 5.4rem;
+    padding: 0;
+    font-size: 1.4rem;
+    line-height: 100%;
+  }
+}
