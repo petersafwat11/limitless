@@ -1,0 +1,19 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+  margin: 5.8rem 0;
+  width: 100%;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.title {
+  color: #000822;
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 100%;
+}
