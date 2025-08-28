@@ -1,0 +1,40 @@
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.backButton {
+  display: flex;
+  width: 238px;
+  height: 48px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #0388ff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 124%;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(0deg, #fff 0%, #fff 100%), #fff;
+  box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
+}
+.cancelButton {
+  display: flex;
+  width: 238px;
+  height: 48px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 124%;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(0deg, #fe8198 0%, #fe8198 100%), #fff;
+  box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
+}

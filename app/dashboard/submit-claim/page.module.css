@@ -1,6 +1,10 @@
 .page {
   margin: 6rem 0 11.5rem;
   width: 100%;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
 }
 .claims {
   display: flex;

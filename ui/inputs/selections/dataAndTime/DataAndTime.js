@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import styles from "./dataAndTime.module.css";
-const DataAndTime = ({ data, setData, dateLabel, timeLabel ,dateKey, timeKey}) => {
+  const DataAndTime = ({ data, setData, dateLabel, timeLabel ,dateKey, timeKey}) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState(
     data.date ? new Date(data.date) : null

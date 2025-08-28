@@ -1,10 +1,11 @@
 import Stepper from "./_components/stepper/Stepper";
 import styles from "./page.module.css";
 import ClaimFeature from "./_components/claimFeature/ClaimFeature";
-import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import Submitted from "./_components/submitted/Submitted";
 import ClaimReason from "./_components/claimReason/ClaimReason";
 import Guidelines from "./_components/guidelines/Guidelines";
+import Form from "./_components/form/Form";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -81,6 +82,7 @@ const page = async ({ searchParams }) => {
 
       {type === "submitted" && <Submitted />}
       {type === "reason" && <ClaimReason />}
+      {type === "form" && <Form />}
       {type === "claim" && (
         <div className={styles.claims}>
           <h2 className={`${styles.claimsTitle} ${plusJakartaSans.className}`}>
