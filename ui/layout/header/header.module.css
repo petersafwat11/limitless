@@ -183,6 +183,7 @@
     align-items: center;
     justify-content: space-between;
     width: 88%;
+    /* z-index: 102; */
   }
   .menuBtn {
     display: flex;

@@ -57,3 +57,30 @@
   width: 100%;
   height: auto;
 }
+@media screen and (max-width: 900px) {
+  .wrapper {
+    margin: 0;
+    padding: 13.1rem 4.2rem 7.2rem;
+  }
+  .squares {
+    width: 485.816px;
+    height: 246px;
+    top: 21rem;
+    right: -24rem;
+  }
+  .dashHeader {
+    width: 378.906px;
+    height: 502.617px;
+    top: 9rem;
+    right: -11rem;
+  }
+  .titles {
+    gap: 2rem;
+  }
+  .subTitle {
+    font-size: 1.4rem;
+  }
+  .title {
+    font-size: 4.8rem;
+  }
+}

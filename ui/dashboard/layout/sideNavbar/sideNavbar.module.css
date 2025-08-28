@@ -48,6 +48,8 @@
   width: 100%;
 }
 .navItem {
+  border: none;
+  background: none;
   display: flex;
   align-items: center;
   justify-content: flex-start;

@@ -105,7 +105,7 @@ const Table = ({ title, columns, data }) => {
               </div>
 
               <div className={styles.actions}>
-                <button className={styles.view}>View</button>
+                <button className={styles.view}>Details</button>
               </div>
             </div>
           </div>

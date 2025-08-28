@@ -14,12 +14,11 @@ const manrope = Manrope({
 });
 
 const Header = ({ title = "Welcome, James" }) => {
-  
   const words = title.split(" ");
   const lastWord = words[words.length - 1];
   const withoutLastWord = words.slice(0, -1).join(" ");
   return (
-    <div className="headerContainer">
+    <div className="headerDashboardContainer">
       <Image
         src="/svg/squares-2.svg"
         alt="squares"
@@ -40,9 +39,9 @@ const Header = ({ title = "Welcome, James" }) => {
           <p className={`${styles.subTitle} ${manrope.className}`}>DASHBOARD</p>
 
           <div className={`${styles.title} ${plusJakartaSans.className}`}>
-            {withoutLastWord}{" "}
+            Lorem Ipsum
             <div className={styles.titleSpan}>
-              {lastWord}
+              Dolor Sit{" "}
               <Image
                 src="/svg/curved-border.svg"
                 alt="curved border"

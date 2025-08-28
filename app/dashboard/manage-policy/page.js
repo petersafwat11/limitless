@@ -17,7 +17,7 @@ const page = () => {
         </h2>
         <button className={styles.button}>
           <Image src="/svg/plus.svg" alt="plus" width={24} height={24} />
-          Create a new policy
+          <span>Create a new policy</span>
         </button>
       </div>
       <Table
@@ -34,7 +34,7 @@ const page = () => {
           {
             policyNumber: "CI-273782",
             remaining: "25 days",
-            name : "Policy Holder",
+            name : "James Charles",
             vehicleReg: "ZV12 LPM",
             details: "View",
           },

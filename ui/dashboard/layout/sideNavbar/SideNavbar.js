@@ -45,7 +45,7 @@ const SideNavbar = ({ isOpen = false, onToggle, isMobile = false }) => {
       icon: (
         <HiOutlineLogout style={{ rotate: "180deg" }} className={styles.icon} />
       ),
-      href: "/dashboard",
+      // href: "/dashboard",
     },
   ];
   return (
@@ -59,21 +59,40 @@ const SideNavbar = ({ isOpen = false, onToggle, isMobile = false }) => {
       }`}
     >
       <div className={styles.navItems}>
-        {navItems.map((item, index) => (
-          <Link
-            className={`${styles.navItem} ${
-              pathname === item.href ? styles.activeNavItem : ""
-            }`}
-            href={item.href}
-            key={item.label}
-            style={{
-              animationDelay: isOpen ? `${(index + 1) * 0.1}s` : "0s",
-            }}
-          >
-            {item.icon}
-            {item.label}
-          </Link>
-        ))}
+        {navItems.map((item, index) =>
+          item.label === "Logout" ? (
+            <button
+              className={`${styles.navItem} ${
+                pathname === item.href ? styles.activeNavItem : ""
+              }`}
+              // href={item.href}
+              key={item.label}
+              style={{
+                animationDelay: isOpen ? `${(index + 1) * 0.1}s` : "0s",
+              }}
+              onClick={() => {
+                console.log("Logout button clicked");
+              }}
+            >
+              {item.icon}
+              {item.label}
+            </button>
+          ) : (
+            <Link
+              className={`${styles.navItem} ${
+                pathname === item.href ? styles.activeNavItem : ""
+              }`}
+              href={item.href}
+              key={item.label}
+              style={{
+                animationDelay: isOpen ? `${(index + 1) * 0.1}s` : "0s",
+              }}
+            >
+              {item.icon}
+              {item.label}
+            </Link>
+          )
+        )}
       </div>
     </div>
   );
