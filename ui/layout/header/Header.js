@@ -5,12 +5,14 @@ import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import styles from "./header.module.css";
 import { useRouter } from "next/navigation";
+import SideNavbar from "@/ui/dashboard/layout/sideNavbar/SideNavbar";
 
 const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
   const isDashboard = pathname.startsWith("/dashboard");
   const [isOpen, setIsOpen] = useState(false);
+  const [isDashboardSidebarOpen, setIsDashboardSidebarOpen] = useState(false);
   return pathname === "/login" ? null : (
     <>
       <header className={styles.container}>
@@ -90,76 +92,96 @@ const Header = () => {
           />
           <button
             onClick={() => {
-              console.log("Button clicked! Current isOpen:", isOpen);
-              setIsOpen(!isOpen);
-              console.log("Setting isOpen to:", !isOpen);
+              if (isDashboard) {
+                console.log(
+                  "Dashboard sidebar button clicked! Current isOpen:",
+                  isDashboardSidebarOpen
+                );
+                setIsDashboardSidebarOpen(!isDashboardSidebarOpen);
+                console.log(
+                  "Setting isDashboardSidebarOpen to:",
+                  !isDashboardSidebarOpen
+                );
+              } else {
+                console.log("Button clicked! Current isOpen:", isOpen);
+                setIsOpen(!isOpen);
+                console.log("Setting isOpen to:", !isOpen);
+              }
             }}
             className={styles.menuBtn}
           >
-            {isOpen ? (
+            {(isDashboard ? isDashboardSidebarOpen : isOpen) ? (
               <Image src="/svg/close.svg" alt="close" width={13} height={13} />
             ) : (
               <Image src="/svg/menu.svg" alt="menu" width={24} height={24} />
             )}
           </button>
         </div>
-        <div
-          className={`${styles.mobileMenu} ${
-            isOpen ? styles.mobileMenuOpen : styles.mobileMenuClosed
-          }`}
-        >
-          <nav className={styles.mobileNav}>
-            <Link
-              className={`${styles.menuLink} ${
-                pathname === "/temporary" ? styles.activeMenuLink : ""
-              }`}
-              href="/temporary"
-            >
-              Temporary
-            </Link>
-            <Link
-              className={`${styles.menuLink} ${
-                pathname === "/impound" ? styles.activeMenuLink : ""
-              }`}
-              href="/impound"
-            >
-              Impound
-            </Link>
-            <Link
-              className={`${styles.menuLink} ${
-                pathname === "/courier" ? styles.activeMenuLink : ""
-              }`}
-              href="/courier"
-            >
-              Courier
-            </Link>
-            <Link
-              className={`${styles.menuLink} ${
-                pathname === "/contact-us" ? styles.activeMenuLink : ""
-              }`}
-              href="/contact-us"
-            >
-              Contact Us
-            </Link>
-          </nav>
-          <div className={styles.mobileButtons}>
-            <button
-              className={styles.loginBtn}
-              onClick={() => router.push("/login")}
-            >
-              Login
-            </button>
-            <button className={styles.quoteBtn}>
-              Get Quote
-              <Image
-                src="/svg/arrow-right.svg"
-                alt="arrow-right"
-                width={27}
-                height={14}
-              />
-            </button>
+        {isDashboard ? (
+          <SideNavbar
+            isOpen={isDashboardSidebarOpen}
+            onToggle={() => setIsDashboardSidebarOpen(!isDashboardSidebarOpen)}
+            isMobile={true}
+          />
+        ) : (
+          <div
+            className={`${styles.mobileMenu} ${
+              isOpen ? styles.mobileMenuOpen : styles.mobileMenuClosed
+            }`}
+          >
+            <nav className={styles.mobileNav}>
+              <Link
+                className={`${styles.menuLink} ${
+                  pathname === "/temporary" ? styles.activeMenuLink : ""
+                }`}
+                href="/temporary"
+              >
+                Temporary
+              </Link>
+              <Link
+                className={`${styles.menuLink} ${
+                  pathname === "/impound" ? styles.activeMenuLink : ""
+                }`}
+                href="/impound"
+              >
+                Impound
+              </Link>
+              <Link
+                className={`${styles.menuLink} ${
+                  pathname === "/courier" ? styles.activeMenuLink : ""
+                }`}
+                href="/courier"
+              >
+                Courier
+              </Link>
+              <Link
+                className={`${styles.menuLink} ${
+                  pathname === "/contact-us" ? styles.activeMenuLink : ""
+                }`}
+                href="/contact-us"
+              >
+                Contact Us
+              </Link>
+            </nav>
+            <div className={styles.mobileButtons}>
+              <button
+                className={styles.loginBtn}
+                onClick={() => router.push("/login")}
+              >
+                Login
+              </button>
+              <button className={styles.quoteBtn}>
+                Get Quote
+                <Image
+                  src="/svg/arrow-right.svg"
+                  alt="arrow-right"
+                  width={27}
+                  height={14}
+                />
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </header>
     </>
   );

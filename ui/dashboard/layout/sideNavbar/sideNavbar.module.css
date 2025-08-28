@@ -9,6 +9,36 @@
   flex-shrink: 0;
   border-radius: 1.8rem;
   background: #fff;
+  margin-top: 5.8rem;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top;
+}
+
+.sidebarOpen {
+  max-height: 600px;
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.sidebarClosed {
+  max-height: 0;
+  opacity: 0;
+  transform: scaleY(0);
+  padding: 0 1.2rem;
+  margin-top: 0;
+}
+
+.sidebarDesktop {
+  max-height: none;
+  opacity: 1;
+  transform: scaleY(1);
+  transition: none;
+}
+
+.sidebarDesktop .navItem {
+  opacity: 1;
+  animation: none;
 }
 .navItems {
   display: flex;
@@ -32,8 +62,19 @@
   box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
   width: 100%;
   transition: all 0.3s ease-in-out;
+  opacity: 0;
 }
 
+.sidebarOpen .navItem {
+  animation: slideInUp 0.4s ease-out forwards;
+}
+.activeNavItem {
+  background: #049cff;
+  color: #fff;
+}
+.activeNavItem .icon {
+  color: #fff;
+}
 .navItem:hover {
   background: #049cff;
   color: #fff;
@@ -46,4 +87,44 @@
   height: 2.5rem;
   color: #00082270;
   transition: all 0.3s ease-in-out;
+}
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+    margin-top: 0;
+    background: white;
+  }
+
+  .sidebarClosed {
+    margin-top: 0;
+  }
+
+  .sidebarOpen {
+    margin-top: 0;
+  }
+
+  /* On mobile, desktop class should behave like mobile */
+  .sidebarDesktop {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    padding: 0 1.2rem;
+    margin-top: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .sidebarDesktop .navItem {
+    opacity: 0;
+  }
 }

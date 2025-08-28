@@ -1,10 +1,8 @@
+"use client";
 import React from "react";
 import styles from "./sideNavbar.module.css";
-import Image from "next/image";
 import Link from "next/link";
-import {
-
-} from "react-icons/md";
+import { usePathname } from "next/navigation";
 import { RiHome2Line } from "react-icons/ri";
 import { HiOutlineLogout } from "react-icons/hi";
 import { TiDocumentAdd } from "react-icons/ti";
@@ -14,7 +12,8 @@ import { HiOutlineDocumentText } from "react-icons/hi2";
 // import { FaBriefcase } from "react-icons/fa";
 // <FaBriefcase />
 
-const SideNavbar = () => {
+const SideNavbar = ({ isOpen = false, onToggle, isMobile = false }) => {
+  const pathname = usePathname();
   const navItems = [
     {
       label: "Dashboard",
@@ -43,15 +42,34 @@ const SideNavbar = () => {
     },
     {
       label: "Logout",
-      icon: <HiOutlineLogout style={{ rotate: "180deg" }} className={styles.icon} />,
+      icon: (
+        <HiOutlineLogout style={{ rotate: "180deg" }} className={styles.icon} />
+      ),
       href: "/dashboard",
     },
   ];
   return (
-    <div className={styles.container}>
+    <div
+      className={`${styles.container} ${
+        isMobile
+          ? isOpen
+            ? styles.sidebarOpen
+            : styles.sidebarClosed
+          : styles.sidebarDesktop
+      }`}
+    >
       <div className={styles.navItems}>
-        {navItems.map((item) => (
-          <Link className={styles.navItem} href={item.href} key={item.label}>
+        {navItems.map((item, index) => (
+          <Link
+            className={`${styles.navItem} ${
+              pathname === item.href ? styles.activeNavItem : ""
+            }`}
+            href={item.href}
+            key={item.label}
+            style={{
+              animationDelay: isOpen ? `${(index + 1) * 0.1}s` : "0s",
+            }}
+          >
             {item.icon}
             {item.label}
           </Link>

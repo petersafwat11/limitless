@@ -55,6 +55,9 @@ body {
     padding: 7.2rem 5.8% 8.5rem;
     gap: 4.4rem;
   }
+  .nav {
+    display: none;
+  }
 }
 
 * {

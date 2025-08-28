@@ -16,8 +16,9 @@ export default function DashboardLayout({ children }) {
 
       {/* Main content area */}
       <main className="dashboard-content">
-        {" "}
-        <SideNavbar />
+        <div className="nav">
+          <SideNavbar />
+        </div>
         {children}
       </main>
     </div>
