@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const isDashboard = pathname === "/dashboard";
+  const isDashboard = pathname.startsWith("/dashboard");
   const [isOpen, setIsOpen] = useState(false);
   return pathname === "/login" ? null : (
     <>
