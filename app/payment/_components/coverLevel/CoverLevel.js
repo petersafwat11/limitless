@@ -14,11 +14,17 @@ const CoverLevel = () => {
       <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
         Current level of cover
       </h3>
+      <div className={styles.coverType}>
+        <p className={styles.coverTypeTitle}>Type of Insurance</p>
+        <p className={`${styles.coverTypeValue} ${plusJakartaSans.className}`}>
+          Temporary Insurance
+        </p>
+      </div>
+
       <div className={styles.summery}>
         <span className={styles.background}></span>
         <span className={styles.background2}></span>
         <span className={styles.background3}></span>
-
         <div className={styles.content}>
           <div className={styles.total}>
             <Image

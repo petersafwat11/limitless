@@ -12,8 +12,72 @@
   display: flex;
   justify-content: space-between;
   margin: 4.2rem 0 8.2rem;
+  flex-wrap: wrap;
+  gap: 2.6rem;
 }
 .durationContainer {
   display: flex;
   gap: 1.4rem;
+}
+.orderSummery {
+  width: 75.3rem;
+  margin: -19.5rem auto 0;
+  z-index: 3;
+  position: relative;
+}
+.orderSummeryContainer {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
+}
+.coverLevel {
+  display: none;
+}
+@media (max-width: 1440px) {
+  .container {
+    flex-direction: column-reverse;
+    gap: 2.4rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .coverLevel {
+    display: block;
+  }
+  .orderSummeryContainer {
+    margin: 2rem 4.4% 0;
+  }
+  .orderSummery {
+    margin: 0;
+    /* width: max(40rem, 100%); */
+  }
+  .right {
+    display: none;
+  }
+  .left {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .orderSummeryContainer {
+    flex-wrap: wrap;
+  }
+  .coverLevel {
+    width: 100%;
+  }
+}
+@media (max-width: 800px) {
+  .left {
+    width: 100%;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .durationContainer {
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .orderSummeryContainer {
+    margin: 0;
+  }
 }

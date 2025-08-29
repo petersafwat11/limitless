@@ -25,3 +25,19 @@
   border-radius: 16px;
   background: #fff;
 }
+@media screen and (max-width: 800px) {
+  .container {
+    margin-top: 3.8rem;
+    gap: 2.3rem;
+  }
+  .header {
+    gap: 1.2rem;
+  }
+  .headerTitle {
+    font-size: 2.4rem;
+  }
+  .content {
+    gap: 2.6rem;
+    padding: 2rem;
+  }
+}

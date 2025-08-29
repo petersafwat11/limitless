@@ -40,6 +40,7 @@ const Header = ({ title }) => {
           alt="success"
           width={136}
           height={151}
+          className={styles.success}
         />
         <div className={styles.titles}>
           <p className={`${styles.subTitle} ${manrope.className}`}>
@@ -51,6 +52,7 @@ const Header = ({ title }) => {
             <div className={styles.titleSpan}>
               {lastWord}
               <Image
+  
                 src="/svg/curved-border.svg"
                 alt="curved border"
                 width={393}

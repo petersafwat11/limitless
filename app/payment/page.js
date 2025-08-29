@@ -10,24 +10,33 @@ const page = () => {
   return (
     <div>
       <Header title="Thank you for your purchase" />
-      <OrderSummery />
+      <div className={styles.orderSummeryContainer}>
+        <div className={styles.orderSummery}>
+          <OrderSummery />
+        </div>
+        <div className={styles.coverLevel}>
+          <CoverLevel />
+        </div>
+      </div>
+
       <div className={styles.container}>
         <div className={styles.left}>
-          <VehicleCovered />
+          <div className={styles.vehicleCoveredLarge}>
+            <VehicleCovered />
+          </div>
           <div className={styles.durationContainer}>
-
-          <Duration
-            img={"/svg/duration.svg"}
-            title="Duration"
-            value="1 week"
-            editIcon={true}
-          />
-          <Duration
-            img={"/svg/start-time.svg"}
-            title="Start Time"
-            value="Policy starts immediately"
-            editIcon={true}
-          />
+            <Duration
+              img={"/svg/duration.svg"}
+              title="Duration"
+              value="1 week"
+              // editIcon={true}
+            />
+            <Duration
+              img={"/svg/start-time.svg"}
+              title="Start Time"
+              value="Policy starts immediately"
+              // editIcon={true}
+            />
           </div>
           <Details />
         </div>

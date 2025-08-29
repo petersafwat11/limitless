@@ -2,10 +2,8 @@
   border-radius: 18px;
   background: #fff;
   padding: 2.4rem 1.8rem;
-  width: 75.3rem;
-  margin: -19.5rem auto 0;
-  z-index: 3;
-  position: relative;
+  width: 100%;
+  min-width: 40rem;
 }
 .title {
   color: #000822;
@@ -143,4 +141,77 @@
   font-weight: 700;
   line-height: 124%;
   letter-spacing: 0.72px;
+}
+@media (max-width: 800px) {
+  .container {
+    padding: 2.2rem;
+    width: 91.2%;
+    margin: 2.6rem 4.4% 2.6rem;
+    min-width: 91.2%;
+  }
+  .title {
+    font-size: 2.4rem;
+  }
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0;
+    height: auto;
+    margin-top: 2.4rem;
+  }
+  .headerItem {
+    gap: 1.6rem;
+    padding: 1.6rem 1.6rem 1.4rem;
+  }
+  .headerItemTitle,
+  .headerItemValue {
+    width: 100%;
+  }
+  .headerItemValue {
+    padding: 1.6rem 1.9rem 1.7rem;
+  }
+  .items {
+    gap: 2.1rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(0, 8, 34, 0.14);
+  }
+  .summaryItemTitle,
+  .summaryItemValue {
+    font-size: 1.4rem;
+  }
+  .total {
+    padding: 2rem 0 2.8rem;
+  }
+  .totalTitle,
+  .totalValue {
+    font-size: 1.4rem;
+  }
+  .dashboardButton {
+    height: 4.8rem;
+    gap: 1.8rem;
+    font-size: 1.4rem;
+  }
+  .footer {
+    margin-top: 3.8rem;
+  }
+  .footerText {
+    gap: 0.8rem;
+    padding-bottom: 7rem;
+  }
+  .footerTextTitle,
+  .footerTextSupport {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .voluntaryExcess {
+    gap: 0.8rem;
+    padding-top: 2rem;
+  }
+  .voluntaryText .voluntaryValue {
+    font-size: 1.4rem;
+    text-align: center;
+  }
 }

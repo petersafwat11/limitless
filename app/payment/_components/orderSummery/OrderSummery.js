@@ -79,7 +79,9 @@ const OrderSummery = () => {
       </div>
       <div className={styles.footer}>
         <div className={styles.footerText}>
-          <p className={`${styles.title} ${plusJakartaSans.className}`}>
+          <p
+            className={`${styles.footerTextTitle} ${plusJakartaSans.className}`}
+          >
             You will receive a special login link via email.
           </p>
           <p className={styles.footerTextSupport}>
@@ -89,7 +91,9 @@ const OrderSummery = () => {
         </div>
         <div className={styles.voluntaryExcess}>
           <p className={styles.voluntaryText}>Voluntary excess</p>
-          <p className={`${styles.voluntaryValue} ${plusJakartaSans.className}`}>
+          <p
+            className={`${styles.voluntaryValue} ${plusJakartaSans.className}`}
+          >
             £120.00
           </p>
         </div>
