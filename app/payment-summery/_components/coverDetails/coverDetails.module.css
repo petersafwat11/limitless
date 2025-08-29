@@ -27,8 +27,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.7rem 0.7rem 0.7rem 2.4rem;
-  border-radius: 16px;
-  border: 1px solid rgba(0, 8, 34, 0.24);
+  border-radius: 12px;
+  background: #f3f3f3;
+  backdrop-filter: blur(22px);
 }
 .durationQuestion {
   color: #000822;
@@ -60,4 +61,37 @@
 .row {
   display: flex;
   gap: 1.4rem;
+}
+@media screen and (max-width: 900px) {
+  .content {
+    gap: 2.2rem;
+    padding: 2rem;
+    margin-top: 2.4rem;
+  }
+  .first,
+  .second {
+    gap: 2.2rem;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+  .duration {
+    padding: 0.6rem 0.6rem 0.6rem 1rem;
+  }
+  .durationQuestion {
+    font-size: 1.4rem;
+  }
+  .period {
+    width: 9.7rem;
+    height: 4.2rem;
+    padding: 1rem 0;
+    gap: 0.4rem;
+  }
+  .periodAnswer {
+    font-size: 1.4rem;
+  }
+  .row {
+    flex-direction: column;
+    gap: 2.2rem;
+  }
 }

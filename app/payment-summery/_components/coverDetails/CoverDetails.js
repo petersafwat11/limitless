@@ -1,10 +1,9 @@
 import React from "react";
-import HeaderTitle from "../headerTitle/HeaderTitle";
 import Image from "next/image";
 import styles from "./coverDetails.module.css";
 import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWrapper";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import InputWithData from "@/ui/InputWithData/InputWithData";
+import InputWithData2 from "@/ui/inputs/InputWithData2/InputWithData2";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -39,14 +38,14 @@ const CoverDetails = () => {
             When would you like the cover to start?
           </h3>
           <div className={styles.row}>
-            <InputWithData
+            <InputWithData2
               item={{
                 label: "Date",
                 type: "date",
                 value: "01/01/1998",
               }}
             />
-            <InputWithData
+            <InputWithData2 
               item={{
                 label: "Start Time",
                 type: "time",

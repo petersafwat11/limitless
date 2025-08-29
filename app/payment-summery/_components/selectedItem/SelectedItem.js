@@ -13,7 +13,7 @@ const SelectedItem = ({ item, title, description, img }) => {
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.imgContainer}>
-          <Image src={img} alt={title} height={40} width={40} />
+          <Image src={img} alt={title} height={70} width={50} />
         </div>
         <div className={styles.headerContent}>
           <h3 className={`${styles.title} ${plusJakartaSans.className}`}>

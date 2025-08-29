@@ -1,5 +1,5 @@
 .container {
-  padding: 2.4rem 1.6rem 4.1rem 2.4rem;
+  /* padding: 2.4rem 1.6rem 4.1rem; */
   width: 48.8rem;
   border-radius: 18px;
   background: #000822;
@@ -11,13 +11,35 @@
   font-weight: 700;
   line-height: 124%;
   letter-spacing: 1.12px;
+  padding: 2.4rem 2.4rem 1.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+.coverType {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.4rem 1.6rem 0;
+}
+.coverTypeTitle {
+  color: #0388ff;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.64px;
+}
+.coverTypeValue {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 124%;
+  letter-spacing: 0.72px;
 }
 .summery {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.3rem 3.5rem 2.3rem;
-  margin: 1.8rem 0 0;
+  padding: 2.3rem 2.2rem 2.4rem;
+  margin: 2.6rem 1.6rem 4.2rem;
   position: relative;
   border-radius: 12px;
   background: #07102d;
@@ -59,34 +81,11 @@
   line-height: 124%;
   letter-spacing: 0.64px;
 }
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2.7rem 0 1.4rem;
-  height: 64px;
-  border-radius: 12px;
-  background: #0388ff;
-  margin: 2.4rem 0 3.5rem;
-}
-.headerItem {
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-}
-.headerItemTitle,
-.headerItemValue {
-  color: #fff;
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 124%; /* 19.84px */
-  letter-spacing: 0.64px;
-}
-
 .features {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  padding: 0 2.4rem 2.8rem;
 }
 .featureItem {
   display: flex;
@@ -126,4 +125,91 @@
   height: 50%;
   opacity: 0.6;
   background: linear-gradient(180deg, rgba(3, 136, 255, 0) 0%, #0388ff 184.11%);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.7rem 0 1.4rem;
+  height: 64px;
+  border-radius: 12px;
+  background: #0388ff;
+  margin: 2.4rem 1.6rem 3.5rem;
+}
+.headerItem {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.headerItemTitle,
+.headerItemValue {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 124%; /* 19.84px */
+  letter-spacing: 0.64px;
+}
+
+@media screen and (max-width: 1050px) {
+  .container {
+    width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .container {
+    /* width: 91.2%;
+    margin: 0 4.4%; */
+  }
+  .title {
+    font-size: 2.4rem;
+    padding: 2.2rem;
+  }
+  .coverType {
+    padding: 2.2rem 2.2rem 0;
+  }
+  .coverTypeTitle,
+  .coverTypeValue {
+    font-size: 1.4rem;
+  }
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0;
+    height: auto;
+    margin: 1.4rem 2.2rem 3rem;
+  }
+  .headerItem {
+    gap: 1.6rem;
+    padding: 1.6rem 1.6rem 1.4rem;
+  }
+  .headerItemTitle,
+  .headerItemValue {
+    width: 100%;
+  }
+  .headerItemValue {
+    padding: 1.6rem 1.9rem 1.7rem;
+  }
+
+  .summery {
+    padding: 2.4rem 0.9rem 2.9rem 2.4rem;
+    margin: 1.2rem 2.2rem;
+  }
+  .content {
+    gap: 1.3rem;
+  }
+  .totalPrice {
+    font-size: 3.4rem;
+    margin-bottom: 0rem;
+  }
+  .totalPriceDescription {
+    font-size: 1.4rem;
+  }
+  .features {
+    padding: 0 2.2rem 2.2rem;
+  }
+  .featureItemTitle {
+    font-size: 1.4rem;
+  }
 }

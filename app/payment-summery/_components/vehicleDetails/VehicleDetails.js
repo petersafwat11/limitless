@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./vehicleDetails.module.css";
 import VehicleCovered from "@/app/payment/_components/vehicleCovered/VehicleCovered";
 import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWrapper";
-import Card from "../card/Card";
+import Duration from "@/app/payment/_components/duration/Duration";
 
 const VehicleDetails = () => {
   return (
@@ -24,12 +24,18 @@ const VehicleDetails = () => {
               value: "£284.50",
             },
           ].map((item, index) => (
-            <Card
+            <Duration
               key={index}
               title={item.title}
               value={item.value}
-              //   editIcon={true}
+              // editIcon={true}
             />
+            // <Card
+            //   key={index}
+            //   title={item.title}
+            //   value={item.value}
+            //   //   editIcon={true}
+            // />
           ))}
         </div>
       </div>

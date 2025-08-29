@@ -58,3 +58,23 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+@media screen and (max-width: 900px) {
+  .header {
+    gap: 2.6rem;
+    padding: 3.1rem 2.4rem 2.8rem;
+    flex-direction: column;
+  }
+  .headerContent {
+    width: 77%;
+  }
+  .title,
+  .description {
+    font-size: 1.4rem;
+  }
+  .selectionItem,
+  .selectedItem {
+    margin: 2.6rem 2.4rem 3.1rem;
+    padding: 1rem 1.2rem;
+    max-width: max-content;
+  }
+}

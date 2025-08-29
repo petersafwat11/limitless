@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "./carUsage.module.css";
-import HeaderTitle from "../headerTitle/HeaderTitle";
-import InputWithData from "@/ui/InputWithData/InputWithData";
 import SelectedItem2 from "../selectedItem2/SelectedItem2";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import InputWithData2 from "@/ui/inputs/InputWithData2/InputWithData2";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -27,19 +26,19 @@ const CarUsage = () => {
       </div>
       <div className={styles.second}>
         <div className={styles.row}>
-          <InputWithData
+          <InputWithData2
             item={{
               label: "License Type",
               value: "Lorem Ipsum",
             }}
           />
-          <InputWithData
+          <InputWithData2
             item={{
               label: "License Held",
               value: "Lorem Ipsum",
             }}
           />
-          <InputWithData
+          <InputWithData2
             item={{
               label: "License No. (Optional)",
               value: "Lorem Ipsum",
@@ -47,13 +46,13 @@ const CarUsage = () => {
           />
         </div>
         <div className={styles.row}>
-          <InputWithData
+          <InputWithData2
             item={{
               label: "No Claims Bonus (NCB) Years",
               value: "Lorem Ipsum",
             }}
           />
-          <InputWithData
+          <InputWithData2
             item={{
               label: "Voluntary Excess",
               value: "Lorem Ipsum",
@@ -62,21 +61,21 @@ const CarUsage = () => {
         </div>
       </div>
       <div className={styles.third}>
-        <InputWithData
+        <InputWithData2
           item={{
             label:
               "Do you have any unspent or outstanding criminal convictions?",
             value: "No",
           }}
         />
-        <InputWithData
+        <InputWithData2
           item={{
             label:
               "Do you have any medical conditions that are notifible to the DVLA?",
             value: "No",
           }}
         />
-        <InputWithData
+        <InputWithData2
           item={{
             label:
               "Have you ever had insurance cancelled, a claim refused, a policy voided, or any special terms imposed? Unspent or outstanding criminal convictions?",

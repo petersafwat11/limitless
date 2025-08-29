@@ -14,3 +14,18 @@
   flex-direction: column;
   gap: 2.4rem;
 }
+@media screen and (max-width: 1400px) {
+  .container {
+    margin: 2.6rem 2.2% 3.5rem;
+    gap: 3.8rem;
+    flex-direction: column;
+  }
+  .first {
+    gap: 2.4rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  .second {
+    width: 100%;
+  }
+}

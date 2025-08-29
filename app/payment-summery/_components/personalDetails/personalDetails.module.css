@@ -19,3 +19,13 @@
   width: 100%;
   margin: 2.2rem 0;
 }
+@media screen and (max-width: 900px) {
+  .content {
+    margin-top: 2.4rem;
+    padding: 2rem;
+  }
+  .row {
+    flex-direction: column;
+    gap: 2.6rem;
+  }
+}

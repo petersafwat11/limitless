@@ -28,3 +28,21 @@
   line-height: 124%;
   letter-spacing: 0.56px;
 }
+@media screen and (max-width: 900px) {
+  .option {
+    gap: 1.5rem;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 1.7rem 1.4rem 2rem;
+  }
+  .optionContent {
+    gap: 0.8rem;
+    max-width: 23rem;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+  .description {
+    font-size: 1.4rem;
+  }
+}

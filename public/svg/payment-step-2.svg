@@ -1,0 +1,11 @@
+<svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-44" y="-44" width="160" height="160"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(22px);clip-path:url(#bgblur_0_291_131_clip_path);height:100%;width:100%"></div></foreignObject><rect data-figma-bg-blur-radius="44" width="72" height="72" rx="12" fill="#0388FF"/>
+<path d="M47.7508 20C50.6962 20 53.084 22.3949 53.084 25.3492V40.5664C53.084 43.5207 50.6962 45.9157 47.7508 45.9157H33.8475L31.3781 50.5953C30.8526 51.5911 29.4333 51.5996 28.8959 50.6102L26.3465 45.9171L26.3457 45.9157H23.3331C20.3877 45.9157 18 43.5207 18 40.5664V25.3492C18 22.3949 20.3877 20 23.3331 20H47.7508Z" fill="#000822"/>
+<path d="M47.7508 20C50.6962 20 53.084 22.3949 53.084 25.3492V40.5664C53.084 43.5207 50.6962 45.9157 47.7508 45.9157H33.8475L31.3781 50.5953C30.8526 51.5911 29.4333 51.5996 28.8959 50.6102L26.3465 45.9171L26.3457 45.9157H23.3331C20.3877 45.9157 18 43.5207 18 40.5664V25.3492C18 22.3949 20.3877 20 23.3331 20H47.7508Z" fill="white"/>
+<ellipse cx="25.3734" cy="26.7548" rx="1.49056" ry="1.49506" fill="#0388FF"/>
+<ellipse cx="30.7523" cy="26.7548" rx="1.49056" ry="1.49506" fill="#0388FF"/>
+<ellipse cx="36.139" cy="26.7548" rx="1.49056" ry="1.49506" fill="#0388FF"/>
+<defs>
+<clipPath id="bgblur_0_291_131_clip_path" transform="translate(44 44)"><rect width="72" height="72" rx="12"/>
+</clipPath></defs>
+</svg>

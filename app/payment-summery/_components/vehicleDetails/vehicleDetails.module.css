@@ -3,13 +3,19 @@
   flex-direction: column;
   gap: 1.4rem;
   width: 100%;
-  /* border-radius: 16px; */
-  /* background: #fff; */
-  /* padding: 2rem 1.8rem; */
   margin-top: 2.4rem;
 }
 .cards {
   display: flex;
   align-items: center;
   gap: 1.4rem;
+}
+@media screen and (max-width: 900px) {
+  .content {
+    margin-top: 2.5rem;
+  }
+  .cards {
+    flex-direction: column;
+    gap: 1.4rem;
+  }
 }

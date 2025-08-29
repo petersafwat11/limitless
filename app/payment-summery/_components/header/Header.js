@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+import Stepper from "./stepper/Stepper";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -27,14 +28,6 @@ const Header = ({ title }) => {
         className={styles.squares}
       />
       <div className={styles.wrapper}>
-        <Image
-          src="/svg/payment-background.svg"
-          alt="contact-us"
-          width={585}
-          height={776}
-          className={styles.contact}
-        />
-
         <div className={styles.titles}>
           <p className={`${styles.subTitle} ${manrope.className}`}>
             specialized for vehicle insurance
@@ -53,6 +46,41 @@ const Header = ({ title }) => {
               />
             </div>
           </div>
+        </div>
+        <Stepper
+          steps={[
+            {
+              title: "Vehichle",
+              img: {
+                src: "/svg/payment-step-1.svg",
+                alt: "step1",
+                width: 68,
+                height: 68,
+              },
+            },
+            {
+              title: "Quote",
+              img: {
+                src: "/svg/payment-step-2.svg",
+                alt: "step2",
+                width: 72,
+                height: 72,
+              },
+            },
+            {
+              title: "Payment",
+              img: {
+                src: "/svg/payment-step-3.svg",
+                alt: "step3",
+                width: 82,
+                height: 82,
+              },
+            },
+          ]}
+        />
+        <div className={styles.actions}>
+          <button className={styles.payButton}>Pay Now</button>
+          <button className={styles.cancelButton}>Back</button>
         </div>
       </div>
     </div>
