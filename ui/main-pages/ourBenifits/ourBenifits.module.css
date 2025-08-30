@@ -69,3 +69,42 @@
 .benifit:nth-child(4) {
   border-right: 1px solid rgba(0, 0, 0, 0.43);
 }
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+    margin: 0 2%;
+    padding: 6.1rem 0 1rem;
+    gap: 3.5rem;
+  }
+  .top {
+    gap: 1.8rem;
+    max-width: 30rem;
+  }
+  .title {
+    font-size: 3.4rem;
+  }
+  .description {
+    font-size: 1.4rem;
+  }
+
+  .benifits {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0;
+    width: 72%;
+    margin: 0 14%;
+  }
+  .benifit {
+    gap: 3.3rem;
+    padding: 3.5rem 0 5rem;
+    width: 100%;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.43);
+  }
+  .benifit:last-child {
+    border-bottom: none;
+  }
+  .benifitTitle {
+    font-size: 1.6rem;
+    max-width: 29rem;
+  }
+}

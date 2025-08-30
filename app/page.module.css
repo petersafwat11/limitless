@@ -1,3 +1,8 @@
 .reviewsContainer {
   padding: 12rem 0 7.5rem;
 }
+@media (max-width: 900px) {
+  .reviewsContainer {
+    padding: 8.6rem 2%;
+  }
+}

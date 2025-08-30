@@ -15,7 +15,13 @@ const QuestionsAnswered = () => {
       </h2>
       <div className={styles.wrapper}>
         <div className={styles.question1}>
-          <Image src="/svg/FAQ.svg" alt="FAQ" width={469} height={238} />
+          <Image
+            className={styles.image}
+            src="/svg/FAQ.svg"
+            alt="FAQ"
+            width={469}
+            height={238}
+          />
           <div className={styles.contentContainer}>
             <div className={styles.content}>
               <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
@@ -40,6 +46,7 @@ const QuestionsAnswered = () => {
         <div className={styles.questions}>
           <div className={styles.question}>
             <Image
+              className={styles.image}
               src="/svg/learn-more.svg"
               alt="learn-more"
               width={101}
@@ -68,6 +75,7 @@ const QuestionsAnswered = () => {
           </div>
           <div className={styles.question}>
             <Image
+              className={styles.image}
               src="/svg/humans.svg"
               alt="humans"
               width={119}

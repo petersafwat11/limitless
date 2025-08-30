@@ -104,83 +104,53 @@
 }
 @media screen and (max-width: 900px) {
   .squares {
-    position: absolute;
-    top: -36rem;
-    right: -74rem;
+    width: 485.816px;
+    height: 246px;
+    top: -7.5rem;
+    right: -29rem;
   }
   .contact {
-    position: absolute;
-    top: 10.6rem;
-    right: 23rem;
+    width: 378.906px;
+    height: 502.617px;
+    top: 35rem;
+    right: -10rem;
   }
   .wrapper {
-    padding: 0 0 1.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 8.5rem;
+    padding: 3.9rem 3% 1.4rem;
+    gap: 3.5rem;
   }
   .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 5% 0 2.6%;
-  }
-  .content {
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    gap: 3.4rem;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .content {
     gap: 2.8rem;
-    flex-basis: 39.5%;
+    flex-basis: 100%;
+    max-width: 85%;
   }
 
   .subTitle {
-    color: #049cff;
     font-size: 1.4rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 124%;
-    letter-spacing: 0.56px;
-    text-transform: uppercase;
+    max-width: 65%;
   }
   .title {
-    color: #fff;
-    font-size: 7.4rem;
-    font-weight: 700;
-    line-height: 94%; /* 69.56px */
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
+    font-size: 4.8rem;
     gap: 0.3rem;
   }
-  .titleSpan {
-    color: #049cff;
-    white-space: nowrap;
-    position: relative;
-  }
   .description {
-    color: rgba(255, 255, 255, 0.64);
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 124%;
-    letter-spacing: 0.64px;
-    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    margin-bottom: 0;
   }
-  .curvedBorder {
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: auto;
-  }
-
   .features {
     flex-direction: column;
     gap: 1.2rem;
-    margin: 0 4%;
+    margin: 0;
   }
   .features > div {
     width: 100%;

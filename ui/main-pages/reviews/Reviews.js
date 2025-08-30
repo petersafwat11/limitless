@@ -18,11 +18,11 @@ const Reviews = () => {
     <div className={styles.container}>
       <div className={styles.first}>
         <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
-          Hear From Our Customers
+          Hear From Our <span>Customers</span>
         </h2>
         <div className={styles.starsContainer}>
-
           <Image
+            className={styles.star1}
             src={`/svg/google-icon.png`}
             alt="star"
             width={24}
@@ -32,6 +32,7 @@ const Reviews = () => {
           <div className={styles.stars}>
             {[1, 2, 3, 4, 5].map((item) => (
               <Image
+                className={styles.star}
                 src={`/svg/star.svg`}
                 alt="star"
                 width={18}
@@ -64,6 +65,7 @@ const Reviews = () => {
                 <div className={styles.stars}>
                   {[1, 2, 3, 4, 5].map((item) => (
                     <Image
+                      className={styles.star}
                       src={`/svg/star.svg`}
                       alt="star"
                       width={18}
@@ -94,6 +96,7 @@ const Reviews = () => {
                 <div className={styles.stars}>
                   {[1, 2, 3, 4, 5].map((item) => (
                     <Image
+                      className={styles.star}
                       src={`/svg/star.svg`}
                       alt="star"
                       width={18}
