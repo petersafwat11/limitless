@@ -3,16 +3,34 @@
   flex-direction: column;
   gap: 2.4rem;
   padding: 3.4rem;
+  border-radius: 16px;
+  background: #fff;
 }
 .row {
   display: flex;
   gap: 1.8rem;
 }
-.row div {
+.row > div {
   flex: 1;
 }
 .selections {
   display: flex;
   width: 100%;
   gap: 1.8rem;
+  margin: 1.4rem 0;
+}
+@media screen and (max-width: 900px) {
+  .content {
+    gap: 2.6rem;
+    padding: 2rem;
+  }
+  .row {
+    flex-direction: column;
+    gap: 2.6rem;
+  }
+  .selections {
+    flex-direction: column;
+    gap: 2.2em;
+    margin: 2.2rem 0;
+  }
 }

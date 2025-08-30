@@ -60,3 +60,19 @@
   border: 2px solid white;
   outline: 1px solid #0388ff;
 }
+@media screen and (max-width: 900px) {
+  .inputGroup {
+    gap: 1.4rem;
+  }
+  .selectionContainer {
+    gap: 0.4rem;
+    height: 5.4rem;
+  }
+  .selectionItem,
+  .selectedItem {
+    height: 4.2rem;
+    gap: 1.2rem;
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+  }
+}

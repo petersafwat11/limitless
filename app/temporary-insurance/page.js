@@ -12,8 +12,8 @@ const page = () => {
 
       <div className="insuranceQuotesContainer">
         <VehicleDetails />
-        <PersonalDetails />
         <CoverDetails />
+        <PersonalDetails />
         <TermsAndConditions />
       </div>
     </div>

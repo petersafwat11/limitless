@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
-import Stepper from "../stepper/Stepper";
+import Stepper from "@/app/payment-summery/_components/header/stepper/Stepper";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],

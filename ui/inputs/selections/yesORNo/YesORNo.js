@@ -20,7 +20,7 @@ const YesORNo = ({ value, onChange }) => {
       >
         <span
           className={`${styles.selectionSpan} ${
-            value ? styles.selectedSpan : ""
+            value ? "" : styles.selectedSpan
           }`}
         ></span>
         No

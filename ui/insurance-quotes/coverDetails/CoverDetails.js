@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./coverDetails.module.css";
-import Image from "next/image";
 import Selection1 from "@/ui/inputs/selections/selection1/Selection1";
 import DataAndTime from "@/ui/inputs/selections/dataAndTime/DataAndTime";
 import Title from "../title/Title";
@@ -19,18 +18,21 @@ const CoverDetails = () => {
         <div className={styles.inputGroup}>
           <Title title="How long will you need it?" />
           <div className={styles.selectionContainer}>
-            <Selection1
-              items={["Days", "Weeks", "Months"]}
-              selectedItem={data.type}
-              setSelectedItem={(item) => setData({ ...data, type: item })}
-              type="checkbox"
-            />
-            <Selection1
-              items={["1", "2", "3", "4", "5", "6", "7"]}
-              selectedItem={data.value}
-              setSelectedItem={(item) => setData({ ...data, value: item })}
-              // type="radio"
-            />
+            <p className={styles.label}>Select the duration of your cover</p>
+            <div className={styles.selectionOptions}>
+              <Selection1
+                items={["Days", "Weeks", "Months"]}
+                selectedItem={data.type}
+                setSelectedItem={(item) => setData({ ...data, type: item })}
+                type="checkbox"
+              />
+              <Selection1
+                items={["1", "2", "3", "4", "5", "6", "7"]}
+                selectedItem={data.value}
+                setSelectedItem={(item) => setData({ ...data, value: item })}
+                // type="radio"
+              />
+            </div>
           </div>
         </div>
         <div className={styles.inputGroup}>
@@ -45,7 +47,6 @@ const CoverDetails = () => {
             timeKey="startTime"
           />
         </div>
-        
       </div>
     </ComponentWrapper>
   );

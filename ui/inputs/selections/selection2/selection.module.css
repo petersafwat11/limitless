@@ -72,3 +72,36 @@
   border: 2px solid white;
   outline: 1px solid #0388ff;
 }
+@media screen and (max-width: 900px) {
+  .container {
+    gap: 2.6rem;
+    padding: 3rem 2.4rem;
+  }
+  .img {
+    width: 6rem;
+    height: 8rem;
+  }
+  .header {
+    gap: 2.6rem;
+    flex-direction: column;
+    width: 80%;
+  }
+  .headerContent {
+    gap: 0.8rem;
+    flex-direction: column;
+  }
+  .title,
+  .description {
+    font-size: 1.4rem;
+  }
+  .selectionContainer {
+    gap: 0.8rem;
+  }
+  .selectionItem,
+  .selectedItem {
+    padding: 1rem 1.2rem;
+    max-width: 27rem;
+    height: 4.2rem;
+    gap: 1.2rem;
+  }
+}

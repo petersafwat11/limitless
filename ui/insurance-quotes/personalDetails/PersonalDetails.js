@@ -84,7 +84,7 @@ const PersonalDetails = () => {
             placeholder="Enter your postcode"
             value={data.postCode}
             onChange={(e) => setData({ ...data, postCode: e.target.value })}
-            button={<ConfirmBtn text="Find Address" onClick={() => {}} />}
+            button={<ConfirmBtn title="Find Address" onClick={() => {}} />}
           />
         </div>
         <div className={styles.row}>
@@ -123,44 +123,45 @@ const PersonalDetails = () => {
             onChange={(e) => setData({ ...data, industry: e.target.value })}
           />
         </div>
-        <div className={styles.selections}>
-          <Selection2
-            title="Where do you keep your car during the day?"
-            description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
-            items={[
-              "At home",
-              "Office or factory car park",
-              "Open public car park",
-              "Private car park",
-              "Secure public car park",
-              "Street away from home",
-            ]}
-            img={{ src: "/svg/day.svg", alt: "sun", width: 79, height: 106 }}
-            selectedItem={data.keepingCarDuringDay}
-            setSelectedItem={(item) =>
-              setData({ ...data, keepingCarDuringDay: item })
-            }
-          />
-          <Selection2
-            description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
-            title="Where do you keep your car during the night?"
-            items={[
-              "Drive",
-              "Street outside home",
-              "Locked garage",
-              "Street away from home",
-              "Public car park",
-              "Work car park",
-              "Private property",
-            ]}
-            img={{ src: "/svg/night.svg", alt: "moon", width: 79, height: 106 }}
-            selectedItem={data.keepingCarDuringNight}
-            setSelectedItem={(item) =>
-              setData({ ...data, keepingCarDuringNight: item })
-            }
-          />
-        </div>
       </div>
+      <div className={styles.selections}>
+        <Selection2
+          title="Where do you keep your car during the day?"
+          description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
+          items={[
+            "At home",
+            "Office or factory car park",
+            "Open public car park",
+            "Private car park",
+            "Secure public car park",
+            "Street away from home",
+          ]}
+          img={{ src: "/svg/day.svg", alt: "sun", width: 79, height: 106 }}
+          selectedItem={data.keepingCarDuringDay}
+          setSelectedItem={(item) =>
+            setData({ ...data, keepingCarDuringDay: item })
+          }
+        />
+        <Selection2
+          description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
+          title="Where do you keep your car during the night?"
+          items={[
+            "Drive",
+            "Street outside home",
+            "Locked garage",
+            "Street away from home",
+            "Public car park",
+            "Work car park",
+            "Private property",
+          ]}
+          img={{ src: "/svg/night.svg", alt: "moon", width: 79, height: 106 }}
+          selectedItem={data.keepingCarDuringNight}
+          setSelectedItem={(item) =>
+            setData({ ...data, keepingCarDuringNight: item })
+          }
+        />
+      </div>
+
       <CarUsage />
     </ComponentWrapper>
   );

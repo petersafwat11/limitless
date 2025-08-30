@@ -45,3 +45,20 @@
   line-height: 124%;
   letter-spacing: 0.56px;
 }
+@media screen and (max-width: 900px) {
+  .container {
+    gap: 1.8rem;
+    flex-direction: column;
+  }
+  .option {
+    padding: 1.7rem 1.2rem 1.4rem 2rem;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  }
+  .optionContent {
+    gap: 0.8rem;
+  }
+  .title .description {
+    font-size: 1.4rem;
+  }
+}

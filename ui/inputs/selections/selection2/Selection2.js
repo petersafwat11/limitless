@@ -20,7 +20,7 @@ const Selection2 = ({
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.imgContainer}>
-          <Image src={img} alt={title} />
+          <Image src={img} alt={title} width={80} height={106} className={styles.img} />
         </div>
         <div className={styles.headerContent}>
           <h3 className={`${styles.title} ${plusJakartaSans.className}`}>

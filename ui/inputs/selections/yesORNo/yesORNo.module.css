@@ -32,7 +32,8 @@
   background: #06112b;
   color: #fff;
 }
-.selectionSpan {
+.selectionSpan,
+.selectedSpan {
   display: flex;
   width: 1.6rem;
   height: 1.6rem;
@@ -44,4 +45,15 @@
   background: #0388ff;
   border: 1px solid transparent;
   outline: 1px solid #0388ff;
+}
+@media screen and (max-width: 900px) {
+  .container {
+    gap: 0.6rem;
+    height: 5.4rem;
+    padding: 0.6rem;
+  }
+  .button,
+  .active {
+    gap: 1.2rem;
+  }
 }

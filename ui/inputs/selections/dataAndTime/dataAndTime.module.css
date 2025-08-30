@@ -68,7 +68,8 @@
   margin-top: 1.2rem;
   border-radius: 1.6rem;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(79, 99, 215, 0.15), 0 4px 16px rgba(0, 8, 34, 0.08);
+  box-shadow: 0 8px 32px rgba(79, 99, 215, 0.15),
+    0 4px 16px rgba(0, 8, 34, 0.08);
   backdrop-filter: blur(16px);
 }
 
@@ -81,3 +82,39 @@
 }
 
 /* Override react-datepicker default styles */
+@media screen and (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 2.6rem;
+  }
+  .inputGroup {
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .iconContainer {
+    width: 4.2rem;
+    height: 4.2rem;
+  }
+  .inputContainer {
+    gap: 1.4rem;
+    padding: 0.6rem 1.8rem 0.6rem 0.6rem;
+    height: 5.4rem;
+  }
+  .input {
+    font-size: 1.4rem;
+  }
+
+  .datePickerWrapper {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    margin-top: 1.2rem;
+    border-radius: 1.6rem;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(79, 99, 215, 0.15),
+      0 4px 16px rgba(0, 8, 34, 0.08);
+    backdrop-filter: blur(16px);
+  }
+}

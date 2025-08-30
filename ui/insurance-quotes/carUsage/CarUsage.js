@@ -10,7 +10,8 @@ const CarUsage = () => {
     <div className={styles.container}>
       <div className={styles.firstSection}>
         <Title title="What do you use the car for?" />
-        <Selection3
+        <div className={styles.selections}>
+              <Selection3
           options={[
             {
               title: "Social use only",
@@ -31,6 +32,8 @@ const CarUsage = () => {
           selectedItem={null}
           setSelectedItem={() => {}}
         />
+    
+        </div>
       </div>
       <div className={styles.secondSection}>
         <div className={styles.row}>
