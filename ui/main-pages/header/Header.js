@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import GetQuote from "../../getQuote/getQuote";
 import styles from "./header.module.css";
 import Feature from "../../feature/Feature";
 import Image from "next/image";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+import GetQuote from "../../getQuote/getQuote";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
