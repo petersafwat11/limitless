@@ -78,7 +78,7 @@
   right: 0;
   width: 33.3%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(3, 136, 255, 0) 0%, #0388ff 184.11%);
+  background: linear-gradient(to top, rgba(3, 136, 255, 0) 0%, #0388ff 184.11%);
 }
 .background2 {
   position: absolute;
@@ -88,7 +88,7 @@
   height: 100%;
 
   opacity: 0.82;
-  background: linear-gradient(180deg, rgba(3, 136, 255, 0) 0%, #0388ff 184.11%);
+  background: linear-gradient(to top, rgba(3, 136, 255, 0) 0%, #0388ff 184.11%);
 }
 .background3 {
   position: absolute;
@@ -97,7 +97,7 @@
   width: 33.4%;
   height: 85%;
   opacity: 0.6;
-  background: linear-gradient(180deg, rgba(3, 136, 255, 0) 0%, #0388ff 184.11%);
+  background: linear-gradient(to top, rgba(3, 136, 255, 0) 0%, #0388ff 184.11%);
 }
 .features {
   display: flex;
@@ -121,8 +121,8 @@
   gap: 3.6rem;
 }
 .featureNumber {
-  width: 4.4rem;
-  height: 4.4rem;
+  min-width: 4.4rem;
+  min-height: 4.4rem;
   border-radius: 50%;
   background: linear-gradient(107deg, #ffffff4d 0%, #0388ff 100%);
   display: flex;
@@ -137,8 +137,8 @@
 .featureContent {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 0.9rem;
 }
 .featureTitle {

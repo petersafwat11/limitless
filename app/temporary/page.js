@@ -17,6 +17,7 @@ import { questions } from "./data";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import TemporaryCover from "./_components/temporaryCover/TemporaryCover";
 import Explaining from "./_components/explaining/Explaining";
+import Calculator from "./_components/calculator/Calculator";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
@@ -57,6 +58,7 @@ const page = () => {
         covered={temporaryCoverDetails.covered}
         unCovered={temporaryCoverDetails.unCovered}
       />
+      <Calculator />
       <TemporaryCover />
       <Eligability data={temporaryEligibility} />
       <div className={styles.paymentOptions}>

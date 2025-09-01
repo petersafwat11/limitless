@@ -32,7 +32,8 @@
 }
 .eligibility {
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  justify-content: stretch;
   gap: 2.6rem;
   margin: 6.9rem 0 2.6rem;
 }

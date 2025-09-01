@@ -86,7 +86,7 @@
   }
   .top {
     gap: 1.8rem;
-    max-width: 30rem;
+    max-width: 35rem;
   }
   .title {
     font-size: 3.4rem;
@@ -107,6 +107,7 @@
     width: 100%;
     border-right: none !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.43);
+
   }
   .benifit:last-child {
     border-bottom: none;
