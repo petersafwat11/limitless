@@ -10,36 +10,30 @@ const manrope = Manrope({
   subsets: ["latin"],
   weight: ["500"],
 });
-const Eligability = () => {
+const Eligability = ({ data }) => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
-          Check your eligibility for impound car insurance
+          {data.title}
         </h3>
-        <p className={styles.description}>
-          {`Want to check  eligibility criteria for temporary car insurance? Here's everything you need to know:`}
-        </p>
+        <p className={styles.description}>{data.description}</p>
       </div>
       <div className={styles.eligibility}>
         <div className={styles.first}>
           <div className={styles.header}>
             <Image
-              src={"/svg/driver-must.svg"}
+              src={data.first.img.src}
               alt="arrow-right"
-              width={132}
-              height={169}
+              width={data.first.img.width}
+              height={data.first.img.height}
             />
             <h4 className={`${styles.title} ${plusJakartaSans.className}`}>
-              Driver eligibility
+              {data.first.title}
             </h4>
           </div>
           <div className={styles.features}>
-            {[
-              "For full UK driving licence holders, you'll usually need to be aged 17-70 to use Cuvva, and have held your licence for over a day if you're a newer driver",
-              "If you're a provisional licence holder you'll need to be aged 17-50 and not have held your licence for over 15 years",
-              "To use Limitless, you can either use a UK licence or use a full driving licence from Belgium, Bulgaria, France, Germany, Greece, Italy, the Netherlands, Poland, Portugal, the Republic of Ireland, Romania, Spain, Sweden, or Switzerland or any other foreign country.",
-            ].map((item, index) => (
+            {data.first.features.map((item, index) => (
               <div className={styles.feature} key={index}>
                 <Image
                   src={"/svg/gray-check.svg"}
@@ -57,23 +51,17 @@ const Eligability = () => {
         <div className={styles.second}>
           <div className={styles.header}>
             <Image
-              src={"/svg/car-must.svg"}
+              src={data.second.img.src}
               alt="arrow-right"
-              width={177}
-              height={145}
+              width={data.second.img.width}
+              height={data.second.img.height}
             />
             <h4 className={`${styles.title} ${plusJakartaSans.className}`}>
-              Your car must
+              {data.second.title}
             </h4>
           </div>
           <div className={styles.features}>
-            {[
-              "Be at most 60 years old (if you're driving a car on a full licence) or at most 40 years old (for learner licences, or vans)",
-              "Be worth less than £300,000 (cars), or be worth less than £200,000 (vans/commercial vehicles)",
-              "Meet our modification rules. We accept lots, including any to aid a disability, but there are some we can't insure.",
-              "Meet our insurance group requirements",
-              "Not be scrapped or impounded temporarily",
-            ].map((item, index) => (
+            {data.second.features.map((item, index) => (
               <div className={styles.feature} key={index}>
                 <Image
                   src={"/svg/gray-check.svg"}

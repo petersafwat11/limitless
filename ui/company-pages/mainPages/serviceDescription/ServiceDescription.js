@@ -7,7 +7,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
-const ServiceDescription = ({ services, title, description, button }) => {
+const ServiceDescription = ({ services, title, description, button, img }) => {
   const words = title.split(" ");
   const lastWord = words[words.length - 1];
   const withoutLastWord = words.slice(0, -1).join(" ");
@@ -16,10 +16,10 @@ const ServiceDescription = ({ services, title, description, button }) => {
     <div className={styles.container}>
       <div className={styles.first}>
         <Image
-          src="/svg/get-quote.svg"
-          alt="get-quote"
-          width={610}
-          height={393}
+          src={img.src}
+          alt={img.alt}
+          width={img.width}
+          height={img.height}
         />
       </div>
       <div className={styles.second}>

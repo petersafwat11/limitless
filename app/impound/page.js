@@ -2,13 +2,24 @@ import React from "react";
 import Header from "@/ui/main-pages/header/Header";
 import OurBenifits from "@/ui/main-pages/ourBenifits/OurBenifits";
 import ServiceDescription from "@/ui/company-pages/mainPages/serviceDescription/ServiceDescription";
-import { features, benifits, impoundCoverDetails } from "./data";
+import {
+  features,
+  benifits,
+  impoundCoverDetails,
+  impoundEligibility,
+} from "./data";
 import ServiceCovered from "@/ui/company-pages/mainPages/serviceCovered/ServiceCovered";
 import Eligability from "@/ui/company-pages/mainPages/eligability/Eligability";
 import PaymentOptions from "@/ui/company-pages/mainPages/paymentsOptions/PaymentOptions";
 import styles from "./page.module.css";
 import WhenImpound from "./_components/whenImpound/WhenImpound";
-
+import QuestionsGroup from "./_components/questionsGroup/QuestionsGroup";
+import { questions } from "./data";
+import { Plus_Jakarta_Sans } from "next/font/google";
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+});
 const page = () => {
   return (
     <div>
@@ -26,7 +37,13 @@ const page = () => {
         ]}
         title="Impound Vehicle Insurance"
         description="Temporary compound insurance allows you to release your car quickly
-          and easily."
+                  and easily."
+        img={{
+          src: "/svg/get-quote.svg",
+          alt: "impound vehicle insurance",
+          width: 610,
+          height: 393,
+        }}
         button="Get a Quote"
       />
       <OurBenifits
@@ -41,11 +58,16 @@ const page = () => {
         covered={impoundCoverDetails.covered}
         unCovered={impoundCoverDetails.unCovered}
       />
-      <Eligability />
+      <Eligability data={impoundEligibility} />
       <div className={styles.paymentOptions}>
         <PaymentOptions />
       </div>
-      {/* <TermsAndConditions /> */}
+      <div className={styles.questions}>
+        <h2 className={`${styles.questionsTitle} ${plusJakartaSans.className}`}>
+          Frequently asked<span> questions</span>
+        </h2>
+        <QuestionsGroup questions={questions} />
+      </div>
     </div>
   );
 };
