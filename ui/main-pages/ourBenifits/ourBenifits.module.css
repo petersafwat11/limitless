@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   margin: 0 1.1%;
-  padding: 8.3rem 0 6.1rem;
+  padding: 7.3rem 0 5rem;
   border-radius: 20px;
   background: linear-gradient(
     180deg,
@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
   gap: 2.4rem;
-  max-width: 55.3rem;
+  max-width: 78rem;
 }
 .title {
   color: #000822;
@@ -29,6 +29,14 @@
   font-weight: 700;
   line-height: 100%; /* 58px */
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.title span {
+  color: #049cff;
 }
 .description {
   color: rgba(0, 8, 34, 0.7);

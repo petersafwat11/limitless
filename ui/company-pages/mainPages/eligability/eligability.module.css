@@ -85,3 +85,44 @@
   letter-spacing: 0.64px;
   text-align: left;
 }
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 4.1rem 2% 3.1rem;
+    margin: 0 2%;
+  }
+  .header {
+    gap: 1.8rem;
+  }
+  .title {
+    font-size: 3.4rem;
+  }
+  .description {
+    font-size: 1.4rem;
+  }
+  .eligibility {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    margin: 4.5rem 0 0;
+  }
+  .first,
+  .second {
+    gap: 4.2rem;
+    padding: 0 1.8rem 2.2rem;
+  }
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .title {
+    font-size: 2.4rem;
+  }
+  .feature {
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+  }
+  .featureText {
+    font-size: 1.4rem;
+  }
+}

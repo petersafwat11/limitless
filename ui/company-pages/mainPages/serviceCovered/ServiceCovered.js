@@ -2,9 +2,16 @@ import React from "react";
 import styles from "./serviceCovered.module.css";
 import Image from "next/image";
 const ServiceCovered = ({ title, description, covered, unCovered }) => {
+  const words = title.split(" ");
+  const lastThreeWords = words.slice(-3).join(" "); // last 2 words
+  const withoutLastThreeWords = words.slice(0, -3).join(" "); // everything except last 2
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>{title}</h3>
+      <h3 className={styles.title}>
+        {withoutLastThreeWords}
+        <span>{lastThreeWords}</span>
+      </h3>
+
       <div className={styles.content}>
         <div className={styles.covered}>
           <div className={styles.header}>
@@ -14,7 +21,7 @@ const ServiceCovered = ({ title, description, covered, unCovered }) => {
               width={89}
               height={64}
             />
-              <h4 className={styles.coveredTitle}>{covered.title}</h4>
+            <h4 className={styles.coveredTitle}>{covered.title}</h4>
           </div>
           <div className={styles.features}>
             {covered.features.map((feature, index) => (

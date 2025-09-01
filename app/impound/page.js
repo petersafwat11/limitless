@@ -7,6 +7,8 @@ import ServiceCovered from "@/ui/company-pages/mainPages/serviceCovered/ServiceC
 import Eligability from "@/ui/company-pages/mainPages/eligability/Eligability";
 import PaymentOptions from "@/ui/company-pages/mainPages/paymentsOptions/PaymentOptions";
 import styles from "./page.module.css";
+import WhenImpound from "./_components/whenImpound/WhenImpound";
+
 const page = () => {
   return (
     <div>
@@ -15,10 +17,6 @@ const page = () => {
         title="Impound Insurance"
         description="Impound insurance is a specialized type of vehicle insurance required to release a car from a police impound. Most car insurance policies don’t meet the requirements for impounded vehicles, which is where impound insurance comes in."
         features={features}
-      />
-      <OurBenifits
-        benifits={benifits}
-        title="Why might your vehicle be impounded?"
       />
       <ServiceDescription
         services={[
@@ -31,8 +29,14 @@ const page = () => {
           and easily."
         button="Get a Quote"
       />
+      <OurBenifits
+        benifits={benifits}
+        title="Why might your vehicle be impounded?"
+      />
+      <WhenImpound />
+
       <ServiceCovered
-        title="What does impound car insurance cover?"
+        title="What does impound vehicle insurance cover?"
         description="Tempcover works with a panel of insurers to provide you with compound car insurance cover. As such, full details of cover may differ depending on your insurer. Since our impound car insurance policies last for 30 days, you’ll have the freedom to do whatever you want with your car once it’s recovered – whether that’s selling it, declaring it SORN or taking it back on the road. Before buying, please double-check the policy wording."
         covered={impoundCoverDetails.covered}
         unCovered={impoundCoverDetails.unCovered}

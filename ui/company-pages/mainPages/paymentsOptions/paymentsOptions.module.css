@@ -18,3 +18,23 @@
   align-items: center;
   gap: 0.8rem;
 }
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 2.5rem 1rem 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3.8rem;
+  }
+  .title {
+    font-size: 2.4rem;
+  }
+  .options {
+    justify-content: space-between;
+  }
+  .options img{
+    flex-basis: 33.3%;
+    width: 33.3%;
+    height: auto;
+  }
+}

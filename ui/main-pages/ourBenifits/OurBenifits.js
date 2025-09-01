@@ -6,18 +6,20 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
-const OurBenifits = ({benifits, title, description}) => {
+
+const OurBenifits = ({ benifits, title, description }) => {
+  const words = title.split(" ");
+  const lastTwoWords = words.slice(-2).join(" "); // last 2 words
+  const withoutLastTwoWords = words.slice(0, -2).join(" "); // everything except last 2
+
   return (
     <div className={`${styles.container}`}>
       <div className={styles.top}>
         <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
-          {title}
+          {withoutLastTwoWords}
+          <span>{lastTwoWords}</span>
         </h2>
-        {description && (
-          <p className={styles.description}>
-            {description}
-          </p>
-        )}
+        {description && <p className={styles.description}>{description}</p>}
       </div>
       <div className={styles.benifits}>
         {benifits.map((benifit, index) => (

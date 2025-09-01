@@ -3,19 +3,29 @@
   margin-bottom: 2.2rem;
   display: flex;
   flex-direction: column;
+  background: #f2f5fe;
 }
 .title {
   color: #000822;
   font-size: 5.8rem;
   font-weight: 700;
   line-height: 100%; /* 58px */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+}
+.title span {
+  color: #0388ff;
 }
 .content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2.3rem;
-  margin-top: 8.3rem;
+  margin-top: 5.6rem;
   margin-bottom: 5.2rem;
 }
 .covered,
@@ -49,12 +59,14 @@
   align-items: center;
   gap: 3.2rem;
   padding: 1.6rem 0;
+  border-bottom: 1px solid rgba(0, 8, 34, 0.24);
 }
 .feature:first-child {
   padding-top: 0;
 }
 .feature:last-child {
   padding-bottom: 0;
+  border-bottom: none;
 }
 .featureText {
   color: rgba(0, 8, 34, 0.7);
@@ -66,10 +78,10 @@
 
 .footer {
   display: inline-flex;
-  padding: 28px 6px 42px 0;
+  padding: 3.5rem 0 4.2rem 0;
   align-items: flex-start;
-  gap: 35px;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  gap: 62px;
+  border-top: 1px solid rgba(0, 8, 34, 0.24);
 }
 .description {
   color: #4c5264;
@@ -77,4 +89,59 @@
   font-weight: 400;
   line-height: 114%; /* 18.24px */
   letter-spacing: 0.64px;
+}
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 6.5rem 4.4% 8.1rem;
+    margin-bottom: 0;
+  }
+  .title {
+    max-width: 37rem;
+    font-size: 3.4rem;
+    margin: 0 auto;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.2rem;
+    margin-top: 2.2rem;
+    margin-bottom: 2.7rem;
+  }
+  .covered,
+  .unCovered {
+    gap: 3.3rem;
+    padding: 2.1rem 1.8rem 1.8rem;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3.3rem;
+  }
+  .coveredTitle,
+  .unCoveredTitle {
+    font-size: 2.4rem;
+  }
+  .feature {
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+  }
+  .feature img {
+    width: 16px;
+    height: 16px;
+  }
+  .featureText {
+    font-size: 1.4rem;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2.4rem 0 0;
+    gap: 22px;
+  }
+  .description {
+    font-size: 1.4rem;
+  }
 }
