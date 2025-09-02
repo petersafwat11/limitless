@@ -74,7 +74,6 @@
   position: relative;
   z-index: 1;
   max-width: 90%;
-  max-width: 32rem;
 }
 
 .title,
@@ -194,5 +193,67 @@
   }
   .text {
     max-width: 100%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 4.8rem 5.5% 1.8rem;
+    gap: 4.7rem;
+  }
+  .content {
+    min-height: 518px;
+  }
+  .first {
+    gap: 2.8rem;
+    padding: 3.4rem 6.7% 1.4rem;
+    min-height: auto;
+  }
+
+  .text {
+    gap: 1.4rem;
+  }
+  .text,
+  .description {
+    max-width: 100%;
+  }
+
+  .title,
+  .contentTitle {
+    font-size: 3.4rem;
+  }
+  .form {
+    gap: 1.4rem;
+    padding: 0 5% 4.8rem;
+    flex-basis: 100%;
+    min-width: 100%;
+  }
+  .selection {
+    gap: 1.4rem;
+  }
+  .label {
+    font-size: 1.4rem;
+  }
+
+  .card {
+    padding: 2.2rem 1.2rem 1rem;
+  }
+  .cardHeader {
+    padding: 2.2rem 1.7rem 1.1rem;
+    margin-bottom: 0;
+  }
+  .left {
+    gap: 1.6rem;
+  }
+  .cardTitle {
+    font-size: 1.4rem;
+  }
+
+  .cardPrice {
+    font-size: 3.4rem;
+  }
+
+  .cardDescription {
+    font-size: 1.4rem;
+    padding: 2rem 0 2rem;
   }
 }

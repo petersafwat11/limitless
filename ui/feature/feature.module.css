@@ -28,3 +28,16 @@
   line-height: 124%;
   letter-spacing: 0.56px;
 }
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 2rem 3rem;
+    gap: 3.6rem;
+  }
+  .title {
+    font-size: 1.6rem;
+  }
+  .img {
+    height: 5rem;
+    width: auto;
+  }
+}

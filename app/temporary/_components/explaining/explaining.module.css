@@ -14,7 +14,6 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-right: 7rem;
 }
 .second {
   width: 1310px;
@@ -36,9 +35,7 @@
   gap: 2.4rem;
 }
 .first .content {
-    max-width: 95%;
-    margin-left: 10%;
-  /* margin-right: -10%; */
+  padding: 0 10.5rem;
 }
 .second .content {
   width: 58%;
@@ -154,4 +151,114 @@
   font-weight: 400;
   line-height: 124%; /* 17.36px */
   letter-spacing: 0.56px;
+}
+@media screen and (max-width: 1400px) {
+  .first .content {
+    margin-left: 0;
+    padding: 0 3rem;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .container {
+    gap: 4rem;
+  }
+  .first,
+  .second {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .second {
+    padding: 0 0 3rem 0;
+    flex-direction: column-reverse;
+  }
+  .first {
+    padding: 0;
+  }
+  .first .content,
+  .second .content {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    min-height: auto;
+  }
+  .second > div {
+    min-height: auto;
+    padding: 2.5rem 0;
+    width: 100%;
+  }
+  .images {
+    width: 100%;
+  }
+  .images img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    margin: 2.4 auto;
+    gap: 4.7rem;
+  }
+  .second {
+    width: 92.6%;
+    min-height: auto;
+    margin: 0 3.7% 1.9rem;
+    flex-direction: column-reverse;
+    padding: 0 0 1.8rem;
+    overflow: hidden;
+  }
+  .content {
+    gap: 2.4rem;
+  }
+  .first {
+    gap: 4rem;
+    padding: 0;
+  }
+  .first .content {
+    padding: 0 7%;
+  }
+  .second .content {
+    width: 100%;
+    padding: 0 7%;
+  }
+  .second > div {
+    min-height: auto;
+    padding: 1.3rem 0 5.1rem;
+  }
+  .title {
+    font-size: 3.4rem;
+  }
+  .description {
+    font-size: 1.4rem;
+  }
+  .description,
+  .title {
+    max-width: 100%;
+  }
+  /* .featuresContainer {
+    padding: 0 0 5.1rem;
+  } */
+  .features {
+    gap: 1.2rem;
+    margin: 0 3.5%;
+  }
+
+  .feature {
+    padding: 2rem 2.3rem;
+    gap: 2.4rem;
+  }
+  .featureNumber {
+    min-width: 2.8rem;
+    min-height: 2.8rem;
+    font-size: 10px;
+  }
+  .featureContent {
+    gap: 0.6rem;
+  }
+  .featureTitle {
+    font-size: 1.6rem;
+  }
 }
