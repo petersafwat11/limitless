@@ -9,7 +9,7 @@ const page = () => {
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Your Claims</h1>
+        <h1 className={styles.title}>Your Claim</h1>
       </div>
       <div className={styles.container}>
         <PolicyDetails />

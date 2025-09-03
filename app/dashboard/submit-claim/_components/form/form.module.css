@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: center;
   gap: 4.6rem;
-  margin-top: 8rem;
+  margin-top: 7.5rem;
+  width: 100%;
 }
 
 .formTitle {
@@ -29,4 +30,24 @@
 }
 .row > div {
   flex: 1;
+}
+
+@media screen and (max-width: 900px) {
+  .form {
+    gap: 2.8rem;
+    margin-top: 5rem;
+    width: 100%;
+  }
+
+  .formTitle {
+    font-size: 2.4rem;
+  }
+  .formContainer {
+    gap: 2.6rem;
+    padding: 2.2rem;
+  }
+  .row {
+    flex-direction: column;
+    gap: 2.6rem;
+  }
 }

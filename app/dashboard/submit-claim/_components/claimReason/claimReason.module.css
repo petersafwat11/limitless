@@ -44,6 +44,8 @@
   .container {
     gap: 2.76rem; 
     margin-top: 5.75rem; 
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 
   .title {

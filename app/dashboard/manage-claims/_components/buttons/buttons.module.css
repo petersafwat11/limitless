@@ -38,3 +38,17 @@
   background: linear-gradient(0deg, #fe8198 0%, #fe8198 100%), #fff;
   box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
 }
+@media screen and (max-width: 900px) {
+  .buttons {
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 500rem;
+    margin: 0 auto;
+  }
+  .backButton,
+  .cancelButton {
+    width: 100%;
+    height: 4.8rem;
+    font-size: 1.4rem;
+  }
+}

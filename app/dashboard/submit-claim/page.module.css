@@ -1,10 +1,10 @@
 .page {
   margin: 6rem 0 11.5rem;
   width: 100%;
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
 }
 .claims {
   display: flex;
@@ -43,12 +43,12 @@
     gap: 2.4rem;
     flex-direction: column;
   }
-  .claimsContainer :first-child img {
+  /* .claimsContainer :first-child .img {
     width: 63px;
     height: 60px;
   }
-  .claimsContainer :nth-child(2) img {
+  .claimsContainer :nth-child(2).img {
     width: 69px;
     height: 67px;
-  }
+  } */
 }

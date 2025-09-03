@@ -53,7 +53,7 @@ const Submitted = () => {
       <button className={styles.claimsPortal}>
         Claims Portal
         <Image
-          src="/svg/arrow-right.svg"
+          src="/svg/blue-right.svg"
           alt="arrow-right"
           width={28}
           height={14}

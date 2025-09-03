@@ -78,7 +78,7 @@ const page = async ({ searchParams }) => {
 
   return (
     <div className={styles.page}>
-      <Stepper steps={steps} />
+      {type !== "guidelines" && <Stepper steps={steps} />}
 
       {type === "submitted" && <Submitted />}
       {type === "reason" && <ClaimReason />}

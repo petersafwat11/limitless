@@ -25,3 +25,16 @@
   flex-direction: row;
   gap: 1.5rem;
 }
+@media screen and (max-width: 900px) {
+  .title {
+    padding: 2.2rem;
+  }
+  .body {
+    gap: 2.6rem;
+    padding: 2.2rem;
+  }
+  .row {
+    gap: 2.6rem;
+    flex-direction: column;
+  }
+}

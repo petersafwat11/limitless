@@ -76,7 +76,9 @@
     padding: 2.5rem 1.6rem;
   }
   .img {
-    margin-left: 1.8rem;
+    margin-left: 0.4rem;
+    height: 7.5rem;
+    width: auto;
   }
   .claimFeatureText {
     gap: 1.6rem;
