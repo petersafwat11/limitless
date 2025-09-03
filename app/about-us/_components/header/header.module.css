@@ -3,11 +3,18 @@
   top: -36rem;
   right: -74rem;
 }
-.wrapper {
-  padding: 0.8rem 0 1.8rem;
+.headerContainer {
+  width: calc(100% - 2.2%);
+  /* height: 884px; */
+  border-radius: 20px;
+  background: #000822;
+  margin: calc(-1.1% - 7.8rem) 1.1% 0 1.1%;
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 7.4rem;
+  padding: 18.5rem 0 1.8rem;
 }
 .container {
   display: flex;
@@ -17,51 +24,7 @@
   padding: 0 7% 0 2.7%;
 }
 .imageContainer {
-  position: relative;
-  flex-basis: 40%;
-  height: 48rem;
-}
-.blueBackground {
-  position: absolute;
-  width: 284px;
-  height: 671px;
-  flex-shrink: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(3, 136, 255, 0) 0%,
-    rgba(3, 136, 255, 0.48) 100%
-  );
-  top: 0;
-  right: 7%;
-}
-.blueBackground2 {
-  position: absolute;
-  width: 281px;
-  height: 430px;
-  background: linear-gradient(
-    180deg,
-    rgba(3, 136, 255, 0) 0%,
-    rgba(3, 136, 255, 0.48) 100%
-  );
-  top: 24.4rem;
-  right: calc(7% + 284px);
-}
-.image1,
-.image2,
-.image3 {
-  position: absolute;
-}
-.image1 {
-  bottom: 0;
-  right: 7.7rem;
-}
-.image2 {
-  right: 7.7rem;
-  top: 0;
-}
-.image3 {
-  top: 7rem;
-  right: 2.8rem;
+  margin-top: -18.5rem;
 }
 .content {
   display: flex;
@@ -142,4 +105,71 @@
 
 .confirmBtn:hover {
   background: rgba(3, 137, 255, 0.8);
+}
+@media screen and (max-width: 1300px) {
+  .features {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+    margin: 0 auto;
+    max-width: 80rem;
+  }
+  .features > div {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0rem;
+    padding: 0;
+  }
+  .imageContainer {
+    margin-top: -4rem;
+    width: 100%;
+    padding: 0;
+  }
+  .image1 {
+    width: 100%;
+    height: auto;
+  }
+  .content {
+    gap: 2.7rem;
+    flex-basis: 100%;
+    padding: 0 2.4rem;
+
+    /* max-width: 50rem; */
+  }
+}
+@media screen and (max-width: 900) {
+  .squares {
+    width: 485.816px;
+    height: 246px;
+    top: -5rem;
+    right: -20rem;
+    left: auto;
+  }
+  .headerContainer {
+    border-radius: 18px;
+    background: #000822;
+    margin: 2.6rem 2% 0;
+    padding: 3.9rem 0 1.6rem;
+    width: 96%;
+  }
+
+  .subTitle {
+    font-size: 1.4rem;
+  }
+  .title {
+    font-size: 4.8rem;
+  }
+  .description {
+    font-size: 1.4rem;
+  }
+  .features {
+    margin: 0 3.5%;
+    max-width: 100%;
+  }
 }

@@ -32,6 +32,7 @@ const page = () => {
       <Header />
       <AboutUs data={data} />
       <OurVision />
+      <OurStory />
       <AboutUs data={data2} />
       <FastAndFair />
       <div className={styles.reviewsContainer}>

@@ -5,6 +5,7 @@ const FastAndFair = () => {
   return (
     <div className={styles.container}>
       <Image
+        className={styles.image}
         src="/svg/fast-fair.svg"
         alt="fast-and-fair"
         width={584}
