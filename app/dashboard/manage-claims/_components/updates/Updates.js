@@ -47,7 +47,8 @@ const Updates = ({ columns, data }) => {
                 )}
               </td>
               <td className={styles.tableCell}>
-                <span className={styles.claimant}>{row.description}</span>
+              <span className={styles.claimant}>{row.description}</span>
+              <span className={styles.dateMobile}>{row.date}</span>
               </td>
               <td className={styles.tableCell}>
                 <span className={styles.claimant}>{row.date}</span>

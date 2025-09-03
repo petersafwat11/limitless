@@ -17,7 +17,7 @@ const page = () => {
         </h2>
         <button className={styles.button}>
           <Image src="/svg/plus.svg" alt="plus" width={24} height={24} />
-          Create a new claim{" "}
+          <span> Create a new claim</span>
         </button>
       </div>
       <Table

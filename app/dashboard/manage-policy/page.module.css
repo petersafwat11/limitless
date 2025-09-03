@@ -43,7 +43,7 @@
 }
 @media screen and (max-width: 900px) {
   .page {
-    margin: 3.8rem 4.5%;
+    margin: 3.8rem 0;
   }
   .header {
     margin: 0 0.6rem;

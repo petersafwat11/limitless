@@ -45,3 +45,24 @@
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 900px) {
+  .header {
+    padding: 2.2rem 2.2rem 2rem;
+  }
+  .titles {
+    gap: 0.9rem;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .subtitle {
+    font-size: 1.4rem;
+  }
+  .body {
+    padding: 2rem 2.2rem;
+  }
+  .row {
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+}
