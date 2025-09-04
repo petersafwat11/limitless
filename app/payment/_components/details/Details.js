@@ -17,6 +17,7 @@ const Details = () => {
           alt="your-details"
           width={60}
           height={60}
+          className={styles.icon}
         />
         <p className={`${styles.headerTitle} ${plusJakartaSans.className}`}>
           Your Details

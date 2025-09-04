@@ -5,6 +5,7 @@ import Image from "next/image";
 import ConfirmBtn from "@/ui/buttons/confirmBtn/ConfirmBtn";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Selection1 from "@/ui/inputs/selections/selection1/Selection1";
+import { useRouter } from "next/navigation";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
@@ -13,6 +14,7 @@ const Calculator = () => {
   const [data, setData] = useState({
     type: "1 Hour",
   });
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
@@ -79,7 +81,9 @@ const Calculator = () => {
             </p>
             <ConfirmBtn
               title="Get a quote"
-              onClick={() => {}}
+              onClick={() => {
+                router.push("/temporary-insurance");
+              }}
               className={styles.cardButton}
             />
           </div>

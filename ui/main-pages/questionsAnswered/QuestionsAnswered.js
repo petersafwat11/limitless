@@ -1,13 +1,16 @@
+"use client";
 import React from "react";
 import styles from "./questionsAnswered.module.css";
 import Image from "next/image";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+import { useRouter } from "next/navigation";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
 const manrope = Manrope({ subsets: ["latin"], weight: ["500"] });
 const QuestionsAnswered = () => {
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <h2 className={`${styles.header} ${plusJakartaSans.className}`}>
@@ -38,6 +41,7 @@ const QuestionsAnswered = () => {
                 alt="arrow-down"
                 width={27}
                 height={27}
+                onClick={() => router.push("/FAQ")}
               />
             </div>
           </div>
@@ -69,6 +73,7 @@ const QuestionsAnswered = () => {
                   alt="arrow-down"
                   width={27}
                   height={27}
+                  onClick={() => router.push("/about-us")}
                 />
               </div>
             </div>
@@ -97,6 +102,7 @@ const QuestionsAnswered = () => {
                   alt="arrow-down"
                   width={27}
                   height={27}
+                  onClick={() => router.push("/contact-us")}
                 />
               </div>
             </div>

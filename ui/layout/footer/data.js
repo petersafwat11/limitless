@@ -12,11 +12,11 @@ export const menus = [
       },
       {
         title: "Courier Insurance",
-        link: "/courier-insurance",
+        link: "/comming-soon",
       },
       {
         title: "1 Week Insurance",
-        link: "/1-week-insurance",
+        link: "/temporary",
       },
     ],
   },
@@ -25,15 +25,15 @@ export const menus = [
     items: [
       {
         title: "FAQs",
-        link: "/faqs",
+        link: "/FAQ",
       },
       {
         title: "Make a Claim",
-        link: "/make-a-claim",
+        link: "/dashboard/make-a-claim",
       },
       {
         title: "Complaints",
-        link: "/complaints",
+        link: "/contact-us",
       },
     ],
   },

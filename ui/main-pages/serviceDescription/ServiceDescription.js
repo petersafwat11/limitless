@@ -3,11 +3,13 @@ import React from "react";
 import styles from "./serviceDescription.module.css";
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { useRouter } from "next/navigation";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
 const ServiceDescription = ({ services, title, description, button, img }) => {
+  const router = useRouter();
   const words = title.split(" ");
   const lastWord = words[words.length - 1];
   const withoutLastWord = words.slice(0, -1).join(" ");
@@ -48,7 +50,12 @@ const ServiceDescription = ({ services, title, description, button, img }) => {
             </div>
           ))}
         </div>
-        <button className={styles.confirmBtn} onClick={() => {}}>
+        <button
+          className={styles.confirmBtn}
+          onClick={() => {
+            router.push("/temporary-insurance");
+          }}
+        >
           Get a Quote
           <Image
             src="/svg/arrow-right.svg"

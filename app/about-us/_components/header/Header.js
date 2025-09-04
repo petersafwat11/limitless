@@ -6,6 +6,7 @@ import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import Feature from "@/ui/feature/Feature";
 import { features } from "./data";
 import ConfirmBtn from "@/ui/buttons/confirmBtn/ConfirmBtn";
+import { useRouter } from "next/navigation";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -15,8 +16,8 @@ const manrope = Manrope({
   subsets: ["latin"],
   weight: ["500"],
 });
-
 const Header = () => {
+  const router = useRouter();
   return (
     <div className={styles.headerContainer}>
       <Image
@@ -43,7 +44,12 @@ const Header = () => {
               />
             </div>
           </div>
-          <button className={styles.confirmBtn} onClick={() => {}}>
+          <button
+            className={styles.confirmBtn}
+            onClick={() => {
+              router.push("/temporary-insurance");
+            }}
+          >
             Get a Quote{" "}
             <Image
               src="/svg/arrow-right.svg"

@@ -2,16 +2,16 @@ import React from "react";
 import styles from "./transparency.module.css";
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "@/fonts/fonts";
+import { useRouter } from "next/navigation";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
 const Transparency = () => {
+  const router = useRouter();
   return (
     <div className={styles.container}>
-        <div className={styles.content}>
-            
-        </div>
+      <div className={styles.content}></div>
       <div className={styles.left}>
         <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
           No hidden fees,
@@ -27,7 +27,12 @@ const Transparency = () => {
           </div>
         </h2>
         <div className={styles.buttons}>
-          <button className={styles.getQuoteBtn}>
+          <button
+            onClick={() => {
+              router.push("/temporary-insurance");
+            }}
+            className={styles.getQuoteBtn}
+          >
             Get a quote
             <Image
               src="/svg/arrow-right.svg"
@@ -36,7 +41,12 @@ const Transparency = () => {
               height={14}
             />
           </button>
-          <button className={styles.membersPortalBtn}>
+          <button
+            // onClick={() => {
+            //   router.push("/temporary-insurance");
+            // }}
+            className={styles.membersPortalBtn}
+          >
             Members Portal{" "}
             <Image
               src="/svg/arrow-right.svg"

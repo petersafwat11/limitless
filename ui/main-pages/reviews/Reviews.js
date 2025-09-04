@@ -48,7 +48,7 @@ const Reviews = () => {
       </div>
       <div className={styles.reviews}>
         <div className={styles.reviewContainer}>
-          {[1, 2].map((item) => (
+          {[1, 2, 3, 4].map((item) => (
             <div className={styles.review} key={item}>
               <p className={styles.text}>
                 Swift Wheels made our family vacation unforgettable. The car was
@@ -79,7 +79,7 @@ const Reviews = () => {
           ))}
         </div>
         <div className={styles.reviewContainer}>
-          {[1, 2].map((item) => (
+          {[1, 2, 3, 4].map((item) => (
             <div className={styles.review} key={item}>
               <p className={styles.text}>
                 Swift Wheels made our family vacation unforgettable. The car was

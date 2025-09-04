@@ -1,16 +1,16 @@
 import React from "react";
 import Header from "@/ui/main-pages/header/Header";
 import OurBenifits from "@/ui/main-pages/ourBenifits/OurBenifits";
-import ServiceDescription from "@/ui/company-pages/mainPages/serviceDescription/ServiceDescription";
+import ServiceDescription from "@/ui/main-pages/serviceDescription/ServiceDescription";
 import {
   features,
   benifits,
   impoundCoverDetails,
   impoundEligibility,
 } from "./data";
-import ServiceCovered from "@/ui/company-pages/mainPages/serviceCovered/ServiceCovered";
-import Eligability from "@/ui/company-pages/mainPages/eligability/Eligability";
-import PaymentOptions from "@/ui/company-pages/mainPages/paymentsOptions/PaymentOptions";
+import ServiceCovered from "@/ui/main-pages/serviceCovered/ServiceCovered";
+import Eligability from "@/ui/main-pages/eligability/Eligability";
+import PaymentOptions from "@/ui/main-pages/paymentsOptions/PaymentOptions";
 import styles from "./page.module.css";
 import WhenImpound from "./_components/whenImpound/WhenImpound";
 import QuestionsGroup from "./_components/questionsGroup/QuestionsGroup";

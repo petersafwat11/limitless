@@ -9,6 +9,7 @@ export const features = [
     title: "Temporary Insurance",
     description:
       "Need insurance for a short period of time? Our temporary insurance provides a flexible and convenient solution, with cover available from just 1 to 28 days. Whether you're borrowing a car, going on a trip, or going for a test drive; our fully comprehensive policies have you covered. With fair pricing and a quick, easy setup process, you only pay for the insurance you truly need.",
+    href: "/temporary",
   },
   {
     img: {
@@ -20,6 +21,7 @@ export const features = [
     title: "Food Delivery Insurance",
     description:
       "Need insurance for a short period of time? Our temporary insurance provides a flexible and convenient solution, with cover available from just 1 to 28 days. Whether you're borrowing a car, going on a trip, or going for a test drive; our fully comprehensive policies have you covered. With fair pricing and a quick, easy setup process, you only pay for the insurance you truly need.",
+    href: "/courier",
   },
   {
     img: {
@@ -31,5 +33,6 @@ export const features = [
     title: "Impound Insurance",
     description:
       "Need insurance for a short period of time? Our temporary insurance provides a flexible and convenient solution, with cover available from just 1 to 28 days. Whether you're borrowing a car, going on a trip, or going for a test drive; our fully comprehensive policies have you covered. With fair pricing and a quick, easy setup process, you only pay for the insurance you truly need.",
+    href: "/impound",
   },
 ];

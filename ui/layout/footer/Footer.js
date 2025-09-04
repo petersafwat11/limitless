@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styles from "./footer.module.css";
 import { menus } from "./data";
@@ -7,10 +8,13 @@ import { BiLogoFacebook } from "react-icons/bi";
 import { BiLogoTwitter } from "react-icons/bi";
 import { BiLogoLinkedin } from "react-icons/bi";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
+import NoHiddenFees from "../noHiddenFees/NoHiddenFees";
 const Footer = () => {
+  const router = useRouter();
   return (
     <footer className={styles.container}>
+      <NoHiddenFees />
       <div className={styles.content}>
         <div className={styles.menus}>
           {menus.map((menu, index) => (
@@ -41,13 +45,14 @@ const Footer = () => {
               </div>
               <div className={styles.socialsItem}>
                 <BiLogoLinkedin className={styles.socialsIcon} size={20} />
-              </div> 
+              </div>
             </div>
           </div>
           <div className={styles.stores}>
             <h3 className={styles.socialsTitle}>Download Our App</h3>
             <div className={styles.storesContainer}>
               <Image
+                onClick={() => router.push("/comming-soon")}
                 className={styles.store}
                 src="/svg/google-store.svg"
                 alt="logo"
@@ -56,6 +61,7 @@ const Footer = () => {
               />
 
               <Image
+                onClick={() => router.push("/comming-soon")}
                 className={styles.store}
                 src="/svg/apple-store.svg"
                 alt="logo"
