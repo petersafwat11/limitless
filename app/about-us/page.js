@@ -30,9 +30,11 @@ const page = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <AboutUs data={data} />
+      <div className={styles.aboutUsContainer}>
+        <AboutUs data={data} />
+      </div>
       <OurVision />
-      <OurStory />
+      {/* <OurStory /> */}
       <AboutUs data={data2} />
       <FastAndFair />
       <div className={styles.reviewsContainer}>

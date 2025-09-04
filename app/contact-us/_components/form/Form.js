@@ -1,57 +1,59 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import styles from "./form.module.css";
 import Image from "next/image";
+import TextInput from "@/ui/inputs/textInput/TextInput";
+import TextArea from "@/ui/inputs/textArea/TextArea";
+import Selection1 from "@/ui/inputs/selections/selection1/Selection1";
+import Dropdown from "@/ui/inputs/dropdown/Dropdown";
 const Form = () => {
+  const [data, setData] = useState({
+    fullName: "",
+    email: "",
+    message: "",
+  });
   return (
     <div className={styles.container}>
       <div className={styles.inputGroup}>
         <label className={styles.label}>Select the Appropriate Option</label>
-        <div className={styles.selectionContainer}>
-          <div className={styles.selectionItem}>
-            {" "}
-            <span className={styles.selectionSpan}></span>Question
-          </div>
-          <div className={styles.selectionItem}>
-            {" "}
-            <span className={styles.selectionSpan}></span>Complaint
-          </div>
-          <div className={styles.selectionItem}>
-            {" "}
-            <span className={styles.selectionSpan}></span>other
-          </div>
-        </div>
+        <Selection1
+          items={["Question", "Complaint", "other"]}
+          selectedItem={data.type}
+          setSelectedItem={(item) => setData({ ...data, type: item })}
+          type="checkbox"
+        />
+      </div>
+      <div className={styles.dropdown}>
+        <Dropdown
+          label="Select the Appropriate Option"
+          selected={data.type}
+          options={["Question", "Complaint", "other"]}
+          setSelected={(item) => setData({ ...data, type: item })}
+        />
       </div>
       <div className={styles.row}>
-        <div className={styles.inputGroup}>
-          <label className={styles.label}>Full Name</label>
-          <div className={styles.inputContainer}>
-            <input
-              type="text"
-              placeholder="Enter your Full Name"
-              className={styles.input}
-            />
-          </div>
-        </div>
-        <div className={styles.inputGroup}>
-          <label className={styles.label}>Email Address</label>
-          <div className={styles.inputContainer}>
-            <input
-              type="email"
-              placeholder="Enter your Email Address"
-              className={styles.input}
-            />
-          </div>
-        </div>
+        <TextInput
+          label="Full Name"
+          value={data.fullName}
+          setValue={(e) => setData({ ...data, fullName: e.target.value })}
+          placeholder="Enter your Full Name"
+          type="text"
+        />
+        <TextInput
+          label="Email Address"
+          value={data.email}
+          setValue={(e) => setData({ ...data, email: e.target.value })}
+          placeholder="Enter your Email Address"
+          type="text"
+        />
       </div>
-      <div className={styles.inputGroup}>
-          <label className={styles.label}>Message</label>
-        <div className={styles.inputContainer}>
-          <textarea
-            placeholder="Enter your Message"
-            className={styles.textarea}
-          />
-        </div>
-      </div>
+      <TextArea
+        label="Your Message"
+        value={data.message}
+        setValue={(e) => setData({ ...data, message: e.target.value })}
+        placeholder="Enter your Message"
+        rows={3}
+      />
 
       <button className={styles.button}>
         Continue{" "}

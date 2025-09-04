@@ -47,6 +47,10 @@ const Header = () => {
               />
             </h2>
           </div>
+          <div className={styles.formMobile}>
+            <Form />
+          </div>
+
           <div className={styles.contactOptions}>
             <div className={styles.contactOption}>
               <Image

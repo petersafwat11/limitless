@@ -14,6 +14,7 @@ import { HiOutlineDocumentText } from "react-icons/hi2";
 
 const SideNavbar = ({ isOpen = false, onToggle, isMobile = false }) => {
   const pathname = usePathname();
+  const page = pathname.split("/")[2];
   const navItems = [
     {
       label: "Dashboard",
@@ -63,7 +64,9 @@ const SideNavbar = ({ isOpen = false, onToggle, isMobile = false }) => {
           item.label === "Logout" ? (
             <button
               className={`${styles.navItem} ${
-                pathname === item.href ? styles.activeNavItem : ""
+                item.href && page === item.href.split("/")[2]
+                  ? styles.activeNavItem
+                  : ""
               }`}
               // href={item.href}
               key={item.label}
@@ -80,7 +83,9 @@ const SideNavbar = ({ isOpen = false, onToggle, isMobile = false }) => {
           ) : (
             <Link
               className={`${styles.navItem} ${
-                pathname === item.href ? styles.activeNavItem : ""
+                item.href && page === item.href.split("/")[2]
+                  ? styles.activeNavItem
+                  : ""
               }`}
               href={item.href}
               key={item.label}

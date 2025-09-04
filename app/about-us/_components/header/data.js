@@ -6,8 +6,9 @@ export const features = [
       width: 68,
       height: 60,
     },
-    title: "Lorem ipsum dolor sit ",
-    description: "Leading impound specialist. We quote online and over the phone.",
+    title: "Experts in special coverage",
+    description:
+      "Our team navigates complex UK regulations effortlessly, ensuring compliant, customized solutions.",
   },
   {
     img: {
@@ -16,8 +17,9 @@ export const features = [
       width: 55,
       height: 55,
     },
-    title: "Lorem ipsum dolor sit ",
-    description: "We cover most scenarios, licences and allow named drivers if suitable.",
+    title: "Innovative partnerships ",
+    description:
+      "We leverage strong alliances with leading UK insurers to deliver cutting-edge, affordable policies",
   },
   {
     img: {
@@ -26,7 +28,8 @@ export const features = [
       width: 50,
       height: 50,
     },
-    title: "Lorem ipsum dolor sit ",
-    description: "Fast and secure documents, ernailed or accessed through your portal.",
+    title: "Unmatched digital efficiency ",
+    description:
+      "We deliver instant, secure policy management through our state of the art platform.",
   },
 ];

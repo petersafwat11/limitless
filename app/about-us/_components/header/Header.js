@@ -31,9 +31,9 @@ const Header = () => {
           <p className={`${styles.subTitle} ${manrope.className}`}>About Us </p>
 
           <div className={`${styles.title} ${plusJakartaSans.className}`}>
-            Lorem Ipsum
+            Limitless
             <div className={styles.titleSpan}>
-              dolor sit amet{" "}
+              Who are we
               <Image
                 src="/svg/curved-border.svg"
                 alt="curved border"
@@ -43,11 +43,6 @@ const Header = () => {
               />
             </div>
           </div>
-          <p className={`${styles.description} `}>
-            Lorem ipsum dolor sit amet consectetur. Nec lorem tempus fringilla
-            urna accumsan pellentesque neque. Augue integer pharetra donec
-            scelerisque.
-          </p>
           <button className={styles.confirmBtn} onClick={() => {}}>
             Get a Quote{" "}
             <Image

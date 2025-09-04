@@ -78,6 +78,7 @@
   background: #151d39;
   box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.12);
   padding: 1rem;
+  margin-top: 2.4rem;
 }
 .input {
   height: 100%;
@@ -159,6 +160,7 @@
     width: 100%;
     height: auto;
     padding: 0.8rem;
+    margin-top: 0.4rem;
   }
   .input {
     height: auto;

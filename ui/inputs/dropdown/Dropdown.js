@@ -20,13 +20,21 @@ const Dropdown = ({ label, selected, options, setSelected, placeholder }) => {
         {showDropdown && (
           <div className={styles.dropdownOptions}>
             {options.map((option) => (
-              <p
+              <div
                 key={option}
-                className={styles.dropdownOption}
+                className={`${styles.dropdownOption} ${
+                  selected === option ? styles.selectedOption : ""
+                }`}
                 onClick={() => setSelected(option)}
               >
+                <span
+                  className={`${styles.selectionSpan} ${
+                    selected === option ? styles.selectedSpan : ""
+                  }`}
+                ></span>
+
                 {option}
-              </p>
+              </div>
             ))}
           </div>
         )}
