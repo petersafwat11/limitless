@@ -13,7 +13,7 @@
 }
 .label {
   color: #000822;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 400;
   line-height: 124%;
   letter-spacing: 0.56px;
@@ -90,6 +90,9 @@
   .inputGroup {
     flex-direction: column;
     gap: 1.4rem;
+  }
+  .label {
+    font-size: 1.4rem;
   }
   .iconContainer {
     width: 4.2rem;

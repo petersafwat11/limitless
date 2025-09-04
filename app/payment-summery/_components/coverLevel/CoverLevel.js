@@ -66,12 +66,12 @@ const CoverLevel = () => {
       </div>
       <div className={styles.features}>
         {[
-          "Wind screen cover",
-          "European cover",
-          "New vehicle replacement ( subject to criteria )",
-          "Up to £200 for personal belongings",
+          "Instant documents",
           "Uninsured driver promise",
-          "Country car",
+          "European cover",
+          "Protected no claims",
+          "Loss, theft, fire or vandalism cover",
+          "Legal liability cover",
         ].map((feature, index) => (
           <div className={styles.featureItem} key={index}>
             <Image

@@ -33,7 +33,7 @@
   height: 6.4rem;
   border-radius: 12px;
   background: #f3f3f3;
-  margin: 0 1.8rem 1.8rem;
+  margin: 0 1.2rem 1.2rem;
 }
 .valueTitle {
   color: #6b6b6b;
@@ -52,12 +52,13 @@
     gap: 2.8rem;
   }
   .title {
+    margin-top: 0;
     font-size: 1.4rem;
   }
   .value {
     padding: 1.8rem 1.6rem;
   }
   .valueTitle {
-    font-size:1.4rem;
+    font-size: 1.4rem;
   }
 }

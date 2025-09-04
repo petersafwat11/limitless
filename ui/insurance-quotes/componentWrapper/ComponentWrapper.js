@@ -13,6 +13,7 @@ const ComponentWrapper = ({ children, title, icon }) => {
     <div className={styles.container}>
       <div className={styles.header}>
         <Image
+          className={styles.icon}
           src="/svg/insurance-quote.svg"
           alt="terms-and-conditions"
           width={icon?.width || 100}

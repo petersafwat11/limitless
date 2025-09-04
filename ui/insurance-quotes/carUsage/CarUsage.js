@@ -11,28 +11,27 @@ const CarUsage = () => {
       <div className={styles.firstSection}>
         <Title title="What do you use the car for?" />
         <div className={styles.selections}>
-              <Selection3
-          options={[
-            {
-              title: "Social use only",
-              description:
-                "Personal use such as shopping or visiting friends and family.",
-            },
-            {
-              title: "Social and commuting",
-              description:
-                "Personal use and driving to and from a single place of work or study.",
-            },
-            {
-              title: "Social, commuting and business",
-              description:
-                "You drive to various locations for work. You can also add other drivers who use this car for business.",
-            },
-          ]}
-          selectedItem={null}
-          setSelectedItem={() => {}}
-        />
-    
+          <Selection3
+            options={[
+              {
+                title: "Social use only",
+                description:
+                  "Personal use such as shopping or visiting friends and family.",
+              },
+              {
+                title: "Social and commuting",
+                description:
+                  "Personal use and driving to and from a single place of work or study.",
+              },
+              {
+                title: "Social, commuting and business",
+                description:
+                  "You drive to various locations for work. You can also add other drivers who use this car for business.",
+              },
+            ]}
+            selectedItem={null}
+            setSelectedItem={() => {}}
+          />
         </div>
       </div>
       <div className={styles.secondSection}>

@@ -1,17 +1,19 @@
 .container {
   display: flex;
   gap: 1.8rem;
+  flex-wrap: wrap;
 }
 .option {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.4rem;
   cursor: pointer;
   align-items: flex-start;
   transition: all 0.3s ease;
-  padding: 2.2rem 3.2rem 2.2rem;
+  padding: 2.2rem 2.4rem;
   border-radius: 12px;
   background: #ecf0fe;
   flex: 1;
+  min-width: 32rem;
 }
 .selectionSpan {
   display: flex;
@@ -26,22 +28,10 @@
   border: 2px solid white;
   outline: 1px solid #0388ff;
 }
-.optionContent {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
 .title {
   color: #000822;
   font-size: 1.4rem;
   font-weight: 600;
-  line-height: 124%;
-  letter-spacing: 0.56px;
-}
-.description {
-  color: rgba(0, 8, 34, 0.64);
-  font-size: 1.4rem;
-  font-weight: 400;
   line-height: 124%;
   letter-spacing: 0.56px;
 }
@@ -55,11 +45,7 @@
     justify-content: space-between;
     flex-direction: row-reverse;
   }
-  .optionContent {
-    gap: 0.8rem;
-  }
-  .title,
-  .description {
+  .title {
     font-size: 1.4rem;
   }
 }

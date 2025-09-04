@@ -132,7 +132,7 @@ const PersonalDetails = () => {
             "At home",
             "Office or factory car park",
             "Open public car park",
-            "Private car park",
+            // "Private car park",
             "Secure public car park",
             "Street away from home",
           ]}

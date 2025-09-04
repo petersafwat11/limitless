@@ -30,12 +30,6 @@ const VehicleDetails = () => {
               value={item.value}
               // editIcon={true}
             />
-            // <Card
-            //   key={index}
-            //   title={item.title}
-            //   value={item.value}
-            //   //   editIcon={true}
-            // />
           ))}
         </div>
       </div>
