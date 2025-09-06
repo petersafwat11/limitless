@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import styles from "./submitted.module.css";
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { useRouter } from "next/navigation";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -9,6 +11,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 const Submitted = () => {
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <Image
@@ -50,7 +53,10 @@ const Submitted = () => {
         Your claim has been submitted successfully.
       </p>
 
-      <button className={styles.claimsPortal}>
+      <button
+        className={styles.claimsPortal}
+        onClick={() => router.push("/dashboard/manage-claims")}
+      >
         Claims Portal
         <Image
           src="/svg/blue-right.svg"

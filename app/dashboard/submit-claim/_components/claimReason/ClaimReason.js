@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import styles from "./claimReason.module.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -9,6 +11,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 const ClaimReason = () => {
+  const router = useRouter();
   const reasons = [
     {
       title: "Damage to my vehivcle",
@@ -67,16 +70,32 @@ const ClaimReason = () => {
       </h2>
       <div className={styles.reasons}>
         {reasons.map((reason, index) => (
-          <div className={styles.reason} key={index}>
+          <div
+            className={styles.reason}
+            key={index}
+            onClick={() => {
+              const reasonSlug = reason.title
+                .toLowerCase()
+                .replace(/\s+/g, "-")
+                .replace(/[()]/g, "");
+              router.push(
+                `/dashboard/submit-claim?type=car-insurance&step=form&reason=${encodeURIComponent(
+                  reasonSlug
+                )}`
+              );
+            }}
+          >
             <div className={styles.content}>
               <Image
-                className={styles.img}  
+                className={styles.img}
                 src={reason.img.src}
                 alt={reason.title}
                 width={reason.img.width}
                 height={reason.img.height}
               />
-              <p className={`${styles.reasonTitle} ${plusJakartaSans.className}`}>
+              <p
+                className={`${styles.reasonTitle} ${plusJakartaSans.className}`}
+              >
                 {reason.title}
               </p>
             </div>

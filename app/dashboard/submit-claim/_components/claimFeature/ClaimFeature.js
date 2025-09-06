@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import styles from "./claimFeature.module.css";
 import Image from "next/image";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+import { useRouter } from "next/navigation";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -13,7 +15,15 @@ const manrope = Manrope({
   weight: ["400"],
 });
 
-const ClaimFeature = ({ img, title, description, features, btnText }) => {
+const ClaimFeature = ({
+  img,
+  title,
+  description,
+  features,
+  btnText,
+  claimType,
+}) => {
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <Image
@@ -46,7 +56,20 @@ const ClaimFeature = ({ img, title, description, features, btnText }) => {
           </div>
         ))}
       </div>
-      <button className={styles.btn}>{btnText}</button>
+      <button
+        className={styles.btn}
+        onClick={() => {
+          if (claimType === "optional-cover") {
+            router.push("/dashboard/submit-claim?type=optional-cover");
+          } else if (claimType === "car-insurance") {
+            router.push(
+              "/dashboard/submit-claim?type=car-insurance&step=reason"
+            );
+          }
+        }}
+      >
+        {btnText}
+      </button>
     </div>
   );
 };

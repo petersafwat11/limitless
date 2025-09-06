@@ -6,6 +6,9 @@
   align-items: center;
   justify-content: center;
 }
+.page > div {
+  width: 100%;
+}
 .claims {
   display: flex;
   flex-direction: column;

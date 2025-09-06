@@ -8,13 +8,15 @@ import { BiLogoFacebook } from "react-icons/bi";
 import { BiLogoTwitter } from "react-icons/bi";
 import { BiLogoLinkedin } from "react-icons/bi";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import NoHiddenFees from "../noHiddenFees/NoHiddenFees";
+
 const Footer = () => {
   const router = useRouter();
+  const pathname = usePathname();
   return (
     <footer className={styles.container}>
-      <NoHiddenFees />
+      {!pathname.startsWith("/dashboard") && <NoHiddenFees />}
       <div className={styles.content}>
         <div className={styles.menus}>
           {menus.map((menu, index) => (
