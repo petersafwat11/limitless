@@ -12,20 +12,22 @@ const page = () => {
   return (
     <div className={styles.page}>
       <Header title="Cookies Policy" />
-      <div className={"companyPageContainer"}>
-        {content.map((item, index) => (
-          <div key={index} className={styles.content}>
-            {item.type === "lastUpdate" && <LastUpdated data={item.value} />}
-            {item.type === "list" && <ListItem data={item.value} />}
-            {item.type === "doubleList" && <DoubleList data={item.value} />}
-            {item.type === "nestedLists" && (
-              <NestedListItem data={item.value} />
-            )}
-            {item.type === "listWithDescription" && (
-              <ListWithDescription data={item.value} />
-            )}
-          </div>
-        ))}
+      <div className={"centeredContent"}>
+        <div className={"companyPageContainer"}>
+          {content.map((item, index) => (
+            <div key={index} className={styles.content}>
+              {item.type === "lastUpdate" && <LastUpdated data={item.value} />}
+              {item.type === "list" && <ListItem data={item.value} />}
+              {item.type === "doubleList" && <DoubleList data={item.value} />}
+              {item.type === "nestedLists" && (
+                <NestedListItem data={item.value} />
+              )}
+              {item.type === "listWithDescription" && (
+                <ListWithDescription data={item.value} />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

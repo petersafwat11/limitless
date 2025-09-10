@@ -10,13 +10,14 @@ const page = () => {
   return (
     <div>
       <Header title="Impound Insurance" />
-
-      <div className="insuranceQuotesContainer">
-        <VehicleDetails />
-        {/* <CoverDetails /> */}
-        <ImpoundCoverDetails />
-        <PersonalDetails />
-        <TermsAndConditions />
+      <div className={"centeredContent"}>
+        <div className="insuranceQuotesContainer">
+          <VehicleDetails />
+          {/* <CoverDetails /> */}
+          <ImpoundCoverDetails />
+          <PersonalDetails />
+          <TermsAndConditions />
+        </div>
       </div>
     </div>
   );

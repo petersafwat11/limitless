@@ -10,38 +10,40 @@ const page = () => {
   return (
     <div>
       <Header title="Thank you for your purchase" />
-      <div className={styles.orderSummeryContainer}>
-        <div className={styles.orderSummery}>
-          <OrderSummery />
+      <div className={"centeredContent"}>
+        <div className={styles.orderSummeryContainer}>
+          <div className={styles.orderSummery}>
+            <OrderSummery />
+          </div>
+          <div className={styles.coverLevel}>
+            <CoverLevel />
+          </div>
         </div>
-        <div className={styles.coverLevel}>
-          <CoverLevel />
-        </div>
-      </div>
 
-      <div className={styles.container}>
-        <div className={styles.left}>
-          <div className={styles.vehicleCoveredLarge}>
-            <VehicleCovered />
+        <div className={styles.container}>
+          <div className={styles.left}>
+            <div className={styles.vehicleCoveredLarge}>
+              <VehicleCovered />
+            </div>
+            <div className={styles.durationContainer}>
+              <Duration
+                img={"/svg/duration.svg"}
+                title="Duration"
+                value="1 week"
+                // editIcon={true}
+              />
+              <Duration
+                img={"/svg/start-time.svg"}
+                title="Start Time"
+                value="Policy starts immediately"
+                // editIcon={true}
+              />
+            </div>
+            <Details />
           </div>
-          <div className={styles.durationContainer}>
-            <Duration
-              img={"/svg/duration.svg"}
-              title="Duration"
-              value="1 week"
-              // editIcon={true}
-            />
-            <Duration
-              img={"/svg/start-time.svg"}
-              title="Start Time"
-              value="Policy starts immediately"
-              // editIcon={true}
-            />
+          <div className={styles.right}>
+            <CoverLevel />
           </div>
-          <Details />
-        </div>
-        <div className={styles.right}>
-          <CoverLevel />
         </div>
       </div>
     </div>

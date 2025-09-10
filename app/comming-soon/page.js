@@ -9,10 +9,12 @@ const page = () => {
       <span className={styles.squareLight}></span>
       <span className={styles.squareLight2}></span>
       <Header />
-      <div className={styles.cardsContainer}>
-        {features.map((feature, index) => (
-          <Card key={index} {...feature} />
-        ))}
+      <div className={"centeredContent"}>
+        <div className={styles.cardsContainer}>
+          {features.map((feature, index) => (
+            <Card key={index} {...feature} />
+          ))}
+        </div>
       </div>
     </div>
   );

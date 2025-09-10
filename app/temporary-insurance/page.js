@@ -9,12 +9,13 @@ const page = () => {
   return (
     <div>
       <Header title="Temporary Insurance" />
-
-      <div className="insuranceQuotesContainer">
-        <VehicleDetails />
-        <CoverDetails />
-        <PersonalDetails />
-        <TermsAndConditions />
+      <div className={"centeredContent"}>
+        <div className="insuranceQuotesContainer">
+          <VehicleDetails />
+          <CoverDetails />
+          <PersonalDetails />
+          <TermsAndConditions />
+        </div>
       </div>
     </div>
   );

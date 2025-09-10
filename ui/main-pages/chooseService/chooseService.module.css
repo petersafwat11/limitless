@@ -40,6 +40,9 @@
   margin-bottom: 8.2rem;
   position: relative;
 }
+.cardsContainer > div {
+  flex: 1;
+}
 @media screen and (max-width: 900px) {
   .container {
     gap: 6.8rem;

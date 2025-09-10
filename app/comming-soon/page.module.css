@@ -13,6 +13,9 @@
   position: relative;
   z-index: 2;
 }
+.cardsContainer > div {
+  flex: 1;
+}
 .squareLight {
   position: absolute;
   z-index: 1;

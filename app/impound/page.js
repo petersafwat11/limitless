@@ -29,44 +29,48 @@ const page = () => {
         description="Impound insurance is a specialized type of vehicle insurance required to release a car from a police impound. Most car insurance policies don’t meet the requirements for impounded vehicles, which is where impound insurance comes in."
         features={features}
       />
-      <ServiceDescription
-        services={[
-          "The cover you need to release your car from the impound",
-          "30 days cover (legal minimum length required for release)",
-          "Immediate cover. Save on impound storage fees",
-        ]}
-        title="Impound Vehicle Insurance"
-        description="Temporary compound insurance allows you to release your car quickly
+      <div className={"centeredContent"}>
+        <ServiceDescription
+          services={[
+            "The cover you need to release your car from the impound",
+            "30 days cover (legal minimum length required for release)",
+            "Immediate cover. Save on impound storage fees",
+          ]}
+          title="Impound Vehicle Insurance"
+          description="Temporary compound insurance allows you to release your car quickly
                   and easily."
-        img={{
-          src: "/svg/get-quote.svg",
-          alt: "impound vehicle insurance",
-          width: 610,
-          height: 393,
-        }}
-        button="Get a Quote"
-      />
-      <OurBenifits
-        benifits={benifits}
-        title="Why might your vehicle be impounded?"
-      />
-      <WhenImpound />
+          img={{
+            src: "/svg/get-quote.svg",
+            alt: "impound vehicle insurance",
+            width: 610,
+            height: 393,
+          }}
+          button="Get a Quote"
+        />
+        <OurBenifits
+          benifits={benifits}
+          title="Why might your vehicle be impounded?"
+        />
+        <WhenImpound />
 
-      <ServiceCovered
-        title="What does impound vehicle insurance cover?"
-        description="Limitless Cover collaborates with a panel of insurers to offer comprehensive car insurance coverage. As a result, the full details of your cover may vary based on your chosen insurer. With our impound car insurance policies lasting 30 days, you’ll enjoy the flexibility to decide your car’s next step after recovery - whether selling it, declaring it SORN, or returning it to the road. Please review the policy wording carefully before purchasing."
-        covered={impoundCoverDetails.covered}
-        unCovered={impoundCoverDetails.unCovered}
-      />
-      <Eligability data={impoundEligibility} />
-      <div className={styles.paymentOptions}>
-        <PaymentOptions />
-      </div>
-      <div className={styles.questions}>
-        <h2 className={`${styles.questionsTitle} ${plusJakartaSans.className}`}>
-          Frequently asked<span> questions</span>
-        </h2>
-        <QuestionsGroup questions={questions} />
+        <ServiceCovered
+          title="What does impound vehicle insurance cover?"
+          description="Limitless Cover collaborates with a panel of insurers to offer comprehensive car insurance coverage. As a result, the full details of your cover may vary based on your chosen insurer. With our impound car insurance policies lasting 30 days, you’ll enjoy the flexibility to decide your car’s next step after recovery - whether selling it, declaring it SORN, or returning it to the road. Please review the policy wording carefully before purchasing."
+          covered={impoundCoverDetails.covered}
+          unCovered={impoundCoverDetails.unCovered}
+        />
+        <Eligability data={impoundEligibility} />
+        <div className={styles.paymentOptions}>
+          <PaymentOptions />
+        </div>
+        <div className={styles.questions}>
+          <h2
+            className={`${styles.questionsTitle} ${plusJakartaSans.className}`}
+          >
+            Frequently asked<span> questions</span>
+          </h2>
+          <QuestionsGroup questions={questions} />
+        </div>
       </div>
     </div>
   );

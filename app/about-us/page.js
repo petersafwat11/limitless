@@ -30,21 +30,23 @@ const page = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <div className={styles.aboutUsContainer}>
-        <AboutUs data={data} />
-      </div>
-      <OurVision />
-      {/* <OurStory /> */}
-      <AboutUs
-        data={data2}
-        maxWidths={{
-          description1: "max-width: 41rem",
-          description2: "max-width: 43rem",
-        }}
-      />
-      <FastAndFair />
-      <div className={styles.reviewsContainer}>
-        <Reviews />
+      <div className={"centeredContent"}>
+        <div className={styles.aboutUsContainer}>
+          <AboutUs data={data} />
+        </div>
+        <OurVision />
+        {/* <OurStory /> */}
+        <AboutUs
+          data={data2}
+          maxWidths={{
+            description1: "max-width: 41rem",
+            description2: "max-width: 43rem",
+          }}
+        />
+        <FastAndFair />
+        <div className={styles.reviewsContainer}>
+          <Reviews />
+        </div>
       </div>
     </div>
   );

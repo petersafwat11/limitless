@@ -11,25 +11,27 @@ const page = () => {
   return (
     <div>
       <Header title="Payment Summary" />
-      <div className={styles.container}>
-        <div className={styles.first}>
-          <VehicleDetails />
-          <CoverDetails />
-          <PersonalDetails />
-        </div>
-        <div className={styles.second}>
-          <CoverLevel />
-          <div className={styles.actions}>
-            <button className={styles.cancelButton}>Back</button>
-            <button className={styles.payButton}>
-              Pay{" "}
-              <Image
-                src="/svg/arrow-right.svg"
-                alt="arrow-right"
-                width={24}
-                height={24}
-              />
-            </button>
+      <div className={"centeredContent"}>
+        <div className={styles.container}>
+          <div className={styles.first}>
+            <VehicleDetails />
+            <CoverDetails />
+            <PersonalDetails />
+          </div>
+          <div className={styles.second}>
+            <CoverLevel />
+            <div className={styles.actions}>
+              <button className={styles.cancelButton}>Back</button>
+              <button className={styles.payButton}>
+                Pay{" "}
+                <Image
+                  src="/svg/arrow-right.svg"
+                  alt="arrow-right"
+                  width={24}
+                  height={24}
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>
