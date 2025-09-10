@@ -44,7 +44,7 @@ const WhenImpound = () => {
         </div>
         <div className={styles.content}>
           <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
-            What happens when your vehicle <span>is impounded</span>
+            What happens when your vehicle is <span>impounded</span>
           </h2>
           <p className={styles.description}>
             {`When a vehicle is impounded, it is typically taken by the police or local authorities after being involved in a legal infraction such as driving without insurance, without tax, or being abandoned. Once the vehicle is impounded, it is held in a secure facility, and the owner loses possession until the relevant issues are resolved. This period can vary depending on the reason for the seizure and how quickly the necessary steps are taken to resolve the situation. In most cases, the vehicle is only released once the authorities are satisfied that any legal requirements are met, which may include paying fines, providing proof of insurance, or rectifying any issues that led to the impoundment. Additionally, vehicles that remain unclaimed for a specific period may be sold or disposed of according to local regulations.`}{" "}
@@ -54,7 +54,7 @@ const WhenImpound = () => {
       <div className={styles.second}>
         <div className={styles.content}>
           <h2 className={styles.title}>
-            What happens when your vehicle <span>is impounded</span>
+            What happens when your vehicle is <span>impounded</span>
           </h2>
           <p className={`${styles.description} ${manrope.className}`}>
             {

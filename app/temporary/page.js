@@ -27,8 +27,8 @@ const page = () => {
     <div>
       <Header
         subTitle="specialized for vehicle insurance"
-        title="Impound Insurance"
-        description="Impound insurance is a specialized type of vehicle insurance required to release a car from a police impound. Most car insurance policies don’t meet the requirements for impounded vehicles, which is where impound insurance comes in."
+        title="Temporary Insurance"
+        description="Temporary insurance is a highly flexible solution designed to meet your short-term coverage needs. Whether you’re borrowing a car, test-driving a vehicle, or need immediate protection for a new purchase, temporary car insurance can provide tailored cover for as little as a single day, extending up to several months. "
         features={features}
       />
       <ServiceDescription
@@ -41,7 +41,7 @@ const page = () => {
         services={[
           "Get flexible cover that's right for you with policies from just 1 hour up to 28 days",
           "Only pay for cover as and when you need it",
-          "No impact on your No Claims Discount plus fully comprehensive cover as standard",
+          "No impact on your no claims discount plus fully comprehensive cover as standard",
         ]}
         title="Temporary vehicle insurance"
         description="Temporary insurance allows you to drive on the go quickly and conveniently"

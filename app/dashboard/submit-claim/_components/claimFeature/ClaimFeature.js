@@ -59,6 +59,11 @@ const ClaimFeature = ({
       <button
         className={styles.btn}
         onClick={() => {
+          // Clear any existing claim data when starting a new claim
+          if (typeof window !== "undefined") {
+            sessionStorage.removeItem("claimData");
+          }
+
           if (claimType === "optional-cover") {
             router.push("/dashboard/submit-claim?type=optional-cover");
           } else if (claimType === "car-insurance") {

@@ -1,3 +1,6 @@
+"use client";
+import { useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Stepper from "./_components/stepper/Stepper";
 import styles from "./page.module.css";
 import ClaimFeature from "./_components/claimFeature/ClaimFeature";
@@ -13,8 +16,60 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["700"],
 });
 
-const page = async ({ searchParams }) => {
-  const { type, step, reason } = await searchParams;
+const Page = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const type = searchParams.get("type");
+  const step = searchParams.get("step");
+  const reason = searchParams.get("reason");
+
+  // Determine current step based on URL parameters
+  let currentStep = 0;
+  if (step === "submitted") {
+    currentStep = 3;
+  } else if (step === "form") {
+    currentStep = 2;
+  } else if (step === "reason") {
+    currentStep = 1;
+  } else if (type === "optional-cover") {
+    currentStep = 0;
+  } else if (!type && !step) {
+    currentStep = 0; // Default claim selection
+  }
+
+  useEffect(() => {
+    // Save current step data to sessionStorage
+    if (typeof window !== "undefined") {
+      const claimData = JSON.parse(sessionStorage.getItem("claimData") || "{}");
+
+      if (type) claimData.type = type;
+      if (reason) claimData.reason = reason;
+
+      sessionStorage.setItem("claimData", JSON.stringify(claimData));
+    }
+  }, [type, reason]);
+
+  useEffect(() => {
+    // Validate step access for car insurance flow only when necessary
+    if (type === "car-insurance" && typeof window !== "undefined") {
+      const claimData = JSON.parse(sessionStorage.getItem("claimData") || "{}");
+
+      // Check if user is trying to access step 2 without reason
+      if (step === "form" && !reason && !claimData.reason) {
+        router.replace(
+          "/dashboard/submit-claim?type=car-insurance&step=reason"
+        );
+        return;
+      }
+
+      // Check if user is trying to access step 3 without form data
+      if (step === "submitted" && !claimData.formData) {
+        router.replace("/dashboard/submit-claim");
+        return;
+      }
+    }
+  }, [type, step, reason, router]);
 
   // Render different components based on search params
   const renderContent = () => {
@@ -30,8 +85,8 @@ const page = async ({ searchParams }) => {
 
     // If car insurance claims selected
     if (type === "car-insurance") {
-      // Show form if reason is selected
-      if (step === "form" && reason) {
+      // Show form if on form step
+      if (step === "form") {
         return (
           <div>
             <Stepper steps={steps} currentStep={2} />
@@ -40,7 +95,7 @@ const page = async ({ searchParams }) => {
         );
       }
 
-      // Show claim reason selection
+      // Show claim reason selection if on reason step
       if (step === "reason") {
         return (
           <div>
@@ -85,4 +140,4 @@ const page = async ({ searchParams }) => {
   return <div className={styles.page}>{renderContent()}</div>;
 };
 
-export default page;
+export default Page;

@@ -24,13 +24,14 @@
 }
 .cardsContainer {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   gap: 2.4rem;
 }
 
 .cardsContainer > div {
-  min-height: 46.4rem;
+  min-height: 42rem;
+  flex: 1;
 }
 @media screen and (max-width: 900px) {
   .container {

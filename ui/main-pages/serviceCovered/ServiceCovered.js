@@ -1,13 +1,22 @@
 import React from "react";
 import styles from "./serviceCovered.module.css";
 import Image from "next/image";
+import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+});
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["500"],
+});
 const ServiceCovered = ({ title, description, covered, unCovered }) => {
   const words = title.split(" ");
   const lastThreeWords = words.slice(-3).join(" "); // last 2 words
   const withoutLastThreeWords = words.slice(0, -3).join(" "); // everything except last 2
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>
+      <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
         {withoutLastThreeWords}
         <span>{lastThreeWords}</span>
       </h3>
@@ -40,7 +49,7 @@ const ServiceCovered = ({ title, description, covered, unCovered }) => {
         <div className={styles.unCovered}>
           <div className={styles.header}>
             <Image
-              src={"/svg/covered.svg"}
+              src={"/svg/uncovered.svg"}
               alt="arrow-right"
               width={89}
               height={64}

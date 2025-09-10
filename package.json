@@ -12,6 +12,7 @@
     "@hookform/resolvers": "^5.2.1",
     "axios": "^1.11.0",
     "flatpickr": "^4.6.13",
+    "js-cookie": "^3.0.5",
     "next": "15.4.5",
     "react": "19.1.0",
     "react-datepicker": "^8.4.0",

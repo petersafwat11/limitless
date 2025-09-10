@@ -17,6 +17,14 @@ const Calculator = () => {
   const router = useRouter();
   return (
     <div className={styles.container}>
+      <Image
+        src="/svg/squares-2.svg"
+        alt="squares"
+        width={1394}
+        height={706}
+        className={styles.squares}
+      />
+
       <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
         Temporary Vehicle<span>Insurance Calculator </span>
       </h3>
@@ -72,7 +80,11 @@ const Calculator = () => {
               <h4
                 className={`${styles.cardPrice} ${plusJakartaSans.className}`}
               >
-                £12
+                {data.type === "1 Hour"
+                  ? "£12"
+                  : data.type === "1 Day"
+                  ? "£24"
+                  : "£50"}
               </h4>
             </div>
             <p className={styles.cardDescription}>

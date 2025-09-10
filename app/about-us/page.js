@@ -35,7 +35,13 @@ const page = () => {
       </div>
       <OurVision />
       {/* <OurStory /> */}
-      <AboutUs data={data2} />
+      <AboutUs
+        data={data2}
+        maxWidths={{
+          description1: "max-width: 41rem",
+          description2: "max-width: 43rem",
+        }}
+      />
       <FastAndFair />
       <div className={styles.reviewsContainer}>
         <Reviews />

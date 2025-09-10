@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./submitted.module.css";
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
@@ -12,6 +12,22 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 const Submitted = () => {
   const router = useRouter();
+  const [orderReference, setOrderReference] = useState("");
+
+  // Get order reference from sessionStorage and clear claim data
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const claimData = JSON.parse(sessionStorage.getItem("claimData") || "{}");
+
+      // Get the order reference from the submitted claim
+      if (claimData.orderReference) {
+        setOrderReference(claimData.orderReference);
+      }
+
+      // Clear claim data after getting the reference
+      sessionStorage.removeItem("claimData");
+    }
+  }, []);
   return (
     <div className={styles.container}>
       <Image
@@ -46,7 +62,9 @@ const Submitted = () => {
           />
           <p className={styles.headerItemTitle}>Order Reference</p>
         </div>
-        <p className={styles.headerItemValue}>#kL10AFJJ019</p>
+        <p className={styles.headerItemValue}>
+          {orderReference ? `#${orderReference}` : "#Loading..."}
+        </p>
       </div>
 
       <p className={styles.description}>

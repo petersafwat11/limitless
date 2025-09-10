@@ -108,10 +108,7 @@ export default function Home() {
       <OurBenifits
         benifits={benifits}
         title="Why Choose Limitless Cover"
-        description="Lorem ipsum dolor sit amet consectetur. Arcu placerat suspendisse
-          aenean cras aliquam est pellentesque. Lobortis integer orci quam
-          consectetur accumsan sapien. Urna maecenas viverra sapien neque
-          ullamcorper."
+        description="Discover the benefits of Limitless Cover, showcasing quick and flexible options for UK drivers. Whether a young driver, courier, or reclaiming an impounded vehicle, our tailored solutions provide instant coverage suited to your needs, with inclusivity for all."
       />
       <QuestionsAnswered />
       <div className={styles.reviewsContainer}>

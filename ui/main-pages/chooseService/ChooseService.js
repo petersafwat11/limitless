@@ -17,10 +17,10 @@ const ChooseService = () => {
           Choose a Service that’s<span> right for you </span>
         </h3>
         <p className={styles.description}>
-          Lorem ipsum dolor sit amet consectetur. Arcu placerat suspendisse
-          aenean cras aliquam est pellentesque. Lobortis integer orci quam
-          consectetur accumsan sapien. Urna maecenas viverra sapien neque
-          ullamcorper.{" "}
+          Get reliable insurance with Limitless Cover, offering fast, flexible
+          options for UK drivers. Whether a young driver, courier, or reclaiming
+          an impounded vehicle, our tailored solutions provide instant coverage
+          suited to your needs, with inclusivity for all.
         </p>
       </div>
       <div className={styles.cardsContainer}>

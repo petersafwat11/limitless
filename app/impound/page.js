@@ -54,7 +54,7 @@ const page = () => {
 
       <ServiceCovered
         title="What does impound vehicle insurance cover?"
-        description="Tempcover works with a panel of insurers to provide you with compound car insurance cover. As such, full details of cover may differ depending on your insurer. Since our impound car insurance policies last for 30 days, you’ll have the freedom to do whatever you want with your car once it’s recovered – whether that’s selling it, declaring it SORN or taking it back on the road. Before buying, please double-check the policy wording."
+        description="Limitless Cover collaborates with a panel of insurers to offer comprehensive car insurance coverage. As a result, the full details of your cover may vary based on your chosen insurer. With our impound car insurance policies lasting 30 days, you’ll enjoy the flexibility to decide your car’s next step after recovery - whether selling it, declaring it SORN, or returning it to the road. Please review the policy wording carefully before purchasing."
         covered={impoundCoverDetails.covered}
         unCovered={impoundCoverDetails.unCovered}
       />

@@ -63,21 +63,44 @@ const GetQuote = () => {
       <div className={styles.selection}>
         <p className={styles.label}>How long will you need it?</p>
         <Selection1
+          items={["1 Day", "2 Days", "1 Week"]}
+          selectedItem={data.type}
+          setSelectedItem={(item) => setData({ ...data, type: item })}
+          type="checkbox"
+        />
+      </div>
+      <div className={styles.selection}>
+        <p className={styles.label}>Need it specific? Choose your duration</p>
+        <Selection1
           items={["Hours", "Days", "Weeks"]}
           selectedItem={data.type}
           setSelectedItem={(item) => setData({ ...data, type: item })}
           type="checkbox"
         />
       </div>
-      {data.type.length > 0 && (
+
+      {["Hours", "Days", "Weeks"].includes(data.type) && (
         <div className={styles.selection}>
           <p className={styles.label}>Select the duration of your cover</p>
           <Selection1
             items={
               data.type === "Days"
-                ? ["1 Day", "2 Days", "3 Days", "4 Days", "5 Days"]
+                ? ["1 Day", "2 Days", "3 Days", "4 Days", "5 Days", "6 Days"]
                 : data.type === "Hours"
-                ? ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+                ? [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6",
+                    "7",
+                    "8",
+                    "9",
+                    "10",
+                    "11",
+                    "12",
+                  ]
                 : ["1 Week", "2 Weeks", "3 Weeks", "4 Weeks"]
             }
             selectedItem={data.period}

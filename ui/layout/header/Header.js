@@ -18,6 +18,7 @@ const Header = () => {
       <header className={styles.container}>
         <div className={styles.logoContainer}>
           <Image
+            onClick={() => router.push("/")}
             className={styles.logo}
             src="/svg/logo.svg"
             alt="logo"
@@ -38,7 +39,7 @@ const Header = () => {
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} href="/courier">
+              <Link className={styles.menuLink} href="/comming-soon">
                 Courier
               </Link>
             </li>
@@ -84,6 +85,7 @@ const Header = () => {
       <header className={styles.mobileContainer}>
         <div className={styles.top}>
           <Image
+            onClick={() => router.push("/")}
             className={styles.logoMobile}
             src="/svg/logo.svg"
             alt="logo"
@@ -150,7 +152,7 @@ const Header = () => {
                 className={`${styles.menuLink} ${
                   pathname === "/courier" ? styles.activeMenuLink : ""
                 }`}
-                href="/courier"
+                href="/comming-soon"
               >
                 Courier
               </Link>

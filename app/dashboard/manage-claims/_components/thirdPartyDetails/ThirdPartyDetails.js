@@ -7,7 +7,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
-const ThirdPartyDetails = () => {
+
+const ThirdPartyDetails = ({ claimData }) => {
+ 
   return (
     <div className={styles.container}>
       <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
@@ -18,13 +20,13 @@ const ThirdPartyDetails = () => {
           <InputWithData2
             item={{
               label: "Third Party Name",
-              value: "09 December 2024",
+              value: claimData.thirdPartyFullName,
             }}
           />
           <InputWithData2
             item={{
               label: "Third Party Contact No.",
-              value: "08 January 2025",
+              value: claimData.thirdPartyPhone,
             }}
           />
         </div>
@@ -32,28 +34,41 @@ const ThirdPartyDetails = () => {
           <InputWithData2
             item={{
               label: "Third Party Address",
-              value: "09 December 2024",
+              value: claimData.address,
             }}
           />
           <InputWithData2
             item={{
-              label: "Vehicle Registration",
-              value: "08 January 2025",
+              label: "Third Party Postcode",
+              value: claimData.postcode,
             }}
           />
         </div>
         <div className={styles.row}>
           <InputWithData2
             item={{
-              label: "Make and Model",
-              value: "08 January 2025",
+              label: "Vehicle Registration",
+              value: claimData.vehicleRegistration,
             }}
           />
-
+          <InputWithData2
+            item={{
+              label: "Vehicle Make",
+              value: claimData.vehicleMake,
+            }}
+          />
+        </div>
+        <div className={styles.row}>
+          <InputWithData2
+            item={{
+              label: "Vehicle Model",
+              value: claimData.vehicleModel,
+            }}
+          />
           <InputWithData2
             item={{
               label: "Third Party Damage",
-              value: "08 January 2025",
+              value: claimData.damage,
             }}
           />
         </div>
@@ -61,13 +76,7 @@ const ThirdPartyDetails = () => {
           <InputWithData2
             item={{
               label: "Drivable?",
-              value: "08 January 2025",
-            }}
-          />
-            <InputWithData2 
-            item={{
-              label: "If not, give details",
-              value: "08 January 2025",
+              value: claimData.drivable,
             }}
           />
         </div>

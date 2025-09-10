@@ -4,7 +4,7 @@
 }
 .cardsContainer {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   gap: 2.4rem;
   padding: 0 4.4%;

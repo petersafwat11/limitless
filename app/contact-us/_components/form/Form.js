@@ -17,7 +17,7 @@ const Form = () => {
       <div className={styles.inputGroup}>
         <label className={styles.label}>Select the Appropriate Option</label>
         <Selection1
-          items={["Question", "Complaint", "other"]}
+          items={["Question", "Complaint", "Other"]}
           selectedItem={data.type}
           setSelectedItem={(item) => setData({ ...data, type: item })}
           type="checkbox"
@@ -52,7 +52,7 @@ const Form = () => {
         value={data.message}
         setValue={(e) => setData({ ...data, message: e.target.value })}
         placeholder="Enter your Message"
-        rows={3}
+        rows={5}
       />
 
       <button className={styles.button}>

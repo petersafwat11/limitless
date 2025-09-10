@@ -151,9 +151,9 @@ export const impoundEligibility = {
       height: 169,
     },
     features: [
-      "For full UK driving licence holders, you'll usually need to be aged 17-70 to use Cuvva, and have held your licence for over a day if you're a newer driver",
+      "For full UK driving licence holders, you'll need to be aged 17-70 to use Limitless Cover and have held your licence for over a day if you are a newer driver",
       "If you're a provisional licence holder you'll need to be aged 17-50 and not have held your licence for over 15 years",
-      "To use Limitless, you can either use a UK licence or use a full driving licence from Belgium, Bulgaria, France, Germany, Greece, Italy, the Netherlands, Poland, Portugal, the Republic of Ireland, Romania, Spain, Sweden, or Switzerland or any other foreign country.",
+      "To use Limitless, you can either use a UK licence or use a full driving licence from Belgium, Bulgaria, France, Germany, Greece, Italy, the Netherlands, Poland, Portugal, the Republic of Ireland, Romania, Spain, Sweden, or Switzerland or any other foreign country",
     ],
   },
   second: {
@@ -168,9 +168,9 @@ export const impoundEligibility = {
     features: [
       "Be at most 60 years old (if you're driving a car on a full licence) or at most 40 years old (for learner licences, or vans)",
       "Be worth less than £300,000 (cars), or be worth less than £200,000 (vans/commercial vehicles)",
-      "Meet our modification rules. We accept lots, including any to aid a disability, but there are some we can't insure.",
+      "Meet our modification rules. We accept lots, including any to aid a disability, but there are some we can't insure",
       "Meet our insurance group requirements",
-      "Not be scrapped or impounded temporarily",
+      "Not be scrapped",
     ],
   },
 };

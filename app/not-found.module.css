@@ -1,0 +1,22 @@
+.page {
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+.squareLight {
+  position: absolute;
+  z-index: 1;
+  top: -3.7rem;
+  right: 1.1%;
+  width: calc(42.1rem - 1.1%);
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 136, 255, 0) 0%,
+    rgba(3, 136, 255, 0.48) 100%
+  );
+}
+@media screen and (max-width: 900px) {
+  .squareLight {
+    display: none;
+  }
+}

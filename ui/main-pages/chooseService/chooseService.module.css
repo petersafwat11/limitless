@@ -34,7 +34,7 @@
 }
 .cardsContainer {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   gap: 2.4rem;
   margin-bottom: 8.2rem;

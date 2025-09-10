@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./aboutUs.module.css";
 import Image from "next/image";
-const AboutUs = ({ data }) => {
+const AboutUs = ({ data, maxWidths }) => {
   return (
     <div className={styles.container}>
       <div className={styles.first}>
@@ -39,8 +39,22 @@ const AboutUs = ({ data }) => {
           height={42}
         />
 
-        <p className={styles.description}>{data.description1}</p>
-        <p className={styles.description}>{data.description2}</p>
+        <p
+          className={styles.description}
+          style={{
+            maxWidth: maxWidths?.description1?.replace("max-width: ", "") || "",
+          }}
+        >
+          {data.description1}
+        </p>
+        <p
+          className={styles.description}
+          style={{
+            maxWidth: maxWidths?.description2?.replace("max-width: ", "") || "",
+          }}
+        >
+          {data.description2}
+        </p>
       </div>
     </div>
   );

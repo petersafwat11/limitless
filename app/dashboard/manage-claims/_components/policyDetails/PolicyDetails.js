@@ -7,7 +7,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
-const PolicyDetails = () => {
+
+const PolicyDetails = ({ claimData }) => {
   return (
     <div className={styles.container}>
       <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
@@ -18,13 +19,13 @@ const PolicyDetails = () => {
           <InputWithData2
             item={{
               label: "Claim Type",
-              value: "09 December 2024",
+              value: claimData.claimreason,
             }}
           />
           <InputWithData2
             item={{
               label: "Policyholder Name",
-              value: "08 January 2025",
+              value: claimData.claimDetails.placeHolderFirstName + " " + claimData.claimDetails.placeHolderLastName,
             }}
           />
         </div>
@@ -32,34 +33,34 @@ const PolicyDetails = () => {
           <InputWithData2
             item={{
               label: "Claimant's Name",
-              value: "09 December 2024",
+              value: claimData.claimDetails.claimentsName,
             }}
           />
           <InputWithData2
             item={{
               label: "Email Address",
-              value: "08 January 2025",
+              value: claimData.claimDetails.emailAddress,
             }}
           />
         </div>
         <InputWithData2
           item={{
-            label: "Claimants Name",
-            value: "08 January 2025",
+            label: "Incident Description",
+            value: claimData.incidentDescription,
           }}
         />
         <div className={styles.row}>
           <InputWithData2
             item={{
               label: "Date of Incident",
-              value: "08 January 2025",
+              value: claimData.incidentDate,
               type: "date",
             }}
           />
           <InputWithData2
             item={{
               label: "Responsible?",
-              value: "08 January 2025",
+              value: claimData.responsible,
             }}
           />
         </div>
@@ -67,13 +68,13 @@ const PolicyDetails = () => {
           <InputWithData2
             item={{
               label: "If not, give details",
-              value: "08 January 2025",
+              value: claimData.detailsIfNotResponsible,
             }}
           />
           <InputWithData2
             item={{
-              label: "Vehicle location:",
-              value: "08 January 2025",
+              label: "Vehicle location",
+              value: claimData.vehicleLocation,
             }}
           />
         </div>

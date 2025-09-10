@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   margin: 0 1.1%;
-  padding: 7.3rem 0 5rem;
+  padding: 7.3rem 5%  5rem;
   border-radius: 20px;
   background: linear-gradient(
     180deg,
@@ -28,7 +28,7 @@
   font-size: 58px;
   font-weight: 700;
   line-height: 100%; /* 58px */
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   display: flex;
   align-items: center;
   justify-content: center;

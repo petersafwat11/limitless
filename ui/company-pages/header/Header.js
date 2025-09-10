@@ -14,8 +14,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const Header = ({ title }) => {
   const pathname = usePathname();
   const words = title.split(" ");
-  const lastWord = words[words.length - 1];
-  const withoutLastWord = words.slice(0, -1).join(" ");
+  const lastWord = title.includes("Complaints") ? "" : words[words.length - 1];
+  const withoutLastWord = title.includes("Complaints")
+    ? "Complaints"
+    : words.slice(0, -1).join(" ");
   console.log(lastWord);
   return (
     <div className="headerContainer">

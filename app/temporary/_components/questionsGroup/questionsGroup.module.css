@@ -93,6 +93,8 @@
   line-height: 124%;
   letter-spacing: 0.56px;
   margin: 0;
+  padding-bottom: 1rem;
+  max-width: 80%;
 }
 
 /* Answer wrapper for smooth expand/collapse animation */

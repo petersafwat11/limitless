@@ -60,14 +60,52 @@
   font-weight: 500;
   line-height: 124%;
   cursor: pointer;
-  transition: all 0.3s ease;
   border: none;
   align-items: center;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease 0.3s; /* Text color changes after background animation */
+  z-index: 1;
 }
+
+.getQuoteBtn::before,
+.membersPortalBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, #fff 0%, #fff 100%);
+  transition: left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+}
+
+.getQuoteBtn:hover::before,
+.membersPortalBtn:hover::before {
+  left: 0;
+}
+
+.getQuoteBtn:hover,
+.membersPortalBtn:hover {
+  color: #0388ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(3, 136, 255, 0.3);
+}
+
 .membersPortalBtn {
   background: linear-gradient(0deg, #262e47 0%, #262e47 100%), #fff;
   box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
+}
+
+.membersPortalBtn::before {
+  background: linear-gradient(0deg, #fff 0%, #fff 100%);
+}
+
+.membersPortalBtn:hover {
+  color: #262e47;
+  box-shadow: 0 8px 25px rgba(38, 46, 71, 0.3);
 }
 .imageContainer {
   position: relative;

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./form.module.css";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -20,6 +20,15 @@ const Form = ({ claimReason }) => {
   const { user } = useAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Get saved form data from sessionStorage
+  const getSavedFormData = () => {
+    if (typeof window === "undefined") return {};
+    const claimData = JSON.parse(sessionStorage.getItem("claimData") || "{}");
+    return claimData.formData || {};
+  };
+
+  const savedFormData = getSavedFormData();
+
   const {
     register,
     handleSubmit,
@@ -27,37 +36,60 @@ const Form = ({ claimReason }) => {
     setValue,
     watch,
     setError,
+    reset,
   } = useForm({
     resolver: zodResolver(submitClaimFlatSchema),
     defaultValues: {
-      policyNumber: "",
-      placeHolderFirstName: "",
-      placeHolderLastName: "",
-      claimentsName: "",
-      emailAddress: "",
-      incidentDescription: "",
-      incidentDate: "",
-      responsible: "",
-      detailsIfNotResponsible: "",
-      vehicleLocation: "",
-      thirdPartyFullName: "",
-      thirdPartyPhone: "",
-      thirdPartyPostcode: "",
-      thirdPartyAddress: "",
-      thirdPartyVehicleRegistration: "",
-      thirdPartyVehicleMake: "",
-      thirdPartyVehicleModel: "",
-      thirdPartyDamage: "",
-      drivable: "",
+      policyNumber: savedFormData.policyNumber || "",
+      placeHolderFirstName: savedFormData.placeHolderFirstName || "",
+      placeHolderLastName: savedFormData.placeHolderLastName || "",
+      claimentsName: savedFormData.claimentsName || "",
+      emailAddress: savedFormData.emailAddress || "",
+      incidentDescription: savedFormData.incidentDescription || "",
+      incidentDate: savedFormData.incidentDate || "",
+      responsible: savedFormData.responsible || "",
+      detailsIfNotResponsible: savedFormData.detailsIfNotResponsible || "",
+      vehicleLocation: savedFormData.vehicleLocation || "",
+      thirdPartyFullName: savedFormData.thirdPartyFullName || "",
+      thirdPartyPhone: savedFormData.thirdPartyPhone || "",
+      thirdPartyPostcode: savedFormData.thirdPartyPostcode || "",
+      thirdPartyAddress: savedFormData.thirdPartyAddress || "",
+      thirdPartyVehicleRegistration:
+        savedFormData.thirdPartyVehicleRegistration || "",
+      thirdPartyVehicleMake: savedFormData.thirdPartyVehicleMake || "",
+      thirdPartyVehicleModel: savedFormData.thirdPartyVehicleModel || "",
+      thirdPartyDamage: savedFormData.thirdPartyDamage || "",
+      drivable: savedFormData.drivable || "",
       claimreason: claimReason || "",
     },
   });
+
+  // Save form data to sessionStorage on every change
+  useEffect(() => {
+    const subscription = watch((value) => {
+      if (typeof window !== "undefined") {
+        const claimData = JSON.parse(
+          sessionStorage.getItem("claimData") || "{}"
+        );
+        claimData.formData = value;
+        sessionStorage.setItem("claimData", JSON.stringify(claimData));
+      }
+    });
+    return () => subscription.unsubscribe();
+  }, [watch]);
 
   const watchedValues = watch();
 
   const onSubmit = async (data) => {
     try {
       setIsSubmitting(true);
+
+      // Get claim data from sessionStorage
+      const claimData = JSON.parse(sessionStorage.getItem("claimData") || "{}");
+
+      // Save form data to sessionStorage for step validation
+      claimData.formData = data;
+      sessionStorage.setItem("claimData", JSON.stringify(claimData));
 
       // Transform flat form data to nested structure for API
       const apiData = transformFormDataToApiFormat(data);
@@ -77,6 +109,12 @@ const Form = ({ claimReason }) => {
       const result = await response.json();
 
       if (response.ok) {
+        // Mark as successfully submitted and save order reference
+        claimData.submitted = true;
+        claimData.orderReference =
+          result.data?.orderReference || result.orderReference;
+        sessionStorage.setItem("claimData", JSON.stringify(claimData));
+
         // Redirect to success page
         router.push("/dashboard/submit-claim?step=submitted");
       } else {

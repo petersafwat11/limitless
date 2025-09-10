@@ -35,10 +35,10 @@
   letter-spacing: 0.64px;
 }
 .description:last-child {
-  max-width: 37.6rem;
+  max-width: 41rem;
 }
 .description:nth-child(2) {
-  max-width: 42.3rem;
+  max-width: 43rem;
 }
 @media screen and (max-width: 1300px) {
   .container {

@@ -11,11 +11,15 @@ const manrope = Manrope({
   weight: ["500"],
 });
 const Eligability = ({ data }) => {
+  const title = data.title.split(" ");
+  const lastThreeWords = title.slice(-3).join(" ");
+  const withoutLastThreeWords = title.slice(0, -3).join(" ");
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
-          {data.title}
+          {withoutLastThreeWords}
+          <span>{lastThreeWords}</span>
         </h3>
         <p className={styles.description}>{data.description}</p>
       </div>
