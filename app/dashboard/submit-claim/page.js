@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Stepper from "./_components/stepper/Stepper";
 import styles from "./page.module.css";
@@ -16,7 +16,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["700"],
 });
 
-const Page = () => {
+const SubmitClaimContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -138,6 +138,28 @@ const Page = () => {
   };
 
   return <div className={styles.page}>{renderContent()}</div>;
+};
+
+const Page = () => {
+  return (
+    <Suspense
+      fallback={
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "400px",
+            color: "#666",
+          }}
+        >
+          Loading...
+        </div>
+      }
+    >
+      <SubmitClaimContent />
+    </Suspense>
+  );
 };
 
 export default Page;
