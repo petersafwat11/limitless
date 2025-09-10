@@ -1,8 +1,8 @@
-import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import Form from "./_components/form/Form";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import React, { Suspense } from "react";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -50,7 +50,23 @@ const page = () => {
           />
         </div>
         <div className={styles.form}>
-          <Form />
+          <Suspense
+            fallback={
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  minHeight: "200px",
+                  color: "#666",
+                }}
+              >
+                Loading...
+              </div>
+            }
+          >
+            <Form />
+          </Suspense>
         </div>
       </div>
     </div>
