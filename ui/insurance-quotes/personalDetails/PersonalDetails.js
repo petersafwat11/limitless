@@ -7,6 +7,7 @@ import DataAndTime from "../../inputs/selections/dataAndTime/DataAndTime";
 import ConfirmBtn from "@/ui/buttons/confirmBtn/ConfirmBtn";
 import Selection2 from "@/ui/inputs/selections/selection2/Selection2";
 import CarUsage from "../carUsage/CarUsage";
+import Dropdown from "@/ui/inputs/dropdown/Dropdown";
 
 const PersonalDetails = () => {
   const [data, setData] = useState({
@@ -44,9 +45,9 @@ const PersonalDetails = () => {
             onChange={(e) => setData({ ...data, firstName: e.target.value })}
           />
           <TextInput
-            label="Surname"
+            label="Last Name"
             name="surname"
-            placeholder="Enter your surname"
+            placeholder="Enter your last name"
             value={data.surname}
             onChange={(e) => setData({ ...data, surname: e.target.value })}
           />
@@ -91,16 +92,16 @@ const PersonalDetails = () => {
           <TextInput
             label="Address"
             name="address"
-            placeholder="Enter your address"
+            placeholder="Enter your Address"
             value={data.address}
             onChange={(e) => setData({ ...data, address: e.target.value })}
             // reg={true}
           />
 
-          <TextInput
+          <Dropdown
             label="Employment Status"
-            name="employmentStatus"
-            placeholder="Enter your employment status"
+            options={["Self-Employed", "Employed", "Unemployed", "Retired"]}
+            placeholder="Choose Employment Status"
             value={data.employmentStatus}
             onChange={(e) =>
               setData({ ...data, employmentStatus: e.target.value })
@@ -109,18 +110,15 @@ const PersonalDetails = () => {
         </div>
         <div className={styles.row}>
           <TextInput
-            label="Occupation"
-            name="occupation"
-            placeholder="Enter your occupation"
-            value={data.occupation}
-            onChange={(e) => setData({ ...data, occupation: e.target.value })}
-          />
-          <TextInput
             label="Industry"
             name="industry"
-            placeholder="Enter your industry"
-            value={data.industry}
-            onChange={(e) => setData({ ...data, industry: e.target.value })}
+            placeholder="Enter your Industry"
+          />
+          <TextInput
+            label="Occupation"
+            name="occupation"
+            placeholder="Enter your Occupation"
+            // reg={true}
           />
         </div>
       </div>

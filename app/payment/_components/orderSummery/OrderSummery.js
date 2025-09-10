@@ -85,7 +85,7 @@ const OrderSummery = () => {
             You will receive a special login link via email.
           </p>
           <p className={styles.footerTextSupport}>
-            Please<span style={{ color: "#0388FF" }}>contact support</span> if
+            Please<span style={{ color: "#0388FF" }}> contact support</span> if
             you have not received
           </p>
         </div>

@@ -6,6 +6,8 @@ import DataAndTime from "@/ui/inputs/selections/dataAndTime/DataAndTime";
 import Title from "../title/Title";
 import ComponentWrapper from "../componentWrapper/ComponentWrapper";
 import Selection4 from "@/ui/inputs/selections/selection4/Selection4";
+import Image from "next/image";
+import InputWithData2 from "@/ui/inputs/InputWithData2/InputWithData2";
 const ImpoundCoverDetails = () => {
   const [data, setData] = useState({
     type: "days",
@@ -13,20 +15,55 @@ const ImpoundCoverDetails = () => {
     startDate: "2025-01-01",
     startTime: "10:00",
   });
+  const [startPolicyImmediately, setStartPolicyImmediately] = useState(false);
+
   return (
     <ComponentWrapper title="Cover Details">
       <div className={styles.content}>
-        <div className={styles.inputGroup}>
-          <Title title="When would you like the cover to start?" />
-          <DataAndTime
-            data={data}
-            setData={setData}
-            // type="date"
-            dateKey="startDate"
-            dateLabel="Start Date"
-            timeLabel="Start Time"
-            timeKey="startTime"
-          />
+        <div className={styles.inputWrapper}>
+          <div className={styles.inputGroup}>
+            <Title title="When would you like the cover to start?" />
+            {startPolicyImmediately ? (
+              <div className={styles.row}>
+                <InputWithData2
+                  item={{
+                    label: "Start Date",
+                    type: "date",
+                    value: "2025-01-01",
+                  }}
+                />
+                <InputWithData2
+                  item={{
+                    label: "Start Time",
+                    type: "time",
+                    value: "10:00",
+                  }}
+                />
+              </div>
+            ) : (
+              <DataAndTime
+                data={data}
+                setData={setData}
+                // type="date"
+                dateKey="startDate"
+                dateLabel="Start Date"
+                timeLabel="Start Time"
+                timeKey="startTime"
+              />
+            )}{" "}
+            <button
+              onClick={() => setStartPolicyImmediately(!startPolicyImmediately)}
+              className={styles.startButton}
+            >
+              <Image
+                src="/svg/check.svg"
+                alt="calendar"
+                width={16}
+                height={16}
+              />{" "}
+              Start policy immediately
+            </button>
+          </div>
         </div>
 
         <div className={styles.inputGroup}>
@@ -38,27 +75,13 @@ const ImpoundCoverDetails = () => {
                 "Impound Insurance ",
                 "Under 21 Impound Insurance ",
                 "Impounded Van Insurance ",
-                "Banned driver impoundinsurance",
+                "Banned driver impound insurance",
                 "Provisional Impound Insurance ",
                 "Named Driver Impound Insurance ",
               ]}
               selectedItem={data.type}
               setSelectedItem={(item) => setData({ ...data, type: item })}
             />
-            {/* <div className={styles.selectionOptions}>
-              <Selection1
-                items={["Days", "Weeks", "Months"]}
-                selectedItem={data.type}
-                setSelectedItem={(item) => setData({ ...data, type: item })}
-                type="checkbox"
-              />
-              <Selection1
-                items={["1", "2", "3", "4", "5", "6", "7"]}
-                selectedItem={data.value}
-                setSelectedItem={(item) => setData({ ...data, value: item })}
-                // type="radio"
-              />
-            </div> */}
           </div>
         </div>
       </div>

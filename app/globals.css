@@ -141,7 +141,7 @@ body .react-datepicker__day-name {
   font-size: 1.3rem !important;
   font-weight: 600 !important;
   margin: 0.6rem !important;
-  width: 3.6rem !important;
+  width: 2.6rem !important;
   line-height: 3.6rem !important;
 }
 
@@ -162,7 +162,7 @@ body .react-datepicker__day {
   font-weight: 500 !important;
   margin: 0.2rem !important;
   border-radius: 1rem !important;
-  width: 3.6rem !important;
+  width: 2.6rem !important;
   height: 3.6rem !important;
   line-height: 3.6rem !important;
   display: flex !important;

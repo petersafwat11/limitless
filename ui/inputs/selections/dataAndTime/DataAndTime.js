@@ -5,7 +5,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import styles from "./dataAndTime.module.css";
-  const DataAndTime = ({ data, setData, dateLabel, timeLabel ,dateKey, timeKey}) => {
+const DataAndTime = ({
+  data,
+  setData,
+  dateLabel,
+  timeLabel,
+  dateKey,
+  timeKey,
+}) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState(
     data.date ? new Date(data.date) : null
@@ -31,6 +38,14 @@ import styles from "./dataAndTime.module.css";
   }, []);
 
   const handleDateChange = (date) => {
+    // Prevent selecting dates before today
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (date < today) {
+      return; // Don't allow selection of past dates
+    }
+
     setSelectedDate(date);
     const formattedDate = date ? date.toLocaleDateString("en-GB") : "";
     setData({ ...data, date: formattedDate });
@@ -41,76 +56,96 @@ import styles from "./dataAndTime.module.css";
     setShowDatePicker(true);
   };
 
+  const handleTimeContainerClick = () => {
+    if (timeInputRef.current) {
+      timeInputRef.current.focus();
+      timeInputRef.current.click();
+    }
+  };
+
   return (
     <div className={styles.container}>
-     {dateLabel && <div className={styles.inputGroup}>
-        <label className={styles.label}>{dateLabel}</label>
-        <div className={styles.inputContainer} onClick={handleDateIconClick}>
-          <div className={styles.iconContainer}>
+      {dateLabel && (
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>{dateLabel}</label>
+          <div className={styles.inputContainer} onClick={handleDateIconClick}>
+            <div className={styles.iconContainer}>
+              <Image
+                src="/svg/date.svg"
+                alt="calendar"
+                width={24}
+                height={24}
+                className={styles.icon}
+              />
+            </div>
+            <input
+              value={data.date || ""}
+              type="text"
+              placeholder="DD/MM/YYYY"
+              className={styles.input}
+              readOnly
+            />
             <Image
-              src="/svg/date.svg"
-              alt="calendar"
+              src="/svg/arrow-down.svg"
+              alt="arrow-down"
               width={24}
               height={24}
-              className={styles.icon}
+              className={styles.arrowDown}
             />
           </div>
-          <input
-            value={data.date || ""}
-            type="text"
-            placeholder="DD/MM/YYYY"
-            className={styles.input}
-            readOnly
-          />
-          <Image
-            src="/svg/arrow-down.svg"
-            alt="arrow-down"
-            width={24}
-            height={24}
-            className={styles.arrowDown}
-          />
+          {showDatePicker && (
+            <div className={styles.datePickerWrapper}>
+              <DatePicker
+                selected={selectedDate}
+                onChange={handleDateChange}
+                inline
+                calendarClassName={styles.customCalendar}
+                onClickOutside={() => setShowDatePicker(false)}
+                minDate={new Date()}
+                filterDate={(date) => {
+                  const today = new Date();
+                  today.setHours(0, 0, 0, 0);
+                  return date >= today;
+                }}
+              />
+            </div>
+          )}
         </div>
-        {showDatePicker && (
-          <div className={styles.datePickerWrapper}>
-            <DatePicker
-              selected={selectedDate}
-              onChange={handleDateChange}
-              inline
-              calendarClassName={styles.customCalendar}
-              onClickOutside={() => setShowDatePicker(false)}
+      )}
+      {timeLabel && (
+        <div className={styles.inputGroup}>
+          <label className={styles.label}>{timeLabel}</label>
+          <div
+            className={styles.inputContainer}
+            onClick={handleTimeContainerClick}
+          >
+            <div className={styles.iconContainer}>
+              <Image
+                src="/svg/time.svg"
+                alt="time"
+                width={24}
+                height={24}
+                className={styles.icon}
+              />
+            </div>
+            <input
+              ref={timeInputRef}
+              value={data.time || ""}
+              onChange={(e) => setData({ ...data, time: e.target.value })}
+              type="text"
+              placeholder="--:--"
+              className={styles.input}
             />
-          </div>
-        )}
-      </div>}
-      {timeLabel && <div className={styles.inputGroup}>
-        <label className={styles.label}>{timeLabel}</label>
-        <div className={styles.inputContainer}>
-          <div className={styles.iconContainer}>
             <Image
-              src="/svg/time.svg"
-              alt="time"
+              src="/svg/arrow-down.svg"
+              alt="arrow-down"
               width={24}
               height={24}
-              className={styles.icon}
+              className={styles.arrowDown}
             />
           </div>
-          <input
-            ref={timeInputRef}
-            value={data.time || ""}
-            onChange={(e) => setData({ ...data, time: e.target.value })}
-            type="text"
-            placeholder="--:--"
-            className={styles.input}
-          />
-          <Image
-            src="/svg/arrow-down.svg"
-            alt="arrow-down"
-            width={24}
-            height={24}
-            className={styles.arrowDown}
-          />
         </div>
-      </div>}
+      )}
     </div>
   );
 };

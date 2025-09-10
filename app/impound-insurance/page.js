@@ -9,7 +9,7 @@ import ImpoundCoverDetails from "@/ui/insurance-quotes/impoundCoverDetails/Impou
 const page = () => {
   return (
     <div>
-      <Header title="Temporary Insurance" />
+      <Header title="Impound Insurance" />
 
       <div className="insuranceQuotesContainer">
         <VehicleDetails />

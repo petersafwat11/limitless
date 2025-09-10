@@ -6,6 +6,31 @@
   border-radius: 16px;
   background: #fff;
 }
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
+}
+.row {
+  display: flex;
+  gap: 1.8rem;
+}
+.row > div {
+  flex: 1;
+}
+.startButton {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  color: #000822;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 124%;
+  letter-spacing: 0.56px;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
 .selectionContainer {
   display: flex;
   flex-direction: column;

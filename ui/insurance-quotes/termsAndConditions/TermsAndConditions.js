@@ -8,7 +8,7 @@ const TermsAndConditions = () => {
       <div className={styles.content}>
         <div className={styles.terms}>
           <p className={styles.termItem}>
-            {` “As set out in our privacy policy, Comparison Creator and our partners
+            {` As set out in our privacy policy, Comparison Creator and our partners
             may exchange information through various databases or use data from
             loyalty schemes (including transactional information) to help check
             the information provided, to prevent fraud and to assess your premium.`}
@@ -17,7 +17,7 @@ const TermsAndConditions = () => {
             {`Please read our terms & conditions and privacy policy  before you proceed, as by clicking 'Accept and Get Quotes' you confirm  you have read and accept them.`}
           </p>
           <p className={styles.termItem}>
-            {`By clicking the button below you confirm that you have read and accept our privacy policy and Terms and conditions. You can read more about Comparison Creator's service here.”`}
+            {`By clicking the button below you confirm that you have read and accept our privacy policy and Terms and conditions. You can read more about Comparison Creator's service here.`}
           </p>
         </div>
         <div className={styles.selection}>
