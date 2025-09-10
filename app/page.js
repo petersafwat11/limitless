@@ -104,15 +104,17 @@ export default function Home() {
         description="Join 1 million+ drivers getting a great deal on short-term cover. Drive for hours, days, or weeks with affordable, fully comprehensive policies. It’s quick, easy, and all sorted from your phone."
         features={features}
       />
-      <ChooseService />
-      <OurBenifits
-        benifits={benifits}
-        title="Why Choose Limitless Cover"
-        description="Discover the benefits of Limitless Cover, showcasing quick and flexible options for UK drivers. Whether a young driver, courier, or reclaiming an impounded vehicle, our tailored solutions provide instant coverage suited to your needs, with inclusivity for all."
-      />
-      <QuestionsAnswered />
-      <div className={styles.reviewsContainer}>
-        <Reviews />
+      <div className={"centeredContent"}>
+        <ChooseService />
+        <OurBenifits
+          benifits={benifits}
+          title="Why Choose Limitless Cover"
+          description="Discover the benefits of Limitless Cover, showcasing quick and flexible options for UK drivers. Whether a young driver, courier, or reclaiming an impounded vehicle, our tailored solutions provide instant coverage suited to your needs, with inclusivity for all."
+        />
+        <QuestionsAnswered />
+        <div className={styles.reviewsContainer}>
+          <Reviews />
+        </div>
       </div>
     </div>
   );
