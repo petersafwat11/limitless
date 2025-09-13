@@ -54,7 +54,7 @@ export const menus = [
       },
       {
         title: "Cookie Policy",
-        link: "/cookie-policy",
+        link: "/cookies-policy",
       },
     ],
   },
