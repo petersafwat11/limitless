@@ -76,8 +76,11 @@ const Form = () => {
     const result = await login(data.email, data.password);
 
     if (result.success) {
-      // Redirect will happen automatically via useEffect when isAuthenticated changes
-      router.push("/dashboard");
+      // Force a hard redirect to ensure cookie is properly set
+      // Use window.location for a full page reload which ensures middleware runs with fresh cookies
+      setTimeout(() => {
+        window.location.href = "/dashboard";
+      }, 100);
     } else {
       setError("root", { message: result.message });
     }
