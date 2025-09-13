@@ -9,6 +9,11 @@ export function middleware(request) {
     const token = request.cookies.get("jwt");
 
     // If no token, redirect to login
+    console.log("Token:", token);
+    console.log("Token value:", token?.value);
+    console.log("Token exists:", !!token);
+    console.log("Token value exists:", !!token?.value);
+    console.log("Token value is loggedout:", token?.value === "loggedout");
     if (!token || !token.value || token.value === "loggedout") {
       const loginUrl = new URL("/login", request.url);
       loginUrl.searchParams.set(

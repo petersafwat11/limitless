@@ -1,7 +1,7 @@
 "use client";
 import React, { createContext, useContext, useReducer, useEffect } from "react";
 import { API_BASE_URL } from "@/utils/config";
-
+import { usePathname } from "next/navigation";
 // Initial state
 const initialState = {
   user: null,
@@ -138,11 +138,13 @@ const AuthContext = createContext();
 // Auth provider component
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
-
+  const pathname = usePathname();
   // Check for existing authentication on mount
   useEffect(() => {
-    checkAuthStatus();
-  }, []);
+    if (pathname.startsWith("/dashboard")) {
+      checkAuthStatus();
+    }
+  }, [pathname]);
 
   const checkAuthStatus = async () => {
     try {
