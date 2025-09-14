@@ -51,7 +51,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  max-width: 150rem;
+  max-width: 1350rem;
   width: 100%;
 }
 @media (max-width: 1200px) {
