@@ -19,6 +19,8 @@ const Header = ({ title }) => {
   const withoutLastWord = words.slice(0, -2).join(" ");
   return (
     <div className="headerContainer">
+      <div className="centeredContent">
+
       <Image
         src="/svg/squares-2.svg"
         alt="squares"
@@ -62,6 +64,7 @@ const Header = ({ title }) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

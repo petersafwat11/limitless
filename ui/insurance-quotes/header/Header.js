@@ -20,50 +20,52 @@ const Header = ({ title }) => {
   const withoutLastWord = words.slice(0, -1).join(" ");
   return (
     <div className="headerContainer">
-      <Image
-        src="/svg/squares-2.svg"
-        alt="squares"
-        width={1394}
-        height={706}
-        className={styles.squares}
-      />
-      <div className={styles.wrapper}>
-        <div className={styles.titles}>
-          <p className={`${styles.subTitle} ${manrope.className}`}>
-            specialized for vehicle insurance
-          </p>
+      <div className="centeredContent">
+        <Image
+          src="/svg/squares-2.svg"
+          alt="squares"
+          width={1394}
+          height={706}
+          className={styles.squares}
+        />
+        <div className={styles.wrapper}>
+          <div className={styles.titles}>
+            <p className={`${styles.subTitle} ${manrope.className}`}>
+              specialized for vehicle insurance
+            </p>
 
-          <div className={`${styles.title} ${plusJakartaSans.className}`}>
-            {withoutLastWord}{" "}
-            <div className={styles.titleSpan}>
-              {lastWord}
-              <Image
-                src="/svg/curved-border.svg"
-                alt="curved border"
-                width={393}
-                height={3}
-                className={styles.curvedBorder}
-              />
+            <div className={`${styles.title} ${plusJakartaSans.className}`}>
+              {withoutLastWord}{" "}
+              <div className={styles.titleSpan}>
+                {lastWord}
+                <Image
+                  src="/svg/curved-border.svg"
+                  alt="curved border"
+                  width={393}
+                  height={3}
+                  className={styles.curvedBorder}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.steps}>
-          <Stepper
-            steps={[
-              {
-                img: { src: "/svg/vehicle.svg", width: 82, height: 82 },
-                title: "Vehicle",
-              },
-              {
-                img: { src: "/svg/quote.svg", width: 72, height: 72 },
-                title: "Quote",
-              },
-              {
-                img: { src: "/svg/payment.svg", width: 72, height: 72 },
-                title: "Payment",
-              },
-            ]}
-          />
+          <div className={styles.steps}>
+            <Stepper
+              steps={[
+                {
+                  img: { src: "/svg/vehicle.svg", width: 82, height: 82 },
+                  title: "Vehicle",
+                },
+                {
+                  img: { src: "/svg/quote.svg", width: 72, height: 72 },
+                  title: "Quote",
+                },
+                {
+                  img: { src: "/svg/payment.svg", width: 72, height: 72 },
+                  title: "Payment",
+                },
+              ]}
+            />
+          </div>
         </div>
       </div>
     </div>

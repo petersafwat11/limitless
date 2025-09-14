@@ -14,7 +14,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDashboardSidebarOpen, setIsDashboardSidebarOpen] = useState(false);
   return pathname === "/login" ? null : (
-    <>
+    <div className="centeredContent">
       <header className={styles.container}>
         <div className={styles.logoContainer}>
           <Image
@@ -185,7 +185,7 @@ const Header = () => {
           </div>
         )}
       </header>
-    </>
+    </div>
   );
 };
 

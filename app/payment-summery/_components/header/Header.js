@@ -20,67 +20,69 @@ const Header = ({ title }) => {
   const withoutLastWord = words.slice(0, -1).join(" ");
   return (
     <div className="headerContainer">
-      <Image
-        src="/svg/squares-2.svg"
-        alt="squares"
-        width={1394}
-        height={706}
-        className={styles.squares}
-      />
-      <div className={styles.wrapper}>
-        <div className={styles.titles}>
-          <p className={`${styles.subTitle} ${manrope.className}`}>
-            specialized for vehicle insurance
-          </p>
+      <div className="centeredContent">
+        <Image
+          src="/svg/squares-2.svg"
+          alt="squares"
+          width={1394}
+          height={706}
+          className={styles.squares}
+        />
+        <div className={styles.wrapper}>
+          <div className={styles.titles}>
+            <p className={`${styles.subTitle} ${manrope.className}`}>
+              specialized for vehicle insurance
+            </p>
 
-          <div className={`${styles.title} ${plusJakartaSans.className}`}>
-            {withoutLastWord}{" "}
-            <div className={styles.titleSpan}>
-              {lastWord}
-              <Image
-                src="/svg/curved-border.svg"
-                alt="curved border"
-                width={393}
-                height={3}
-                className={styles.curvedBorder}
-              />
+            <div className={`${styles.title} ${plusJakartaSans.className}`}>
+              {withoutLastWord}{" "}
+              <div className={styles.titleSpan}>
+                {lastWord}
+                <Image
+                  src="/svg/curved-border.svg"
+                  alt="curved border"
+                  width={393}
+                  height={3}
+                  className={styles.curvedBorder}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <Stepper
-          steps={[
-            {
-              title: "Vehichle",
-              img: {
-                src: "/svg/payment-step-1.svg",
-                alt: "step1",
-                width: 68,
-                height: 68,
+          <Stepper
+            steps={[
+              {
+                title: "Vehichle",
+                img: {
+                  src: "/svg/payment-step-1.svg",
+                  alt: "step1",
+                  width: 68,
+                  height: 68,
+                },
               },
-            },
-            {
-              title: "Quote",
-              img: {
-                src: "/svg/payment-step-2.svg",
-                alt: "step2",
-                width: 72,
-                height: 72,
+              {
+                title: "Quote",
+                img: {
+                  src: "/svg/payment-step-2.svg",
+                  alt: "step2",
+                  width: 72,
+                  height: 72,
+                },
               },
-            },
-            {
-              title: "Payment",
-              img: {
-                src: "/svg/payment-step-3.svg",
-                alt: "step3",
-                width: 82,
-                height: 82,
+              {
+                title: "Payment",
+                img: {
+                  src: "/svg/payment-step-3.svg",
+                  alt: "step3",
+                  width: 82,
+                  height: 82,
+                },
               },
-            },
-          ]}
-        />
-        <div className={styles.actions}>
-          <button className={styles.payButton}>Pay Now</button>
-          <button className={styles.cancelButton}>Back</button>
+            ]}
+          />
+          <div className={styles.actions}>
+            <button className={styles.payButton}>Pay Now</button>
+            <button className={styles.cancelButton}>Back</button>
+          </div>
         </div>
       </div>
     </div>

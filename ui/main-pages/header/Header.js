@@ -21,59 +21,61 @@ const Header = ({ subTitle, title, description, features }) => {
   const withoutLastWord = words.slice(0, -1).join(" ");
   return (
     <div className={"headerContainer"}>
-      <Image
-        src="/svg/squares-2.svg"
-        alt="squares"
-        width={1394}
-        height={706}
-        className={styles.squares}
-      />
+      <div className="centeredContent">
+        <Image
+          src="/svg/squares-2.svg"
+          alt="squares"
+          width={1394}
+          height={706}
+          className={styles.squares}
+        />
 
-      <Image
-        src="/svg/contact.svg"
-        alt="contact-us"
-        width={585}
-        height={776}
-        className={styles.contact}
-      />
+        <Image
+          src="/svg/contact.svg"
+          alt="contact-us"
+          width={585}
+          height={776}
+          className={styles.contact}
+        />
 
-      <div className={styles.wrapper}>
-        <div className={styles.container}>
-          <div className={styles.content}>
-            <p className={`${styles.subTitle} ${manrope.className}`}>
-              {subTitle}
-            </p>
+        <div className={styles.wrapper}>
+          <div className={styles.container}>
+            <div className={styles.content}>
+              <p className={`${styles.subTitle} ${manrope.className}`}>
+                {subTitle}
+              </p>
 
-            <div className={`${styles.title} ${plusJakartaSans.className}`}>
-              {withoutLastWord}
-              <div className={styles.titleSpan}>
-                {lastWord}
-                <Image
-                  src="/svg/curved-border.svg"
-                  alt="curved border"
-                  width={393}
-                  height={3}
-                  className={styles.curvedBorder}
-                />
+              <div className={`${styles.title} ${plusJakartaSans.className}`}>
+                {withoutLastWord}
+                <div className={styles.titleSpan}>
+                  {lastWord}
+                  <Image
+                    src="/svg/curved-border.svg"
+                    alt="curved border"
+                    width={393}
+                    height={3}
+                    className={styles.curvedBorder}
+                  />
+                </div>
               </div>
+              <p className={`${styles.description} `}>{description}</p>
+              <button className={styles.confirmBtn} onClick={() => {}}>
+                Get a Quote{" "}
+                <Image
+                  src="/svg/arrow-right.svg"
+                  alt="arrow-right"
+                  width={28}
+                  height={14}
+                />
+              </button>
             </div>
-            <p className={`${styles.description} `}>{description}</p>
-            <button className={styles.confirmBtn} onClick={() => {}}>
-              Get a Quote{" "}
-              <Image
-                src="/svg/arrow-right.svg"
-                alt="arrow-right"
-                width={28}
-                height={14}
-              />
-            </button>
+            <GetQuote />
           </div>
-          <GetQuote />
-        </div>
-        <div className={styles.features}>
-          {features.map((feature) => (
-            <Feature key={feature.title} {...feature} />
-          ))}
+          <div className={styles.features}>
+            {features.map((feature) => (
+              <Feature key={feature.title} {...feature} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

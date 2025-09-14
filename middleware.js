@@ -16,7 +16,7 @@ export function middleware(request) {
       console.log("JWT Token exists:", !!token);
       console.log("JWT Token value:", token?.value);
       console.log("Token value is loggedout:", token?.value === "loggedout");
-      
+
       // Log some key headers safely
       try {
         console.log("Origin header:", request.headers.get("origin"));

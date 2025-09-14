@@ -20,59 +20,63 @@ const Header = () => {
   const router = useRouter();
   return (
     <div className={styles.headerContainer}>
-      <Image
-        src="/svg/squares-2.svg"
-        alt="squares"
-        width={1394}
-        height={706}
-        className={styles.squares}
-      />
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <p className={`${styles.subTitle} ${manrope.className}`}>About Us </p>
+      <div className="centeredContent">
+        <Image
+          src="/svg/squares-2.svg"
+          alt="squares"
+          width={1394}
+          height={706}
+          className={styles.squares}
+        />
+        <div className={styles.container}>
+          <div className={styles.content}>
+            <p className={`${styles.subTitle} ${manrope.className}`}>
+              About Us{" "}
+            </p>
 
-          <div className={`${styles.title} ${plusJakartaSans.className}`}>
-            Limitless
-            <div className={styles.titleSpan}>
-              Who are we
-              <Image
-                src="/svg/curved-border.svg"
-                alt="curved border"
-                width={393}
-                height={3}
-                className={styles.curvedBorder}
-              />
+            <div className={`${styles.title} ${plusJakartaSans.className}`}>
+              Limitless
+              <div className={styles.titleSpan}>
+                Who are we
+                <Image
+                  src="/svg/curved-border.svg"
+                  alt="curved border"
+                  width={393}
+                  height={3}
+                  className={styles.curvedBorder}
+                />
+              </div>
             </div>
+            <button
+              className={styles.confirmBtn}
+              onClick={() => {
+                router.push("/temporary-insurance");
+              }}
+            >
+              Get a Quote{" "}
+              <Image
+                src="/svg/arrow-right.svg"
+                alt="arrow-right"
+                width={28}
+                height={14}
+              />
+            </button>
           </div>
-          <button
-            className={styles.confirmBtn}
-            onClick={() => {
-              router.push("/temporary-insurance");
-            }}
-          >
-            Get a Quote{" "}
+          <div className={styles.imageContainer}>
             <Image
-              src="/svg/arrow-right.svg"
-              alt="arrow-right"
-              width={28}
-              height={14}
+              src="/svg/about-1.svg"
+              alt="about-us-image"
+              width={565}
+              height={671}
+              className={styles.image1}
             />
-          </button>
+          </div>
         </div>
-        <div className={styles.imageContainer}>
-          <Image
-            src="/svg/about-1.svg"
-            alt="about-us-image"
-            width={565}
-            height={671}
-            className={styles.image1}
-          />
+        <div className={styles.features}>
+          {features.map((feature) => (
+            <Feature key={feature.title} {...feature} />
+          ))}
         </div>
-      </div>
-      <div className={styles.features}>
-        {features.map((feature) => (
-          <Feature key={feature.title} {...feature} />
-        ))}
       </div>
     </div>
   );

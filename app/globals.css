@@ -51,7 +51,8 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  max-width: 160rem;
+  max-width: 150rem;
+  width: 100%;
 }
 @media (max-width: 1200px) {
   .insuranceQuotesContainer {

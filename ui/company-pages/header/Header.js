@@ -21,56 +21,60 @@ const Header = ({ title }) => {
   console.log(lastWord);
   return (
     <div className="headerContainer">
-      <Image
-        src="/svg/squares-2.svg"
-        alt="squares"
-        width={1394}
-        height={706}
-        className={styles.squares}
-      />
-      <Image
-        src="/svg/squares-mobile.svg"
-        alt="squares"
-        width={485}
-        height={246}
-        className={styles.squaresMobile}
-      />
+      <div className="centeredContent">
+        <Image
+          src="/svg/squares-2.svg"
+          alt="squares"
+          width={1394}
+          height={706}
+          className={styles.squares}
+        />
+        <Image
+          src="/svg/squares-mobile.svg"
+          alt="squares"
+          width={485}
+          height={246}
+          className={styles.squaresMobile}
+        />
 
-      <div className={styles.content}>
-        <div className={`${styles.title} ${plusJakartaSans.className}`}>
-          {withoutLastWord}{" "}
-          <div className={styles.titleSpan}>
-            {lastWord}
-            <Image
-              src="/svg/curved-border.svg"
-              alt="curved border"
-              width={393}
-              height={3}
-              className={styles.curvedBorder}
-            />
+        <div className={styles.content}>
+          <div className={`${styles.title} ${plusJakartaSans.className}`}>
+            {withoutLastWord}{" "}
+            <div className={styles.titleSpan}>
+              {lastWord}
+              <Image
+                src="/svg/curved-border.svg"
+                alt="curved border"
+                width={393}
+                height={3}
+                className={styles.curvedBorder}
+              />
+            </div>
           </div>
+          <menu className={styles.menu}>
+            {[
+              "Privacy Policy",
+              "Terms And Conditions",
+              "Cookies Policy",
+              "Complaints",
+            ].map((item, index) => (
+              <li key={index}>
+                <Link
+                  href={`/${item.toLowerCase().replace(/ /g, "-")}`}
+                  className={`${styles.menuLink} ${
+                    pathname === `/${item.toLowerCase().replace(/ /g, "-")}`
+                      ? styles.activeMenuLink
+                      : ""
+                  }`}
+                >
+                  {item === "Terms And Conditions"
+                    ? "Terms & Conditions"
+                    : item}
+                </Link>
+              </li>
+            ))}
+          </menu>
         </div>
-        <menu className={styles.menu}>
-          {[
-            "Privacy Policy",
-            "Terms And Conditions",
-            "Cookies Policy",
-            "Complaints",
-          ].map((item, index) => (
-            <li key={index}>
-              <Link
-                href={`/${item.toLowerCase().replace(/ /g, "-")}`}
-                className={`${styles.menuLink} ${
-                  pathname === `/${item.toLowerCase().replace(/ /g, "-")}`
-                    ? styles.activeMenuLink
-                    : ""
-                }`}
-              >
-                {item === "Terms And Conditions" ? "Terms & Conditions" : item}
-              </Link>
-            </li>
-          ))}
-        </menu>
       </div>
     </div>
   );
