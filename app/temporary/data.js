@@ -128,28 +128,44 @@ export const temporaryEligibility = {
 };
 export const questions = [
   {
-    title: "What is impound insurance?",
+    title: "What is temporary car insurance?",
     answer:
-      "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
+      "Temporary car insurance provides short-term, fully comprehensive cover for driving needs in the UK, ranging from one hour to 28 days. It’s perfect for borrowing a car, test-driving a vehicle, or occasional use without committing to a long-term policy.",
   },
   {
-    title: "How do I get impound insurance?",
+    title: "How do I set up temporary insurance?",
     answer:
-      "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
+      "Visit our website and input your details, including your name, driving history, and vehicle registration number. Choose your coverage period (from one hour to 28 days), review your instant quote, and pay online. Your policy activates instantly, with digital documents emailed for immediate use.",
   },
   {
-    title: "What does impound insurance cover?",
+    title: "Who is eligible for temporary insurance?",
     answer:
-      "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
+      "Drivers aged 17 and over with a valid UK driving licence can apply. We cover young drivers, those with convictions, and even learners (protecting the car owner’s no-claims discount). The vehicle must have a valid MOT, but you can get cover to drive to an MOT appointment.",
+  },
+
+  {
+    title: "What does temporary insurance cover?",
+    answer:
+      "Our temporary insurance is fully comprehensive, covering damage to your vehicle, third-party vehicles, and injuries in an accident. Optional add-ons like excess reduction or legal expenses cover are available to tailor your policy. Note that commercial driving or deliveries are excluded unless specified.",
   },
   {
-    title: "Who can get impound insurance?",
+    title: "Can I cancel or change my temporary policy?",
     answer:
-      "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
+      "Due to the short-term nature of our policies, changes or full refunds after purchase aren’t possible. You can cancel by contacting us, but refunds may be partial depending on the policy duration. Always double-check your details before purchasing.",
   },
   {
-    title: "What happens if I don’t get impound insurance?",
+    title: "Can I drive abroad with temporary insurance?",
     answer:
-      "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
+      "Yes, we provide cover across Europe and the United Kingdom for our temporary insurance exclusively. Here is the full list: Andorra, Austria, Belgium, Bosnia and Herzegovina, Bulgaria, Croatia, Cyprus, the Czech Republic, Denmark, Estonia, Finland, France (including Monaco), Germany, Gibraltar, Greece, Hungary, Iceland, Italy (including San Marino and the Vatican City), Latvia, Lithuania, Luxembourg, Malta, the Netherlands, Norway, Poland, Portugal, Republic of Ireland, Romania, Serbia, Slovakia, Slovenia, Spain, Sweden, Switzerland (including Liechtenstein)",
+  },
+  {
+    title: "What if my vehicle fails its MOT during the policy?",
+    answer:
+      "If your vehicle’s MOT expires during the policy, coverage ceases immediately. You can purchase a new policy to drive to an MOT test centre, but the vehicle must be roadworthy at the start of the policy. Check your MOT status before insuring.",
+  },
+  {
+    title: "Do I need to notify the car owner?",
+    answer:
+      "Yes, you must have the car owner’s permission to insure their vehicle. We may request confirmation during the quote process to ensure compliance with UK laws and protect all parties involved.",
   },
 ];

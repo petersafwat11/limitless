@@ -114,29 +114,41 @@ export const questions = [
   {
     title: "What is impound insurance?",
     answer:
-      "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
+      "Impound insurance is a temporary policy (minimum 30 days) designed to release a vehicle from a UK impound lot, often required if your car was seized for lacking insurance, unpaid tax, or other violations. It provides third-party liability to meet legal requirements for vehicle release.",
   },
   {
     title: "How do I get impound insurance?",
     answer:
-      "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
+      "Contact our team or use our online quote tool. Provide your details, the vehicle’s registration, and the impound notice details. Select a 30-day policy, pay upfront, and receive instant electronic insurance certificates via email to present at the impound facility. Coverage starts immediately for same-day collection.",
   },
   {
     title: "What does impound insurance cover?",
     answer:
-      "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
+      "Our impound insurance offers third-party only cover, protecting against damage to other vehicles or property in an accident. It meets legal requirements for impound release but excludes commuting, business use, or pre-existing vehicle damage. Comprehensive options may be available upon request.",
   },
   {
     title: "Who can get impound insurance?",
     answer:
-      "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
+      "Drivers aged 17 and up with a valid UK licence are eligible, including those with convictions. The policy must be in the name of the person collecting the vehicle, matching their driving licence exactly. Disclose all penalty points to ensure validity.",
   },
   {
     title: "What happens if I don’t get impound insurance?",
     answer:
-      "We cover a wide range of drivers across the UK, from young drivers aged 17 and up to those with driving convictions or high-risk profiles. Whether you need temporary cover, impound release, or courier insurance, we welcome everyone with straightforward policies tailored to your needs.",
+      "Without valid insurance, you cannot retrieve your vehicle. If unclaimed after 7 days (plus 7 days to collect), the police may sell or destroy your vehicle. Act quickly to avoid storage fees (e.g., £20-30/day) and potential loss.",
+  },
+
+  {
+    title: "Can I extend my impound insurance beyond 30 days?",
+    answer:
+      "Yes, you can purchase an additional 30-day policy if needed via your customer portal, subject to underwriting approval. Contact us before your current policy expires to arrange an extension and avoid gaps in coverage.",
+  },
+  {
+    title: "Can I get impound insurance on a provisional licence?",
+    answer:
+      "Yes, it is possible to obtain impound insurance even if you hold a provisional driving licence. However, it's important to note that eligibility for impound insurance with a provisional licence may vary depending on the insurer and their specific requirements. Some insurance providers may impose certain restrictions or additional criteria for drivers with provisional licences when offering impound insurance. Factors such as age, driving experience, and other individual circumstances may be considered in the evaluation process.",
   },
 ];
+
 export const impoundEligibility = {
   title: "Check your eligibility for impound car insurance",
   description:
