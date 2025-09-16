@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   margin: 0 1.1%;
-  padding: 7.3rem 5%  5rem;
+  padding: 7.3rem 5% 5rem;
   border-radius: 20px;
   background: linear-gradient(
     180deg,
@@ -53,7 +53,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 5.6rem;
+  gap: 3.6rem;
 }
 .benifit {
   display: flex;
@@ -63,13 +63,22 @@
   gap: 1.6rem;
   padding: 2.9rem;
 }
+.imgContainer {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .benifitTitle {
   color: #000822;
   text-align: center;
   font-size: 1.8rem;
-  font-weight: 700;
-  line-height: 100%; /* 18px */
+  font-weight: 500;
+  line-height: 125%; /* 18px */
   max-width: 33rem;
+  /* font-family: "poppins"; */
+
 }
 .benifit:nth-child(1),
 .benifit:nth-child(2),
@@ -83,6 +92,9 @@
     margin: 0 2%;
     padding: 6.1rem 0 1rem;
     gap: 3.5rem;
+  }
+  .imgContainer {
+    height: auto;
   }
   .top {
     gap: 1.8rem;
@@ -107,7 +119,6 @@
     width: 100%;
     border-right: none !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.43);
-
   }
   .benifit:last-child {
     border-bottom: none;

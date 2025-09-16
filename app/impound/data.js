@@ -14,7 +14,7 @@ export const features = [
     img: {
       src: "/svg/about-feature-2.svg",
       alt: "feature1",
-      width: 55,
+      width: 45,
       height: 55,
     },
     title: "Flexible polices",

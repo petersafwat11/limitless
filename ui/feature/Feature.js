@@ -19,7 +19,11 @@ const Feature = ({ img, title, description }) => {
         className={styles.img}
       />
       <div className={`${styles.content}`}>
-        <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
+        <h3
+          className={`${styles.title} ${plusJakartaSans.className} ${
+            description ? `${styles.bold}` : ""
+          }`}
+        >
           {title}
         </h3>
         {description && <p className={styles.description}>{description}</p>}

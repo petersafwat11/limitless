@@ -3,7 +3,7 @@
   border: 1px solid #0168ff;
   background: #07102d;
   backdrop-filter: blur(22px);
-  padding: 3.4rem 4.5rem;
+  padding: 3rem 4.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,13 +17,17 @@
 }
 .title {
   color: #fff;
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 400;
   line-height: 100%;
+}
+.bold {
+  font-weight: 700;
+  font-size: 1.66rem;
 }
 .description {
   color: rgba(255, 255, 255, 0.64);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 400;
   line-height: 124%;
   letter-spacing: 0.56px;

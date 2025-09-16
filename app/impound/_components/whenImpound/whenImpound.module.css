@@ -69,6 +69,9 @@
   gap: 2.4rem;
   max-width: 44%;
 }
+.content {
+  padding-top: 3rem;
+}
 .title,
 .title2 {
   color: #fff;

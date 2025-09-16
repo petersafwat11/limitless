@@ -6,9 +6,9 @@ import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import { useRouter } from "next/navigation";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["700", "600"],
 });
-const manrope = Manrope({ subsets: ["latin"], weight: ["500"] });
+const manrope = Manrope({ subsets: ["latin"], weight: ["500", "300"] });
 const QuestionsAnswered = () => {
   const router = useRouter();
   return (

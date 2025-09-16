@@ -13,7 +13,9 @@ const Header = () => {
   const isDashboard = pathname.startsWith("/dashboard");
   const [isOpen, setIsOpen] = useState(false);
   const [isDashboardSidebarOpen, setIsDashboardSidebarOpen] = useState(false);
-  return pathname === "/login" ? null : (
+  return pathname === "/login" ||
+    pathname === "/forget-password" ||
+    pathname === "/change-password" ? null : (
     <div className="centeredContent">
       <header className={styles.container}>
         <div className={styles.logoContainer}>
@@ -76,8 +78,8 @@ const Header = () => {
             <Image
               src="/svg/arrow-right.svg"
               alt="arrow-right"
-              width={27}
-              height={14}
+              width={24}
+              height={12}
             />
           </button>
         </div>

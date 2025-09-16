@@ -22,12 +22,14 @@ const Card = ({ img, title, description, href }) => {
           className={styles.img}
         />
       </div>
-      
-      <div className={`${styles.content}`}>
-        <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
-          {title}
-        </h3>
-        <p className={styles.description}>{description}</p>
+
+      <div className={styles.body}>
+        <div className={`${styles.content}`}>
+          <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
+            {title}
+          </h3>
+          <p className={styles.description}>{description}</p>
+        </div>
         <button className={styles.button} onClick={() => router.push(href)}>
           Get Started <FaArrowRightLong className={styles.arrow} />
         </button>

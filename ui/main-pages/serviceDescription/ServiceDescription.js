@@ -6,7 +6,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { useRouter } from "next/navigation";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["700", "500"],
 });
 const ServiceDescription = ({ services, title, description, button, img }) => {
   const router = useRouter();
@@ -37,7 +37,8 @@ const ServiceDescription = ({ services, title, description, button, img }) => {
           {services.map((service, index) => (
             <div className={styles.service} key={index}>
               <Image
-                src="/svg/included.svg"
+                // src="/svg/included.svg"
+                src={"/svg/gray-check.svg"}
                 alt="include"
                 width={24}
                 height={24}

@@ -21,7 +21,7 @@
   justify-content: center;
 }
 .questionsTitle span {
-  color: #1b70d2;
+  color: #0388ff;
 }
 @media screen and (max-width: 900px) {
   .questionsTitle {

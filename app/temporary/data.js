@@ -71,7 +71,7 @@ export const temporaryCoverDetails = {
       "Social domestic and pleasure (SDP), commuting, class 1 business use and carriage of own goods",
       "Fully comprehensive insurance on policies from 1 hour to 28 days",
       "£150 for a child seat",
-      "Driving in the EU, plus Andorra, Iceland, Liechtenstein, Norway, Serbia and Switzerland. This is third party cover only (which covers damage to the other person's car), and policies must start and end in Britain.",
+      "Driving in the EU, plus Andorra, Iceland, Liechtenstein, Norway, Serbia and Switzerland. This is third party cover only (which covers damage to the other person's car), and policies must start and end in Britain",
     ],
   },
   unCovered: {
@@ -105,7 +105,7 @@ export const temporaryEligibility = {
     features: [
       "For full UK driving licence holders, you'll usually need to be aged 17-70 to use Limitless Cover, and have held your licence for over a day if you're a newer driver",
       "If you're a provisional licence holder you'll need to be aged 17-50 and not have held your licence for over 15 years",
-      "To use Limitless, you can either use a UK licence or use a full driving licence from Belgium, Bulgaria, France, Germany, Greece, Italy, the Netherlands, Poland, Portugal, the Republic of Ireland, Romania, Spain, Sweden, or Switzerland or any other foreign country.",
+      "To use Limitless, you can either use a UK licence or use a full driving licence from Belgium, Bulgaria, France, Germany, Greece, Italy, the Netherlands, Poland, Portugal, the Republic of Ireland, Romania, Spain, Sweden, or Switzerland or any other foreign country",
     ],
   },
   second: {
@@ -120,7 +120,7 @@ export const temporaryEligibility = {
     features: [
       "Be at most 60 years old (if you're driving a car on a full licence) or at most 40 years old (for learner licences, or vans)",
       "Be worth less than £300,000 (cars), or be worth less than £200,000 (vans/commercial vehicles)",
-      "Meet our modification rules. We accept lots, including any to aid a disability, but there are some we can't insure.",
+      "Meet our modification rules. We accept lots, including any to aid a disability, but there are some we can't insure",
       "Meet our insurance group requirements",
       "Not be scrapped",
     ],

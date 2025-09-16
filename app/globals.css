@@ -19,8 +19,8 @@ body {
   /* height: 884px; */
   border-radius: 20px;
   background: #000822;
-  margin: calc(-1.1% - 7.8rem) 1.1% 0 1.1%;
-  padding: calc(1.1% + 7.8rem + 8.5rem) 0 0;
+  margin: calc(-1.1% - 7.8rem) 1.1% 0;
+  padding: calc(1.1% + 14.5rem) 0 0;
   position: relative;
   overflow: hidden;
 }

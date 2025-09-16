@@ -14,6 +14,11 @@ const QuestionsGroup = ({ questions }) => {
       <div className={styles.questions}>
         {questions.map((question) => (
           <div
+            onClick={() =>
+              question.title === activeQuestion
+                ? setActiveQuestion(null)
+                : setActiveQuestion(question.title)
+            }
             className={`${styles.question} ${
               activeQuestion === question.title ? styles.questionActive : ""
             }`}
@@ -36,11 +41,7 @@ const QuestionsGroup = ({ questions }) => {
               </div>
             </div>
             <div
-              onClick={() =>
-                question.title === activeQuestion
-                  ? setActiveQuestion(null)
-                  : setActiveQuestion(question.title)
-              }
+            
               className={`${styles.iconContainer} ${
                 question.title === activeQuestion ? styles.iconActive : ""
               }`}

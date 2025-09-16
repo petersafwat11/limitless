@@ -5,7 +5,7 @@ import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["600"],
 });
 
 const manrope = Manrope({
@@ -53,7 +53,7 @@ const WhenImpound = () => {
       </div>
       <div className={styles.second}>
         <div className={styles.content}>
-          <h2 className={styles.title}>
+          <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
             What happens when your vehicle is <span>impounded</span>
           </h2>
           <p className={`${styles.description} ${manrope.className}`}>

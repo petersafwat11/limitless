@@ -4,6 +4,7 @@
   gap: 2.8rem;
   margin: 5.8rem 0;
   width: 100%;
+  position: relative;
 }
 .header {
   display: flex;

@@ -16,9 +16,7 @@ export default function DashboardLayout({ children }) {
         <div className="nav">
           <SideNavbar />
         </div>
-        <div className={"centeredContent"}>
-          {children}
-        </div>
+        <div className={"centeredContent"}>{children}</div>
       </main>
     </div>
   );

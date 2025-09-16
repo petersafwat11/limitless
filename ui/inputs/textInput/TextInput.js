@@ -16,9 +16,10 @@ const TextInput = ({
         <div className={styles.inputContainer}>
           {reg && <span className={styles.inputSpan}> GB</span>}
           <input
+        
             type={type}
             placeholder={placeholder}
-            className={styles.input}
+            className={`${styles.input} ${reg ? styles.reg : ""}`}
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />

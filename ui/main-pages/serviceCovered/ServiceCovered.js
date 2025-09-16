@@ -30,8 +30,8 @@ const ServiceCovered = ({ title, description, covered, unCovered }) => {
               width={89}
               height={64}
             />
-            <h4 className={styles.coveredTitle}>{covered.title}</h4>
-          </div>
+            <h4 className={`${styles.coveredTitle} ${plusJakartaSans.className}`}>{covered.title}</h4>
+            </div>
           <div className={styles.features}>
             {covered.features.map((feature, index) => (
               <div className={styles.feature} key={index}>
@@ -41,7 +41,7 @@ const ServiceCovered = ({ title, description, covered, unCovered }) => {
                   width={24}
                   height={24}
                 />
-                <p className={styles.featureText}>{feature}</p>
+                <p className={`${styles.featureText} ${manrope.className}`}>{feature}</p>
               </div>
             ))}
           </div>
@@ -54,18 +54,18 @@ const ServiceCovered = ({ title, description, covered, unCovered }) => {
               width={89}
               height={64}
             />
-            <h4 className={styles.unCoveredTitle}>{unCovered.title}</h4>
+            <h4 className={`${styles.unCoveredTitle} ${plusJakartaSans.className}`}>{unCovered.title}</h4>
           </div>
           <div className={styles.features}>
             {unCovered.features.map((feature, index) => (
               <div className={styles.feature} key={index}>
                 <Image
-                  src={"/svg/covered-check.svg"}
+                  src={"/svg/cross.svg"}
                   alt="arrow-right"
                   width={24}
                   height={24}
                 />
-                <p className={styles.featureText}>{feature}</p>
+                <p className={`${styles.featureText} ${manrope.className}`}>{feature}</p>
               </div>
             ))}
           </div>

@@ -1,12 +1,12 @@
 .squares {
   position: absolute;
-  top: -36rem;
-  right: -74rem;
+  top: -10rem;
+  right: 0rem;
 }
 .contact {
   position: absolute;
-  top: 10.6rem;
-  right: 23rem;
+  top: 3.5rem;
+  right: 40rem;
 }
 .wrapper {
   padding: 0 0 1.8rem;
@@ -28,7 +28,9 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 2.8rem;
-  flex-basis: 39.5%;
+  flex-basis: 45.5%;
+  position: relative;
+  z-index: 1;
 }
 
 .subTitle {
@@ -42,7 +44,7 @@
 }
 .title {
   color: #fff;
-  font-size: 7.4rem;
+  font-size: 6.7rem;
   font-weight: 700;
   line-height: 94%; /* 69.56px */
   display: flex;

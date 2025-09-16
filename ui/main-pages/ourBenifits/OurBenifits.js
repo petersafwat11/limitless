@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["700", "300"],
 });
 
 const OurBenifits = ({ benifits, title, description }) => {
@@ -24,14 +24,16 @@ const OurBenifits = ({ benifits, title, description }) => {
       <div className={styles.benifits}>
         {benifits.map((benifit, index) => (
           <div className={styles.benifit} key={index}>
-            <Image
-              src={benifit.img.src}
-              alt={benifit.img.alt}
-              width={benifit.img.width}
-              height={benifit.img.height}
-            />
+            <div className={styles.imgContainer}>
+              <Image
+                src={benifit.img.src}
+                alt={benifit.img.alt}
+                width={benifit.img.width}
+                height={benifit.img.height}
+              />
+            </div>
             <h3
-              className={`${styles.benifitTitle} ${plusJakartaSans.className}`}
+              className={`${styles.benifitTitle} ${plusJakartaSans.className} `}
             >
               {benifit.title}
             </h3>

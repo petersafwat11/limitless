@@ -20,7 +20,7 @@ const FormTextInput = ({
           <input
             type={type}
             placeholder={placeholder}
-            className={`${styles.input} ${error ? styles.error : ""}`}
+            className={`${styles.input} ${error ? styles.error : ""} ${reg ? styles.reg : ""}`}
             {...props}
           />
         </div>

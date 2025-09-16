@@ -11,8 +11,8 @@ export default function Home() {
       img: {
         src: "/svg/home-feature-1.svg",
         alt: "feature1",
-        width: 50,
-        height: 50,
+        width: 42,
+        height: 43,
       },
       title: "Get insured for Impound, Teamp or Delivery insurance",
     },
@@ -20,8 +20,8 @@ export default function Home() {
       img: {
         src: "/svg/home-feature-2.svg",
         alt: "feature1",
-        width: 52,
-        height: 53,
+        width: 41,
+        height: 41,
       },
       title: "Available to drivers aged 18-75",
     },
@@ -29,8 +29,8 @@ export default function Home() {
       img: {
         src: "/svg/home-feature-3.svg",
         alt: "feature3",
-        width: 46,
-        height: 57,
+        width: 40,
+        height: 50,
       },
       title: "Eligible for cars, vans, scooters or motor-homes",
     },
@@ -41,7 +41,7 @@ export default function Home() {
       img: {
         src: "/svg/transparent.svg",
         alt: "transparent",
-        width: 150,
+        width: 110,
         height: 105,
       },
     },
@@ -50,8 +50,8 @@ export default function Home() {
       img: {
         src: "/svg/flexible.svg",
         alt: "flexible",
-        width: 140,
-        height: 135,
+        width: 130,
+        height: 105,
       },
     },
     {
@@ -60,8 +60,8 @@ export default function Home() {
       img: {
         src: "/svg/fast.svg",
         alt: "transparent",
-        width: 129,
-        height: 149,
+        width: 110,
+        height: 105,
       },
     },
     {
@@ -70,8 +70,8 @@ export default function Home() {
       img: {
         src: "/svg/accessible.svg",
         alt: "accessible",
-        width: 134,
-        height: 138,
+        width: 100,
+        height: 105,
       },
     },
     {
@@ -80,8 +80,8 @@ export default function Home() {
       img: {
         src: "/svg/cheapest.svg",
         alt: "cheapest",
-        width: 147,
-        height: 136,
+        width: 100,
+        height: 105,
       },
     },
     {
@@ -90,8 +90,8 @@ export default function Home() {
       img: {
         src: "/svg/no-risk.svg",
         alt: "no-risk",
-        width: 165,
-        height: 101,
+        width: 125,
+        height: 105,
       },
     },
   ];

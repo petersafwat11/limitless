@@ -35,7 +35,7 @@ const Header = () => {
             <div className={`${styles.title} ${plusJakartaSans.className}`}>
               OOPS! Page
               <div className={styles.mailingList}>
-                not Found{" "}
+                not found{" "}
                 <Image
                   src="/svg/curved-border.svg"
                   alt="mailing list"

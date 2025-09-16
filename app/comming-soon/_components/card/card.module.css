@@ -1,30 +1,38 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: 2.5rem 5.4rem 2.4rem 2.4rem;
   border-radius: 18px;
   background: #fff;
+  gap: 3.5rem;
 }
-/* .imgContainer {
-  width: 100%;
-  height: 100%;
-  border-radius: 18px;
-} */
+.imgContainer,
+.imgContainer img {
+  height: 10.4rem;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
 .content {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  margin-bottom: 1rem;
 }
 .title {
   color: #000822;
   font-size: 2.8rem;
   font-weight: 700;
-  line-height: 100%;
+  line-height: 90%;
 }
 .description {
   color: rgba(0, 8, 34, 0.7);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 400;
   line-height: 124%;
   letter-spacing: 0.56px;
@@ -70,12 +78,17 @@
     width: 100%;
     gap: 4.6rem;
   }
+  .imgContainer {
+    height: auto;
+  }
   .img {
     width: auto;
     height: 7.2rem;
   }
+
   .content {
     gap: 1.6rem;
+    margin-bottom: 1.6rem;
   }
   .title {
     font-size: 2.4rem;

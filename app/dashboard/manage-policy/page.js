@@ -1,21 +1,31 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Table from "./_components/table/Table";
 import styles from "./page.module.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Image from "next/image";
+import TemporaryPopup from "./_components/popups/temporaryPopup/TemporaryPopup";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
-const page = () => {
+const Page = () => {
+  const [showCreatePolicyPopup, setShowCreatePolicyPopup] = useState(false);
   return (
     <div className={styles.page}>
+      {showCreatePolicyPopup && (
+        <TemporaryPopup setShowCreatePolicyPopup={setShowCreatePolicyPopup} />
+      )}
+
       <div className={styles.header}>
         <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
           Your Policy{" "}
         </h2>
-        <button className={styles.button}>
+        <button
+          className={styles.button}
+          onClick={() => setShowCreatePolicyPopup(true)}
+        >
           <Image src="/svg/plus.svg" alt="plus" width={24} height={24} />
           <span>Create a new policy</span>
         </button>
@@ -34,7 +44,7 @@ const page = () => {
           {
             policyNumber: "CI-273782",
             remaining: "25 days",
-            name : "James Charles",
+            name: "James Charles",
             vehicleReg: "ZV12 LPM",
             details: "View",
           },
@@ -70,4 +80,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

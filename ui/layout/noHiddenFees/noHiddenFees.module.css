@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 28px;
+  border-radius: 26px;
   background: #07102d;
   width: 100%;
   min-height: 409px;
@@ -56,7 +56,7 @@
   background: linear-gradient(0deg, #0388ff 0%, #0388ff 100%), #fff;
   box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 500;
   line-height: 124%;
   cursor: pointer;
@@ -65,7 +65,7 @@
   white-space: nowrap;
   position: relative;
   overflow: hidden;
-  transition: color 0.4s ease 0.3s; /* Text color changes after background animation */
+  transition: color 0.1s ease 0.1s; /* Text color changes after background animation */
   z-index: 1;
 }
 
@@ -73,25 +73,33 @@
 .membersPortalBtn::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(0deg, #fff 0%, #fff 100%);
-  transition: left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background: linear-gradient(135deg, #fff 0%, #f8f9ff 100%);
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
   z-index: -1;
+  transform-origin: bottom left;
+  border-radius: 8px;
 }
 
 .getQuoteBtn:hover::before,
 .membersPortalBtn:hover::before {
-  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.02);
 }
 
 .getQuoteBtn:hover,
 .membersPortalBtn:hover {
   color: #0388ff;
+  /* font-weight: 600; */
+  transform: scale(1.02);
+  font-size: 1.7rem;
+  filter: drop-shadow(0 0.25em 0.5em rgba(0 0 0 / 0.2));
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(3, 136, 255, 0.3);
+  /* box-shadow: 0 8px 25px rgba(3, 136, 255, 0.3); */
 }
 
 .membersPortalBtn {

@@ -11,6 +11,44 @@ import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import NoHiddenFees from "../noHiddenFees/NoHiddenFees";
 
+// List of all valid pages in the app directory
+const validPages = [
+  "/",
+  "/about-us",
+  "/change-password",
+  "/comming-soon",
+  "/complaints",
+  "/contact-us",
+  "/cookies-policy",
+  "/courier",
+  "/courier-insurance",
+  "/dashboard",
+  "/delivery",
+  "/error-404",
+  "/FAQ",
+  "/forget-password",
+  "/impound",
+  "/impound-insurance",
+  "/login",
+  "/payment",
+  "/payment-summery",
+  "/privacy-policy",
+  "/temporary",
+  "/temporary-insurance",
+  "/terms-and-conditions",
+  "/testing",
+];
+
+// Helper function to determine if special styles should be applied
+const shouldUseSpecialStyles = (pathname) => {
+  // Always use special styles for contact-us
+  if (pathname === "/contact-us") return true;
+
+  // Use special styles for any page that doesn't exist in our valid pages list
+  // This covers 404/not-found scenarios
+  return !validPages.includes(pathname) && !pathname.startsWith("/dashboard");
+};
+
 const Footer = () => {
   const router = useRouter();
   const pathname = usePathname();
@@ -19,109 +57,168 @@ const Footer = () => {
     <footer
       className={styles.container}
       style={{
-        background: ["/contact-us", "/error-44"].includes(pathname)
-          ? "#F2F5FE"
-          : "",
+        background: shouldUseSpecialStyles(pathname) ? "#F2F5FE" : "",
       }}
     >
-      {(!pathname.startsWith("/dashboard") &&
-        !pathname.startsWith("/error-44") &&
-        !pathname.startsWith("/contact-us")) && <NoHiddenFees />}
-      <div className={styles.content}>
-        <div className={styles.menus}>
-          {menus.map((menu, index) => (
-            <div key={index} className={styles.menu}>
+      <div className={`centeredContent ${styles.contentContainer}`}>
+        {!pathname.startsWith("/dashboard") &&
+          !shouldUseSpecialStyles(pathname) && <NoHiddenFees />}
+        <div className={styles.content}>
+          <div className={styles.menus}>
+            {menus.map((menu, index) => (
+              <div key={index} className={styles.menu}>
+                <h3
+                  style={{
+                    color: shouldUseSpecialStyles(pathname)
+                      ? "rgba(0, 8, 34, 0.34)"
+                      : "",
+                  }}
+                  className={styles.menuTitle}
+                >
+                  {menu.title}
+                </h3>
+                <menu className={styles.menuItems}>
+                  {menu.items.map((item, index) => (
+                    <li key={index} className={styles.menuItem}>
+                      <Link
+                        href={item.link}
+                        style={{
+                          color: shouldUseSpecialStyles(pathname)
+                            ? "#000822"
+                            : "",
+                        }}
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                </menu>
+              </div>
+            ))}
+          </div>
+          <div className={styles.socials}>
+            <div className={styles.socialsContainer}>
               <h3
+                className={styles.socialsTitle}
                 style={{
-                  color: ["/contact-us", "/error-44"].includes(pathname)
+                  color: shouldUseSpecialStyles(pathname)
                     ? "rgba(0, 8, 34, 0.34)"
                     : "",
                 }}
-                className={styles.menuTitle}
               >
-                {menu.title}
+                Social Media
               </h3>
-              <menu className={styles.menuItems}>
-                {menu.items.map((item, index) => (
-                  <li key={index} className={styles.menuItem}>
-                    <Link
-                      href={item.link}
-                      style={{
-                        color: ["/contact-us", "/error-44"].includes(pathname)
-                          ? "#000822"
-                          : "",
-                      }}
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </menu>
+              <div className={styles.socialsItems}>
+                <div
+                  className={`${styles.socialsItem} ${
+                    shouldUseSpecialStyles(pathname)
+                      ? styles["socials-item-black"]
+                      : ""
+                  }`}
+                >
+                  <BiLogoInstagramAlt
+                    className={`${styles.socialsIcon} ${
+                      shouldUseSpecialStyles(pathname)
+                        ? styles["socials-icon-black"]
+                        : ""
+                    }`}
+                    size={20}
+                  />
+                </div>
+                <div
+                  className={`${styles.socialsItem} ${
+                    shouldUseSpecialStyles(pathname)
+                      ? styles["socials-item-black"]
+                      : ""
+                  }`}
+                >
+                  <BiLogoFacebook
+                    className={`${styles.socialsIcon} ${
+                      shouldUseSpecialStyles(pathname)
+                        ? styles["socials-icon-black"]
+                        : ""
+                    }`}
+                    size={20}
+                  />
+                </div>
+                <div
+                  className={`${styles.socialsItem} ${
+                    shouldUseSpecialStyles(pathname)
+                      ? styles["socials-item-black"]
+                      : ""
+                  }`}
+                >
+                  <BiLogoTwitter
+                    className={`${styles.socialsIcon} ${
+                      shouldUseSpecialStyles(pathname)
+                        ? styles["socials-icon-black"]
+                        : ""
+                    }`}
+                    size={20}
+                  />
+                </div>
+                <div
+                  className={`${styles.socialsItem} ${
+                    shouldUseSpecialStyles(pathname)
+                      ? styles["socials-item-black"]
+                      : ""
+                  }`}
+                >
+                  <BiLogoLinkedin
+                    className={`${styles.socialsIcon} ${
+                      shouldUseSpecialStyles(pathname)
+                        ? styles["socials-icon-black"]
+                        : ""
+                    }`}
+                    size={20}
+                  />
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
-        <div className={styles.socials}>
-          <div className={styles.socialsContainer}>
-            <h3
-              className={styles.socialsTitle}
-              style={{
-                color: ["/contact-us", "/error-44"].includes(pathname)
-                  ? "rgba(0, 8, 34, 0.34)"
-                  : "",
-              }}
-            >
-              Social Media
-            </h3>
-            <div className={styles.socialsItems}>
-              <div className={styles.socialsItem}>
-                <BiLogoInstagramAlt className={styles.socialsIcon} size={20} />
-              </div>
-              <div className={styles.socialsItem}>
-                <BiLogoFacebook className={styles.socialsIcon} size={20} />
-              </div>
-              <div className={styles.socialsItem}>
-                <BiLogoTwitter className={styles.socialsIcon} size={20} />
-              </div>
-              <div className={styles.socialsItem}>
-                <BiLogoLinkedin className={styles.socialsIcon} size={20} />
-              </div>
-            </div>
-          </div>
-          <div className={styles.stores}>
-            <h3
-              className={styles.socialsTitle}
-              style={{
-                color: ["/contact-us", "/error-44"].includes(pathname)
-                  ? "rgba(0, 8, 34, 0.34)"
-                  : "",
-              }}
-            >
-              Download Our App
-            </h3>
-            <div className={styles.storesContainer}>
-              <Image
-                onClick={() => router.push("/comming-soon")}
-                className={styles.store}
-                src="/svg/google-store.svg"
-                alt="logo"
-                width={161}
-                height={54}
-              />
+            <div className={styles.stores}>
+              <h3
+                className={styles.socialsTitle}
+                style={{
+                  color: shouldUseSpecialStyles(pathname)
+                    ? "rgba(0, 8, 34, 0.34)"
+                    : "",
+                }}
+              >
+                Download Our App
+              </h3>
+              <div className={styles.storesContainer}>
+                <Image
+                  onClick={() => router.push("/comming-soon")}
+                  className={styles.store}
+                  src={`${
+                    shouldUseSpecialStyles(pathname)
+                      ? "/svg/light-google-store.svg"
+                      : "/svg/google-store.svg"
+                  }`}
+                  alt="logo"
+                  width={161}
+                  height={54}
+                />
 
-              <Image
-                onClick={() => router.push("/comming-soon")}
-                className={styles.store}
-                src="/svg/apple-store.svg"
-                alt="logo"
-                width={161}
-                height={54}
-              />
+                <Image
+                  onClick={() => router.push("/comming-soon")}
+                  className={styles.store}
+                  src={`${
+                    shouldUseSpecialStyles(pathname)
+                      ? "/svg/light-apple-store.svg"
+                      : "/svg/apple-store.svg"
+                  }`}
+                  alt="logo"
+                  width={161}
+                  height={54}
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.copyright}>
-        © 2025 Limitless Trading Services . All Rights Reserved
+        <div className={styles.copyright}>
+          © 2025 Limitless Trading Services . All Rights Reserved
+        </div>
       </div>
     </footer>
   );

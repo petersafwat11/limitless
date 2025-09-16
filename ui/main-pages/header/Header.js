@@ -25,8 +25,8 @@ const Header = ({ subTitle, title, description, features }) => {
         <Image
           src="/svg/squares-2.svg"
           alt="squares"
-          width={1394}
-          height={706}
+          width={1100}
+          height={700}
           className={styles.squares}
         />
 
