@@ -16,8 +16,8 @@ const Explaining = () => {
       <Image
         src="/svg/contact.svg"
         alt="contact-us"
-        width={585}
-        height={776}
+        width={600}
+        height={1000}
         className={styles.contact}
       />
       <Image
@@ -59,7 +59,7 @@ const Explaining = () => {
         </div>
         <div className={styles.second}>
           <div className={styles.content}>
-            <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
+            <h3 className={`${styles.title} ${plusJakartaSans.className} ${styles.title2}`}>
               How does temporary vehicle <span>insurance work?</span>{" "}
             </h3>
             <p className={`${styles.description} ${manrope.className}`}>
@@ -105,7 +105,7 @@ const Explaining = () => {
                 <div className={styles.feature} key={index}>
                   <div className={styles.featureNumber}>{index + 1}</div>
                   <div className={styles.featureContent}>
-                    <h4 className={styles.featureTitle}>{item.title}</h4>
+                    <h4 className={`${styles.featureTitle} ${plusJakartaSans.className}`}>{item.title}</h4>
                     <p className={styles.featureDescription}>
                       {item.description}
                     </p>

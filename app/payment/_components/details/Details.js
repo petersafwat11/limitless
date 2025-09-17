@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import styles from "./details.module.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import InputWithData from "@/ui/InputWithData/InputWithData";
 import InputWithData2 from "@/ui/inputs/InputWithData2/InputWithData2";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],

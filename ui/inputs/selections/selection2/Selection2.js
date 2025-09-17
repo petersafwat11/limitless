@@ -5,7 +5,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["700", "600"],
 });
 
 const Selection2 = ({

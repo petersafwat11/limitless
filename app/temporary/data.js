@@ -1,36 +1,39 @@
 export const features = [
   {
     img: {
-      src: "/svg/about-feature-1.svg",
+      src: "/svg/temp-feature-1.svg",
       alt: "feature1",
-      width: 68,
-      height: 60,
+      width: 52,
+      height: 66,
     },
-    title: "Impound specialist insurance",
-    description:
-      "Leading impound specialist. We quote online and over the phone.",
+    title: "Hourly Vehicle Insurance",
   },
   {
     img: {
-      src: "/svg/about-feature-2.svg",
+      src: "/svg/temp-feature-2.svg",
       alt: "feature1",
-      width: 55,
-      height: 55,
+      width: 78,
+      height: 48,
     },
-    title: "Flexible polices",
-    description:
-      "We cover most scenarios, licences and allow named drivers if suitable",
+    title: "Daily Vehicle Insurance",
   },
   {
     img: {
-      src: "/svg/about-feature-3.svg",
+      src: "/svg/temp-feature-3.svg",
       alt: "feature3",
-      width: 50,
-      height: 50,
+      width: 62,
+      height: 62,
     },
-    title: "Instant documents",
-    description:
-      "Fast and secure documents, ernailed or accessed through your portal",
+    title: "Weekly Vehicle Insurance",
+  },
+  {
+    img: {
+      src: "/svg/temp-feature-4.svg",
+      alt: "feature3",
+      width: 76,
+      height: 54,
+    },
+    title: "Monthly Vehicle Insurance",
   },
 ];
 export const benifits = [
@@ -39,7 +42,7 @@ export const benifits = [
     img: {
       src: "/svg/valid.svg",
       alt: "uninsured",
-      width: 160,
+      width: 130,
       height: 140,
     },
   },
@@ -48,7 +51,7 @@ export const benifits = [
     img: {
       src: "/svg/owner.svg",
       alt: "no-road-tax",
-      width: 168,
+      width: 130,
       height: 135,
     },
   },
@@ -57,7 +60,7 @@ export const benifits = [
     img: {
       src: "/svg/road-legal.svg",
       alt: "parking-illegal",
-      width: 163,
+      width: 130,
       height: 137,
     },
   },

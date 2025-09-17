@@ -60,6 +60,8 @@
   border: 2px solid transparent;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   transform: translateY(0);
+  cursor: pointer;
+
 }
 
 .question:hover {

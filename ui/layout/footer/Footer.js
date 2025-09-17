@@ -62,6 +62,9 @@ const Footer = () => {
     >
       <div className={`centeredContent ${styles.contentContainer}`}>
         {!pathname.startsWith("/dashboard") &&
+          !["/login", "/forget-password", "/change-password"].includes(
+            pathname
+          ) &&
           !shouldUseSpecialStyles(pathname) && <NoHiddenFees />}
         <div className={styles.content}>
           <div className={styles.menus}>

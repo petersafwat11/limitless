@@ -85,7 +85,7 @@ const GetQuote = () => {
           <Selection1
             items={
               data.type === "Days"
-                ? ["1 Day", "2 Days", "3 Days", "4 Days", "5 Days", "6 Days"]
+                ? ["1", "2", "3", "4", "5", "6", "7"]
                 : data.type === "Hours"
                 ? [
                     "1",

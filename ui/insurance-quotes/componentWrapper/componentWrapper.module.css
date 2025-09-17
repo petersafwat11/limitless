@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   gap: 2.4rem;
+  margin-bottom: 2rem;
 }
 .title {
   color: #000822;

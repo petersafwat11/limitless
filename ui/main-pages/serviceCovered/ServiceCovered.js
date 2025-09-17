@@ -75,8 +75,8 @@ const ServiceCovered = ({ title, description, covered, unCovered }) => {
         <Image
           src={"/svg/covered-title.svg"}
           alt="arrow-right"
-          width={89}
-          height={60}
+          width={58}
+          height={40}
         />
         <p className={styles.description}>{description}</p>
       </div>

@@ -121,7 +121,9 @@
     gap: 4rem;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
+
   .question1 .image {
     width: 315.999px;
     height: 160.358px;

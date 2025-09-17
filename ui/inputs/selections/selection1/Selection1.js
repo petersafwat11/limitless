@@ -9,6 +9,24 @@ const Selection1 = ({ items, selectedItem, setSelectedItem, type, style }) => {
     >
       {items.map((item, index) => (
         <div
+          style={{
+            boxShadow: [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+            ].includes(item)
+              ? "none"
+              : "",
+          }}
           className={`${styles.selectionItem} ${
             style === "dark" && selectedItem === item
               ? styles.darkSelectedItem

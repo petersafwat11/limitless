@@ -56,14 +56,14 @@
 }
 .second .content {
   width: 58%;
-  padding: 0 6.2rem;
+  padding: 5rem 4.2rem;
 }
 .second > div {
   min-height: 635px;
 }
 .title {
   color: #fff;
-  font-size: 58px;
+  font-size: 4.3rem;
   font-style: normal;
   font-weight: 700;
   line-height: 100%; /* 58px */
@@ -85,7 +85,7 @@
 }
 .description,
 .title {
-  max-width: 85%;
+  max-width: 90%;
 }
 .featuresContainer {
   position: relative;

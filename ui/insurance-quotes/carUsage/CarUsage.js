@@ -93,7 +93,7 @@ const CarUsage = () => {
           <p className={styles.yesNoTitle}>
             Have you ever had insurance cancelled, a claim refused, a policy
             voided, or any special terms imposed? Unspent or outstanding
-            criminal convictions?{" "}
+            criminal convictions?
           </p>
           <YesORNo value={false} onChange={() => {}} />
         </div>

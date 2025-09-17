@@ -8,7 +8,7 @@ import Selection1 from "@/ui/inputs/selections/selection1/Selection1";
 import { useRouter } from "next/navigation";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["700", "600"],
 });
 const Calculator = () => {
   const [data, setData] = useState({

@@ -16,8 +16,8 @@ const ComponentWrapper = ({ children, title, icon }) => {
           className={styles.icon}
           src="/svg/insurance-quote.svg"
           alt="terms-and-conditions"
-          width={icon?.width || 100}
-          height={icon?.height || 100}
+          width={icon?.width || 50}
+          height={icon?.height || 50}
         />
         <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
           {title}

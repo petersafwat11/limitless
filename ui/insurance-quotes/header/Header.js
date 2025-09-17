@@ -52,15 +52,15 @@ const Header = ({ title }) => {
             <Stepper
               steps={[
                 {
-                  img: { src: "/svg/vehicle.svg", width: 82, height: 82 },
+                  img: { src: "/svg/vehicle.svg", width: 76, height: 76 }, // 82 - 7%
                   title: "Vehicle",
                 },
                 {
-                  img: { src: "/svg/quote.svg", width: 72, height: 72 },
+                  img: { src: "/svg/quote.svg", width: 67, height: 67 }, // 72 - 7%
                   title: "Quote",
                 },
                 {
-                  img: { src: "/svg/payment.svg", width: 72, height: 72 },
+                  img: { src: "/svg/payment.svg", width: 67, height: 67 }, // 72 - 7%
                   title: "Payment",
                 },
               ]}

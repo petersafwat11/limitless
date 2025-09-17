@@ -3,8 +3,8 @@ export const features = [
     img: {
       src: "/svg/about-feature-1.svg",
       alt: "feature1",
-      width: 68,
-      height: 60,
+      width: 45,
+      height: 55,
     },
     title: "Impound specialist insurance",
     description:
@@ -25,8 +25,8 @@ export const features = [
     img: {
       src: "/svg/about-feature-3.svg",
       alt: "feature3",
-      width: 50,
-      height: 50,
+      width: 45,
+      height: 55,
     },
     title: "Instant documents",
     description:

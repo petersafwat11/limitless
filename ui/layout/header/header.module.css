@@ -99,6 +99,10 @@
   backdrop-filter: blur(39.92727279663086px);
   padding: 1rem 1.4rem;
 }
+.logo,
+.logoMobile {
+  cursor: pointer;
+}
 @media (max-width: 1200px) {
   /* .container {
     padding: 1.44rem 1.44rem 0;

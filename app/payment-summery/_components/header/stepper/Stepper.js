@@ -20,7 +20,7 @@ const Stepper = ({ steps }) => {
           <div
             style={{
               margin:
-                index === 0
+                index === 2
                   ? ".7rem 0 .7rem"
                   : index === 1
                   ? ".5rem 0 .5rem"

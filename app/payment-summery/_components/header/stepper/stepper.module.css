@@ -1,7 +1,7 @@
 .stepper {
   display: flex;
   align-items: flex-start;
-  gap: 1.6rem;
+  /* gap: 1.6rem; */
 }
 .stepperContainer {
   display: flex;
@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 2.4rem;
+  gap: 1.8rem;
 }
 .stepperItemText {
   display: flex;
@@ -32,7 +32,7 @@
 .stepperLine2 svg {
   width: 100%;
   height: 100%;
-  margin-top: -5rem;
+  margin-top: -7rem;
 }
 .stepperNumber {
   color: #049cff;
