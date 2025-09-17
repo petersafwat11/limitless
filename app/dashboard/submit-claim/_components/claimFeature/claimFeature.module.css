@@ -1,6 +1,6 @@
 .container {
-  width: 466px;
-  height: 527px;
+  width: max(39rem, 45%);
+  height: auto;
   flex-shrink: 0;
   border-radius: 18px;
   background: #fdfdfd;

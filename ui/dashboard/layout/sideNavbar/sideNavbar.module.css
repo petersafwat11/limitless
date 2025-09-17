@@ -46,6 +46,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   width: 100%;
+  gap: 0.3rem;
 }
 .navItem {
   border: none;
