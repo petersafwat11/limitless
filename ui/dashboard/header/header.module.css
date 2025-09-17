@@ -18,6 +18,7 @@
   position: relative;
   overflow: hidden;
   max-width: 144rem;
+  width: 100%;
 }
 .titles {
   display: flex;

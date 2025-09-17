@@ -26,29 +26,33 @@ const Header = ({ title = "Welcome, James" }) => {
         height={706}
         className={styles.squares}
       />
-      <div className={styles.wrapper}>
-        <Image
-          src="/svg/dash-header.svg"
-          alt="dash-header"
-          width={585}
-          height={776}
-          className={styles.dashHeader}
-        />
+      <div className="centeredContent">
+        <div className={styles.wrapper}>
+          <Image
+            src="/svg/dash-header.svg"
+            alt="dash-header"
+            width={585}
+            height={776}
+            className={styles.dashHeader}
+          />
 
-        <div className={styles.titles}>
-          <p className={`${styles.subTitle} ${manrope.className}`}>DASHBOARD</p>
+          <div className={styles.titles}>
+            <p className={`${styles.subTitle} ${manrope.className}`}>
+              DASHBOARD
+            </p>
 
-          <div className={`${styles.title} ${plusJakartaSans.className}`}>
-            Lorem Ipsum
-            <div className={styles.titleSpan}>
-              Dolor Sit{" "}
-              <Image
-                src="/svg/curved-border.svg"
-                alt="curved border"
-                width={393}
-                height={3}
-                className={styles.curvedBorder}
-              />
+            <div className={`${styles.title} ${plusJakartaSans.className}`}>
+              Lorem Ipsum
+              <div className={styles.titleSpan}>
+                Dolor Sit{" "}
+                <Image
+                  src="/svg/curved-border.svg"
+                  alt="curved border"
+                  width={393}
+                  height={3}
+                  className={styles.curvedBorder}
+                />
+              </div>
             </div>
           </div>
         </div>

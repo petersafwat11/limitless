@@ -25,11 +25,16 @@ body {
   overflow: hidden;
 }
 .dashboard-content {
-  margin: 0 4.4%;
+  margin: 0 auto;
   width: calc(100% - 8.8%);
   display: flex;
   align-items: flex-start;
   gap: 4.7rem;
+  max-width: 130rem;
+}
+.pageContainer {
+  width: 100%;
+  flex: 1;
 }
 .companyPageContainer {
   width: 100%;
