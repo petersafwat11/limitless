@@ -35,13 +35,13 @@
 @media screen and (max-width: 900px) {
   .container {
     padding: 2rem 3rem;
-    gap: 3.6rem;
+    gap: 4.18rem;
   }
   .title {
     font-size: 1.6rem;
   }
   .img {
-    height: 5rem;
+    height: 3rem;
     width: auto;
   }
 }

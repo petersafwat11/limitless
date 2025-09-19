@@ -91,8 +91,8 @@ const Header = () => {
             className={styles.logoMobile}
             src="/svg/logo.svg"
             alt="logo"
-            width={54}
-            height={54}
+            width={50}
+            height={50}
           />
           <button
             onClick={() => {
@@ -176,12 +176,12 @@ const Header = () => {
               </button>
               <button className={styles.quoteBtn}>
                 Get Quote
-                <Image
+                {/* <Image
                   src="/svg/arrow-right.svg"
                   alt="arrow-right"
                   width={27}
                   height={14}
-                />
+                /> */}
               </button>
             </div>
           </div>

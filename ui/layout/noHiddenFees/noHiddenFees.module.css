@@ -183,7 +183,7 @@
   .content {
     flex-basis: 100%;
     width: 100%;
-    padding: 2.8rem 1.5rem 2.8rem 0rem;
+    padding: 3.8rem 1.5rem 3.8rem 0rem;
     gap: 4.4rem;
     align-items: center;
     justify-content: center;
@@ -194,6 +194,11 @@
   }
   .buttons {
     gap: 0.8rem;
+  }
+  .getQuoteBtn,
+  .membersPortalBtn {
+    padding: 2rem;
+    font-size: 1.5rem;
   }
   .imageContainer {
     flex-basis: 100%;

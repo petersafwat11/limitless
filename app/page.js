@@ -112,9 +112,9 @@ export default function Home() {
           description="Discover the benefits of Limitless Cover, showcasing quick and flexible options for UK drivers. Whether a young driver, courier, or reclaiming an impounded vehicle, our tailored solutions provide instant coverage suited to your needs, with inclusivity for all."
         />
         <QuestionsAnswered />
-        <div className={styles.reviewsContainer}>
+        {/* <div className={styles.reviewsContainer}>
           <Reviews />
-        </div>
+        </div> */}
       </div>
     </div>
   );

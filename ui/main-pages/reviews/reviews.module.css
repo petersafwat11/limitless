@@ -166,6 +166,16 @@
     width: 100%;
   }
 }
+/* Desktop and Mobile Review Containers */
+.desktopReviews {
+  display: flex;
+  gap: 2.6rem;
+}
+
+.mobileReviews {
+  display: none;
+}
+
 @media screen and (max-width: 900px) {
   .container {
     flex-direction: column;
@@ -173,8 +183,6 @@
     justify-content: flex-start;
     gap: 3.8rem;
     width: 100%;
-    /* padding: 8.6rem 2%;
-    margin: 0 2%; */
   }
   .starsContainer {
     gap: 0.6rem;
@@ -199,43 +207,83 @@
     gap: 0.3rem;
   }
   .reviews {
+    width: 100%;
+    position: relative;
+  }
+
+  /* Hide desktop reviews on mobile */
+  .desktopReviews {
+    display: none;
+  }
+
+  /* Show mobile slideshow */
+  .mobileReviews {
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+
+  .slideContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .mainReviews {
     display: flex;
     flex-direction: column;
     gap: 2.2rem;
-  }
-  .reviewContainer {
-    gap: 2.2rem;
-    /* Reset desktop scrollable properties for mobile */
-    height: auto;
-    overflow: visible;
-    padding-right: 0;
-    cursor: default;
+    width: 100%;
+    z-index: 3;
+    transition: all 0.5s ease-in-out;
   }
 
-  /* Remove blur effects on mobile */
-  .reviewContainer::before,
-  .reviewContainer::after {
-    display: none;
+  .fadeReview {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+    pointer-events: none;
   }
-  .reviewContainer:last-child {
-    margin-top: 0;
+
+  .fadeLeft {
+    left: -20%;
+    opacity: 0.3;
+    transform: scale(0.95) translateX(-10px);
   }
+
+  .fadeRight {
+    right: -20%;
+    opacity: 0.3;
+    transform: scale(0.95) translateX(10px);
+  }
+
+  .fadeReview .review {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+  }
+
   .review {
     width: auto;
     height: auto;
     padding: 3rem 2.9rem 3rem 2.6rem;
-    /* Reset hover animations for mobile */
     transform: none;
     box-shadow: none;
+    transition: all 0.5s ease-in-out;
   }
 
   .review:hover {
     transform: none;
     box-shadow: none;
   }
+
   .text {
     font-size: 1.4rem;
   }
+
   .author {
     gap: 0.8rem;
   }
@@ -243,10 +291,58 @@
   .name {
     font-size: 1.6rem;
   }
+
   .date {
     font-size: 1.4rem;
   }
+
   .stars {
     gap: 0.2rem;
+  }
+
+  /* Slide Indicators */
+  .indicators {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(4, 156, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .indicator.active {
+    background: #049cff;
+    transform: scale(1.2);
+  }
+
+  .indicator:hover {
+    background: rgba(4, 156, 255, 0.6);
+  }
+
+  /* Animation for slide transitions */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mainReviews .review {
+    animation: slideIn 0.6s ease-out;
+  }
+
+  .mainReviews .review:nth-child(2) {
+    animation-delay: 0.1s;
   }
 }

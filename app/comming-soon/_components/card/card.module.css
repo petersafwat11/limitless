@@ -72,7 +72,7 @@
 
 @media screen and (max-width: 900px) {
   .container {
-    padding: 2.4rem 1.8rem 1.8rem;
+    padding: 3.4rem 2.8rem 2.8rem;
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
@@ -83,7 +83,7 @@
   }
   .img {
     width: auto;
-    height: 7.2rem;
+    height: 9rem !important;
   }
 
   .content {

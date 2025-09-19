@@ -7,11 +7,11 @@ const Selection3 = ({ options, selectedItem, setSelectedItem }) => {
         <div
           key={index}
           className={styles.option}
-          onClick={() => setSelectedItem(option)}
+          onClick={() => setSelectedItem(option.title)}
         >
           <span
             className={`${styles.selectionSpan} ${
-              selectedItem === option ? styles.selectedSpan : ""
+              selectedItem === option.title ? styles.selectedSpan : ""
             }`}
           ></span>
 

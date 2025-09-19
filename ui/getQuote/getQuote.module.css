@@ -167,14 +167,16 @@
 @media screen and (max-width: 900px) {
   .container {
     width: 100%;
-    padding: 2rem 2rem 2.4rem;
+    padding: 3rem 2rem 1.5rem;
     gap: 2.2rem;
-    border-radius: 1.8rem;
+    border-radius: 1rem;
   }
   .contentContainer {
     min-height: 100px; /* Smaller on mobile */
   }
-
+  .label {
+    font-size: 1.2rem;
+  }
   .rows {
     gap: 2.2rem;
     width: 100%;
@@ -202,8 +204,8 @@
     gap: 1.4rem;
   }
   .button {
-    height: 5.4rem;
-    font-size: 1.4rem;
+    height: 4.7rem;
+    font-size: 1.2rem;
   }
   .notYet {
     font-size: 1.4rem;

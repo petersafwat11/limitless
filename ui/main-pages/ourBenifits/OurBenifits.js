@@ -26,6 +26,7 @@ const OurBenifits = ({ benifits, title, description }) => {
           <div className={styles.benifit} key={index}>
             <div className={styles.imgContainer}>
               <Image
+                className={styles.img}
                 src={benifit.img.src}
                 alt={benifit.img.alt}
                 width={benifit.img.width}

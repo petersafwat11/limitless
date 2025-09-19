@@ -6,6 +6,7 @@ const ConfirmBtn = ({ title, onClick, style }) => {
     <button className={styles.confirmBtn} onClick={onClick} style={style}>
       {title}{" "}
       <Image
+        className={styles.arrowRight} 
         src="/svg/arrow-right.svg"
         alt="arrow-right"
         width={28}

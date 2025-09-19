@@ -119,7 +119,7 @@
     right: -10rem;
   }
   .wrapper {
-    padding: 3.9rem 3% 1.4rem;
+    padding: 3.9rem 6% 3.4rem;
     gap: 3.5rem;
   }
   .container {
@@ -140,14 +140,14 @@
 
   .subTitle {
     font-size: 1.4rem;
-    max-width: 65%;
+    max-width: 90%;
   }
   .title {
-    font-size: 4.8rem;
+    font-size: 4.1rem;
     gap: 0.3rem;
   }
   .description {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     margin-bottom: 0;
   }
   .features {
@@ -159,10 +159,10 @@
     width: 100%;
   }
   .confirmBtn {
-    gap: 1.8rem;
-    height: 4.8rem;
+    gap: 1.7rem;
+    height: 4.5rem;
     padding: 0 2.4rem;
     border-radius: 1.2rem;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 }

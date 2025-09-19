@@ -78,7 +78,6 @@
   line-height: 125%; /* 18px */
   max-width: 33rem;
   /* font-family: "poppins"; */
-
 }
 .benifit:nth-child(1),
 .benifit:nth-child(2),
@@ -110,12 +109,12 @@
   .benifits {
     grid-template-columns: repeat(1, 1fr);
     gap: 0;
-    width: 72%;
+    width: 75%;
     margin: 0 14%;
   }
   .benifit {
-    gap: 3.3rem;
-    padding: 3.5rem 0 5rem;
+    gap: 1.3rem;
+    padding: 2.5rem 0 3rem;
     width: 100%;
     border-right: none !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.43);
@@ -126,5 +125,10 @@
   .benifitTitle {
     font-size: 1.6rem;
     max-width: 29rem;
+    line-height: 100%;
+  }
+  .img {
+    width: 10rem;
+    height: auto;
   }
 }

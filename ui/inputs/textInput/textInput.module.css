@@ -52,6 +52,7 @@
   letter-spacing: 0.56px;
   background: transparent;
   padding: 2.4rem;
+  width: 100%;
 }
 .input.reg {
   letter-spacing: 0.8px;
@@ -70,22 +71,25 @@
   .inputGroup {
     gap: 1.4rem;
   }
+  .inputSpan {
+    min-width: 4.2rem;
+    min-height: 4.2rem;
+    max-width: 4.2rem;
+    max-height: 4.2rem;
+  }
   .label {
     font-size: 1.4rem;
   }
   .wrapper {
     flex-direction: column;
-    gap: 1.6rem;
+    gap: 1.2rem;
   }
   .inputContainer {
     gap: 1.2rem;
   }
-  .inputSpan {
-    width: 4.2rem;
-    height: 4.2rem;
-  }
+
   .input {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     padding: 1.5rem 1.5rem 1.5rem 1rem;
   }
 }

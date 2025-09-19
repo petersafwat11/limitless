@@ -4,27 +4,25 @@ import Table from "./_components/table/Table";
 import styles from "./page.module.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Image from "next/image";
-import TemporaryPopup from "./_components/popups/temporaryPopup/TemporaryPopup";
+import { useRouter } from "next/navigation";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
 const Page = () => {
-  const [showCreatePolicyPopup, setShowCreatePolicyPopup] = useState(false);
+  const router = useRouter();
   return (
     <div className={styles.page}>
-      {showCreatePolicyPopup && (
-        <TemporaryPopup setShowCreatePolicyPopup={setShowCreatePolicyPopup} />
-      )}
-
       <div className={styles.header}>
         <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
           Your Policy{" "}
         </h2>
         <button
+          onClick={() => {
+            router.push("/dashboard/manage-policy/create");
+          }}
           className={styles.button}
-          onClick={() => setShowCreatePolicyPopup(true)}
         >
           <Image src="/svg/plus.svg" alt="plus" width={24} height={24} />
           <span>Create a new policy</span>
