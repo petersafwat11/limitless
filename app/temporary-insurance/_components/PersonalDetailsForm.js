@@ -40,6 +40,7 @@ const PersonalDetailsForm = ({ form }) => {
             type="date"
             allowPastDates={true}
             {...register("userDetails.dateOfBirth")}
+            value={watch("userDetails.dateOfBirth")}
             error={errors.userDetails?.dateOfBirth}
           />
         </div>

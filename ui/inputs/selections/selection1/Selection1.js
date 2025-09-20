@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./selection.module.css";
-const Selection1 = ({ items, selectedItem, setSelectedItem, type, style }) => {
+const Selection1 = ({ items, selectedItem, setSelectedItem, type, style , noDotMobile}) => {
   return (
     <div
       className={`${styles.selectionContainer} ${
@@ -41,7 +41,7 @@ const Selection1 = ({ items, selectedItem, setSelectedItem, type, style }) => {
             <span
               className={`${styles.selectionSpan} ${
                 selectedItem === item ? styles.selectedSpan : ""
-              } ${style === "dark" ? styles.darkSpan : ""}`}
+              } ${style === "dark" ? styles.darkSpan : ""} ${noDotMobile ? styles.noDotMobile : ""}`}
             ></span>
           ) : (
             ""

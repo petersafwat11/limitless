@@ -32,10 +32,13 @@ const FormDateInput = forwardRef(
         // Handle both YYYY-MM-DD and DD/MM/YYYY formats
         if (dateString.includes("/")) {
           const [day, month, year] = dateString.split("/");
+          console.log(day, month, year);
           return new Date(year, month - 1, day);
+
         } else {
           // For YYYY-MM-DD format, create date without timezone issues
           const [year, month, day] = dateString.split("-");
+          console.log(year, month, day);
           return new Date(year, month - 1, day);
         }
       } catch (error) {
@@ -89,7 +92,7 @@ const FormDateInput = forwardRef(
 
         return () => fp.destroy();
       }
-    }, [type, name, onChange]);
+    }, [type, name, onChange, value]);
 
     // Update flatpickr when value changes
     useEffect(() => {

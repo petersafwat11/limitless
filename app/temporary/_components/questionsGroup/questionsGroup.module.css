@@ -200,6 +200,7 @@
 
   .questionAnswer {
     font-size: 1.4rem;
+    max-width: 90%;
   }
 
   /* Icon container and animations */

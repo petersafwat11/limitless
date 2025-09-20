@@ -21,12 +21,14 @@ const CoverDetails = () => {
             <p className={styles.label}>Please select</p>
             <div className={styles.selectionOptions}>
               <Selection1
+                noDotMobile
                 items={["Days", "Weeks", "Months"]}
                 selectedItem={data.type}
                 setSelectedItem={(item) => setData({ ...data, type: item })}
                 type="checkbox"
               />
               <Selection1
+                noDotMobile
                 items={["1", "2", "3", "4", "5", "6", "7"]}
                 selectedItem={data.value}
                 setSelectedItem={(item) => setData({ ...data, value: item })}

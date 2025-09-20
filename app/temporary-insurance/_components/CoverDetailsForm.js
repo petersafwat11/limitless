@@ -49,12 +49,14 @@ const CoverDetailsForm = ({ form }) => {
             <p className={styles.label}>Please select</p>
             <div className={styles.selectionOptions}>
               <Selection1
+                noDotMobile
                 items={["Hours", "Days", "Weeks"]}
                 selectedItem={coverType}
                 setSelectedItem={handleTypeChange}
                 type="checkbox"
               />
               <Selection1
+                noDotMobile
                 items={getPeriodOptions()}
                 selectedItem={period?.toString()}
                 setSelectedItem={handlePeriodChange}
@@ -80,12 +82,14 @@ const CoverDetailsForm = ({ form }) => {
               dateLabel="Start Date"
               type="date"
               {...register("coverDetails.startDate")}
+              value={watch("coverDetails.startDate")}
               error={errors.coverDetails?.startDate}
             />
             <FormDataAndTime
               timeLabel="Start Time"
               type="time"
               {...register("coverDetails.startTime")}
+              value={watch("coverDetails.startTime")}
               error={errors.coverDetails?.startTime}
             />
           </div>
