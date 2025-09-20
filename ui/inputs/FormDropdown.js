@@ -6,7 +6,7 @@ const FormDropdown = forwardRef(
   ({ label, options, placeholder, error, ...props }, ref) => {
     return (
       <div className={styles.container}>
-        <p className={styles.label}>{label}</p>
+        {label && <p className={styles.label}>{label}</p>}
         <div className={styles.selectWrapper}>
           <select
             ref={ref}

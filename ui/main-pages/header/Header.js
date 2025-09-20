@@ -5,7 +5,8 @@ import Feature from "../../feature/Feature";
 import Image from "next/image";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import GetQuote from "../../getQuote/getQuote";
-
+import GetQuoteImpound from "../getQuoteImpound/GetQuoteImpound";
+import { usePathname } from "next/navigation";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -19,6 +20,7 @@ const Header = ({ subTitle, title, description, features }) => {
   const words = title.split(" ");
   const lastWord = words[words.length - 1];
   const withoutLastWord = words.slice(0, -1).join(" ");
+  const pathname = usePathname();
   return (
     <div className={"headerContainer"}>
       <div className="centeredContent">
@@ -69,7 +71,7 @@ const Header = ({ subTitle, title, description, features }) => {
                 />
               </button>
             </div>
-            <GetQuote />
+            {pathname === "/impound" ? <GetQuoteImpound /> : <GetQuote />}
           </div>
           <div className={styles.features}>
             {features.map((feature) => (
