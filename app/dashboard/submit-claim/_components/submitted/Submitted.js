@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./submitted.module.css";
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -12,22 +12,24 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 const Submitted = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [orderReference, setOrderReference] = useState("");
 
-  // Get order reference from sessionStorage and clear claim data
+  // Get order reference from URL params (set during form submission)
   useEffect(() => {
+    const urlOrderRef = searchParams.get("orderReference");
+    if (urlOrderRef) {
+      setOrderReference(urlOrderRef);
+      console.log("Order reference found in URL:", urlOrderRef);
+    } else {
+      console.warn("No orderReference found in URL params");
+    }
+
+    // Clean up sessionStorage claim data since we're done
     if (typeof window !== "undefined") {
-      const claimData = JSON.parse(sessionStorage.getItem("claimData") || "{}");
-
-      // Get the order reference from the submitted claim
-      if (claimData.orderReference) {
-        setOrderReference(claimData.orderReference);
-      }
-
-      // Clear claim data after getting the reference
       sessionStorage.removeItem("claimData");
     }
-  }, []);
+  }, [searchParams]);
   return (
     <div className={styles.container}>
       <Image

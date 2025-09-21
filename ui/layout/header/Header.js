@@ -13,6 +13,13 @@ const Header = () => {
   const isDashboard = pathname.startsWith("/dashboard");
   const [isOpen, setIsOpen] = useState(false);
   const [isDashboardSidebarOpen, setIsDashboardSidebarOpen] = useState(false);
+
+  // Function to open Tawk.to chat
+  const openLiveChat = () => {
+    if (typeof window !== "undefined" && window.Tawk_API) {
+      window.Tawk_API.maximize();
+    }
+  };
   return pathname === "/login" ||
     pathname === "/forget-password" ||
     pathname === "/change-password" ? null : (
@@ -57,7 +64,11 @@ const Header = () => {
           className={styles.buttons}
         >
           {isDashboard ? (
-            <div className={styles.chatIcon}>
+            <div
+              className={styles.chatIcon}
+              onClick={openLiveChat}
+              style={{ cursor: "pointer" }}
+            >
               <Image
                 src="/svg/live-chat.svg"
                 alt="chat"
@@ -73,7 +84,10 @@ const Header = () => {
               Login
             </button>
           )}
-          <button className={styles.quoteBtn}>
+          <button
+            className={styles.quoteBtn}
+            onClick={isDashboard ? openLiveChat : undefined}
+          >
             {isDashboard ? "Live chat" : "Get Quote"}
             <Image
               src="/svg/arrow-right.svg"
@@ -174,8 +188,11 @@ const Header = () => {
               >
                 Login
               </button>
-              <button className={styles.quoteBtn}>
-                Get Quote
+              <button
+                className={styles.quoteBtn}
+                onClick={isDashboard ? openLiveChat : undefined}
+              >
+                {isDashboard ? "Live chat" : "Get Quote"}
                 {/* <Image
                   src="/svg/arrow-right.svg"
                   alt="arrow-right"

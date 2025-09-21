@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWrapper";
 import FormTextInput from "@/ui/inputs/FormTextInput";
 import FormDataAndTime from "@/ui/inputs/FormDataAndTime";
@@ -9,6 +9,7 @@ import Selection3 from "@/ui/inputs/selections/selection3/Selection3";
 import YesORNo from "@/ui/inputs/selections/yesORNo/YesORNo";
 import ConfirmBtn from "@/ui/buttons/confirmBtn/ConfirmBtn";
 import Title from "@/ui/insurance-quotes/title/Title";
+import { API_BASE_URL } from "@/utils/config";
 import styles from "./components.module.css";
 
 const PersonalDetailsForm = ({ form }) => {
@@ -18,6 +19,49 @@ const PersonalDetailsForm = ({ form }) => {
     watch,
     setValue,
   } = form;
+
+  const [addresses, setAddresses] = useState([]);
+  const [isLoadingAddresses, setIsLoadingAddresses] = useState(false);
+  const [showAddressDropdown, setShowAddressDropdown] = useState(false);
+
+  const handleFindAddress = async () => {
+    const postcode = watch("userDetails.postCode");
+
+    if (!postcode || postcode.trim() === "") {
+      alert("Please enter a postcode first");
+      return;
+    }
+
+    setIsLoadingAddresses(true);
+
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/api/insurance/lookup-postcode/${encodeURIComponent(
+          postcode.trim()
+        )}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to lookup postcode");
+      }
+
+      const result = await response.json();
+
+      if (result.status === "success" && result.data.addresses) {
+        setAddresses(result.data.addresses);
+        setShowAddressDropdown(true);
+        // Clear the current address value
+        setValue("userDetails.address", "");
+      } else {
+        alert("No addresses found for this postcode");
+      }
+    } catch (error) {
+      console.error("Error looking up postcode:", error);
+      alert("Failed to lookup postcode. Please try again.");
+    } finally {
+      setIsLoadingAddresses(false);
+    }
+  };
 
   return (
     <ComponentWrapper title="Personal Details">
@@ -67,14 +111,26 @@ const PersonalDetailsForm = ({ form }) => {
             placeholder="Enter your postcode"
             {...register("userDetails.postCode")}
             error={errors.userDetails?.postCode}
-            button={<ConfirmBtn title="Find Address" onClick={() => {}} />}
+            button={
+              <ConfirmBtn
+                title={isLoadingAddresses ? "Loading..." : "Find Address"}
+                onClick={handleFindAddress}
+                disabled={isLoadingAddresses}
+                type="button"
+              />
+            }
           />
         </div>
 
         <div className={styles.row}>
-          <FormTextInput
+          <FormDropdown
             label="Address"
-            placeholder="Enter your Address"
+            options={addresses}
+            placeholder={
+              addresses.length > 0
+                ? "Select your address"
+                : "No addresses found"
+            }
             {...register("userDetails.address")}
             error={errors.userDetails?.address}
           />
@@ -110,51 +166,54 @@ const PersonalDetailsForm = ({ form }) => {
       </div>
 
       <div className={styles.selections + " " + styles.selectionsContainer}>
-        <Selection2
-          title="Where do you keep your car during the day?"
-          description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
-          items={[
-            "At home",
-            "Office or factory car park",
-            "Open public car park",
-            "Secure public car park",
-            "Street away from home",
-          ]}
-          img={{ src: "/svg/day.svg", alt: "sun", width: 79, height: 106 }}
-          selectedItem={watch("carUsage.keepingCarDuringDay")}
-          setSelectedItem={(item) =>
-            setValue("carUsage.keepingCarDuringDay", item)
-          }
-        />
-        {errors.carUsage?.keepingCarDuringDay && (
-          <span className={styles.error}>
-            {errors.carUsage.keepingCarDuringDay.message}
-          </span>
-        )}
-
-        <Selection2
-          title="Where do you keep your car during the night?"
-          description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
-          items={[
-            "Drive",
-            "Street outside home",
-            "Locked garage",
-            "Street away from home",
-            "Public car park",
-            "Work car park",
-            "Private property",
-          ]}
-          img={{ src: "/svg/night.svg", alt: "moon", width: 79, height: 106 }}
-          selectedItem={watch("carUsage.keepingCarDuringNight")}
-          setSelectedItem={(item) =>
-            setValue("carUsage.keepingCarDuringNight", item)
-          }
-        />
-        {errors.carUsage?.keepingCarDuringNight && (
-          <span className={styles.error}>
-            {errors.carUsage.keepingCarDuringNight.message}
-          </span>
-        )}
+        <div className={styles.selections2}>
+          <Selection2
+            title="Where do you keep your car during the day?"
+            description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
+            items={[
+              "At home",
+              "Office or factory car park",
+              "Open public car park",
+              "Secure public car park",
+              "Street away from home",
+            ]}
+            img={{ src: "/svg/day.svg", alt: "sun", width: 79, height: 106 }}
+            selectedItem={watch("carUsage.keepingCarDuringDay")}
+            setSelectedItem={(item) =>
+              setValue("carUsage.keepingCarDuringDay", item)
+            }
+          />
+          {errors.carUsage?.keepingCarDuringDay && (
+            <span className={styles.error}>
+              {errors.carUsage.keepingCarDuringDay.message}
+            </span>
+          )}
+        </div>
+        <div className={styles.selections2}>
+          <Selection2
+            title="Where do you keep your car during the night?"
+            description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
+            items={[
+              "Drive",
+              "Street outside home",
+              "Locked garage",
+              "Street away from home",
+              "Public car park",
+              "Work car park",
+              "Private property",
+            ]}
+            img={{ src: "/svg/night.svg", alt: "moon", width: 79, height: 106 }}
+            selectedItem={watch("carUsage.keepingCarDuringNight")}
+            setSelectedItem={(item) =>
+              setValue("carUsage.keepingCarDuringNight", item)
+            }
+          />
+          {errors.carUsage?.keepingCarDuringNight && (
+            <span className={styles.error}>
+              {errors.carUsage.keepingCarDuringNight.message}
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Car Usage Section - Separate Component Wrapper */}

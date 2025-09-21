@@ -9,7 +9,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 const ThirdPartyDetails = ({ claimData }) => {
- 
   return (
     <div className={styles.container}>
       <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
@@ -20,13 +19,13 @@ const ThirdPartyDetails = ({ claimData }) => {
           <InputWithData2
             item={{
               label: "Third Party Name",
-              value: claimData.thirdPartyFullName,
+              value: claimData.thirdPartyFullName || "N/A",
             }}
           />
           <InputWithData2
             item={{
               label: "Third Party Contact No.",
-              value: claimData.thirdPartyPhone,
+              value: claimData.thirdPartyPhone || "N/A",
             }}
           />
         </div>
@@ -34,13 +33,13 @@ const ThirdPartyDetails = ({ claimData }) => {
           <InputWithData2
             item={{
               label: "Third Party Address",
-              value: claimData.address,
+              value: claimData.thirdPartyAddress || "N/A",
             }}
           />
           <InputWithData2
             item={{
               label: "Third Party Postcode",
-              value: claimData.postcode,
+              value: claimData.thirdPartyPostcode || "N/A",
             }}
           />
         </div>
@@ -48,13 +47,13 @@ const ThirdPartyDetails = ({ claimData }) => {
           <InputWithData2
             item={{
               label: "Vehicle Registration",
-              value: claimData.vehicleRegistration,
+              value: claimData.thirdPartyVehicleRegistration || "N/A",
             }}
           />
           <InputWithData2
             item={{
               label: "Vehicle Make",
-              value: claimData.vehicleMake,
+              value: claimData.thirdPartyVehicleMake || "N/A",
             }}
           />
         </div>
@@ -62,13 +61,13 @@ const ThirdPartyDetails = ({ claimData }) => {
           <InputWithData2
             item={{
               label: "Vehicle Model",
-              value: claimData.vehicleModel,
+              value: claimData.thirdPartyVehicleModel || "N/A",
             }}
           />
           <InputWithData2
             item={{
               label: "Third Party Damage",
-              value: claimData.damage,
+              value: claimData.thirdPartyDamage || "N/A",
             }}
           />
         </div>
@@ -76,7 +75,7 @@ const ThirdPartyDetails = ({ claimData }) => {
           <InputWithData2
             item={{
               label: "Drivable?",
-              value: claimData.drivable,
+              value: claimData.drivable || "N/A",
             }}
           />
         </div>

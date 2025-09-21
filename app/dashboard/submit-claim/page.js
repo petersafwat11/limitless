@@ -88,7 +88,7 @@ const SubmitClaimContent = () => {
       // Show form if on form step
       if (step === "form") {
         return (
-          <div>
+          <div className={styles.fullWidthContainer}>
             <Stepper steps={steps} currentStep={2} />
             <Form claimReason={reason} />
           </div>
@@ -98,7 +98,7 @@ const SubmitClaimContent = () => {
       // Show claim reason selection if on reason step
       if (step === "reason") {
         return (
-          <div>
+          <div className={styles.fullWidthContainer}>
             <Stepper steps={steps} currentStep={1} />
             <ClaimReason />
           </div>

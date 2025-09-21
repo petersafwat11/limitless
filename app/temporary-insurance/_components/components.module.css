@@ -117,7 +117,6 @@
   margin-top: 3.4rem;
 }
 
-
 /* Personal Details Styles */
 .selections {
   display: flex;
@@ -125,8 +124,13 @@
   gap: 1.8rem;
   /* margin: 1.4rem 0; */
 }
-.selections > div {
+.selections2 > div {
   flex: 1;
+}
+.selections2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 /* Car Usage Styles */
 .carUsageContainer {

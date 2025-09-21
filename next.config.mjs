@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  env: {
+    POST_CODE_ApiKey: process.env.POST_CODE_ApiKey,
+  },
+};
 
 export default nextConfig;

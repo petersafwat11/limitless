@@ -29,7 +29,8 @@ const page = async ({ params }) => {
     });
 
     if (response.status === 200 && response.data.data) {
-      claim = response.data.data;
+      // Handle nested data structure: response.data.data.data
+      claim = response.data.data.data || response.data.data;
     } else {
       error = "Claim not found";
     }
@@ -59,7 +60,7 @@ const page = async ({ params }) => {
       )}
 
       <div className={styles.container}>
-        <PolicyDetails claimData={claim.policyDetails} />
+        <PolicyDetails claimData={claim} />
         <ThirdPartyDetails claimData={claim.thirdPartyDetails} />
         <Updates
           columns={["Description", "Date", "Time"]}

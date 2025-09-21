@@ -68,11 +68,32 @@ const Form = ({ claimReason }) => {
   useEffect(() => {
     const subscription = watch((value) => {
       if (typeof window !== "undefined") {
-        const claimData = JSON.parse(
-          sessionStorage.getItem("claimData") || "{}"
-        );
-        claimData.formData = value;
-        sessionStorage.setItem("claimData", JSON.stringify(claimData));
+        try {
+          // Filter out non-serializable values and DOM elements
+          const serializableValue = {};
+          Object.keys(value).forEach((key) => {
+            const val = value[key];
+            // Only include primitive values and plain objects
+            if (
+              val !== null &&
+              val !== undefined &&
+              (typeof val === "string" ||
+                typeof val === "number" ||
+                typeof val === "boolean" ||
+                (typeof val === "object" && val.constructor === Object))
+            ) {
+              serializableValue[key] = val;
+            }
+          });
+
+          const claimData = JSON.parse(
+            sessionStorage.getItem("claimData") || "{}"
+          );
+          claimData.formData = serializableValue;
+          sessionStorage.setItem("claimData", JSON.stringify(claimData));
+        } catch (error) {
+          console.warn("Failed to save form data to sessionStorage:", error);
+        }
       }
     });
     return () => subscription.unsubscribe();
@@ -87,8 +108,22 @@ const Form = ({ claimReason }) => {
       // Get claim data from sessionStorage
       const claimData = JSON.parse(sessionStorage.getItem("claimData") || "{}");
 
-      // Save form data to sessionStorage for step validation
-      claimData.formData = data;
+      // Save form data to sessionStorage for step validation (clean data only)
+      const cleanData = {};
+      Object.keys(data).forEach((key) => {
+        const val = data[key];
+        if (
+          val !== null &&
+          val !== undefined &&
+          (typeof val === "string" ||
+            typeof val === "number" ||
+            typeof val === "boolean" ||
+            (typeof val === "object" && val.constructor === Object))
+        ) {
+          cleanData[key] = val;
+        }
+      });
+      claimData.formData = cleanData;
       sessionStorage.setItem("claimData", JSON.stringify(claimData));
 
       // Transform flat form data to nested structure for API
@@ -109,14 +144,24 @@ const Form = ({ claimReason }) => {
       const result = await response.json();
 
       if (response.ok) {
-        // Mark as successfully submitted and save order reference
-        claimData.submitted = true;
-        claimData.orderReference =
-          result.data?.orderReference || result.orderReference;
-        sessionStorage.setItem("claimData", JSON.stringify(claimData));
-
-        // Redirect to success page
-        router.push("/dashboard/submit-claim?step=submitted");
+        console.log("API Response:", result); // Debug: Full API response
+        
+        // Extract orderReference from API response
+        const orderRef = result.data?.orderReference || result.orderReference || result.data?.data?.orderReference;
+        
+        console.log("Extracted orderReference:", orderRef); // Debug: Extracted value
+        
+        if (orderRef) {
+          // Redirect to success page with orderReference in URL
+          router.push(`/dashboard/submit-claim?step=submitted&orderReference=${orderRef}`);
+        } else {
+          console.error("No orderReference found in API response");
+          // Redirect anyway but without orderReference
+          router.push("/dashboard/submit-claim?step=submitted");
+        }
+        
+        // Clean up sessionStorage
+        sessionStorage.removeItem("claimData");
       } else {
         // Handle validation errors
         if (result.errors) {
@@ -157,7 +202,7 @@ const Form = ({ claimReason }) => {
         </div>
       )}
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form style={{ width: "100%" }} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formContainer}>
           {/* Policy Number */}
           <FormTextInput
@@ -216,11 +261,13 @@ const Form = ({ claimReason }) => {
           {/* Date and Responsibility */}
           <div className={styles.row}>
             <FormDateInput
-              label="Date of incident (Or estimate the date)*"
-              placeholder="DD/MM/YYYY"
+              dateLabel="Date of incident (Or estimate the date)*"
+              name="incidentDate"
+              type="date"
+              allowPastDates={true}
               error={errors.incidentDate}
               value={watchedValues.incidentDate}
-              onChange={(date) => setValue("incidentDate", date)}
+              onChange={(e) => setValue("incidentDate", e.target.value)}
             />
             <FormDropdown
               label="Do you take responsibility for the incident?*"
@@ -228,7 +275,14 @@ const Form = ({ claimReason }) => {
               placeholder="Select Responsibility"
               error={errors.responsible}
               value={watchedValues.responsible}
-              onChange={(value) => setValue("responsible", value)}
+              onChange={(value) => {
+                // Handle both string values and event objects
+                const stringValue =
+                  typeof value === "string"
+                    ? value
+                    : value?.target?.value || value;
+                setValue("responsible", stringValue);
+              }}
             />
           </div>
 
@@ -328,7 +382,14 @@ const Form = ({ claimReason }) => {
             placeholder="Select Drivability"
             error={errors.drivable}
             value={watchedValues.drivable}
-            onChange={(value) => setValue("drivable", value)}
+            onChange={(value) => {
+              // Handle both string values and event objects
+              const stringValue =
+                typeof value === "string"
+                  ? value
+                  : value?.target?.value || value;
+              setValue("drivable", stringValue);
+            }}
           />
 
           {/* Submit Button */}

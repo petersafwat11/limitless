@@ -19,13 +19,17 @@ const PolicyDetails = ({ claimData }) => {
           <InputWithData2
             item={{
               label: "Claim Type",
-              value: claimData.claimreason,
+              value: claimData?.claimreason || "N/A",
             }}
           />
           <InputWithData2
             item={{
               label: "Policyholder Name",
-              value: claimData.claimDetails.placeHolderFirstName + " " + claimData.claimDetails.placeHolderLastName,
+              value:
+                claimData?.claimDetails?.placeHolderFirstName &&
+                claimData?.claimDetails?.placeHolderLastName
+                  ? `${claimData.claimDetails.placeHolderFirstName} ${claimData.claimDetails.placeHolderLastName}`
+                  : "N/A",
             }}
           />
         </div>
@@ -33,34 +37,34 @@ const PolicyDetails = ({ claimData }) => {
           <InputWithData2
             item={{
               label: "Claimant's Name",
-              value: claimData.claimDetails.claimentsName,
+              value: claimData?.claimDetails?.claimentsName || "N/A",
             }}
           />
           <InputWithData2
             item={{
               label: "Email Address",
-              value: claimData.claimDetails.emailAddress,
+              value: claimData?.claimDetails?.emailAddress || "N/A",
             }}
           />
         </div>
         <InputWithData2
           item={{
             label: "Incident Description",
-            value: claimData.incidentDescription,
+            value: claimData.claimDetails?.incidentDescription || "N/A",
           }}
         />
         <div className={styles.row}>
           <InputWithData2
             item={{
               label: "Date of Incident",
-              value: claimData.incidentDate,
+              value: claimData.claimDetails?.incidentDate || "N/A",
               type: "date",
             }}
           />
           <InputWithData2
             item={{
               label: "Responsible?",
-              value: claimData.responsible,
+              value: claimData.claimDetails?.responsible ? "Yes" : "No",
             }}
           />
         </div>
@@ -68,13 +72,13 @@ const PolicyDetails = ({ claimData }) => {
           <InputWithData2
             item={{
               label: "If not, give details",
-              value: claimData.detailsIfNotResponsible,
+              value: claimData.claimDetails?.detailsIfNotResponsible || "N/A",
             }}
           />
           <InputWithData2
             item={{
               label: "Vehicle location",
-              value: claimData.vehicleLocation,
+              value: claimData.claimDetails?.vehicleLocation || "N/A",
             }}
           />
         </div>

@@ -5,6 +5,7 @@ import FormTextInput from "@/ui/inputs/FormTextInput";
 import FormDropdown from "@/ui/inputs/FormDropdown";
 import Title from "@/ui/insurance-quotes/title/Title";
 import styles from "./components.module.css";
+import ConfirmBtn from "@/ui/buttons/confirmBtn/ConfirmBtn";
 
 const VehicleDetailsForm = ({ form }) => {
   const [showVehicleDetails, setShowVehicleDetails] = useState(false);
@@ -23,10 +24,19 @@ const VehicleDetailsForm = ({ form }) => {
       <div className={styles.content}>
         <div className={styles.first}>
           <FormTextInput
+            reg={true}
             label="Registration Number"
             placeholder="Enter your Registration number"
             {...register("vehicleDetails.registrationNumber")}
             error={errors.vehicleDetails?.registrationNumber}
+            button={
+              <ConfirmBtn
+                title={false ? "Loading..." : "Find Vehicle"}
+                onClick={() => {}}
+                disabled={false}
+                type="button"
+              />
+            }
           />
           <button
             type="button"

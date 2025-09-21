@@ -30,6 +30,12 @@
   align-items: stretch;
   justify-content: center;
 }
+.fullWidthContainer{
+  width: 100%;
+}
+.fullWidthContainer > form{
+  width: 100%;
+}
 @media screen and (max-width: 900px) {
   .page {
     margin: 3.8rem 0 3.9rem;

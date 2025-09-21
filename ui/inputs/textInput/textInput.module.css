@@ -17,6 +17,10 @@
   align-items: center;
   gap: 1.8rem;
 }
+.inputContainer.error {
+  border: 1px solid #ef4444;
+}
+
 .inputContainer {
   display: flex;
   align-items: center;

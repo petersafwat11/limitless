@@ -15,7 +15,7 @@ const FormTextInput = ({
     <div className={styles.inputGroup}>
       <label className={styles.label}>{label}</label>
       <div className={styles.wrapper}>
-        <div className={styles.inputContainer}>
+        <div className={`${styles.inputContainer} ${error ? styles.error : ""}`}>
           {reg && <span className={styles.inputSpan}>GB</span>}
           <input
             type={type}
