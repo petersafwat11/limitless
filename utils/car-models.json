@@ -1,0 +1,6510 @@
+[
+  {
+    "make": "Aixam",
+    "models": [
+      {
+        "model": "400 E DIESEL",
+        "year": "2000-2002",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "400 L DIESEL",
+        "year": "2000-2002",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "400 S DIESEL",
+        "year": "2000-2002",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "400 SL DIESEL",
+        "year": "2000-2002",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500 MAC DIESEL CABRIOLET",
+        "year": "2000-2002",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "500 E EVOLUTION DIESEL",
+        "year": "2000-2002",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500 L EVOLUTION DIESEL",
+        "year": "2000-2002",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500 SL EVOLUTION DIESEL",
+        "year": "2000-2002",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500 ECO DIESEL AUTO",
+        "year": "1999-2000",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "7"
+      },
+      {
+        "model": "500 LUXE DIESEL AUTO",
+        "year": "1999-2000",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "7"
+      },
+      {
+        "model": "500 SUPER LUXE DIESEL AUTO",
+        "year": "1999-2000",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "9"
+      },
+      {
+        "model": "500 UT DIESEL AUTO",
+        "year": "1999-2000",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "7"
+      },
+      {
+        "model": "500-4 ECO DIESEL",
+        "year": "2002-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500-4 LUXE DIESEL",
+        "year": "2002-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500-4 SUPER LUXE DIESEL",
+        "year": "2002-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500-5 ECO DIESEL",
+        "year": "2002-2005",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500-5 LUXE DIESEL",
+        "year": "2002-2005",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500-5 SUPER LUXE DIESEL",
+        "year": "2002-2005",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "9"
+      },
+      {
+        "model": "500-5 ECO",
+        "year": "2004-2009",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500-5 ECO MINIVAN",
+        "year": "2004-2009",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500-5 LUXE",
+        "year": "2004-2009",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "500-5 SUPER LUXE",
+        "year": "2004-2009",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "500-5 SUPER LUXE MINIVAN",
+        "year": "2004-2009",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "700 A751 LUXE DIESEL",
+        "year": "2005-2009",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "700 A751 ROADLINE DIESEL",
+        "year": "2005-2009",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "700 A751 SUPER LUXE DIESEL",
+        "year": "2005-2009",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "700 A751 CROSSLINE",
+        "year": "2005-2009",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "700 A751 SUPER LUXE",
+        "year": "2005-2009",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "A751 700  ROADLINE GT DIESEL",
+        "year": "Select...",
+        "doors": "Select...",
+        "fuel": "Petrol",
+        "transmission": "Select...",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "A751 700  CROSSLINE GT DIESEL",
+        "year": "Select...",
+        "doors": "Select...",
+        "fuel": "Select...",
+        "transmission": "Select...",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "A751 700  ROADLINE GTR",
+        "year": "Select...",
+        "doors": "Select...",
+        "fuel": "Select...",
+        "transmission": "Select...",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "A751 700  CROSSLINE GTR",
+        "year": "Select...",
+        "doors": "Select...",
+        "fuel": "Select...",
+        "transmission": "Select...",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "City S",
+        "year": "2012-2022",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Coupe S",
+        "year": "2013-2022",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Crossline GT",
+        "year": "2010-2015",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Crossline GTR",
+        "year": "2010-2015",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Crossover GT",
+        "year": "2012-2015",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Crossover GTR",
+        "year": "2012-2015",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "GTO None",
+        "year": "2012-2022",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Mega CITY",
+        "year": "2006-2010",
+        "doors": "2 DR",
+        "fuel": "Electric",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "Mega CITY +",
+        "year": "2006-2010",
+        "doors": "2 DR",
+        "fuel": "Electric",
+        "transmission": "Automatic",
+        "insuranceGroup": "6"
+      },
+      {
+        "model": "undefined",
+        "year": "Select...",
+        "doors": "Select...",
+        "fuel": "Electric",
+        "transmission": "Select...",
+        "insuranceGroup": "1"
+      }
+    ]
+  },
+  {
+    "make": "Alfa Romeo",
+    "models": [
+      {
+        "model": "145 TWIN SPARK 16V",
+        "year": "1997-2001",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "145 CLOVERLEAF",
+        "year": "1996-2001",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "145 JUNIOR TWIN SPARK",
+        "year": "1998-1999",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "145 L",
+        "year": "1994-1996",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "145 None",
+        "year": "1994-1996",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "145 16V",
+        "year": "1994-1996",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "146 TWIN SPARK 16V",
+        "year": "1997-2001",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "146 TI",
+        "year": "1996-2001",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "146 JUNIOR TWIN SPARK",
+        "year": "1998-1999",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "146 L",
+        "year": "1995-1996",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "146 None",
+        "year": "1995-1996",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "146 16V",
+        "year": "1995-1996",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "147 COLLEZIONE M-JET JTD (120)",
+        "year": "2007-2010",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "147 COLLEZIONE M-JET JTD (120)",
+        "year": "2007-2010",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "147 DUCATI CORSE Q2 JTDM",
+        "year": "2008-2010",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "147 DUCATI CORSE Q2 JTDM",
+        "year": "2008-2010",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "147 LUSSO M-JET JTD (120)",
+        "year": "2005-2010",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "147 LUSSO M-JET JTD (120)",
+        "year": "2005-2010",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "147 LUSSO M-JET JTD (150)",
+        "year": "2005-2010",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "147 LUSSO M-JET JTD (150)",
+        "year": "2005-2010",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "147 SPORT Q2 M-JET JTD (120)",
+        "year": "2008-2010",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "147 TURISMO M-JET JTD (120)",
+        "year": "2005-2009",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "147 TURISMO M-JET JTD (120)",
+        "year": "2005-2009",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "147 TURISMO M-JET JTD (150)",
+        "year": "2005-2009",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "147 TURISMO M-JET JTD (150)",
+        "year": "2005-2009",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "147 SPORT M-JET JTD (120)",
+        "year": "2007-2008",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "147 SPORT M-JET JTD (120)",
+        "year": "2007-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "147 Q2 M-JET JTD (150)",
+        "year": "2007-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "147 Q2 M-JET JTD (150)",
+        "year": "2007-",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "147 SPORT Q2 M-JET JTD (150)",
+        "year": "2007-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "147 TI SPECIAL EDITION JTDM (150)",
+        "year": "2006-2007",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "147 TI SPECIAL EDITION JTDM (150)",
+        "year": "2006-2007",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "147 Q2 SPORT M-JET JTD (150)",
+        "year": "2007-",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "147 LUSSO JTD (115)",
+        "year": "2003-2005",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "147 LUSSO JTD (115)",
+        "year": "2003-2005",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "147 LUSSO M-JET JTD (140)",
+        "year": "2003-2005",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "147 LUSSO M-JET JTD (140)",
+        "year": "2003-2005",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "147 TI JTD (140)",
+        "year": "2004-2005",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "147 TI JTD (140)",
+        "year": "2004-2005",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "147 TURISMO JTD (115)",
+        "year": "2003-2005",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "147 TURISMO JTD (115)",
+        "year": "2003-2005",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "147 TURISMO M-JET JTD (140)",
+        "year": "2003-2005",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "147 TURISMO M-JET JTD (140)",
+        "year": "2003-2005",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "147 TWIN SPARK COLLEZIONE",
+        "year": "2007-2010",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "147 TWIN SPARK COLLEZIONE",
+        "year": "2007-2010",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "147 TWIN SPARK LUSSO",
+        "year": "2001-2010",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "147 TWIN SPARK LUSSO",
+        "year": "2001-2010",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "147 TWIN SPARK SPORT",
+        "year": "2007-2008",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "147 TWIN SPARK SPORT",
+        "year": "2007-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "147 TI",
+        "year": "2004-2006",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "147 TI",
+        "year": "2004-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "147 TI SPECIAL EDITION",
+        "year": "2006-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "147 TI SPECIAL EDITION",
+        "year": "2006-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "147 TWIN SPARK",
+        "year": "2004-2006",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "147 TWIN SPARK",
+        "year": "2004-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "147 TWIN SPARK LUSSO SELESPEED",
+        "year": "2001-2005",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "147 TWIN SPARK LUSSO SELESPEED",
+        "year": "2001-2005",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "147 TWIN SPARK TURISMO",
+        "year": "2002-2005",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "147 TWIN SPARK TURISMO",
+        "year": "2002-2005",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "147 TWIN SPARK TURISMO",
+        "year": "2001-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "147 TWIN SPARK TURISMO",
+        "year": "2001-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "147 GTA",
+        "year": "2003-2005",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "38"
+      },
+      {
+        "model": "155 16V TWIN SPARK",
+        "year": "1996-1997",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "155 16V TWIN SPARK",
+        "year": "1995-1997",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "155 16V TWIN SPARK SUPER",
+        "year": "1996-1997",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "155 2.0 TWIN SPARK",
+        "year": "1992-1997",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "155 2.5 V6",
+        "year": "1992-1997",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "155 1.8 TWIN SPARK",
+        "year": "1992-1996",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "155 CLOVERLEAF Q4",
+        "year": "1992-1995",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "17"
+      },
+      {
+        "model": "155 SILVERSTONE",
+        "year": "1994-",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "155 2.0 TWIN SPARK LUSSO",
+        "year": "1992-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "156 JTD (115)",
+        "year": "2003-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "156 JTD (115)",
+        "year": "2003-2006",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "156 LUSSO MULTIJET JTD (150)",
+        "year": "2004-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 SPORT MULTIJET JTD (150)",
+        "year": "2005-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TI JTD (115)",
+        "year": "2004-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "156 TI JTD (115)",
+        "year": "2004-2006",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "156 TI MULTIJET JTD (150)",
+        "year": "2004-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TI MULTIJET JTD (150)",
+        "year": "2004-2006",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TURISMO JTD (115)",
+        "year": "2003-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "156 TURISMO MULTIJET JTD (150)",
+        "year": "2004-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 TURISMO MULTIJET JTD (150)",
+        "year": "2004-2006",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 VELOCE JTD (115)",
+        "year": "2003-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "156 VELOCE MULTJET JTD (150)",
+        "year": "2004-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 VELOCE MULTJET JTD (150)",
+        "year": "2004-2006",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 LUSSO JTD (175)",
+        "year": "2003-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 LUSSO JTD (175)",
+        "year": "2003-2006",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TI JTD",
+        "year": "2004-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TI JTD",
+        "year": "2004-2006",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 VELOCE JTD (175)",
+        "year": "2003-2006",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 VELOCE JTD (175)",
+        "year": "2003-2006",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TURISMO JTD (115) SPORTWAGON",
+        "year": "2003-2006",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "156 LUSSO JTD 16V (140)",
+        "year": "2004-",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 LUSSO JTD 16V (140)",
+        "year": "2004-",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 TI JTD 16V (140)",
+        "year": "2004-",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TI JTD 16V (140)",
+        "year": "2004-",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TURISMO 16V JTD (140)",
+        "year": "2003-2004",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 TURISMO 16V JTD (140)",
+        "year": "2003-2004",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 VELOCE 16V JTD (140)",
+        "year": "2003-2004",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 VELOCE 16V JTD (140) SPORTWAGON",
+        "year": "2003-2004",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 LUSSO JTD (150)",
+        "year": "2001-2003",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TURISMO JTD (150)",
+        "year": "2001-2003",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 VELOCE JTD (150)",
+        "year": "2000-2003",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 LUSSO JTD (150) SPORTWAGON",
+        "year": "2001-2003",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TURISMO JTD (150) SPORTWAGON",
+        "year": "2001-2003",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 VELOCE JTD (150) SPORTWAGON",
+        "year": "2000-2003",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 VELOCE JTD (140)",
+        "year": "2000-2002",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 JTD (150)",
+        "year": "1999-2001",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 JTD (150) SPORTWAGON",
+        "year": "2000-2001",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 LUSSO SELESPEED JTS",
+        "year": "2002-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TURISMO SELESPEED JTS",
+        "year": "2002-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 VELOCE SELESPEED JTS",
+        "year": "2002-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 LUSSO Q-SYSTEM V6 24V",
+        "year": "2001-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TURISMO Q-SYSTEM",
+        "year": "2002-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 VELOCE Q-SYSTEM V6 24V",
+        "year": "2000-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 GTA",
+        "year": "2002-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "156 GTA",
+        "year": "2002-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "156 GTA",
+        "year": "2002-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "156 GTA",
+        "year": "2002-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "156 TWIN SPARK",
+        "year": "2000-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "156 TWIN SPARK",
+        "year": "1998-2001",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TWIN SPARK LUSSO",
+        "year": "2000-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "156 TWIN SPARK LUSSO",
+        "year": "1998-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 TWIN SPARK LUSSO",
+        "year": "2000-2002",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TWIN SPARK TI",
+        "year": "2004-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TWIN SPARK TI",
+        "year": "2004-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TWIN SPARK TURISMO",
+        "year": "2001-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 TWIN SPARK TURISMO",
+        "year": "2001-2002",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TWIN SPARK VELOCE",
+        "year": "2000-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 TWIN SPARK VELOCE",
+        "year": "2000-2002",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 LUSSO JTS",
+        "year": "2002-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TI JTS",
+        "year": "2004-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TI JTS",
+        "year": "2004-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TURISMO JTS",
+        "year": "2002-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 VELOCE JTS",
+        "year": "2002-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 LUSSO V6 24V",
+        "year": "2000-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TURISMO V6 24V",
+        "year": "2001-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 VELOCE V6 24V",
+        "year": "2000-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 LUSSO SELESPEED JTS SPORTWAGON",
+        "year": "2002-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TURISMO SELESPEED JTS SPORTWAGON",
+        "year": "2002-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 VELOCE SELESPEED JTS SPORTWAGON",
+        "year": "2002-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 LUSSO Q-SYSTEM V6 24V SPORTWAGON",
+        "year": "2001-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TURISMO Q-SYSTEM SPORTWAGON",
+        "year": "2002-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 VELOCE Q-SYSTEM V6 24V SPORTWAGON",
+        "year": "2000-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TWIN SPARK LUSSO SPORTWAGON",
+        "year": "2000-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 TWIN SPARK LUSSO SPORTWAGON",
+        "year": "2000-2002",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TWIN SPARK SPORTWAGON",
+        "year": "2000-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "156 TWIN SPARK SPORTWAGON",
+        "year": "2000-2001",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TWIN SPARK TURISMO SPORTWAGON",
+        "year": "2001-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 TWIN SPARK TURISMO SPORTWAGON",
+        "year": "2001-2002",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 TWIN SPARK VELOCE SPORTWAGON",
+        "year": "2000-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "156 TWIN SPARK VELOCE SPORTWAGON",
+        "year": "2000-2002",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "156 LUSSO JTS SPORTWAGON",
+        "year": "2002-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TURISMO JTS SPORTWAGON",
+        "year": "2002-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 VELOCE JTS SPORTWAGON",
+        "year": "2002-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 LUSSO V6 24V SPORTWAGON",
+        "year": "2000-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TURISMO V6 24V SPORTWAGON",
+        "year": "2001-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 VELOCE V6 24V SPORTWAGON",
+        "year": "2000-2006",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TWIN SPARK LUSSO SELESPEED",
+        "year": "2001-2002",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "156 TWIN SPARK TURISMO SELESPEED",
+        "year": "2002-",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "156 TWIN SPARK VELOCE SELESPEED",
+        "year": "2001-2002",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "156 TS LUSSO SELESPEED SPORTWAGON",
+        "year": "2001-2002",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "156 TS TURISMO SELESPEED SPORTWAGON",
+        "year": "2002-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "156 TS VELOCE SELESPEED SPORTWAGON",
+        "year": "2001-2002",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "156 TWIN SPARK SELESPEED",
+        "year": "1999-2001",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "156 V6 AUTO",
+        "year": "1999-2001",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 V6 Q-SYSTEM",
+        "year": "1999-2001",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 V6",
+        "year": "1998-2001",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 TWIN SPARK SELESPEED SPORTWAGON",
+        "year": "2000-2001",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "156 V6 Q-SYSTEM SPORTWAGON",
+        "year": "2000-2001",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "156 V6 SPORTWAGON",
+        "year": "2000-2001",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "159 ELEGANTE JTDM (150)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 ELEGANTE JTDM (150)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 ELEGANTE JTDM (150)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 ELEGANTE JTDM (150)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 LUSSO JTDM",
+        "year": "2006-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 LUSSO JTDM",
+        "year": "2006-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 LUSSO JTDM",
+        "year": "2006-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 LUSSO JTDM",
+        "year": "2006-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TI JTDM (150)",
+        "year": "2008-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TI JTDM (150)",
+        "year": "2008-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TI JTDM (150)",
+        "year": "2008-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TI JTDM (150)",
+        "year": "2008-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TURISMO JTDM (150)",
+        "year": "2006-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TURISMO JTDM (150)",
+        "year": "2006-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TURISMO JTDM (150)",
+        "year": "2006-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "159 ELEGANTE JTDM (210)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 ELEGANTE JTDM (210)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 ELEGANTE JTDM (210)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 ELEGANTE JTDM (210)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 LIMITED EDITION (SPORT) JTDM",
+        "year": "2008-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "159 LIMITED EDITION (SPORT) JTDM",
+        "year": "2008-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "159 TURISMO JTDM (120)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "159 TURISMO JTDM (120)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "159 TURISMO SPORT JTDM (120)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "159 TURISMO SPORT JTDM (120)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "159 TURISMO SPORT JTDM (150)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "21"
+      },
+      {
+        "model": "159 TURISMO SPORT JTDM (150)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "21"
+      },
+      {
+        "model": "159 ELEGANTE JTDM (170)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "159 ELEGANTE JTDM (170)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "159 LUSSO JTDM (136)",
+        "year": "2011-",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "159 LUSSO JTDM (136)",
+        "year": "2011-",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "159 LUSSO JTDM (170)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "159 LUSSO JTDM (170)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "159 TI JTDM (136)",
+        "year": "2011-",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "159 TI JTDM (136)",
+        "year": "2011-",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "159 TI JTDM (170)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "159 TI JTDM (170)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "159 TURISMO JTDM (136)",
+        "year": "2011-",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "159 TURISMO JTDM (136)",
+        "year": "2011-",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "159 TURISMO JTDM (170)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "159 TURISMO JTDM (170)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "159 TURISMO SPORT JTDM (170)",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "159 TURISMO SPORT JTDM (170)",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "159 LUSSO JTDM (210)",
+        "year": "2007-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 LUSSO JTDM (210)",
+        "year": "2007-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 LUSSO JTDM Q4 (210)",
+        "year": "2007-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 LUSSO JTDM Q4 (210)",
+        "year": "2007-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 TI JTDM (210)",
+        "year": "2007-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 TI JTDM (210)",
+        "year": "2007-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 TI JTDM (210)",
+        "year": "2007-2009",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 TI JTDM Q4 (210)",
+        "year": "2007-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 TI JTDM Q4 (210)",
+        "year": "2007-2011",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 TURISMO JTDM (210)",
+        "year": "2007-2011",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 TI JTDM (200)",
+        "year": "2007-2010",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 LUSSO JTDM (200)",
+        "year": "2006-2007",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 LUSSO JTDM (200)",
+        "year": "2006-2007",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 LUSSO JTDM (200)",
+        "year": "2006-2007",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 LUSSO JTDM (200)",
+        "year": "2006-2007",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TURISMO JTDM (200)",
+        "year": "2006-2007",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TURISMO JTDM (200)",
+        "year": "2006-2007",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TURISMO JTDM (200)",
+        "year": "2006-2007",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 LUSSO JTS Q4",
+        "year": "2006-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 LUSSO JTS Q4",
+        "year": "2006-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 LUSSO JTS Q4",
+        "year": "2006-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 LUSSO JTS Q4",
+        "year": "2006-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TI JTS Q4",
+        "year": "2007-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TI JTS Q4",
+        "year": "2007-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TI JTS Q4",
+        "year": "2007-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 TI JTS Q4",
+        "year": "2007-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "159 ELEGANTE TB",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 ELEGANTE TB",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 LUSSO TB",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 LUSSO TB",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 TI TB",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "159 TI TB",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "159 TURISMO SPORT TB",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 TURISMO SPORT TB",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 TURISMO TB",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 TURISMO TB",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "159 LUSSO MPI",
+        "year": "2007-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "159 LUSSO MPI",
+        "year": "2007-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "159 TURISMO MPI",
+        "year": "2007-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "159 TURISMO MPI",
+        "year": "2007-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "159 ELEGANTE JTS",
+        "year": "2009-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "159 ELEGANTE JTS",
+        "year": "2009-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "159 LUSSO JTS",
+        "year": "2006-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "159 LUSSO JTS",
+        "year": "2006-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "159 LUSSO JTS",
+        "year": "2008-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "159 LUSSO JTS",
+        "year": "2008-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "159 TI JTS",
+        "year": "2007-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "159 TI JTS",
+        "year": "2007-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "159 TI JTS",
+        "year": "2008-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "159 TI JTS",
+        "year": "2008-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "159 TURISMO JTS",
+        "year": "2006-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "159 TURISMO JTS",
+        "year": "2006-2011",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "159 TURISMO JTS",
+        "year": "2006-2007",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "159 TURISMO JTS",
+        "year": "2006-2007",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "159 TURISMO JTS Q4",
+        "year": "2006-2011",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "164 SUPER LUSSO AUTO",
+        "year": "1994-1998",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "164 SUPER V6 24V AUTO",
+        "year": "1993-1998",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "164 T SPARK SUPER",
+        "year": "1994-1998",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "164 TWIN SPARK",
+        "year": "1993-1998",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "164 TWIN SPARK",
+        "year": "1990-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "164 CLOVERLEAF",
+        "year": "1993-1998",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "17"
+      },
+      {
+        "model": "164 SUPER LUSSO",
+        "year": "1993-1998",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "164 SUPER V6 24V",
+        "year": "1993-1998",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "164 V6 AUTO",
+        "year": "1989-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "164 TWIN SPARK LUSSO",
+        "year": "1990-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "164 TWIN SPARK LUSSO",
+        "year": "1993-",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "164 GREEN CLOVERLEAF",
+        "year": "1990-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "164 V6",
+        "year": "1988-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "164 V6 CLOVERLEAF",
+        "year": "1990-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "164 V6 LUSSO",
+        "year": "1988-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "166 V6",
+        "year": "2004-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "166 V6",
+        "year": "1998-2001",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "166 TWIN SPARK LUSSO",
+        "year": "2000-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "166 TWIN SPARK TURISMO",
+        "year": "2001-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "166 LUSSO V6",
+        "year": "2004-2006",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "166 LUSSO V6 24V",
+        "year": "2000-2003",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "166 LUSSO V6 24V",
+        "year": "2000-2003",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "166 TURISMO V6 24V",
+        "year": "2001-2003",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "166 TURISMO V6 24V",
+        "year": "2001-2003",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "166 SUPER LUSSO V6 24V",
+        "year": "2000-2003",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "166 SUPER TURISMO V6 24V",
+        "year": "2001-2003",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "166 V6 24V AUTO",
+        "year": "1998-2001",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "166 TWIN SPARK",
+        "year": "1998-2001",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "166 V6 24V",
+        "year": "1998-2001",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "166 SUPER V6",
+        "year": "1998-2001",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "33 SPORTSWAGON 16V",
+        "year": "1991-1994",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 BOXER 16V",
+        "year": "1991-1994",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 IE",
+        "year": "1990-1994",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 IE",
+        "year": "1990-1993",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 IE TURISMO",
+        "year": "1993-1994",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 16V CLOVERLEAF PERM 4",
+        "year": "1991-1993",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 SPORTIVA",
+        "year": "1992-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 BOXER 16V CLOVERLEAF",
+        "year": "1990-1991",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 CLOVERLEAF SPORTWAGON",
+        "year": "1987-1990",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 SPORTSWAGON VELOCE",
+        "year": "1987-1990",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 TI",
+        "year": "1987-1990",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "33 TI VELOCE",
+        "year": "1987-1990",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "33 CLOVERLEAF",
+        "year": "1987-1990",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 VELOCE",
+        "year": "1987-1990",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 AMICA",
+        "year": "1989-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "33 4X4",
+        "year": "1985-1987",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "33 S BOXER 4C",
+        "year": "1986-1987",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "33 BOXER 4C",
+        "year": "1986-1987",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "33 GREEN CLOVERLEAF",
+        "year": "1984-1987",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "33 None",
+        "year": "1983-1986",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "33 GOLD CLOVERLEAF",
+        "year": "1983-1986",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "6 AUTO",
+        "year": "1980-1986",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "6 I AUTO",
+        "year": "1983-1986",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "75 TWIN SPARK",
+        "year": "1987-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "75 TWIN SPARK",
+        "year": "1991-",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "75 TWIN SPARK VELOCE",
+        "year": "1987-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "75 3.0I V6 CLOVERLEAF",
+        "year": "1990-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "75 CLOVERLEAF",
+        "year": "1990-1993",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "75 CLOVERLEAF",
+        "year": "1986-1987",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "75 CLOVERLEAF VELOCE",
+        "year": "1990-1992",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "75 I AUTO",
+        "year": "1987-1991",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "75 VELOCE AUTO",
+        "year": "1987-1991",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "75 V6",
+        "year": "1987-1990",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "75 V6 VELOCE",
+        "year": "1987-1990",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "75 None",
+        "year": "1986-1989",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "75 None",
+        "year": "1987-1988",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "75 VELOCE",
+        "year": "1987-1989",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "75 VELOCE",
+        "year": "1987-1988",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "90 GOLD CLOVERLEAF I",
+        "year": "1985-1987",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Alfasud SC",
+        "year": "1982-1984",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "10"
+      },
+      {
+        "model": "Alfasud SC",
+        "year": "1982-1984",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "10"
+      },
+      {
+        "model": "Alfasud TI",
+        "year": "1981-1984",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "9"
+      },
+      {
+        "model": "Alfasud TI",
+        "year": "1981-1983",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "Alfasud TI",
+        "year": "1978-1981",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "Alfasud TI",
+        "year": "1978-1979",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "9"
+      },
+      {
+        "model": "Alfasud TI",
+        "year": "1977-1978",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "9"
+      },
+      {
+        "model": "Alfasud GREEN CLOVERLEAF",
+        "year": "1983-1984",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Alfasud TI S",
+        "year": "1980-1983",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "Alfasud TIX",
+        "year": "1982-1983",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Alfasud None",
+        "year": "1980-1983",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "Alfasud None",
+        "year": "1981-1982",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "Alfasud None",
+        "year": "1981-1982",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "Alfasud CLOVERLEAF",
+        "year": "1982-1983",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Alfasud GOLD CLOVERLEAF",
+        "year": "1983-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Alfasud SUPER",
+        "year": "1978-1980",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "10"
+      },
+      {
+        "model": "Alfasud SUPER",
+        "year": "1977-1979",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "9"
+      },
+      {
+        "model": "Alfasud 5M",
+        "year": "1976-1978",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "Alfasud L",
+        "year": "1975-1976",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "Alfasud N",
+        "year": "1975-1976",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "Alfetta GOLD CLOVERLEAF",
+        "year": "1984-1986",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "Alfetta I",
+        "year": "1983-1986",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "Alfetta GTS",
+        "year": "1978-1983",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "Alfetta L",
+        "year": "1978-1983",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "Alfetta None",
+        "year": "1978-1983",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "Alfetta None",
+        "year": "1975-1977",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Alfetta SL",
+        "year": "1982-1983",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "Alfetta PLUS",
+        "year": "1981-1982",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "Alfetta GTV SE",
+        "year": "1979-1981",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Alfetta 2000",
+        "year": "1980-",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "Alfetta GT",
+        "year": "1976-1979",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "Alfetta GTV",
+        "year": "1976-1979",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Alfetta GTV STRADA",
+        "year": "1978-1979",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Arna TI",
+        "year": "1985-1986",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "10"
+      },
+      {
+        "model": "Arna SL",
+        "year": "1984-1986",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "Arna SL",
+        "year": "1985-1986",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "Brera ITALIA INDEPENDENCE JTDM (210)",
+        "year": "2010-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Brera ITALIA INDEPENDENCE JTDM (210)",
+        "year": "2010-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Brera JTDM (200)",
+        "year": "2007-2010",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "Brera JTDM (200)",
+        "year": "2006-2010",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "Brera JTDM (210)",
+        "year": "2008-2010",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "Brera JTDM (210)",
+        "year": "2006-2010",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "Brera ITALIA INDEPENDENCE JTDM (170)",
+        "year": "2010-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "Brera JTDM (170)",
+        "year": "2009-2010",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "Brera SV JTDM (210)",
+        "year": "2007-2009",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "Brera SV JTDM (200)",
+        "year": "2006-2007",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "Brera ITALIA INDEPENDENCE JTS V6 Q4",
+        "year": "2010-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "36"
+      },
+      {
+        "model": "Brera JTS V6 24V Q4",
+        "year": "2008-2010",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "36"
+      },
+      {
+        "model": "Brera JTS V6 24V Q4",
+        "year": "2006-2010",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "36"
+      },
+      {
+        "model": "Brera ITALIA INDEPENDENCE TBI",
+        "year": "2010-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "Brera TBI",
+        "year": "2010-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "Brera ITALIA INDEPENDENCE JTS",
+        "year": "2010-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "Brera JTS",
+        "year": "2006-2010",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Brera JTS",
+        "year": "2010-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "Brera S JTS",
+        "year": "2008-2010",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "Brera SV JTS",
+        "year": "2006-2010",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Brera ITALIA INDEPENDENCE JTS V6",
+        "year": "2010-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "37"
+      },
+      {
+        "model": "Brera JTS V6 24V",
+        "year": "2008-2010",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "36"
+      },
+      {
+        "model": "Brera S JTS V6 24V",
+        "year": "2008-2010",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "Brera SV JTS V6 24V Q4",
+        "year": "2007-2009",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "Brera SV JTS V6 24V Q4",
+        "year": "2006-2009",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "GT BLACKLINE JTDM (150)",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "GT CLOVERLEAF JTDM (150)",
+        "year": "2008-2010",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "GT CLOVERLEAF Q2 JTDM (170)",
+        "year": "2008-2010",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "34"
+      },
+      {
+        "model": "GT JTDM (150)",
+        "year": "2005-2010",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "GT LUSSO JTDM (150)",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "GT Q2 JTDM (150)",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "GT SE JTDM (170)",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "39"
+      },
+      {
+        "model": "GT TURISMO JTDM (150)",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "GT JTD (150)",
+        "year": "2004-2005",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "GT BLACKLINE TS",
+        "year": "2008-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "GT CLOVERLEAF TS",
+        "year": "2008-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "GT BLACKLINE JTS",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "GT CLOVERLEAF JTS",
+        "year": "2008-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "GT LUSSO JTS",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "GT TURISMO JTS",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "GT LUSSO V6 24V",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "40"
+      },
+      {
+        "model": "GT JTS",
+        "year": "2004-2006",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "GT JTS",
+        "year": "2004-2006",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "GT V6 24V",
+        "year": "2004-2006",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "40"
+      },
+      {
+        "model": "GT TS",
+        "year": "2005-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "GTV LUSSO JTS",
+        "year": "2003-2006",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "GTV TURISMO TS",
+        "year": "2003-2006",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "GTV LUSSO V6 24V",
+        "year": "2003-2006",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "39"
+      },
+      {
+        "model": "GTV LUSSO V6 24V",
+        "year": "1998-2003",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "37"
+      },
+      {
+        "model": "GTV LUSSO V6 24V",
+        "year": "1998-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "37"
+      },
+      {
+        "model": "GTV LUSSO TS",
+        "year": "1998-2003",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "GTV LUSSO TS",
+        "year": "1996-1998",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "GTV TS",
+        "year": "1998-2003",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "GTV TS",
+        "year": "1996-1998",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "GTV V6 24V",
+        "year": "1998-2003",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "37"
+      },
+      {
+        "model": "GTV V6 24V",
+        "year": "1998-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "37"
+      },
+      {
+        "model": "GTV CUP V6 24V",
+        "year": "2001-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "37"
+      },
+      {
+        "model": "GTV 2000",
+        "year": "1982-1987",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "GTV 2.0",
+        "year": "1976-1982",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "GTV 2000 SE",
+        "year": "1979-1981",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "GTV STRADA",
+        "year": "1978-1979",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "GTV6 2.5",
+        "year": "1981-1987",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulia Lusso Ti",
+        "year": "2020-2022",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulia Lusso Ti",
+        "year": "2020-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulia Speciale 180",
+        "year": "2016-2022",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "Giulia Speciale 190",
+        "year": "2018-2022",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "Giulia Sprint",
+        "year": "2020-2022",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulia Sprint",
+        "year": "2020-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulia Super 150",
+        "year": "2016-2022",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulia Super 160",
+        "year": "2018-2022",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "Giulia Super 180",
+        "year": "2016-2022",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "Giulia Tecnica 150",
+        "year": "2016-2022",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulia Tecnica 180",
+        "year": "2016-2022",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "Giulia Estrema",
+        "year": "2022-",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "37"
+      },
+      {
+        "model": "Giulia Nero Edizione",
+        "year": "2018-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "Giulia None",
+        "year": "2016-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Giulia Super 200",
+        "year": "2016-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Giulia Veloce",
+        "year": "2017-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "34"
+      },
+      {
+        "model": "Giulia Veloce Ti",
+        "year": "2018-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "36"
+      },
+      {
+        "model": "Giulia GTA",
+        "year": "2021-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "Giulia GTAm",
+        "year": "2021-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "Giulia Quadrifoglio",
+        "year": "2016-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "46"
+      },
+      {
+        "model": "Giulia Quadrifoglio ARR",
+        "year": "2019-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "49"
+      },
+      {
+        "model": "Giulia Quadrifoglio NRING",
+        "year": "2018-2022",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "49"
+      },
+      {
+        "model": "Giulietta Sprint JTDM-2 120",
+        "year": "2020-2022",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Sprint JTDM-2 120",
+        "year": "2020-2022",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Super JTDM-2 120",
+        "year": "2019-2022",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Super JTDM-2 120",
+        "year": "2019-2022",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Super JTDM-2 120",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Super JTDM-2 120",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Veloce JTDM-2",
+        "year": "2019-2022",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Giulietta Speciale JTDM-2 120",
+        "year": "2019-2022",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulietta Sport JTDM-2",
+        "year": "2017-2022",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "17"
+      },
+      {
+        "model": "Giulietta JTDM-2 120",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta JTDM-2 120",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Tecnica JTDM-2 120",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Tecnica JTDM-2 120",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Speciale JTDM-2 175",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulietta Super JTDM-2 175",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "21"
+      },
+      {
+        "model": "Giulietta Tecnica JTDM-2 175",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "21"
+      },
+      {
+        "model": "Giulietta JTDM-2 150",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Giulietta Speciale JTDM-2 150",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulietta Super JTDM-2 150",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulietta Tecnica JTDM-2 150",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "21"
+      },
+      {
+        "model": "Giulietta Business JTDM-2 175",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulietta Business JTDM-2 175",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulietta Collezione JTDM-2 175",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta Exclusive JTDM-2 175",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Giulietta LUSSO JTDM (170)",
+        "year": "2011-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "Giulietta LUSSO JTDM (170)",
+        "year": "2010-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "Giulietta Sprint Speciale JTDM-2 175",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta VELOCE JTDM (170)",
+        "year": "2011-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "Giulietta VELOCE JTDM (170)",
+        "year": "2010-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "Giulietta Business JTDM-2 120",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "Giulietta Distinctive JTDM-2 120",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "19"
+      },
+      {
+        "model": "Giulietta Exclusive JTDM-2 120",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "19"
+      },
+      {
+        "model": "Giulietta LUSSO JTDM (105)",
+        "year": "2010-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulietta Progression JTDM-2 120",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "21"
+      },
+      {
+        "model": "Giulietta TURISMO JTDM (105)",
+        "year": "2010-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulietta Business JTDM-2 150",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta Business JTDM-2 150",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta Collezione JTDM-2 150",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Giulietta Distinctive JTDM-2 150",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta Distinctive JTDM-2 150",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta Exclusive JTDM-2 (175)",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Giulietta Exclusive JTDM-2 150",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Giulietta Exclusive JTDM-2 150",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Giulietta LUSSO JTDM (140)",
+        "year": "2011-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Giulietta QV Line JTDM-2 150",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Giulietta QV Line JTDM-2 150",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Giulietta Sprint Speciale JTDM-2 150",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Giulietta QV Line JTDM-2 175",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta Business JTDM-2 105",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "17"
+      },
+      {
+        "model": "Giulietta Distinctive JTDM-2",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "Giulietta Exclusive JTDM-2",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "Giulietta Progression JTDM-2",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "18"
+      },
+      {
+        "model": "Giulietta Exclusive JTDM (170)",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta Sportiva Nav JTDM (170)",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta Sportiva Nav JTDM-2 (175)",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "25"
+      },
+      {
+        "model": "Giulietta Sportiva Nav JTDM-2 150",
+        "year": "2014-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "Giulietta SPORTIVA JTDM (170)",
+        "year": "2012-2013",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta SPORTIVA JTDM (170)",
+        "year": "2012-2013",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Collezione JTDM-2 (105)",
+        "year": "2013-",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "17"
+      },
+      {
+        "model": "Giulietta SPORTIVA (105)",
+        "year": "2012-2013",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulietta VELOCE JTDM (105)",
+        "year": "2010-2013",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulietta Collezione JTDM-2 (140)",
+        "year": "2013-",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "21"
+      },
+      {
+        "model": "Giulietta SPORTIVA JTDM (140)",
+        "year": "2012-2013",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Giulietta VELOCE JTDM (140)",
+        "year": "2011-2013",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Giulietta Speciale TB 120",
+        "year": "2019-2022",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Giulietta Sport TB",
+        "year": "2017-2022",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Giulietta Sprint TB 120",
+        "year": "2020-2022",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulietta Super TB 120",
+        "year": "2018-2022",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Giulietta Speciale TB MultiAir 170",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulietta Super TB MultiAir 170",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulietta Veloce TBi",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "Giulietta Speciale TB MultiAir 150",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Giulietta Super TB MultiAir 150",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "19"
+      },
+      {
+        "model": "Giulietta TB 120",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Giulietta TB MultiAir 150",
+        "year": "2016-2019",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "19"
+      },
+      {
+        "model": "Giulietta Business TB MultiAir 170",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulietta Collezione TB MultiAir 170",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Collezione TB MultiAir 170",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Exclusive Multiair",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Exclusive Multiair",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta LUSSO TB MULTIAIR (170)",
+        "year": "2011-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta LUSSO TB MULTIAIR (170)",
+        "year": "2010-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta QV Line TB MultiAir",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta QV Line TB MultiAir",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Sportiva Nav Multiair",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Sportiva Nav Multiair",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Sprint Speciale TB MultAir 175",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulietta VELOCE TB MULTIAIR (170)",
+        "year": "2011-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta VELOCE TB MULTIAIR (170)",
+        "year": "2010-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta Quadrifoglio Verde LaunchE TBi",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "Giulietta Quadrifoglio Verde TBi",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "Giulietta Distinctive (120)",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulietta Distinctive Multiair (170)",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta LUSSO TB (120)",
+        "year": "2010-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulietta Progression (120)",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "17"
+      },
+      {
+        "model": "Giulietta Sprint Speciale TB MultiAir150",
+        "year": "2015-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulietta Sprint TB MultiAir 150",
+        "year": "2014-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Giulietta TURISMO TB (120)",
+        "year": "2010-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulietta VELOCE TB (120)",
+        "year": "2010-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulietta CLOVERLEAF TB (235)",
+        "year": "2010-2016",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "Giulietta SPORTIVA TB MULTIAIR (170)",
+        "year": "2012-2013",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta SPORTIVA TB MULTIAIR (170)",
+        "year": "2012-2013",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Giulietta Collezione TB (120)",
+        "year": "2013-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "Giulietta Collezione TB MultiAir (170)",
+        "year": "2013-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "Giulietta FF Limited Edition TB MultiAir",
+        "year": "2013-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "Giulietta None",
+        "year": "1978-1986",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "Giulietta None",
+        "year": "1979-1986",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "Giulietta None",
+        "year": "1980-1986",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "Giulietta RS",
+        "year": "1983-1986",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "Giulietta PLUS",
+        "year": "1981-",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo JTDM-2 95",
+        "year": "2016-2022",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo Speciale JTDM-2 95",
+        "year": "2016-2022",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "MiTo Super JTDM-2 95",
+        "year": "2016-2022",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "MiTo DISTINCTIVE JTDM-2 (85)",
+        "year": "2012-2016",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "MiTo Junior JTDM-2",
+        "year": "2014-2016",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "MiTo Progression JTDM-2",
+        "year": "2014-2016",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "MiTo SPRINT JTDM-2 (85)",
+        "year": "2011-2016",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "MiTo DISTINCTIVE JTDM-2 (120)",
+        "year": "2011-2016",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "19"
+      },
+      {
+        "model": "MiTo QV Line JTDM-2",
+        "year": "2014-2016",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "MiTo SPORTIVA JTDM-2 (120)",
+        "year": "2012-2016",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "MiTo LUSSO JTDM-2 (95)",
+        "year": "2010-2011",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "MiTo SPRINT JTDM-2 (95)",
+        "year": "2011-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo TURISMO JTDM-2 (95)",
+        "year": "2010-2011",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "MiTo TURISMO SPORT JTDM-2 (95)",
+        "year": "2010-2011",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo VELOCE JTDM-2 (95)",
+        "year": "2010-2011",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo LUSSO JTDM (120)",
+        "year": "2009-2011",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "19"
+      },
+      {
+        "model": "MiTo VELOCE JTDM (120)",
+        "year": "2009-2011",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "19"
+      },
+      {
+        "model": "MiTo LUSSO JTDM (90)",
+        "year": "2009-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "MiTo TURISMO JTDM (90)",
+        "year": "2009-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "10"
+      },
+      {
+        "model": "MiTo VELOCE JTDM (90)",
+        "year": "2009-",
+        "doors": "3 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "MiTo Speciale Multiair 140",
+        "year": "2016-2022",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "MiTo Super Multiair 140",
+        "year": "2016-2022",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "24"
+      },
+      {
+        "model": "MiTo Veloce Multiair 170",
+        "year": "2016-2022",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "MiTo 79",
+        "year": "2016-2022",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "MiTo 105",
+        "year": "2016-2022",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "MiTo Speciale TB TwinAir 105",
+        "year": "2016-2022",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "MiTo Super TB TwinAir 105",
+        "year": "2016-2022",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "MiTo Collezione Multiair",
+        "year": "2015-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "23"
+      },
+      {
+        "model": "MiTo Distinctive Multiair (140)",
+        "year": "2014-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "MiTo QV Line Multiair (140)",
+        "year": "2014-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "22"
+      },
+      {
+        "model": "MiTo Quadrifoglio Verde Multiair (170)",
+        "year": "2014-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "MiTo SPRINT MULTIAIR (135)",
+        "year": "2011-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "MiTo SPRINT MULTIAIR (135)",
+        "year": "2011-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "MiTo DISTINCTIVE MULTIAIR (105)",
+        "year": "2011-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo PROGRESSION (78)",
+        "year": "2011-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "MiTo Progression (78)",
+        "year": "2014-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "10"
+      },
+      {
+        "model": "MiTo QUADRIFOGLIO VERDE MULTIAIR (170)",
+        "year": "2011-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "27"
+      },
+      {
+        "model": "MiTo Quadrifoglio Verde SBK",
+        "year": "2013-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "MiTo SPRINT (78)",
+        "year": "2011-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "MiTo SPRINT (95)",
+        "year": "2011-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "MiTo SPRINT MULTIAIR (105)",
+        "year": "2011-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo Collezione TwinAir",
+        "year": "2015-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo DISTINCTIVE",
+        "year": "2012-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "9"
+      },
+      {
+        "model": "MiTo Distinctive (105)",
+        "year": "2013-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo Junior TB TwinAir",
+        "year": "2014-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo Live",
+        "year": "2013-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "9"
+      },
+      {
+        "model": "MiTo Progression TB TwinAir",
+        "year": "2014-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "MiTo QV Line TwinAir",
+        "year": "2014-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo SPORTIVA (85)",
+        "year": "2012-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "9"
+      },
+      {
+        "model": "MiTo SPRINT",
+        "year": "2012-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "9"
+      },
+      {
+        "model": "MiTo Sportiva (105)",
+        "year": "2013-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo Sprint (105)",
+        "year": "2013-2016",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo DISTINCTIVE MULTIAIR (135)",
+        "year": "2011-2014",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "MiTo DISTINCTIVE MULTIAIR (135)",
+        "year": "2011-2014",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "MiTo SPORTIVA (135)",
+        "year": "2012-2014",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "MiTo LUSSO MULTIAIR (135)",
+        "year": "2010-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "MiTo LUSSO MULTIAIR (135)",
+        "year": "2010-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "MiTo VELOCE MULTIAIR (135)",
+        "year": "2010-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "MiTo VELOCE MULTIAIR (135)",
+        "year": "2010-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "MiTo CLOVERLEAF MULTIAIR (170)",
+        "year": "2010-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "26"
+      },
+      {
+        "model": "MiTo JUNIOR (78)",
+        "year": "2009-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "8"
+      },
+      {
+        "model": "MiTo LUSSO (120)",
+        "year": "2008-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "MiTo LUSSO (155)",
+        "year": "2008-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "MiTo LUSSO (95)",
+        "year": "2008-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "MiTo TURISMO (95)",
+        "year": "2009-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "MiTo TURISMO SPORT (95)",
+        "year": "2010-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "MiTo VELOCE (155)",
+        "year": "2009-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "MiTo VELOCE (95)",
+        "year": "2009-2011",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "11"
+      },
+      {
+        "model": "MiTo VELOCE MULTIAIR (105)",
+        "year": "2011-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "13"
+      },
+      {
+        "model": "MiTo TURISMO (120)",
+        "year": "2009-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "MiTo VELOCE (120)",
+        "year": "2009-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "16"
+      },
+      {
+        "model": "SZ None",
+        "year": "1992-1993",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "19"
+      },
+      {
+        "model": "Spider ITALIA INDEPENDENCE JTDM (210)",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Spider ITALIA INDEPENDENCE JTDM (210)",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Spider JTDM (200) CABRIOLET",
+        "year": "2008-2010",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "Spider JTDM (200) CABRIOLET",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "Spider JTDM (210) CABRIOLET",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Spider JTDM (210) CABRIOLET",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Spider ITALIA INDEPENDENCE JTDM (170)",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "Spider JTDM (170) CABRIOLET",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "Spider ITALIA INDEPENDENCE V6 Q4 CABRIO",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Spider ITALIA INDEPENDENCE V6 Q4 CABRIO",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Spider V6 24V Q4 CABRIOLET",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Spider V6 24V Q4 CABRIOLET",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Spider ITALIA INDEPENDENCE TBI CABRIOLET",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "34"
+      },
+      {
+        "model": "Spider TBI CABRIOLET",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "34"
+      },
+      {
+        "model": "Spider ITALIA INDEPENDENCE JTS CABRIOLET",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "Spider JTS CABRIOLET",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "32"
+      },
+      {
+        "model": "Spider ITALIA INDEPENDENCE V6 CABRIO",
+        "year": "2010-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "37"
+      },
+      {
+        "model": "Spider V6 24V CABRIOLET",
+        "year": "2008-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "37"
+      },
+      {
+        "model": "Spider V6 24V CABRIOLET",
+        "year": "2001-2003",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "39"
+      },
+      {
+        "model": "Spider LIMITED EDITION JTS CABRIOLET",
+        "year": "2008-2009",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "Spider LUSSO JTS CABRIOLET",
+        "year": "2003-2006",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "Spider TURISMO TS CABRIOLET",
+        "year": "2003-2006",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "Spider LUSSO V6 24V CABRIOLET",
+        "year": "2003-2006",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "39"
+      },
+      {
+        "model": "Spider LUSSO V6 24V CABRIOLET",
+        "year": "2001-2003",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "39"
+      },
+      {
+        "model": "Spider LUSSO TS CABRIOLET",
+        "year": "1998-2003",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "Spider LUSSO TS CABRIOLET",
+        "year": "1996-1998",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "Spider TS CABRIOLET",
+        "year": "1998-2003",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "Spider TS CABRIOLET",
+        "year": "1996-1998",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "Spider None",
+        "year": "1990-1993",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Spider 2000",
+        "year": "1983-1987",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "15"
+      },
+      {
+        "model": "Sprint CLOVERLEAF",
+        "year": "1988-1990",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "Sprint VELOCE",
+        "year": "1988-1990",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "14"
+      },
+      {
+        "model": "Sprint VELOCE",
+        "year": "1979-1983",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Sprint None",
+        "year": "1983-1987",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Sprint None",
+        "year": "1983-",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Sprint None",
+        "year": "1978-1979",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Sprint None",
+        "year": "1977-1978",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Sprint GREEN CLOVERLEAF",
+        "year": "1983-1987",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Sprint SPECIALE",
+        "year": "1982-1983",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Sprint VELOCE PLUS",
+        "year": "1981-1983",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Sprint VELOCE TROFEO",
+        "year": "1982-1983",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "12"
+      },
+      {
+        "model": "Stelvio Estrema",
+        "year": "2022-",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Estrema",
+        "year": "2022-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Sprint",
+        "year": "2020-2022",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Sprint",
+        "year": "2020-2022",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Veloce",
+        "year": "2020-2022",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Veloce",
+        "year": "2020-2022",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Lusso Ti",
+        "year": "2020-2021",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Lusso Ti",
+        "year": "2020-2021",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Milano Edizione",
+        "year": "2017-2021",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Milano Edizione",
+        "year": "2017-2021",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Nero Edizione",
+        "year": "2018-2021",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Nero Edizione",
+        "year": "2018-2021",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Speciale 210",
+        "year": "2017-2021",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "33"
+      },
+      {
+        "model": "Stelvio Super 190",
+        "year": "2020-2021",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "Stelvio Super 190",
+        "year": "2018-2020",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "Stelvio Super 190 AWD",
+        "year": "2018-2021",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "Stelvio Super 210 AWD",
+        "year": "2017-2021",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "Stelvio Ti",
+        "year": "2019-2021",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio Ti",
+        "year": "2019-2021",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Stelvio None",
+        "year": "2017-2018",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "Stelvio None",
+        "year": "2017-2021",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "Stelvio Speciale 180",
+        "year": "2017-2018",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "Stelvio Super 180",
+        "year": "2017-2018",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "Stelvio Super 180 AWD",
+        "year": "2017-2018",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "Stelvio Veloce Ti",
+        "year": "2021-2022",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "37"
+      },
+      {
+        "model": "Stelvio Speciale",
+        "year": "2017-2021",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "36"
+      },
+      {
+        "model": "Stelvio Super",
+        "year": "2020-2021",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "31"
+      },
+      {
+        "model": "Stelvio Super",
+        "year": "2017-2020",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "30"
+      },
+      {
+        "model": "Stelvio Quaddrifoglio NRING",
+        "year": "2018-2021",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "Stelvio Quadrifoglio",
+        "year": "2018-2021",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "Stelvio Quadrifoglio ARR",
+        "year": "2019-2021",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "Tonale Speciale T4 VGT MHEV",
+        "year": "2022-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "28"
+      },
+      {
+        "model": "Tonale Ti T4 VGT MHEV",
+        "year": "2022-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "Tonale Veloce T4 VGT MHEV",
+        "year": "2022-",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "29"
+      },
+      {
+        "model": "undefined",
+        "year": "Select...",
+        "doors": "Select...",
+        "fuel": "Petrol",
+        "transmission": "Select...",
+        "insuranceGroup": "1"
+      }
+    ]
+  },
+  {
+    "make": "Alpina",
+    "models": [
+      {
+        "model": "B3 GT3",
+        "year": "2012-2019",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "B3 BiTurbo",
+        "year": "2013-2019",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "49"
+      },
+      {
+        "model": "B3 BiTurbo",
+        "year": "2013-2019",
+        "doors": "5 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "49"
+      },
+      {
+        "model": "B4 BiTurbo Convertible",
+        "year": "2014-2018",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "B4 BiTurbo Coupe",
+        "year": "2014-2018",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "B6 BiTurbo Cabriolet",
+        "year": "2012-2018",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "B6 BiTurbo Coupe",
+        "year": "2012-2018",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "D3 BiTurbo",
+        "year": "2015-2020",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "D3 BiTurbo",
+        "year": "2015-2020",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "D3 BiTurbo",
+        "year": "2013-2015",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "D3 BiTurbo",
+        "year": "2013-2015",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "D3 BITURBO COUPE",
+        "year": "2008-2013",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "D3 BITURBO COUPE",
+        "year": "2008-2013",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "D3 BITURBO",
+        "year": "2008-2013",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "D3 BITURBO",
+        "year": "2008-2013",
+        "doors": "4 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "D3 BITURBO",
+        "year": "2008-2013",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "D3 BITURBO",
+        "year": "2008-2013",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "D4 BiTurbo Convertible",
+        "year": "2014-2018",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "D4 BiTurbo Coupe",
+        "year": "2014-2018",
+        "doors": "2 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "XD3 BiTurbo",
+        "year": "2013-2019",
+        "doors": "5 DR",
+        "fuel": "Diesel",
+        "transmission": "Automatic",
+        "insuranceGroup": "50"
+      },
+      {
+        "model": "undefined",
+        "year": "Select...",
+        "doors": "Select...",
+        "fuel": "Diesel",
+        "transmission": "Select...",
+        "insuranceGroup": "1"
+      }
+    ]
+  },
+  {
+    "make": "Aston Martin",
+    "models": [
+      {
+        "model": "Cygnet None",
+        "year": "2011-2013",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Cygnet None",
+        "year": "2011-2013",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Cygnet WHITE LE",
+        "year": "2011-2013",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Cygnet WHITE LE",
+        "year": "2011-2013",
+        "doors": "3 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "DB7 VOLANTE CONV. AUTO",
+        "year": "1999-2004",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "DB7 VOLANTE CONVERTIBLE",
+        "year": "1999-2004",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "DB7 VOLANTE CONVERTIBLE",
+        "year": "1994-1999",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "DB7 VANTAGE AUTO",
+        "year": "1999-2004",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "DB7 VANTAGE",
+        "year": "1999-2004",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "DB7 ALFRED DUNHILL CONV.",
+        "year": "1999-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "DB7 VOLANTE CONVERT. AUTO",
+        "year": "1994-1999",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "DB7 AUTO",
+        "year": "1994-1999",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "DB7 ALFRED DUNHILL",
+        "year": "1999-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "DB7 None",
+        "year": "1994-1999",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Lagonda AUTO",
+        "year": "1979-1990",
+        "doors": "4 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "V8 AUTO",
+        "year": "1996-2000",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "V8 GT AUTO",
+        "year": "1978-1989",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Vanquish V12",
+        "year": "2003-2013",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Vanquish ULTIMATE EDITION",
+        "year": "2007-2010",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Vantage V8",
+        "year": "1993-2005",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Vantage LE MANS",
+        "year": "1999-",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Vantage AUTO",
+        "year": "1977-1989",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Vantage None",
+        "year": "1977-1989",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Vantage ZAGATO",
+        "year": "1986-1988",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Virage AUTO",
+        "year": "1990-1996",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Virage None",
+        "year": "1990-1996",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Volante V8  CONVERTIBLE",
+        "year": "Select...",
+        "doors": "Select...",
+        "fuel": "Petrol",
+        "transmission": "Select...",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Volante ZAGATO AUTO",
+        "year": "1987-1990",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Automatic",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Volante ZAGATO",
+        "year": "1987-1990",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "Volante V8  AUTO",
+        "year": "Select...",
+        "doors": "Select...",
+        "fuel": "Petrol",
+        "transmission": "Select...",
+        "insuranceGroup": "1"
+      },
+      {
+        "model": "Volante V8",
+        "year": "1978-1989",
+        "doors": "2 DR",
+        "fuel": "Petrol",
+        "transmission": "Manual",
+        "insuranceGroup": "20"
+      },
+      {
+        "model": "undefined",
+        "year": "Select...",
+        "doors": "Select...",
+        "fuel": "Petrol",
+        "transmission": "Select...",
+        "insuranceGroup": "1"
+      }
+    ]
+  }
+]

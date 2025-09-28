@@ -153,6 +153,7 @@ const Header = () => {
                   pathname === "/temporary" ? styles.activeMenuLink : ""
                 }`}
                 href="/temporary"
+                onClick={() => setIsOpen(false)}
               >
                 Temporary
               </Link>
@@ -161,6 +162,7 @@ const Header = () => {
                   pathname === "/impound" ? styles.activeMenuLink : ""
                 }`}
                 href="/impound"
+                onClick={() => setIsOpen(false)}
               >
                 Impound
               </Link>
@@ -169,6 +171,7 @@ const Header = () => {
                   pathname === "/courier" ? styles.activeMenuLink : ""
                 }`}
                 href="/comming-soon"
+                onClick={() => setIsOpen(false)}
               >
                 Courier
               </Link>
@@ -177,6 +180,7 @@ const Header = () => {
                   pathname === "/contact-us" ? styles.activeMenuLink : ""
                 }`}
                 href="/contact-us"
+                onClick={() => setIsOpen(false)}
               >
                 Contact Us
               </Link>
@@ -184,21 +188,23 @@ const Header = () => {
             <div className={styles.mobileButtons}>
               <button
                 className={styles.loginBtn}
-                onClick={() => router.push("/login")}
+                onClick={() => {
+                  router.push("/login");
+                  setIsOpen(false);
+                }}
               >
                 Login
               </button>
               <button
                 className={styles.quoteBtn}
-                onClick={isDashboard ? openLiveChat : undefined}
+                onClick={() => {
+                  if (isDashboard) {
+                    openLiveChat();
+                  }
+                  setIsOpen(false);
+                }}
               >
                 {isDashboard ? "Live chat" : "Get Quote"}
-                {/* <Image
-                  src="/svg/arrow-right.svg"
-                  alt="arrow-right"
-                  width={27}
-                  height={14}
-                /> */}
               </button>
             </div>
           </div>

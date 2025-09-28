@@ -145,21 +145,26 @@ const Form = ({ claimReason }) => {
 
       if (response.ok) {
         console.log("API Response:", result); // Debug: Full API response
-        
+
         // Extract orderReference from API response
-        const orderRef = result.data?.orderReference || result.orderReference || result.data?.data?.orderReference;
-        
+        const orderRef =
+          result.data?.orderReference ||
+          result.orderReference ||
+          result.data?.data?.orderReference;
+
         console.log("Extracted orderReference:", orderRef); // Debug: Extracted value
-        
+
         if (orderRef) {
           // Redirect to success page with orderReference in URL
-          router.push(`/dashboard/submit-claim?step=submitted&orderReference=${orderRef}`);
+          router.push(
+            `/dashboard/submit-claim?step=submitted&orderReference=${orderRef}`
+          );
         } else {
           console.error("No orderReference found in API response");
           // Redirect anyway but without orderReference
           router.push("/dashboard/submit-claim?step=submitted");
         }
-        
+
         // Clean up sessionStorage
         sessionStorage.removeItem("claimData");
       } else {
