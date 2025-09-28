@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, Suspense } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insuranceSchema } from "@/utils/schemas/insuranceSchema";
@@ -12,7 +12,7 @@ import TermsForm from "./_components/TermsForm";
 import { useRouter, useSearchParams } from "next/navigation";
 import { API_BASE_URL } from "@/utils/config";
 
-const TemporaryInsurancePage = () => {
+const TemporaryInsuranceContent = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoadingVehicleData, setIsLoadingVehicleData] = useState(false);
   const router = useRouter();
@@ -247,6 +247,14 @@ const TemporaryInsurancePage = () => {
       </div>
       {/* </div> */}
     </div>
+  );
+};
+
+const TemporaryInsurancePage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TemporaryInsuranceContent />
+    </Suspense>
   );
 };
 
