@@ -22,7 +22,6 @@ import {
 // Simplified state for vehicle data
 const initialState = {
   makes: [],
-  loading: false,
   error: null,
   // Dynamic options based on backend response
   options: {
@@ -45,20 +44,17 @@ const initialState = {
 
 const vehicleReducer = (state, action) => {
   switch (action.type) {
-    case "SET_LOADING":
-      return { ...state, loading: action.payload };
     case "SET_MAKES":
-      return { ...state, makes: action.payload, loading: false };
+      return { ...state, makes: action.payload };
     case "SET_VEHICLE_DATA":
       return {
         ...state,
         options: action.payload.options || state.options,
         values: { ...state.values, ...(action.payload.values || {}) },
-        loading: false,
         error: null,
       };
     case "SET_ERROR":
-      return { ...state, error: action.payload, loading: false };
+      return { ...state, error: action.payload };
     case "CLEAR_OPTIONS":
       return {
         ...state,
@@ -138,7 +134,6 @@ const VehicleDetailsForm = ({ form }) => {
   // Fetch makes on component mount
   const fetchMakes = useCallback(async () => {
     console.log("🔄 Fetching makes...");
-    dispatch({ type: "SET_LOADING", payload: true });
     try {
       const response = await fetch(`${API_BASE_URL}/api/vehicle-models/makes`);
       if (response.ok) {
@@ -171,7 +166,6 @@ const VehicleDetailsForm = ({ form }) => {
     if (!queryString) return;
 
     console.log("🔄 Fetching vehicle data:", queryString);
-    dispatch({ type: "SET_LOADING", payload: true });
 
     try {
       const response = await fetch(
@@ -514,7 +508,6 @@ const VehicleDetailsForm = ({ form }) => {
                 label="Make"
                 options={state.makes}
                 placeholder="Select Make"
-                disabled={state.loading}
                 value={state.values.make || selectedMake || ""}
                 onChange={(e) => handleDropdownChange("make", e.target.value)}
                 {...register("vehicleDetails.make")}
