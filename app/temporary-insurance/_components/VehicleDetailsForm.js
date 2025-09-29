@@ -17,52 +17,58 @@ import {
   buildVehicleQuery,
   clearDependentFields,
   shouldAutoSelect,
-  getFieldOptions,
-  getNextFieldToFill,
-  getFieldsToAutoFill,
-  isVehicleComplete,
-  needsMoreData,
-  logVehicleState,
 } from "../helperFucntion";
 
-// Simple state for vehicle data
+// Simplified state for vehicle data
 const initialState = {
   makes: [],
-  models: [],
-  years: [],
-  doors: [],
-  fuels: [],
-  transmissions: [],
   loading: false,
   error: null,
+  // Dynamic options based on backend response
+  options: {
+    models: [],
+    years: [],
+    doors: [],
+    fuels: [],
+    transmissions: [],
+  },
+  // Current form values for controlled components
+  values: {
+    make: "",
+    model: "",
+    year: "",
+    doors: "",
+    fuel: "",
+    transmission: "",
+  },
 };
 
 const vehicleReducer = (state, action) => {
   switch (action.type) {
-    // case "SET_LOADING":
-    //   return { ...state, loading: action.payload };
+    case "SET_LOADING":
+      return { ...state, loading: action.payload };
     case "SET_MAKES":
       return { ...state, makes: action.payload, loading: false };
-    case "SET_OPTIONS":
+    case "SET_VEHICLE_DATA":
       return {
         ...state,
-        models: action.payload.models || [],
-        years: action.payload.years || [],
-        doors: action.payload.doors || [],
-        fuels: action.payload.fuel || [],
-        transmissions: action.payload.transmissions || [],
+        options: action.payload.options || state.options,
+        values: { ...state.values, ...(action.payload.values || {}) },
         loading: false,
+        error: null,
       };
     case "SET_ERROR":
       return { ...state, error: action.payload, loading: false };
     case "CLEAR_OPTIONS":
       return {
         ...state,
-        models: [],
-        years: [],
-        doors: [],
-        fuels: [],
-        transmissions: [],
+        options: {
+          models: [],
+          years: [],
+          doors: [],
+          fuels: [],
+          transmissions: [],
+        },
       };
     default:
       return state;
@@ -94,6 +100,7 @@ const VehicleDetailsForm = ({ form }) => {
     setError,
     trigger,
     clearErrors,
+    reset,
   } = form;
 
   // Watch all form values
@@ -105,6 +112,27 @@ const VehicleDetailsForm = ({ form }) => {
 
   const toggleVehicleDetails = () => {
     setShowVehicleDetails(!showVehicleDetails);
+  };
+
+  // Handle dropdown value changes
+  const handleDropdownChange = (field, value) => {
+    console.log(`🔄 User changed ${field} to:`, value);
+
+    // Update React Hook Form
+    setValue(`vehicleDetails.${field}`, value, {
+      shouldValidate: true,
+      shouldDirty: true,
+      shouldTouch: true,
+    });
+
+    // Update local state in a single dispatch
+    dispatch({
+      type: "SET_VEHICLE_DATA",
+      payload: {
+        values: { [field]: value },
+        options: state.options, // Keep existing options
+      },
+    });
   };
 
   // Fetch makes on component mount
@@ -137,208 +165,158 @@ const VehicleDetailsForm = ({ form }) => {
     }
   }, [setValue]);
 
-  // Main function to fetch vehicle options and handle auto-selection
-  const fetchVehicleOptions = useCallback(async () => {
+  // Simplified function to fetch vehicle data from backend
+  const fetchVehicleData = useCallback(async () => {
     const queryString = buildVehicleQuery(watch);
     if (!queryString) return;
 
-    // Log current state before API call
-    logVehicleState(watch, "Before API Call");
-    console.log(
-      "🔄 API Request:",
-      `${API_BASE_URL}/api/vehicle-models/options?${queryString}`
-    );
-
+    console.log("🔄 Fetching vehicle data:", queryString);
     dispatch({ type: "SET_LOADING", payload: true });
 
     try {
       const response = await fetch(
         `${API_BASE_URL}/api/vehicle-models/options?${queryString}`
       );
-      if (response.ok) {
-        const result = await response.json();
-        const options = result.data || {};
-        const resolved = result.resolved;
 
-        // Log API response
-        console.group("📡 API Response");
-        console.log("Options received:", options);
-        console.log("Resolved record:", resolved);
-        console.log("Available counts:", {
-          models: options.models?.length || 0,
-          years: options.years?.length || 0,
-          doors: options.doors?.length || 0,
-          fuel: options.fuel?.length || 0,
-          transmissions: options.transmissions?.length || 0,
-        });
-        console.groupEnd();
+      if (!response.ok) {
+        throw new Error(
+          `HTTP ${response.status}: Failed to fetch vehicle data`
+        );
+      }
 
-        // Normalize options so selects always contain selected values
-        const normalizedOptions = {
-          models: Array.isArray(options.models) ? [...options.models] : [],
-          years: Array.isArray(options.years) ? [...options.years] : [],
-          doors: Array.isArray(options.doors) ? [...options.doors] : [],
-          fuel: Array.isArray(options.fuel) ? [...options.fuel] : [],
-          transmissions: Array.isArray(options.transmissions)
-            ? [...options.transmissions]
-            : [],
+      const result = await response.json();
+      console.log("📡 Backend response:", result);
+
+      if (result.status === "success") {
+        const { options, autoSelect } = result.data;
+        const isComplete = result.complete;
+
+        console.log("📡 Backend response - Options:", options);
+        console.log("📡 Backend response - AutoSelect:", autoSelect);
+
+        // Update dropdown options first (always available)
+        const optionsToUpdate = {
+          models: options?.models || [],
+          years: options?.years || [],
+          doors: options?.doors || [],
+          fuels: options?.fuel || [],
+          transmissions: options?.transmissions || [],
         };
 
-        // If we have a resolved single record, ensure its values exist in the lists
-        if (resolved) {
-          if (
-            resolved.model &&
-            !normalizedOptions.models.includes(resolved.model)
-          ) {
-            normalizedOptions.models.push(resolved.model);
-          }
-          if (
-            resolved.year &&
-            !normalizedOptions.years.includes(resolved.year)
-          ) {
-            normalizedOptions.years.push(resolved.year);
-          }
-          if (
-            resolved.doors &&
-            !normalizedOptions.doors.includes(resolved.doors)
-          ) {
-            normalizedOptions.doors.push(resolved.doors);
-          }
-          if (
-            resolved.fuel &&
-            !normalizedOptions.fuel.includes(resolved.fuel)
-          ) {
-            normalizedOptions.fuel.push(resolved.fuel);
-          }
-          if (
-            resolved.transmission &&
-            !normalizedOptions.transmissions.includes(resolved.transmission)
-          ) {
-            normalizedOptions.transmissions.push(resolved.transmission);
-          }
-        }
+        // Ensure auto-selected values are included in options
+        if (autoSelect) {
+          Object.keys(autoSelect).forEach((field) => {
+            const value = autoSelect[field];
+            const optionKey = field === "fuel" ? "fuels" : `${field}s`;
 
-        // Update all options with normalized lists
-        dispatch({ type: "SET_OPTIONS", payload: normalizedOptions });
-
-        // Handle auto-selection based on resolved record or single options
-        if (resolved) {
-          console.log(
-            "🎯 Single record found - auto-filling all remaining fields:",
-            resolved
-          );
-
-          // Get all fields that need to be filled (empty fields in hierarchy order)
-          const fieldsToFill = getFieldsToAutoFill(watch);
-          const fieldsSet = [];
-
-          console.log("📝 Fields to auto-fill:", fieldsToFill);
-
-          // Set auto-selecting flag to prevent useEffect loops
-          isAutoSelectingRef.current = true;
-
-          // Fill all remaining fields from the resolved record
-          fieldsToFill.forEach((field) => {
-            if (resolved[field]) {
-              console.log(`✅ Auto-setting ${field}:`, resolved[field]);
-              setValue(`vehicleDetails.${field}`, resolved[field], {
-                shouldValidate: true,
-                shouldDirty: true,
-                shouldTouch: true,
-              });
-              fieldsSet.push(`vehicleDetails.${field}`);
+            if (field === "model" && !optionsToUpdate.models.includes(value)) {
+              optionsToUpdate.models.push(value);
+            } else if (
+              field === "year" &&
+              !optionsToUpdate.years.includes(value)
+            ) {
+              optionsToUpdate.years.push(value);
+            } else if (
+              field === "doors" &&
+              !optionsToUpdate.doors.includes(value)
+            ) {
+              optionsToUpdate.doors.push(value);
+            } else if (
+              field === "fuel" &&
+              !optionsToUpdate.fuels.includes(value)
+            ) {
+              optionsToUpdate.fuels.push(value);
+            } else if (
+              field === "transmission" &&
+              !optionsToUpdate.transmissions.includes(value)
+            ) {
+              optionsToUpdate.transmissions.push(value);
             }
           });
+        }
 
-          // Trigger validation for all set fields
-          if (fieldsSet.length > 0) {
-            trigger(fieldsSet);
-          }
+        // Handle auto-selection and prepare single state update
+        let valuesToUpdate = {};
+        let fieldsToTrigger = [];
 
-          // Reset the flag after a short delay to allow form updates
-          setTimeout(() => {
-            isAutoSelectingRef.current = false;
-            console.log("🔄 Auto-selection complete, form should be updated");
+        if (autoSelect && Object.keys(autoSelect).length > 0) {
+          console.log(
+            "🎯 Processing auto-selections (all at once):",
+            autoSelect
+          );
 
-            // Debug: Check if form values are actually set
-            console.log("🔍 Form values after auto-fill:", {
-              make: watch("vehicleDetails.make"),
-              model: watch("vehicleDetails.model"),
-              year: watch("vehicleDetails.year"),
-              doors: watch("vehicleDetails.doors"),
-              fuel: watch("vehicleDetails.fuel"),
-              transmission: watch("vehicleDetails.transmission"),
+          isAutoSelectingRef.current = true;
+
+          // Collect all values to update
+          Object.keys(autoSelect).forEach((field) => {
+            const value = autoSelect[field];
+            console.log(`✅ Auto-selecting ${field}:`, value);
+            valuesToUpdate[field] = value;
+            fieldsToTrigger.push(`vehicleDetails.${field}`);
+          });
+
+          console.log("🎯 Auto-selected all fields at once:", valuesToUpdate);
+        }
+
+        // SINGLE STATE UPDATE - update everything at once
+        dispatch({
+          type: "SET_VEHICLE_DATA",
+          payload: {
+            values: valuesToUpdate,
+            options: optionsToUpdate,
+          },
+        });
+
+        // Update React Hook Form for auto-selected fields
+        if (Object.keys(valuesToUpdate).length > 0) {
+          Object.keys(valuesToUpdate).forEach((field) => {
+            setValue(`vehicleDetails.${field}`, valuesToUpdate[field], {
+              shouldValidate: true,
+              shouldDirty: true,
+              shouldTouch: true,
             });
+          });
 
-            // Log final state to verify
-            logVehicleState(watch, "After Auto-Fill Complete");
-
-            // Force a re-render to ensure UI updates
-            setForceUpdate((prev) => prev + 1);
-          }, 100);
-        } else {
-          // No resolved record - check for single options in hierarchy order
-          console.log("🔄 Multiple records - checking for single options");
-
-          // Get the next field that should be filled
-          const nextField = getNextFieldToFill(watch);
-
-          if (nextField) {
-            console.log(`📍 Next field to check: ${nextField.field}`);
-
-            const fieldOptions = getFieldOptions(options, nextField.field);
-
-            if (shouldAutoSelect(fieldOptions)) {
-              console.log(
-                `🔄 Auto-selecting ${nextField.field}:`,
-                fieldOptions[0]
-              );
-              // We want to continue cascading automatically until completion.
-              // Set the value, then immediately re-fetch options to see if we can
-              // auto-select the remaining fields without user interaction.
-              isAutoSelectingRef.current = true;
-              setValue(`vehicleDetails.${nextField.field}`, fieldOptions[0], {
-                shouldValidate: true,
-                shouldDirty: true,
-                shouldTouch: true,
-              });
-              await trigger([`vehicleDetails.${nextField.field}`]);
-              // Recurse: re-fetch with the newly selected value to continue cascade
-              await fetchVehicleOptions();
-              return; // Stop further processing in this tick
-            } else {
-              console.log(
-                `⏸️ ${nextField.field} has multiple options:`,
-                fieldOptions.length
-              );
-            }
-          } else {
-            console.log("✅ All fields are already filled");
+          // Trigger validation for all auto-selected fields at once
+          if (fieldsToTrigger.length > 0) {
+            trigger(fieldsToTrigger);
           }
         }
 
-        // Log final state after processing
-        logVehicleState(watch, "After API Processing");
+        // Single force update
+        setForceUpdate((prev) => prev + 1);
+
+        // Reset auto-selecting flag
+        if (isAutoSelectingRef.current) {
+          setTimeout(() => {
+            isAutoSelectingRef.current = false;
+          }, 100);
+        }
+      } else {
+        throw new Error(result.message || "Failed to fetch vehicle data");
       }
     } catch (error) {
-      console.error("❌ Error fetching vehicle options:", error);
+      console.error("❌ Error fetching vehicle data:", error);
       dispatch({ type: "SET_ERROR", payload: error.message });
     }
   }, [watch, setValue, trigger]);
 
   // Track the last query to avoid duplicate requests
   const lastQueryRef = useRef("");
-  const lastResolvedRef = useRef(false);
 
   // Load makes on mount
   useEffect(() => {
     fetchMakes();
   }, [fetchMakes]);
 
-  // Smart useEffect that only triggers when we actually need new data
+  // Debug: Log state changes
   useEffect(() => {
-    // Log every time useEffect is triggered
-    console.log("🔄 useEffect triggered with values:", {
+    console.log("🔍 State values updated:", state.values);
+  }, [state.values]);
+
+  // Simplified useEffect that triggers when vehicle selection changes
+  useEffect(() => {
+    console.log("🔄 Vehicle selection changed:", {
       selectedMake,
       selectedModel,
       selectedYear,
@@ -352,84 +330,94 @@ const VehicleDetailsForm = ({ form }) => {
       return;
     }
 
-    // Build queries and detect changed field first, so we can clear dependents even when complete
+    // Clear dependent fields when parent changes
     const currentQuery = buildVehicleQuery(watch);
     const previousQuery = lastQueryRef.current;
-    const previousParams = new URLSearchParams(previousQuery);
-    const currentParams = new URLSearchParams(currentQuery);
 
-    let changedField = null;
-    if (previousParams.get("make") !== currentParams.get("make")) {
-      changedField = "make";
-      console.log("🔄 Make changed - clearing all dependent fields");
-      clearDependentFields("make", setValue, isAutoSelectingRef, clearErrors);
-      dispatch({ type: "CLEAR_OPTIONS" });
-    } else if (previousParams.get("model") !== currentParams.get("model")) {
-      changedField = "model";
-      console.log("🔄 Model changed - clearing dependent fields");
-      clearDependentFields("model", setValue, isAutoSelectingRef, clearErrors);
-    } else if (previousParams.get("year") !== currentParams.get("year")) {
-      changedField = "year";
-      console.log("🔄 Year changed - clearing dependent fields");
-      clearDependentFields("year", setValue, isAutoSelectingRef, clearErrors);
-    } else if (previousParams.get("doors") !== currentParams.get("doors")) {
-      changedField = "doors";
-      console.log("🔄 Doors changed - clearing dependent fields");
-      clearDependentFields("doors", setValue, isAutoSelectingRef, clearErrors);
-    } else if (previousParams.get("fuel") !== currentParams.get("fuel")) {
-      changedField = "fuel";
-      console.log("🔄 Fuel changed - clearing dependent fields");
-      clearDependentFields("fuel", setValue, isAutoSelectingRef, clearErrors);
+    if (currentQuery !== previousQuery) {
+      const previousParams = new URLSearchParams(previousQuery);
+      const currentParams = new URLSearchParams(currentQuery);
+
+      // Detect which field changed and clear dependents
+      let fieldsToClear = {};
+      let shouldClearOptions = false;
+
+      if (previousParams.get("make") !== currentParams.get("make")) {
+        console.log("🔄 Make changed - clearing dependent fields");
+        clearDependentFields("make", setValue, isAutoSelectingRef, clearErrors);
+        fieldsToClear = {
+          model: "",
+          year: "",
+          doors: "",
+          fuel: "",
+          transmission: "",
+        };
+        shouldClearOptions = true;
+      } else if (previousParams.get("model") !== currentParams.get("model")) {
+        console.log("🔄 Model changed - clearing dependent fields");
+        clearDependentFields(
+          "model",
+          setValue,
+          isAutoSelectingRef,
+          clearErrors
+        );
+        fieldsToClear = { year: "", doors: "", fuel: "", transmission: "" };
+      } else if (previousParams.get("year") !== currentParams.get("year")) {
+        console.log("🔄 Year changed - clearing dependent fields");
+        clearDependentFields("year", setValue, isAutoSelectingRef, clearErrors);
+        fieldsToClear = { doors: "", fuel: "", transmission: "" };
+      } else if (previousParams.get("doors") !== currentParams.get("doors")) {
+        console.log("🔄 Doors changed - clearing dependent fields");
+        clearDependentFields(
+          "doors",
+          setValue,
+          isAutoSelectingRef,
+          clearErrors
+        );
+        fieldsToClear = { fuel: "", transmission: "" };
+      } else if (previousParams.get("fuel") !== currentParams.get("fuel")) {
+        console.log("🔄 Fuel changed - clearing dependent fields");
+        clearDependentFields("fuel", setValue, isAutoSelectingRef, clearErrors);
+        fieldsToClear = { transmission: "" };
+      }
+
+      // Single dispatch to clear all dependent fields
+      if (Object.keys(fieldsToClear).length > 0) {
+        const optionsToUse = shouldClearOptions
+          ? { models: [], years: [], doors: [], fuels: [], transmissions: [] }
+          : state.options;
+
+        dispatch({
+          type: "SET_VEHICLE_DATA",
+          payload: {
+            values: fieldsToClear,
+            options: optionsToUse,
+          },
+        });
+      }
+
+      lastQueryRef.current = currentQuery;
+
+      // Only fetch if we have at least a make selected
+      if (selectedMake) {
+        console.log("🚀 Fetching vehicle data for:", currentQuery);
+        fetchVehicleData();
+      } else {
+        console.log("⏸️ No make selected - clearing options");
+        dispatch({ type: "CLEAR_OPTIONS" });
+      }
     }
-
-    // Update last query snapshot
-    lastQueryRef.current = currentQuery;
-
-    // If no make selected after change, stop here
-    if (!selectedMake) {
-      console.log("⏸️ Skipping fetch - no make selected after change");
-      lastResolvedRef.current = false;
-      return;
-    }
-
-    // If query hasn't changed and no field changed, skip duplicate request
-    if (!changedField && currentQuery === previousQuery) {
-      console.log("⏸️ Skipping - query unchanged:", currentQuery);
-      return;
-    }
-
-    // If vehicle is already complete and nothing changed, skip
-    if (!changedField && isVehicleComplete(watch)) {
-      console.log("⏸️ Skipping - vehicle selection complete");
-      return;
-    }
-
-    // If we don't need more data, skip
-    if (!needsMoreData(watch)) {
-      console.log("⏸️ Skipping - don't need more data");
-      return;
-    }
-
-    console.log("🚀 Proceeding with fetch - query changed:", {
-      previous: previousQuery,
-      current: currentQuery,
-    });
-
-    // Log current vehicle state before fetch
-    logVehicleState(watch, "useEffect - Triggering Fetch");
-
-    // Fetch new options
-    fetchVehicleOptions();
   }, [
     selectedMake,
     selectedModel,
     selectedYear,
     selectedDoors,
     selectedFuel,
-    fetchVehicleOptions,
+    fetchVehicleData,
     watch,
     setValue,
     clearErrors,
+    state.options,
   ]);
 
   const handleFindVehicle = async () => {
@@ -525,106 +513,93 @@ const VehicleDetailsForm = ({ form }) => {
               <FormDropdown
                 label="Make"
                 options={state.makes}
-                placeholder={state.loading ? "Loading makes..." : "Choose Make"}
+                placeholder="Select Make"
                 disabled={state.loading}
-                value={selectedMake || ""}
+                value={state.values.make || selectedMake || ""}
+                onChange={(e) => handleDropdownChange("make", e.target.value)}
                 {...register("vehicleDetails.make")}
                 error={errors.vehicleDetails?.make}
               />
             </div>
             <div className={styles.row}>
               <FormDropdown
+                key={`model-${forceUpdate}`}
                 label="Model"
-                options={state.models}
+                options={state.options.models}
                 placeholder={
-                  state.loading
-                    ? "Loading models..."
-                    : !selectedMake
-                    ? "Select make first"
-                    : "Choose Model"
+                  !selectedMake ? "Select make first" : "Select Model"
                 }
-                disabled={state.loading || !selectedMake}
-                value={selectedModel || ""}
+                disabled={!selectedMake || state.options.models.length === 0}
+                value={state.values.model || selectedModel || ""}
+                onChange={(e) => handleDropdownChange("model", e.target.value)}
                 {...register("vehicleDetails.model", {
                   required: selectedMake ? "Please select a model" : false,
                 })}
                 error={errors.vehicleDetails?.model}
               />
               <FormDropdown
+                key={`year-${forceUpdate}`}
                 label="Year"
-                options={state.years}
+                options={state.options.years}
                 placeholder={
-                  state.loading
-                    ? "Loading years..."
-                    : !selectedModel
-                    ? "Select model first"
-                    : "Choose Year"
+                  !selectedModel ? "Select model first" : "Select Year"
                 }
-                disabled={state.loading || !selectedModel}
-                value={selectedYear || ""}
+                disabled={!selectedModel || state.options.years.length === 0}
+                value={state.values.year || selectedYear || ""}
+                onChange={(e) => handleDropdownChange("year", e.target.value)}
                 {...register("vehicleDetails.year")}
                 error={errors.vehicleDetails?.year}
               />
             </div>
             <div className={styles.row}>
               <FormDropdown
+                key={`doors-${forceUpdate}`}
                 label="Doors"
-                options={state.doors}
+                options={state.options.doors}
                 placeholder={
-                  state.loading
-                    ? "Loading doors..."
-                    : !selectedYear
-                    ? "Select year first"
-                    : state.doors.length === 0
-                    ? "No options available"
-                    : "Choose Doors"
+                  !selectedYear ? "Select year first" : "Select Doors"
                 }
-                disabled={
-                  state.loading || !selectedYear || state.doors.length === 0
-                }
-                value={selectedDoors || ""}
+                disabled={!selectedYear || state.options.doors.length === 0}
+                value={state.values.doors || selectedDoors || ""}
+                onChange={(e) => handleDropdownChange("doors", e.target.value)}
                 {...register("vehicleDetails.doors")}
                 error={errors.vehicleDetails?.doors}
               />
               <FormDropdown
+                key={`fuel-${forceUpdate}`}
                 label="Fuel Type"
-                options={state.fuels}
+                options={state.options.fuels}
                 placeholder={
-                  state.loading
-                    ? "Loading fuel types..."
-                    : !selectedDoors
-                    ? "Select doors first"
-                    : state.fuels.length === 0
-                    ? "No options available"
-                    : "Choose Fuel Type"
+                  !selectedDoors ? "Select doors first" : "Select Fuel Type"
                 }
-                disabled={
-                  state.loading || !selectedDoors || state.fuels.length === 0
-                }
-                value={selectedFuel || ""}
+                disabled={!selectedDoors || state.options.fuels.length === 0}
+                value={state.values.fuel || selectedFuel || ""}
+                onChange={(e) => handleDropdownChange("fuel", e.target.value)}
                 {...register("vehicleDetails.fuel")}
                 error={errors.vehicleDetails?.fuel}
               />
             </div>
             <div className={styles.row}>
               <FormDropdown
+                key={`transmission-${forceUpdate}`}
                 label="Transmission"
-                options={state.transmissions}
+                options={state.options.transmissions}
                 placeholder={
-                  state.loading
-                    ? "Loading transmissions..."
-                    : !selectedFuel
+                  !selectedFuel
                     ? "Select fuel type first"
-                    : state.transmissions.length === 0
-                    ? "No options available"
-                    : "Choose Transmission"
+                    : "Select Transmission"
                 }
                 disabled={
-                  state.loading ||
-                  !selectedFuel ||
-                  state.transmissions.length === 0
+                  !selectedFuel || state.options.transmissions.length === 0
                 }
-                value={watch("vehicleDetails.transmission") || ""}
+                value={
+                  state.values.transmission ||
+                  watch("vehicleDetails.transmission") ||
+                  ""
+                }
+                onChange={(e) =>
+                  handleDropdownChange("transmission", e.target.value)
+                }
                 {...register("vehicleDetails.transmission")}
                 error={errors.vehicleDetails?.transmission}
               />
