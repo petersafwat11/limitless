@@ -18,6 +18,7 @@ import {
   clearDependentFields,
   shouldAutoSelect,
 } from "../helperFucntion";
+import axios from "axios";
 
 // Simplified state for vehicle data
 const initialState = {
@@ -424,37 +425,38 @@ const VehicleDetailsForm = ({ form }) => {
       return;
     }
 
+    const cleanRegNumber = registrationNumber.trim().toUpperCase();
+
     setIsLoadingVehicleData(true);
     try {
-      const response = await fetch(
-        `${API_BASE_URL}/api/insurance/car-insurance-group/${encodeURIComponent(
-          registrationNumber.trim()
-        )}`
+      const apiUrl = `${
+        process.env.NEXT_PUBLIC_API_URL
+      }/api/insurance/car-insurance-group/${encodeURIComponent(
+        cleanRegNumber
+      )}`;
+      console.log("🔗 API URL:", apiUrl);
+
+      const response = await axios.get(apiUrl);
+      console.log(
+        "✅ Full API Response:",
+        JSON.stringify(response.data, null, 2)
       );
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to fetch vehicle data");
-      }
-
-      const result = await response.json();
-
-      if (result.status === "success" && result.data) {
-        setValue("vehicleDetails.make", result.data.make || "");
-        setValue("vehicleDetails.model", result.data.model || "");
-        setValue("vehicleDetails.type", "Car");
-        setShowVehicleDetails(true);
-        console.log("Vehicle data fetched successfully:", result.data);
-      } else {
-        throw new Error("No vehicle data found");
-      }
+      // if (response.data.status === "success" && response.data.data) {
+      //   const vehicleData = response.data.data.car || response.data.data;
+      //   console.log("🚗 Vehicle data extracted:", vehicleData);
+      //   setValue("vehicleDetails.make", vehicleData.make || "");
+      //   setValue("vehicleDetails.model", vehicleData.model || "");
+      //   setValue("vehicleDetails.type", "Car");
+      // }
     } catch (error) {
-      console.error("Error fetching vehicle data:", error);
+      console.error("❌ Error fetching vehicle data:", error);
+
       setError("vehicleDetails.registrationNumber", {
         message: error.message || "Failed to fetch vehicle data",
       });
     } finally {
       setIsLoadingVehicleData(false);
+      console.log("🏁 Find Vehicle process completed");
     }
   };
 
