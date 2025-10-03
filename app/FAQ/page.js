@@ -11,7 +11,7 @@ const Page = () => {
   return (
     <div className={styles.container}>
       <Header  title="Frequently Asked Questions" />
-      <h1 onClick={() => setShowPaymentPopup(true)}>show iframe</h1>
+      <h1 className={styles.headertitlee} onClick={() => setShowPaymentPopup(true)}>show iframe</h1>
 
       <div className={"centeredContent"}>
         <div className={styles.wrapper}>
