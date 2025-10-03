@@ -8,7 +8,7 @@ import { data } from "./data";
 const Page = () => {
   const [showPaymentPopup, setShowPaymentPopup] = useState(false);
 
-  if (showPaymentIframe) {
+  if (showPaymentPopup) {
     return (
       <div className={styles["iframe-container"]}>
         <iframe
