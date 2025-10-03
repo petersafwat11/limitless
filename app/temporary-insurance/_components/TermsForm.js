@@ -8,23 +8,7 @@ const TermsForm = ({ form, onBack, isSubmitting }) => {
   const {
     register,
     formState: { errors },
-    watch,
-    handleSubmit,
-    trigger,
   } = form;
-
-  const handleFormSubmit = async () => {
-    console.log("🔍 Validating form...");
-    const isValid = await trigger();
-
-    if (!isValid) {
-      console.log("❌ Form validation errors:", errors);
-      return false;
-    }
-
-    console.log("✅ Form is valid, proceeding with submission");
-    return true;
-  };
 
   return (
     <ComponentWrapper title="Terms and Conditions">
@@ -78,23 +62,8 @@ const TermsForm = ({ form, onBack, isSubmitting }) => {
       </div>
       <ActionBtns
         onBack={onBack}
-        onNext={async (e) => {
-          e.preventDefault();
-          console.log("🔘 Submit button clicked");
-          const isValid = await handleFormSubmit();
-          if (isValid) {
-            console.log("📤 Triggering form submission");
-            // Get the parent form's onSubmit handler
-            const formElement = e.target.closest("form");
-            if (formElement) {
-              formElement.dispatchEvent(
-                new Event("submit", { cancelable: true })
-              );
-            }
-          }
-        }}
-        nextLabel={isSubmitting ? "Submitting..." : "Submit Application"}
-        nextType="button"
+        nextLabel="Submit"
+        nextType="submit"
         isSubmitting={isSubmitting}
       />
     </ComponentWrapper>

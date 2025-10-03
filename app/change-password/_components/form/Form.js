@@ -30,7 +30,6 @@ const Form = () => {
     resetPassword,
     setPassword,
     getUserInfo,
-    isLoading,
     error,
     resetPasswordSuccess,
     clearError,
@@ -39,6 +38,7 @@ const Form = () => {
 
   const [userInfo, setUserInfo] = useState(null);
   const [pageType, setPageType] = useState("loading"); // "loading", "setPassword", "resetPassword", "error"
+  const [isSubmitting, setIsSubmitting] = useState(false); // Local loading state for form submission
 
   // track visibility for each input separately
   const [showPassword, setShowPassword] = useState({
@@ -113,40 +113,51 @@ const Form = () => {
 
   const onSubmit = async (data) => {
     clearError();
-    let result;
+    setIsSubmitting(true); // Start loading
+    
+    try {
+      let result;
 
-    if (pageType === "setPassword") {
-      result = await setPassword(
-        email,
-        userId,
-        data.password,
-        data.confirmPassword
-      );
-    } else if (pageType === "resetPassword") {
-      result = await resetPassword(
-        token,
-        data.password,
-        data.passwordConfirm,
-        userType || "client"
-      );
-    }
+      if (pageType === "setPassword") {
+        result = await setPassword(
+          email,
+          userId,
+          data.password,
+          data.confirmPassword
+        );
+      } else if (pageType === "resetPassword") {
+        result = await resetPassword(
+          token,
+          data.password,
+          data.passwordConfirm,
+          userType || "client"
+        );
+      }
 
-    if (result?.success) {
-      // Success - redirect to appropriate login page
-      const loginPath =
-        result.data?.userType === "admin" || userType === "admin"
-          ? "/admin-login"
-          : "/login";
-      const message =
-        pageType === "setPassword"
-          ? "Password set successfully. You can now login."
-          : "Password reset successfully. You can now login.";
+      if (result?.success) {
+        // Success - redirect to appropriate login page
+        const loginPath =
+          result.data?.userType === "admin" || userType === "admin"
+            ? "/admin-login"
+            : "/login";
+        const message =
+          pageType === "setPassword"
+            ? "Password set successfully. You can now login."
+            : "Password reset successfully. You can now login.";
 
-      router.push(`${loginPath}?message=${encodeURIComponent(message)}`);
-    } else {
+        router.push(`${loginPath}?message=${encodeURIComponent(message)}`);
+      } else {
+        setError("root", {
+          message: result?.message || "Something went wrong. Please try again.",
+        });
+        setIsSubmitting(false); // Stop loading on error
+      }
+    } catch (error) {
+      console.error("Submit error:", error);
       setError("root", {
-        message: result?.message || "Something went wrong. Please try again.",
+        message: "An unexpected error occurred. Please try again.",
       });
+      setIsSubmitting(false); // Stop loading on error
     }
   };
 
@@ -351,15 +362,15 @@ const Form = () => {
         <ConfirmButton
           style={{ justifyContent: "center", width: "100%" }}
           title={
-            isLoading
+            isSubmitting
               ? "Setting Password..."
               : pageType === "setPassword"
               ? "Set Password"
               : "Reset Password"
           }
           onClick={handleSubmit(onSubmit)}
-          disabled={isLoading}
-          className={styles.button}
+          disabled={isSubmitting}
+          // className={styles.button}
         />
       </form>
     </div>

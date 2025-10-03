@@ -17,13 +17,7 @@ const ActionBtns = ({
       <button
         type={nextType}
         className={styles.next}
-        onClick={(e) => {
-          console.log("🔵 Next button clicked, type:", nextType);
-          if (nextType === "button" && onNext) {
-            e.preventDefault();
-            onNext(e);
-          }
-        }}
+        onClick={nextType === "button" && onNext ? onNext : undefined}
         disabled={isSubmitting}
         style={{
           background: isSubmitting ? "#ccc" : "#0388ff",

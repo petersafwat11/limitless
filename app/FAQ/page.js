@@ -1,17 +1,13 @@
-
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./page.module.css";
 import Header from "./_components/header/Header";
 import QuestionsGroup from "./_components/questionsGroup/QuestionsGroup";
 import { data } from "./data";
 const Page = () => {
-  const [showPaymentPopup, setShowPaymentPopup] = useState(false);
 
   return (
     <div className={styles.container}>
       <Header  title="Frequently Asked Questions" />
-      <h1 className={styles.headertitlee} onClick={() => setShowPaymentPopup(true)}>show iframe</h1>
 
       <div className={"centeredContent"}>
         <div className={styles.wrapper}>
@@ -23,18 +19,6 @@ const Page = () => {
             />
           ))}
         </div>
-      </div>
-
-      {/* Iframe overlay - preloaded in background */}
-      <div 
-        className={styles["iframe-container"]}
-        style={{ display: showPaymentPopup ? 'flex' : 'none' }}
-      >
-        <iframe
-          src="https://www.limitlesstrading.co.uk/payment"
-          title="SumUp Payment"
-          className={styles["iframe"]}
-        />
       </div>
     </div>
   );

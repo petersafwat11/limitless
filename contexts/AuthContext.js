@@ -7,7 +7,7 @@ const initialState = {
   user: null,
   token: null,
   isAuthenticated: false,
-  isLoading: true,
+  isLoading: false, // Start as false, only set to true when checking auth
   error: null,
   forgotPasswordSuccess: false,
   resetPasswordSuccess: false,

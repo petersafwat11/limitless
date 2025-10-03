@@ -131,54 +131,44 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
 
   // Handle dropdown value changes
   const handleDropdownChange = (field, value) => {
-    console.log(`🔄 User changed ${field} to:`, value);
-
-    // Update React Hook Form
     setValue(`vehicleDetails.${field}`, value, {
       shouldValidate: true,
       shouldDirty: true,
       shouldTouch: true,
     });
 
-    // Update local state in a single dispatch
     dispatch({
       type: "SET_VEHICLE_DATA",
       payload: {
         values: { [field]: value },
-        options: state.options, // Keep existing options
+        options: state.options,
       },
     });
   };
 
   // Fetch makes on component mount
   const fetchMakes = useCallback(async () => {
-    console.log("🔄 Fetching makes...");
     try {
       const response = await fetch(`${API_BASE_URL}/api/vehicle-models/makes`);
       if (response.ok) {
         const result = await response.json();
         const makes = result.data || [];
-
         dispatch({ type: "SET_MAKES", payload: makes });
 
-        // Auto-select if only one make
         if (shouldAutoSelect(makes)) {
-          console.log("✅ Auto-selecting single make:", makes[0]);
           setValue("vehicleDetails.make", makes[0]);
         }
       }
     } catch (error) {
-      console.error("❌ Error fetching makes:", error);
+      console.error("Error fetching makes:", error);
       dispatch({ type: "SET_ERROR", payload: error.message });
     }
   }, [setValue]);
 
-  // Simplified function to fetch vehicle data from backend
+  // Fetch vehicle data from backend
   const fetchVehicleData = useCallback(async () => {
     const queryString = buildVehicleQuery(watch);
     if (!queryString) return;
-
-    console.log("🔄 Fetching vehicle data:", queryString);
 
     try {
       const response = await fetch(
@@ -192,16 +182,10 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
       }
 
       const result = await response.json();
-      console.log("📡 Backend response:", result);
 
       if (result.status === "success") {
         const { options, autoSelect } = result.data;
-        const isComplete = result.complete;
 
-        console.log("📡 Backend response - Options:", options);
-        console.log("📡 Backend response - AutoSelect:", autoSelect);
-
-        // Update dropdown options first (always available)
         const optionsToUpdate = {
           models: options?.models || [],
           years: options?.years || [],
@@ -212,60 +196,34 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
 
         // Ensure auto-selected values are included in options
         if (autoSelect) {
-          Object.keys(autoSelect).forEach((field) => {
-            const value = autoSelect[field];
-            const optionKey = field === "fuel" ? "fuels" : `${field}s`;
+          const fieldMapping = {
+            model: 'models',
+            year: 'years',
+            doors: 'doors',
+            fuel: 'fuels',
+            transmission: 'transmissions'
+          };
 
-            if (field === "model" && !optionsToUpdate.models.includes(value)) {
-              optionsToUpdate.models.push(value);
-            } else if (
-              field === "year" &&
-              !optionsToUpdate.years.includes(value)
-            ) {
-              optionsToUpdate.years.push(value);
-            } else if (
-              field === "doors" &&
-              !optionsToUpdate.doors.includes(value)
-            ) {
-              optionsToUpdate.doors.push(value);
-            } else if (
-              field === "fuel" &&
-              !optionsToUpdate.fuels.includes(value)
-            ) {
-              optionsToUpdate.fuels.push(value);
-            } else if (
-              field === "transmission" &&
-              !optionsToUpdate.transmissions.includes(value)
-            ) {
-              optionsToUpdate.transmissions.push(value);
+          Object.entries(autoSelect).forEach(([field, value]) => {
+            const optionKey = fieldMapping[field];
+            if (optionKey && !optionsToUpdate[optionKey].includes(value)) {
+              optionsToUpdate[optionKey].push(value);
             }
           });
         }
 
-        // Handle auto-selection and prepare single state update
         let valuesToUpdate = {};
         let fieldsToTrigger = [];
 
         if (autoSelect && Object.keys(autoSelect).length > 0) {
-          console.log(
-            "🎯 Processing auto-selections (all at once):",
-            autoSelect
-          );
-
           isAutoSelectingRef.current = true;
 
-          // Collect all values to update
-          Object.keys(autoSelect).forEach((field) => {
-            const value = autoSelect[field];
-            console.log(`✅ Auto-selecting ${field}:`, value);
+          Object.entries(autoSelect).forEach(([field, value]) => {
             valuesToUpdate[field] = value;
             fieldsToTrigger.push(`vehicleDetails.${field}`);
           });
-
-          console.log("🎯 Auto-selected all fields at once:", valuesToUpdate);
         }
 
-        // SINGLE STATE UPDATE - update everything at once
         dispatch({
           type: "SET_VEHICLE_DATA",
           payload: {
@@ -274,26 +232,22 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
           },
         });
 
-        // Update React Hook Form for auto-selected fields
         if (Object.keys(valuesToUpdate).length > 0) {
-          Object.keys(valuesToUpdate).forEach((field) => {
-            setValue(`vehicleDetails.${field}`, valuesToUpdate[field], {
+          Object.entries(valuesToUpdate).forEach(([field, value]) => {
+            setValue(`vehicleDetails.${field}`, value, {
               shouldValidate: true,
               shouldDirty: true,
               shouldTouch: true,
             });
           });
 
-          // Trigger validation for all auto-selected fields at once
           if (fieldsToTrigger.length > 0) {
             trigger(fieldsToTrigger);
           }
         }
 
-        // Single force update
         setForceUpdate((prev) => prev + 1);
 
-        // Reset auto-selecting flag
         if (isAutoSelectingRef.current) {
           setTimeout(() => {
             isAutoSelectingRef.current = false;
@@ -303,7 +257,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
         throw new Error(result.message || "Failed to fetch vehicle data");
       }
     } catch (error) {
-      console.error("❌ Error fetching vehicle data:", error);
+      console.error("Error fetching vehicle data:", error);
       dispatch({ type: "SET_ERROR", payload: error.message });
     }
   }, [watch, setValue, trigger]);
@@ -311,29 +265,12 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
   // Track the last query to avoid duplicate requests
   const lastQueryRef = useRef("");
 
-  // Load makes on mount
   useEffect(() => {
     fetchMakes();
   }, [fetchMakes]);
 
-  // Debug: Log state changes
   useEffect(() => {
-    console.log("🔍 State values updated:", state.values);
-  }, [state.values]);
-
-  // Simplified useEffect that triggers when vehicle selection changes
-  useEffect(() => {
-    console.log("🔄 Vehicle selection changed:", {
-      selectedMake,
-      selectedModel,
-      selectedYear,
-      selectedDoors,
-      selectedFuel,
-      isAutoSelecting: isAutoSelectingRef.current,
-    });
-
     if (isAutoSelectingRef.current) {
-      console.log("⏸️ Skipping - auto-selection in progress");
       return;
     }
 
@@ -345,50 +282,26 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
       const previousParams = new URLSearchParams(previousQuery);
       const currentParams = new URLSearchParams(currentQuery);
 
-      // Detect which field changed and clear dependents
       let fieldsToClear = {};
       let shouldClearOptions = false;
 
-      if (previousParams.get("make") !== currentParams.get("make")) {
-        console.log("🔄 Make changed - clearing dependent fields");
-        clearDependentFields("make", setValue, isAutoSelectingRef, clearErrors);
-        fieldsToClear = {
-          model: "",
-          year: "",
-          doors: "",
-          fuel: "",
-          transmission: "",
-        };
-        shouldClearOptions = true;
-      } else if (previousParams.get("model") !== currentParams.get("model")) {
-        console.log("🔄 Model changed - clearing dependent fields");
-        clearDependentFields(
-          "model",
-          setValue,
-          isAutoSelectingRef,
-          clearErrors
-        );
-        fieldsToClear = { year: "", doors: "", fuel: "", transmission: "" };
-      } else if (previousParams.get("year") !== currentParams.get("year")) {
-        console.log("🔄 Year changed - clearing dependent fields");
-        clearDependentFields("year", setValue, isAutoSelectingRef, clearErrors);
-        fieldsToClear = { doors: "", fuel: "", transmission: "" };
-      } else if (previousParams.get("doors") !== currentParams.get("doors")) {
-        console.log("🔄 Doors changed - clearing dependent fields");
-        clearDependentFields(
-          "doors",
-          setValue,
-          isAutoSelectingRef,
-          clearErrors
-        );
-        fieldsToClear = { fuel: "", transmission: "" };
-      } else if (previousParams.get("fuel") !== currentParams.get("fuel")) {
-        console.log("🔄 Fuel changed - clearing dependent fields");
-        clearDependentFields("fuel", setValue, isAutoSelectingRef, clearErrors);
-        fieldsToClear = { transmission: "" };
+      const fieldChanges = [
+        { param: "make", clear: { model: "", year: "", doors: "", fuel: "", transmission: "" }, clearOptions: true },
+        { param: "model", clear: { year: "", doors: "", fuel: "", transmission: "" }, clearOptions: false },
+        { param: "year", clear: { doors: "", fuel: "", transmission: "" }, clearOptions: false },
+        { param: "doors", clear: { fuel: "", transmission: "" }, clearOptions: false },
+        { param: "fuel", clear: { transmission: "" }, clearOptions: false }
+      ];
+
+      for (const { param, clear, clearOptions } of fieldChanges) {
+        if (previousParams.get(param) !== currentParams.get(param)) {
+          clearDependentFields(param, setValue, isAutoSelectingRef, clearErrors);
+          fieldsToClear = clear;
+          shouldClearOptions = clearOptions;
+          break;
+        }
       }
 
-      // Single dispatch to clear all dependent fields
       if (Object.keys(fieldsToClear).length > 0) {
         const optionsToUse = shouldClearOptions
           ? { models: [], years: [], doors: [], fuels: [], transmissions: [] }
@@ -405,12 +318,9 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
 
       lastQueryRef.current = currentQuery;
 
-      // Only fetch if we have at least a make selected
       if (selectedMake) {
-        console.log("🚀 Fetching vehicle data for:", currentQuery);
         fetchVehicleData();
       } else {
-        console.log("⏸️ No make selected - clearing options");
         dispatch({ type: "CLEAR_OPTIONS" });
       }
     }
@@ -448,37 +358,32 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
       const response = await axios.get(apiUrl);
       if (response.data.status === "success" && response.data.data) {
         const vehicleData = response.data.data;
-        console.log("🚗 Vehicle data found:", vehicleData);
 
-        // Check if there are any errors in the response
-        if (vehicleData.errors) {
-          console.log("⚠️ Some data fetch errors:", vehicleData.errors);
-          // We can still proceed if we have basic vehicle data
-        }
-
-        // Store the found vehicle data
         setFoundVehicleData(vehicleData);
         setShowFoundData(true);
 
-        // Pass data to parent component
         if (onVehicleDataFound) {
           onVehicleDataFound(vehicleData);
         }
 
-        // Store API data separately without affecting form fields
+        // Populate all vehicle fields from API data
         setValue("vehicleDetails.apiData", vehicleData);
-
-        // Set vehicle type only
+        setValue("vehicleDetails.registrationNumber", vehicleData.registration || cleanRegNumber);
         setValue("vehicleDetails.type", "Car");
-
-        // Clear any previous errors
+        setValue("vehicleDetails.make", vehicleData.make || "");
+        setValue("vehicleDetails.model", vehicleData.model || "");
+        setValue("vehicleDetails.year", vehicleData.year || "");
+        setValue("vehicleDetails.fuel", vehicleData.fuel || "");
+        setValue("vehicleDetails.transmission", vehicleData.transmission || "");
+        setValue("vehicleDetails.colour", vehicleData.colour || "");
+        
         clearErrors("vehicleDetails.registrationNumber");
-
-        // Show vehicle details section
-        // setShowVehicleDetails(true);
+        clearErrors("vehicleDetails.type");
+        clearErrors("vehicleDetails.make");
+        clearErrors("vehicleDetails.model");
       }
     } catch (error) {
-      console.error("❌ Error fetching vehicle data:", error);
+      console.error("Error fetching vehicle data:", error);
       setError("vehicleDetails.registrationNumber", {
         message:
           error.response?.data?.message ||
@@ -494,15 +399,12 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
     setFoundVehicleData(null);
     setShowFoundData(false);
     setValue("vehicleDetails.registrationNumber", "");
-
-    // Clear found vehicle data from parent
+    setValue("vehicleDetails.apiData", null);
+    clearErrors("vehicleDetails.registrationNumber");
+    
     if (onVehicleDataFound) {
       onVehicleDataFound(null);
     }
-
-    // Clear API data
-    setValue("vehicleDetails.apiData", null);
-    clearErrors("vehicleDetails.registrationNumber");
   };
 
   return (
@@ -595,12 +497,9 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
                 label="My Vehicle is a...."
                 options={["Car", "Motorcycle", "Truck", "Bus"]}
                 placeholder="Choose Vehicle"
-                {...register("vehicleDetails.type", {
-                  required: !foundVehicleData
-                    ? "Please select vehicle type"
-                    : false,
-                })}
+                {...register("vehicleDetails.type")}
                 error={errors.vehicleDetails?.type}
+                disabled={!!foundVehicleData}
               />
               <FormDropdown
                 label="Make"
@@ -608,10 +507,9 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
                 placeholder="Select Make"
                 value={state.values.make || selectedMake || ""}
                 onChange={(e) => handleDropdownChange("make", e.target.value)}
-                {...register("vehicleDetails.make", {
-                  required: !foundVehicleData ? "Please select a make" : false,
-                })}
+                {...register("vehicleDetails.make")}
                 error={errors.vehicleDetails?.make}
+                disabled={!!foundVehicleData}
               />
             </div>
             <div className={styles.row}>
@@ -622,15 +520,10 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
                 placeholder={
                   !selectedMake ? "Select make first" : "Select Model"
                 }
-                disabled={!selectedMake || state.options.models.length === 0}
+                disabled={!!foundVehicleData || !selectedMake || state.options.models.length === 0}
                 value={state.values.model || selectedModel || ""}
                 onChange={(e) => handleDropdownChange("model", e.target.value)}
-                {...register("vehicleDetails.model", {
-                  required:
-                    selectedMake && !foundVehicleData
-                      ? "Please select a model"
-                      : false,
-                })}
+                {...register("vehicleDetails.model")}
                 error={errors.vehicleDetails?.model}
               />
               <FormDropdown
@@ -640,15 +533,10 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
                 placeholder={
                   !selectedModel ? "Select model first" : "Select Year"
                 }
-                disabled={!selectedModel || state.options.years.length === 0}
+                disabled={!!foundVehicleData || !selectedModel || state.options.years.length === 0}
                 value={state.values.year || selectedYear || ""}
                 onChange={(e) => handleDropdownChange("year", e.target.value)}
-                {...register("vehicleDetails.year", {
-                  required:
-                    selectedModel && !foundVehicleData
-                      ? "Please select a year"
-                      : false,
-                })}
+                {...register("vehicleDetails.year")}
                 error={errors.vehicleDetails?.year}
               />
             </div>
@@ -660,15 +548,10 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
                 placeholder={
                   !selectedYear ? "Select year first" : "Select Doors"
                 }
-                disabled={!selectedYear || state.options.doors.length === 0}
+                disabled={!!foundVehicleData || !selectedYear || state.options.doors.length === 0}
                 value={state.values.doors || selectedDoors || ""}
                 onChange={(e) => handleDropdownChange("doors", e.target.value)}
-                {...register("vehicleDetails.doors", {
-                  required:
-                    selectedYear && !foundVehicleData
-                      ? "Please select doors"
-                      : false,
-                })}
+                {...register("vehicleDetails.doors")}
                 error={errors.vehicleDetails?.doors}
               />
               <FormDropdown
@@ -678,15 +561,10 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
                 placeholder={
                   !selectedDoors ? "Select doors first" : "Select Fuel Type"
                 }
-                disabled={!selectedDoors || state.options.fuels.length === 0}
+                disabled={!!foundVehicleData || !selectedDoors || state.options.fuels.length === 0}
                 value={state.values.fuel || selectedFuel || ""}
                 onChange={(e) => handleDropdownChange("fuel", e.target.value)}
-                {...register("vehicleDetails.fuel", {
-                  required:
-                    selectedDoors && !foundVehicleData
-                      ? "Please select fuel type"
-                      : false,
-                })}
+                {...register("vehicleDetails.fuel")}
                 error={errors.vehicleDetails?.fuel}
               />
             </div>
@@ -701,7 +579,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
                     : "Select Transmission"
                 }
                 disabled={
-                  !selectedFuel || state.options.transmissions.length === 0
+                  !!foundVehicleData || !selectedFuel || state.options.transmissions.length === 0
                 }
                 value={
                   state.values.transmission ||
@@ -711,22 +589,16 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
                 onChange={(e) =>
                   handleDropdownChange("transmission", e.target.value)
                 }
-                {...register("vehicleDetails.transmission", {
-                  required:
-                    selectedFuel && !foundVehicleData
-                      ? "Please select transmission"
-                      : false,
-                })}
+                {...register("vehicleDetails.transmission")}
                 error={errors.vehicleDetails?.transmission}
               />
               <FormDropdown
                 label="Vehicle Color"
                 options={carColors}
                 placeholder="Select Color"
-                {...register("vehicleDetails.colour", {
-                  required: !foundVehicleData ? "Please select a color" : false,
-                })}
+                {...register("vehicleDetails.colour")}
                 error={errors.vehicleDetails?.colour}
+                disabled={!!foundVehicleData}
               />
             </div>
             <div className={styles.row}>

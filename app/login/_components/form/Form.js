@@ -20,9 +20,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const Form = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { login, isLoading, error, isAuthenticated, clearError } = useAuth();
+  const { login, error, isAuthenticated, clearError } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false); // Local loading state
 
   const {
     register,
@@ -72,17 +73,25 @@ const Form = () => {
   const onSubmit = async (data) => {
     clearError();
     setSuccessMessage("");
+    setIsSubmitting(true); // Start loading
 
-    const result = await login(data.email, data.password);
+    try {
+      const result = await login(data.email, data.password);
 
-    if (result.success) {
-      // Force a hard redirect to ensure cookie is properly set
-      // Use window.location for a full page reload which ensures middleware runs with fresh cookies
-      setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 100);
-    } else {
-      setError("root", { message: result.message });
+      if (result.success) {
+        // Force a hard redirect to ensure cookie is properly set
+        // Use window.location for a full page reload which ensures middleware runs with fresh cookies
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 100);
+      } else {
+        setError("root", { message: result.message });
+        setIsSubmitting(false); // Stop loading on error
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      setError("root", { message: "An unexpected error occurred. Please try again." });
+      setIsSubmitting(false); // Stop loading on error
     }
   };
   return (
@@ -215,10 +224,10 @@ const Form = () => {
 
         <ConfirmButton
           style={{ justifyContent: "center", width: "100%" }}
-          title={isLoading ? "Logging in..." : "Login"}
+          title={isSubmitting ? "Logging in..." : "Login"}
           onClick={handleSubmit(onSubmit)}
-          disabled={isLoading}
-          className={styles.button}
+          disabled={isSubmitting}
+          // className={styles.button}
         />
       </form>
     </div>

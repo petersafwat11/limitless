@@ -34,14 +34,12 @@ export const vehicleDetailsSchema = z
   })
   .refine(
     (data) => {
-      // If we have API data, validation passes
-      if (data.apiData && Object.keys(data.apiData).length > 0) {
+      // If we have API data with required fields, validation passes
+      if (data.apiData && data.apiData.make && data.apiData.model) {
         return true;
       }
 
-      // If no API data, check if we have registration number OR manual fields
-      const hasRegistration =
-        data.registrationNumber && data.registrationNumber.length > 0;
+      // Check if we have manual fields (registration number is optional)
       const hasManualFields =
         data.type &&
         data.type.length > 0 &&
@@ -50,12 +48,12 @@ export const vehicleDetailsSchema = z
         data.model &&
         data.model.length > 0;
 
-      return hasRegistration || hasManualFields;
+      return hasManualFields;
     },
     {
       message:
-        "Please either enter a registration number to find vehicle data or fill in vehicle details manually",
-      path: ["type"], // This will show the error on the type field
+        "Please fill in vehicle details: type, make, and model are required (registration number is optional)",
+      path: ["type"],
     }
   );
 
