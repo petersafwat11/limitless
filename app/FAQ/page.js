@@ -8,25 +8,23 @@ import { data } from "./data";
 const Page = () => {
   const [showPaymentPopup, setShowPaymentPopup] = useState(false);
 
+  if (showPaymentIframe) {
+    return (
+      <div className={styles["iframe-container"]}>
+        <iframe
+          src="https://www.limitlesstrading.co.uk/payment"
+          title="SumUp Payment"
+          className={styles["iframe"]}
+        />
+      </div>
+    );
+  }
 
-  useEffect(() => {
-    if (showPaymentPopup) {
-      const popup = window.open(
-        "https://www.limitlesstrading.co.uk/payment",
-        "SumUpPayment",
-        `width=${window.screen.width},height=${window.screen.height},left=0,top=0`
-      );
-
-      // Optional: close popup if parent unmounts
-      return () => {
-        popup?.close();
-      };
-    }
-  }, [showPaymentPopup]);
   return (
     <div className={styles.container}>
-      <h1 onClick={() => setShowPaymentPopup(true)}>show iframe</h1>
       <Header  title="Frequently Asked Questions" />
+      <h1 onClick={() => setShowPaymentPopup(true)}>show iframe</h1>
+
       <div className={"centeredContent"}>
         <div className={styles.wrapper}>
           {data.map((item) => (
