@@ -15,6 +15,7 @@ import { API_BASE_URL } from "@/utils/config";
 const TemporaryInsuranceContent = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoadingVehicleData, setIsLoadingVehicleData] = useState(false);
+  const [foundVehicleData, setFoundVehicleData] = useState(null);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -28,7 +29,12 @@ const TemporaryInsuranceContent = () => {
         make: "",
         model: "",
         year: "",
-        price: "",
+        fuel: "",
+        transmission: "",
+        doors: "",
+        colour: "",
+        worth: "",
+        apiData: null,
       },
       coverDetails: {
         type: "Days",
@@ -173,20 +179,86 @@ const TemporaryInsuranceContent = () => {
   }, [searchParams, setValue, fetchVehicleData]);
 
   const onSubmit = async (data) => {
+    console.log("🎯 onSubmit function called", {
+      url: `${API_BASE_URL}/api/insurance`,
+      method: "POST",
+      data: {
+        ...data,
+        vehicleDetails: {
+          ...data.vehicleDetails,
+          apiData: data.vehicleDetails.apiData ? "Present" : "Not present",
+        },
+      },
+    });
+
+    // Validate form before submission
+    const isValid = await form.trigger();
+    if (!isValid) {
+      console.log("❌ Validation failed. Form errors:", form.formState.errors);
+      Object.keys(form.formState.errors).forEach((key) => {
+        console.log(`Error in ${key}:`, form.formState.errors[key]);
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
+    // Debug: Log form state and data
+    console.log("📝 Form State:", {
+      isValid: form.formState.isValid,
+      isDirty: form.formState.isDirty,
+      errors: form.formState.errors,
+    });
+
+    console.log("📋 Submitting data:", {
+      ...data,
+      vehicleDetails: {
+        ...data.vehicleDetails,
+        apiData: data.vehicleDetails.apiData
+          ? "API Data Present"
+          : "No API Data",
+      },
+    });
+    console.log("🚀 Starting form submission with data:", {
+      type: data.type,
+      vehicleDetails: {
+        ...data.vehicleDetails,
+        apiData: data.vehicleDetails.apiData ? "Present" : "Not present",
+      },
+      coverDetails: data.coverDetails,
+      userDetails: {
+        ...data.userDetails,
+        email: data.userDetails.email ? "Present" : "Not present",
+      },
+      carUsage: data.carUsage,
+      terms: data.terms,
+    });
+
     try {
-      const response = await fetch("/api/insurance", {
+      // Include found vehicle data in the submission
+      const submissionData = {
+        ...data,
+        foundVehicleData: foundVehicleData,
+      };
+
+      console.log("📤 Sending request to API...");
+      const response = await fetch(`${API_BASE_URL}/api/insurance`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(submissionData),
       });
 
       const result = await response.json();
+      console.log("📥 API Response:", {
+        status: response.status,
+        ok: response.ok,
+        data: result,
+      });
 
       if (response.status === 409) {
+        console.log("⚠️ Email already exists:", data.userDetails.email);
         // Email already exists - redirect to login
         alert(
           `An account with email ${data.userDetails.email} already exists. Please login to continue.`
@@ -198,27 +270,38 @@ const TemporaryInsuranceContent = () => {
       }
 
       if (!response.ok) {
+        console.error("❌ API Error:", result);
         throw new Error(
           result.message || "Failed to submit insurance application"
         );
       }
 
+      console.log("✅ Submission successful:", result);
+
       if (result.data.needsPasswordSetup) {
+        console.log("👤 New user - needs password setup");
         alert(
           "Insurance application submitted successfully! Please check your email to set up your password and complete the process."
         );
         router.push("/login");
       } else {
+        console.log("👤 Existing user - redirecting to dashboard");
         alert("Insurance application submitted successfully!");
         router.push("/dashboard");
       }
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("❌ Error submitting form:", error);
+      console.error("Error details:", {
+        message: error.message,
+        stack: error.stack,
+        response: error.response,
+      });
       alert(
         error.message ||
           "Failed to submit insurance application. Please try again."
       );
     } finally {
+      console.log("🏁 Form submission process completed");
       setIsSubmitting(false);
     }
   };
@@ -229,12 +312,35 @@ const TemporaryInsuranceContent = () => {
       <div className="centeredContent">
         {/* <div className="insuranceQuotesContainer"> */}
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={form.handleSubmit(async (data) => {
+            console.log("🎯 Form submit event triggered");
+            console.log("📋 Submitting form data:", {
+              ...data,
+              vehicleDetails: {
+                ...data.vehicleDetails,
+                apiData: data.vehicleDetails.apiData
+                  ? "Present"
+                  : "Not present",
+              },
+            });
+
+            try {
+              setIsSubmitting(true);
+              await onSubmit(data);
+            } catch (error) {
+              console.error("❌ Form submission error:", error);
+              alert("Failed to submit form. Please try again.");
+            } finally {
+              setIsSubmitting(false);
+            }
+          })}
           className="insuranceQuotesContainer"
+          noValidate
         >
           <VehicleDetailsForm
             form={form}
             isLoadingVehicleData={isLoadingVehicleData}
+            onVehicleDataFound={setFoundVehicleData}
           />
           <CoverDetailsForm form={form} />
           <PersonalDetailsForm form={form} />

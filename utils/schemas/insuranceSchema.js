@@ -1,21 +1,63 @@
 import { z } from "zod";
 
-// Vehicle Details Schema
-export const vehicleDetailsSchema = z.object({
-  registrationNumber: z
-    .string()
-    .min(1, "Registration number is required")
-    .max(15, "Registration number cannot exceed 15 characters")
-    .transform((val) => val.toUpperCase()),
-  type: z.string().min(1, "Vehicle type is required"),
-  make: z
-    .string()
-    .min(1, "Vehicle make is required")
-    .max(50, "Vehicle make cannot exceed 50 characters"),
-  model: z.string().min(1, "Vehicle model is required"),
-  variant: z.string().min(1, "Vehicle variant is required"),
-  price: z.string().min(1, "Vehicle worth is required"),
-});
+// Vehicle Details Schema with conditional validation
+export const vehicleDetailsSchema = z
+  .object({
+    registrationNumber: z
+      .string()
+      .max(15, "Registration number cannot exceed 15 characters")
+      .transform((val) => val.toUpperCase())
+      .optional(),
+    type: z.string().optional(),
+    make: z.string().optional(),
+    model: z.string().optional(),
+    year: z.string().optional(),
+    fuel: z.string().optional(),
+    transmission: z.string().optional(),
+    doors: z.string().optional(),
+    colour: z.string().optional(),
+    worth: z.string().min(1, "Vehicle worth is required"),
+    apiData: z
+      .object({
+        registration: z.string().optional(),
+        make: z.string().optional(),
+        model: z.string().optional(),
+        year: z.string().optional(),
+        fuel: z.string().optional(),
+        transmission: z.string().optional(),
+        colour: z.string().optional(),
+        cylinderCapacity: z.string().optional(),
+        insuranceGroup: z.string().optional(),
+      })
+      .nullable()
+      .optional(),
+  })
+  .refine(
+    (data) => {
+      // If we have API data, validation passes
+      if (data.apiData && Object.keys(data.apiData).length > 0) {
+        return true;
+      }
+
+      // If no API data, check if we have registration number OR manual fields
+      const hasRegistration =
+        data.registrationNumber && data.registrationNumber.length > 0;
+      const hasManualFields =
+        data.type &&
+        data.type.length > 0 &&
+        data.make &&
+        data.make.length > 0 &&
+        data.model &&
+        data.model.length > 0;
+
+      return hasRegistration || hasManualFields;
+    },
+    {
+      message:
+        "Please either enter a registration number to find vehicle data or fill in vehicle details manually",
+      path: ["type"], // This will show the error on the type field
+    }
+  );
 
 // Cover Details Schema
 export const coverDetailsSchema = z.object({
@@ -67,7 +109,7 @@ export const userDetailsSchema = z.object({
 
 // Car Usage Schema
 export const carUsageSchema = z.object({
-  industry: z.string().min(1, "Industry is required"),
+  industry: z.string().optional().default(""),
   keepingCarDuringDay: z.enum(
     [
       "At home",

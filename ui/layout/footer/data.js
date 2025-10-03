@@ -29,7 +29,7 @@ export const menus = [
       },
       {
         title: "Make a Claim",
-        link: "/dashboard/make-a-claim",
+        link: "/dashboard/submit-claim",
       },
       {
         title: "Complaints",

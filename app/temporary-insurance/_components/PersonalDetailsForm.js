@@ -263,11 +263,22 @@ const PersonalDetailsForm = ({ form }) => {
             <FormDropdown
               label="License Held"
               options={[
-                "Less than 1 year",
-                "1-2 years",
-                "2-5 years",
-                "5-10 years",
-                "Over 10 years",
+                "0-1 years",
+                "2 years",
+                "3 years",
+                "4 years",
+                "5 years",
+                "6 years",
+                "7 years",
+                "8 years",
+                "9 years",
+                "10 years",
+                "11 years",
+                "12 years",
+                "13 years",
+                "14 years",
+                "15 years",
+                "15+ years",
               ]}
               placeholder="Select license held duration"
               {...register("carUsage.licenseHeld")}
@@ -295,7 +306,13 @@ const PersonalDetailsForm = ({ form }) => {
                 "7",
                 "8",
                 "9",
-                "10+",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "15+",
               ]}
               placeholder="Select no claims bonus years"
               {...register("carUsage.NCB")}

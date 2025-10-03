@@ -7,6 +7,11 @@
   align-self: stretch;
   /* width: 100%; */
 }
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
 .label {
   color: #000822;
   font-size: 1.6rem;
@@ -40,6 +45,7 @@
   font-weight: 600;
   line-height: 124%;
   letter-spacing: 0.56px;
+  flex: 1;
 }
 @media screen and (max-width: 800px) {
   .item {

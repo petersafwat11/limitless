@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Header from "@/ui/main-pages/header/Header";
 import OurBenifits from "@/ui/main-pages/ourBenifits/OurBenifits";
 import ServiceDescription from "@/ui/main-pages/serviceDescription/ServiceDescription";
@@ -20,7 +21,24 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
-const page = () => {
+const Page = () => {
+  const [showPaymentPopup, setShowPaymentPopup] = useState(false);
+
+  useEffect(() => {
+    if (showPaymentPopup) {
+      const popup = window.open(
+        "https://www.limitlesstrading.co.uk/payment",
+        "SumUpPayment",
+        `width=${window.screen.width},height=${window.screen.height},left=0,top=0`
+      );
+
+      // Optional: close popup if parent unmounts
+      return () => {
+        popup?.close();
+      };
+    }
+  }, [showPaymentPopup]);
+
   return (
     <div>
       <Header
@@ -65,6 +83,7 @@ const page = () => {
         </div>
         <div className={styles.questions}>
           <h2
+          onClick={()=>{setShowPaymentPopup(!showPaymentPopup)}}
             className={`${styles.questionsTitle} ${plusJakartaSans.className}`}
           >
             Frequently asked<span> questions</span>
@@ -76,4 +95,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
