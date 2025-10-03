@@ -8,18 +8,6 @@ import { data } from "./data";
 const Page = () => {
   const [showPaymentPopup, setShowPaymentPopup] = useState(false);
 
-  if (showPaymentPopup) {
-    return (
-      <div className={styles["iframe-container"]}>
-        <iframe
-          src="https://www.limitlesstrading.co.uk/payment"
-          title="SumUp Payment"
-          className={styles["iframe"]}
-        />
-      </div>
-    );
-  }
-
   return (
     <div className={styles.container}>
       <Header  title="Frequently Asked Questions" />
@@ -35,6 +23,18 @@ const Page = () => {
             />
           ))}
         </div>
+      </div>
+
+      {/* Iframe overlay - preloaded in background */}
+      <div 
+        className={styles["iframe-container"]}
+        style={{ display: showPaymentPopup ? 'flex' : 'none' }}
+      >
+        <iframe
+          src="https://www.limitlesstrading.co.uk/payment"
+          title="SumUp Payment"
+          className={styles["iframe"]}
+        />
       </div>
     </div>
   );
