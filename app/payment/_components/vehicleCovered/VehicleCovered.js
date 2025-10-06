@@ -6,7 +6,18 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
-const VehicleCovered = () => {
+const VehicleCovered = ({ data }) => {
+  const getVehicleDescription = () => {
+    if (!data) return "N/A";
+    const parts = [];
+    if (data.make) parts.push(data.make);
+    if (data.model) parts.push(data.model);
+    if (data.year) parts.push(`(${data.year})`);
+    if (data.fuel) parts.push(data.fuel);
+    if (data.doors) parts.push(`${data.doors} DOOR`);
+    return parts.join(" ");
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -22,11 +33,11 @@ const VehicleCovered = () => {
       </div>
       <div className={styles.content}>
         <p className={`${styles.vetype} ${plusJakartaSans.className}`}>
-          Volkswagen Polo SE FSI (2002-2005) 1390cc,5 DOOR
+          {getVehicleDescription()}
         </p>
         <div className={styles.vehicleNumber}>
           <span className={styles.inputSpan}> GB</span>
-          GC15LLC
+          {data?.registrationNumber || "N/A"}
         </div>
       </div>
     </div>

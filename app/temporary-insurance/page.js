@@ -10,6 +10,7 @@ import PersonalDetailsForm from "./_components/PersonalDetailsForm";
 import TermsForm from "./_components/TermsForm";
 import { useRouter, useSearchParams } from "next/navigation";
 import { API_BASE_URL } from "@/utils/config";
+import { toast } from "react-toastify";
 
 const TemporaryInsuranceContent = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -139,7 +140,7 @@ const TemporaryInsuranceContent = () => {
       const result = await response.json();
 
       if (response.status === 409) {
-        alert(
+        toast.error(
           `An account with email ${data.userDetails.email} already exists. Please login to continue.`
         );
         router.push(
@@ -154,18 +155,22 @@ const TemporaryInsuranceContent = () => {
         );
       }
 
-      if (result.data.needsPasswordSetup) {
-        alert(
-          "Insurance application submitted successfully! Please check your email to set up your password and complete the process."
-        );
-        router.push("/login");
-      } else {
-        alert("Insurance application submitted successfully!");
-        router.push("/dashboard");
-      }
+      // Success! Show toast and redirect to payment summary
+      const insuranceId = result.data.insurance._id;
+      
+      toast.success("Insurance application submitted successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+
+      // Redirect to payment summary with insurance ID
+      setTimeout(() => {
+        router.push(`/payment-summery?id=${insuranceId}`);
+      }, 1000);
+
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert(
+      toast.error(
         error.message ||
           "Failed to submit insurance application. Please try again."
       );

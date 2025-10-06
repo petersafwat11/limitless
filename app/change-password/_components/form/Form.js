@@ -198,7 +198,7 @@ const Form = () => {
           }}
           title="Go to Login"
           onClick={() => router.push("/login")}
-          className={styles.button}
+          // className={styles.button}
         />
       </div>
     );

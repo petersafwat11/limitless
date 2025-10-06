@@ -201,6 +201,11 @@ const FormDateInput = forwardRef(
                       : null
                   }
                   filterDate={allowPastDates ? null : (date) => date >= today}
+                  showYearDropdown
+                  showMonthDropdown
+                  dropdownMode="select"
+                  yearDropdownItemNumber={100}
+                  scrollableYearDropdown
                 />
               </div>
             )}

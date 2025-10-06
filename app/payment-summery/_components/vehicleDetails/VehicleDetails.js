@@ -4,24 +4,24 @@ import VehicleCovered from "@/app/payment/_components/vehicleCovered/VehicleCove
 import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWrapper";
 import Duration from "@/app/payment/_components/duration/Duration";
 
-const VehicleDetails = () => {
+const VehicleDetails = ({ data }) => {
   return (
     <ComponentWrapper title="Vehicle Details" icon={{ width: 62, height: 62 }}>
       <div className={styles.content}>
-        <VehicleCovered />
+        <VehicleCovered data={data} />
         <div className={styles.cards}>
           {[
             {
-              title: "Your annual mileage",
-              value: "Up to 4,000 a year",
+              title: "Vehicle Type",
+              value: `${data?.type || "N/A"}`,
             },
             {
-              title: "Vehicle modifications",
-              value: "None",
+              title: "Vehicle Worth",
+              value: `${data?.worth || "N/A"}`,
             },
             {
-              title: "Voluntary excess",
-              value: "£284.50",
+              title: "Vehicle Worth",
+              value: `${data?.worth || "N/A"}`,
             },
           ].map((item, index) => (
             <Duration

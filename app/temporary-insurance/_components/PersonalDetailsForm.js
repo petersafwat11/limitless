@@ -11,6 +11,7 @@ import ConfirmBtn from "@/ui/buttons/confirmBtn/ConfirmBtn";
 import Title from "@/ui/insurance-quotes/title/Title";
 import { API_BASE_URL } from "@/utils/config";
 import styles from "./components.module.css";
+import { carUsageOptions, employmentStatusOptions, keepingCarDuringDayOptions, keepingCarDuringNightOptions, licenseHeldOptions, ncbOptions } from "../data";
 
 const PersonalDetailsForm = ({ form }) => {
   const {
@@ -136,13 +137,7 @@ const PersonalDetailsForm = ({ form }) => {
           />
           <FormDropdown
             label="Employment Status"
-            options={[
-              "Self-Employed",
-              "Employed",
-              "Unemployed",
-              "Retired",
-              "Student",
-            ]}
+            options={employmentStatusOptions}
             placeholder="Choose Employment Status"
             {...register("userDetails.employmentStatus")}
             error={errors.userDetails?.employmentStatus}
@@ -170,13 +165,7 @@ const PersonalDetailsForm = ({ form }) => {
           <Selection2
             title="Where do you keep your car during the day?"
             description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
-            items={[
-              "At home",
-              "Office or factory car park",
-              "Open public car park",
-              "Secure public car park",
-              "Street away from home",
-            ]}
+            items={keepingCarDuringDayOptions}
             img={{ src: "/svg/day.svg", alt: "sun", width: 79, height: 106 }}
             selectedItem={watch("carUsage.keepingCarDuringDay")}
             setSelectedItem={(item) =>
@@ -193,15 +182,7 @@ const PersonalDetailsForm = ({ form }) => {
           <Selection2
             title="Where do you keep your car during the night?"
             description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
-            items={[
-              "Drive",
-              "Street outside home",
-              "Locked garage",
-              "Street away from home",
-              "Public car park",
-              "Work car park",
-              "Private property",
-            ]}
+            items={keepingCarDuringNightOptions}
             img={{ src: "/svg/night.svg", alt: "moon", width: 79, height: 106 }}
             selectedItem={watch("carUsage.keepingCarDuringNight")}
             setSelectedItem={(item) =>
@@ -216,30 +197,12 @@ const PersonalDetailsForm = ({ form }) => {
         </div>
       </div>
 
-      {/* Car Usage Section - Separate Component Wrapper */}
-      {/* <ComponentWrapper title="Car Usage"> */}
       <div className={`${styles.content} ${styles.carUsageContainer}`}>
         <div className={styles.firstSection}>
           <Title title="What do you use the car for?" />
           <div className={styles.selections3}>
             <Selection3
-              options={[
-                {
-                  title: "Social use only",
-                  description:
-                    "Personal use such as shopping or visiting friends and family.",
-                },
-                {
-                  title: "Social and commuting",
-                  description:
-                    "Personal use and driving to and from a single place of work or study.",
-                },
-                {
-                  title: "Social, commuting and business",
-                  description:
-                    "You drive to various locations for work. You can also add other drivers who use this car for business.",
-                },
-              ]}
+              options={carUsageOptions}
               selectedItem={watch("carUsage.usageType")}
               setSelectedItem={(item) => setValue("carUsage.usageType", item)}
             />
@@ -262,24 +225,7 @@ const PersonalDetailsForm = ({ form }) => {
             />
             <FormDropdown
               label="License Held"
-              options={[
-                "0-1 years",
-                "2 years",
-                "3 years",
-                "4 years",
-                "5 years",
-                "6 years",
-                "7 years",
-                "8 years",
-                "9 years",
-                "10 years",
-                "11 years",
-                "12 years",
-                "13 years",
-                "14 years",
-                "15 years",
-                "15+ years",
-              ]}
+              options={licenseHeldOptions}
               placeholder="Select license held duration"
               {...register("carUsage.licenseHeld")}
               error={errors.carUsage?.licenseHeld}
@@ -295,25 +241,7 @@ const PersonalDetailsForm = ({ form }) => {
           <div className={styles.row}>
             <FormDropdown
               label="No Claims Bonus (NCB) Years"
-              options={[
-                "0",
-                "1",
-                "2",
-                "3",
-                "4",
-                "5",
-                "6",
-                "7",
-                "8",
-                "9",
-                "10",
-                "11",
-                "12",
-                "13",
-                "14",
-                "15",
-                "15+",
-              ]}
+              options={ncbOptions}
               placeholder="Select no claims bonus years"
               {...register("carUsage.NCB")}
               error={errors.carUsage?.NCB}
@@ -373,7 +301,6 @@ const PersonalDetailsForm = ({ form }) => {
           </div>
         </div>
       </div>
-      {/* </ComponentWrapper> */}
     </ComponentWrapper>
   );
 };

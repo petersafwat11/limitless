@@ -10,7 +10,16 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["700"],
 });
 
-const CoverDetails = () => {
+const CoverDetails = ({ data }) => {
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
   return (
     <ComponentWrapper title="Cover Details" icon={{ width: 62, height: 62 }}>
       <div className={styles.content}>
@@ -29,7 +38,9 @@ const CoverDetails = () => {
                 width={18}
                 height={18}
               />
-              <p className={styles.periodAnswer}> 6 Days</p>
+              <p className={styles.periodAnswer}>
+                {" "}{data?.period || 0} {data?.type || "Days"}
+              </p>
             </div>
           </div>
         </div>
@@ -42,14 +53,14 @@ const CoverDetails = () => {
               item={{
                 label: "Date",
                 type: "date",
-                value: "01/01/1998",
+                value: formatDate(data?.startDate) || "N/A",
               }}
             />
             <InputWithData2 
               item={{
                 label: "Start Time",
                 type: "time",
-                value: "03:33:17",
+                value: data?.startTime || "N/A",
               }}
             />
           </div>

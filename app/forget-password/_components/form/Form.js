@@ -73,7 +73,7 @@ const Form = () => {
             clearSuccessStates();
             router.push("/login");
           }}
-          className={styles.button}
+          // className={styles.button}
         />
       </div>
     );
