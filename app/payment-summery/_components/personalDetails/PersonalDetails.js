@@ -85,14 +85,14 @@ const PersonalDetails = ({ data, carUsage }) => {
       </div>
       <div className={styles.selections}>
         <SelectedItem
-          item="Office or factory car park"
+          item={carUsage?.keepingCarDuringDay}
           title="Where do you keep your car during the day?"
           description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
           img="/svg/day.svg"
         />
         
         <SelectedItem
-          item="Street outside home"
+          item={carUsage?.keepingCarDuringNight}
           title="Where do you keep your car during the night?"
           description="You can find the 'acquired vehicle on date in the V5C registration document, also known as the log book."
           img="/svg/night.svg"

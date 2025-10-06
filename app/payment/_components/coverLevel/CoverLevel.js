@@ -8,7 +8,18 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["700"],
 });
 
-const CoverLevel = () => {
+const CoverLevel = ({ data, insuranceType }) => {
+  const formatCurrency = (amount) => {
+    return `£${amount?.toFixed(2) || "0.00"}`;
+  };
+
+  const getInsuranceTypeName = () => {
+    if (!insuranceType) return "N/A";
+    if (insuranceType === "Temp") return "Temporary Insurance";
+    if (insuranceType === "Impound") return "Impound Insurance";
+    return insuranceType;
+  };
+
   return (
     <div className={styles.container}>
       <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
@@ -17,7 +28,7 @@ const CoverLevel = () => {
       <div className={styles.coverType}>
         <p className={styles.coverTypeTitle}>Type of Insurance</p>
         <p className={`${styles.coverTypeValue} ${plusJakartaSans.className}`}>
-          Temporary Insurance
+          {getInsuranceTypeName()}
         </p>
       </div>
 
@@ -37,7 +48,7 @@ const CoverLevel = () => {
               Total Price
             </p>
           </div>
-          <p className={styles.totalPrice}>£120.00</p>
+          <p className={styles.totalPrice}>{formatCurrency(data?.price?.total)}</p>
           <p className={styles.totalPriceDescription}>
             Insurance produce information Document
           </p>

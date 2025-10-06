@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import styles from "./orderSummery.module.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -7,7 +9,32 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["700"],
 });
 
-const OrderSummery = () => {
+const OrderSummery = ({ data, vehicleDetails, carUsage }) => {
+  const router = useRouter();
+  const formatCurrency = (amount) => {
+    return `£${amount?.toFixed(2) || "0.00"}`;
+  };
+
+  const getInsuranceTitle = () => {
+    const regNumber = vehicleDetails?.registrationNumber || "N/A";
+    return `Temporary insurance / ${regNumber}`;
+  };
+
+  const summaryItems = [
+    {
+      title: getInsuranceTitle(),
+      value: formatCurrency(data?.price?.amount),
+    },
+    {
+      title: "VAT",
+      value: formatCurrency(data?.price?.vat),
+    },
+    {
+      title: "Fee",
+      value: formatCurrency(data?.price?.fee),
+    },
+  ];
+
   return (
     <div className={styles.container}>
       <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
@@ -23,24 +50,11 @@ const OrderSummery = () => {
           />
           <p className={styles.headerItemTitle}>Order Reference</p>
         </div>
-        <p className={styles.headerItemValue}>#kL10AFJJ019</p>
+        <p className={styles.headerItemValue}>{data?.orderRef || "N/A"}</p>
       </div>
       <div className={styles.summary}>
         <div className={styles.items}>
-          {[
-            {
-              title: "Impound insurance / KW68 BHK",
-              value: "£120.00",
-            },
-            {
-              title: "VAT",
-              value: "£4.38",
-            },
-            {
-              title: "Promo",
-              value: "£4.38",
-            },
-          ].map((item, index) => (
+          {summaryItems.map((item, index) => (
             <div className={styles.summaryItem} key={index}>
               <p className={styles.summaryItemTitle}>{item.title}</p>
               <p className={styles.summaryItemValue}>{item.value}</p>
@@ -49,9 +63,12 @@ const OrderSummery = () => {
         </div>
         <div className={styles.total}>
           <p className={styles.totalTitle}>Total</p>
-          <p className={styles.totalValue}>£120.00</p>
+          <p className={styles.totalValue}>{formatCurrency(data?.price?.total)}</p>
         </div>
-        <button className={styles.dashboardButton}>
+        <button 
+          className={styles.dashboardButton}
+          onClick={() => router.push('/dashboard')}
+        >
           Customer Dashboard
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +111,7 @@ const OrderSummery = () => {
           <p
             className={`${styles.voluntaryValue} ${plusJakartaSans.className}`}
           >
-            £120.00
+            {carUsage?.voluntaryExcess || "N/A"}
           </p>
         </div>
       </div>

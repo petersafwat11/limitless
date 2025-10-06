@@ -3,13 +3,21 @@ import styles from "./carUsage.module.css";
 import SelectedItem2 from "../selectedItem2/SelectedItem2";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import InputWithData2 from "@/ui/inputs/InputWithData2/InputWithData2";
+import { carUsageOptions } from "@/app/temporary-insurance/data";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
 
-const CarUsage = ( {carUsage} ) => {
+const CarUsage = ({ carUsage }) => {
+  console.log(
+    carUsage?.insuranceCancelledOrClaimRefusedOrPolicyVoided,
+    carUsage?.medicalConditions,
+    carUsage?.criminalConvictions,
+    " hahahah"
+  );
+
   return (
     <div className={styles.container}>
       <div className={styles.first}>
@@ -20,7 +28,8 @@ const CarUsage = ( {carUsage} ) => {
           option={{
             title: carUsage?.usageType,
             description:
-              "Personal use such as shopping or visiting friends and family.",
+              carUsageOptions.find((item) => item.title == carUsage?.usageType)
+                ?.description || "N/A",
           }}
         />
       </div>
@@ -41,7 +50,7 @@ const CarUsage = ( {carUsage} ) => {
           <InputWithData2
             item={{
               label: "License No. (Optional)",
-              value: carUsage?.licenseNo || "",
+              value: carUsage?.licenseNumber || "",
             }}
           />
         </div>
@@ -49,7 +58,7 @@ const CarUsage = ( {carUsage} ) => {
           <InputWithData2
             item={{
               label: "No Claims Bonus (NCB) Years",
-              value: carUsage?.ncbYears || "",
+              value: carUsage?.NCB || "",
             }}
           />
           <InputWithData2
@@ -65,21 +74,24 @@ const CarUsage = ( {carUsage} ) => {
           item={{
             label:
               "Do you have any unspent or outstanding criminal convictions?",
-            value: carUsage?.unspentCriminalConvictions || "N/A",
+            value: String(carUsage?.criminalConvictions) || "N/A",
           }}
         />
         <InputWithData2
           item={{
             label:
               "Do you have any medical conditions that are notifible to the DVLA?",
-            value: carUsage?.medicalConditions || "N/A",
+            value: String(carUsage?.medicalConditions) || "N/A",
           }}
         />
         <InputWithData2
           item={{
             label:
               "Have you ever had insurance cancelled, a claim refused, a policy voided, or any special terms imposed? Unspent or outstanding criminal convictions?",
-            value: carUsage?.everHadInsuranceCancelled || "N/A",
+            value:
+              String(
+                carUsage?.insuranceCancelledOrClaimRefusedOrPolicyVoided
+              ) || "N/A",
           }}
         />
       </div>
