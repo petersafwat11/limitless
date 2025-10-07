@@ -48,7 +48,9 @@ const CoverLevel = ({ data, insuranceType }) => {
               Total Price
             </p>
           </div>
-          <p className={styles.totalPrice}>{formatCurrency(data?.price?.total)}</p>
+          <p className={styles.totalPrice}>
+            {formatCurrency(data?.priceAmount)}
+          </p>
           <p className={styles.totalPriceDescription}>
             Insurance produce information Document
           </p>

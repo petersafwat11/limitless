@@ -14,7 +14,7 @@ const CoverLevel = ({ data, insuranceType }) => {
       Temp: "Temporary Insurance",
       Impound: "Impound Insurance",
       Delivery: "Delivery Insurance",
-      Other: "Other Insurance"
+      Other: "Other Insurance",
     };
     return types[type] || type;
   };
@@ -48,7 +48,9 @@ const CoverLevel = ({ data, insuranceType }) => {
               Total Price
             </p>
           </div>
-          <p className={styles.totalPrice}>£{data?.price?.amount?.toFixed(2) || "0.00"}</p>
+          <p className={styles.totalPrice}>
+            £{data?.priceAmount?.toFixed(2) || "0.00"}
+          </p>
           <p className={styles.totalPriceDescription}>
             Insurance produce information Document
           </p>
@@ -72,7 +74,9 @@ const CoverLevel = ({ data, insuranceType }) => {
           />
           <p className={styles.headerItemTitle}>Order Reference</p>
         </div>
-        <p className={styles.headerItemValue}>#{data?._id?.slice(-10).toUpperCase() || "N/A"}</p>
+        <p className={styles.headerItemValue}>
+          #{data?._id?.slice(-10).toUpperCase() || "N/A"}
+        </p>
       </div>
       <div className={styles.features}>
         {[
