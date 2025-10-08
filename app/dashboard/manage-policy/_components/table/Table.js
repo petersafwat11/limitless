@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import styles from "./table.module.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { useRouter } from "next/navigation";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -8,6 +10,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 const Table = ({ title, columns, data, tableType }) => {
+  const router = useRouter();
   return (
     <>
       <div className={styles.container}>
@@ -49,7 +52,12 @@ const Table = ({ title, columns, data, tableType }) => {
                   </span>
                 </td>
                 <td className={styles.tableCell}>
-                  <button className={styles.view}>View</button>
+                  <button
+                    className={styles.view}
+                    onClick={() => router.push(`/dashboard/manage-policy/${row.id}`)}
+                  >
+                    View
+                  </button>
                 </td>
               </tr>
             ))}
@@ -84,7 +92,12 @@ const Table = ({ title, columns, data, tableType }) => {
               </div>
 
               <div className={styles.actions}>
-                <button className={styles.view}>Details</button>
+                <button
+                  className={styles.view}
+                  onClick={() => router.push(`/dashboard/manage-policy/${row.id}`)}
+                >
+                  Details
+                </button>
               </div>
             </div>
           </div>

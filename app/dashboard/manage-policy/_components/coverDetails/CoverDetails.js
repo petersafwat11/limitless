@@ -6,11 +6,13 @@ import Dropdown from "../policyDetails/Dropdown";
 import Card from "./card/Card";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import CoverStart from "./coverStart/CoverStart";
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
-const CoverDetails = () => {
+
+const CoverDetails = ({ insurance, policyNumber }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleDropdownToggle = () => {
@@ -31,6 +33,56 @@ const CoverDetails = () => {
     }
   };
 
+  const vehicleDetails = insurance?.vehicleDetails || {};
+  const coverDetails = insurance?.coverDetails || {};
+  const carUsage = insurance?.carUsage || {};
+
+  // Format vehicle title
+  const vehicleTitle = `${vehicleDetails.make || ""} ${vehicleDetails.model || ""}`.trim() || "Vehicle";
+
+  // Format vehicle description
+  const vehicleDescription = [
+    vehicleDetails.type,
+    vehicleDetails.doors ? `${vehicleDetails.doors} Door` : null,
+    vehicleDetails.transmission,
+    vehicleDetails.fuel,
+    vehicleDetails.year,
+  ]
+    .filter(Boolean)
+    .join(", ");
+
+  // Format insurance type
+  const insuranceType = insurance?.type === "Temp" 
+    ? "Temporary Insurance" 
+    : insurance?.type === "Impound" 
+    ? coverDetails.impoundType || "Impound Insurance"
+    : insurance?.type || "N/A";
+
+  // Format cover period
+  const formatCoverPeriod = () => {
+    if (coverDetails.impoundType) {
+      return "1 Day (Impound)";
+    }
+    if (coverDetails.type && coverDetails.period) {
+      return `${coverDetails.period} ${coverDetails.type}`;
+    }
+    return "N/A";
+  };
+
+  // Format date and time
+  const formatDateTime = (dateString, timeString) => {
+    if (!dateString) return "N/A";
+    try {
+      const date = new Date(dateString);
+      const day = String(date.getDate()).padStart(2, "0");
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const year = date.getFullYear();
+      return `${day}/${month}/${year} at ${timeString || "00:00"}`;
+    } catch {
+      return dateString;
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -39,7 +91,7 @@ const CoverDetails = () => {
             Your Cover Details
           </h2>
           <p className={styles.subtitle}>
-            Policy number: <span>LC-912JHN12LL</span>
+            Policy number: <span>{policyNumber}</span>
           </p>
         </div>
         <div className={styles.actions}>
@@ -61,17 +113,46 @@ const CoverDetails = () => {
       </div>
       <div className={styles.body}>
         <Card
-          title="VOLKSWAGEN POLO SEL ( 84) 5H"
-          value="5 Door Hatchback, 1390 cc, Automatic, Petrol, 2010"
+          title={vehicleTitle.toUpperCase()}
+          value={vehicleDescription || "No vehicle details available"}
           img={{ src: "/svg/bluee-car.svg", width: 37, height: 47 }}
         />
         <div className={styles.row}>
-          <Card title="Your annual mileage" value="Up to 4,000 a year" />
-          <Card title="Vehicle modifications" value="None" />
-          <Card title="Voluntary excess" value="£284.50" />
+          <Card 
+            title="Cover Period" 
+            value={formatCoverPeriod()} 
+          />
+          <Card 
+            title="Vehicle Worth" 
+            value={vehicleDetails.worth ? `£${vehicleDetails.worth}` : "N/A"} 
+          />
+          <Card 
+            title="Voluntary Excess" 
+            value={carUsage.voluntaryExcess || "N/A"} 
+          />
         </div>
-        <Card title="Type of Insurance" value="Temporary Insurance" />
-        <CoverStart />
+        <div className={styles.row}>
+          <Card 
+            title="Type of Insurance" 
+            value={insuranceType} 
+          />
+          <Card 
+            title="Car Usage" 
+            value={carUsage.usageType || "N/A"} 
+          />
+        </div>
+        <Card 
+          title="License Type" 
+          value={carUsage.licenseType || "N/A"} 
+        />
+        <Card 
+          title="No Claims Bonus" 
+          value={carUsage.NCB ? `${carUsage.NCB} years` : "N/A"} 
+        />
+        <CoverStart 
+          startDate={coverDetails.startDate}
+          startTime={coverDetails.startTime}
+        />
       </div>
     </div>
   );

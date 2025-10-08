@@ -50,7 +50,7 @@ const ImpoundCoverDetails = () => {
                 timeLabel="Start Time"
                 timeKey="startTime"
               />
-            )}{" "}
+            )}
             <button
               onClick={() => setStartPolicyImmediately(!startPolicyImmediately)}
               className={styles.startButton}

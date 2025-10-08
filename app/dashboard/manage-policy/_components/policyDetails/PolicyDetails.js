@@ -10,7 +10,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
-const PolicyDetails = () => {
+
+const PolicyDetails = ({ insurance }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleDropdownToggle = () => {
@@ -29,6 +30,30 @@ const PolicyDetails = () => {
     } else if (option === "cancel") {
       // Handle cancel policy action
     }
+  };
+
+  const userDetails = insurance?.userDetails || {};
+  const vehicleDetails = insurance?.vehicleDetails || {};
+
+  // Format date of birth
+  const formatDate = (dateString) => {
+    if (!dateString) return "N/A";
+    try {
+      const date = new Date(dateString);
+      const day = String(date.getDate()).padStart(2, "0");
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const year = date.getFullYear();
+      return `${day}/${month}/${year}`;
+    } catch {
+      return dateString;
+    }
+  };
+
+  // Extract city from address
+  const extractCity = (address) => {
+    if (!address) return "N/A";
+    const parts = address.split(",");
+    return parts[parts.length - 1]?.trim() || "N/A";
   };
 
   return (
@@ -57,31 +82,70 @@ const PolicyDetails = () => {
       <div className={styles.body}>
         <div className={styles.row}>
           <InputWithData2
-            item={{ label: "Registration", value: "Roland Maguire" }}
+            item={{
+              label: "Full Name",
+              value: `${userDetails.firstName || ""} ${userDetails.surname || ""}`.trim() || "N/A",
+            }}
           />
           <InputWithData2
-            item={{ label: "Date of Birth", value: "01/01/1998", type: "date" }}
+            item={{
+              label: "Date of Birth",
+              value: formatDate(userDetails.dateOfBirth),
+              type: "date",
+            }}
           />
         </div>
 
         <div className={styles.row}>
           <InputWithData2
-            item={{ label: "Email Address", value: "johnsmith@outlook.com" }}
+            item={{
+              label: "Email Address",
+              value: userDetails.email || "N/A",
+            }}
           />
           <InputWithData2
-            item={{ label: "Phone Number", value: "+44 3847 837 8329" }}
+            item={{
+              label: "Phone Number",
+              value: userDetails.phone || "N/A",
+            }}
           />
         </div>
+
         <InputWithData2
           item={{
             label: "Home Address",
-            value: "Home Address: 21 London Town",
+            value: userDetails.address || "N/A",
           }}
         />
 
         <div className={styles.row}>
-          <InputWithData2 item={{ label: "Postcode", value: "NC8 2BC" }} />
-          <InputWithData2 item={{ label: "City", value: "London" }} />
+          <InputWithData2
+            item={{
+              label: "Postcode",
+              value: userDetails.postCode || "N/A",
+            }}
+          />
+          <InputWithData2
+            item={{
+              label: "City",
+              value: extractCity(userDetails.address),
+            }}
+          />
+        </div>
+
+        <div className={styles.row}>
+          <InputWithData2
+            item={{
+              label: "Employment Status",
+              value: userDetails.employmentStatus || "N/A",
+            }}
+          />
+          <InputWithData2
+            item={{
+              label: "Occupation",
+              value: userDetails.occupation || "N/A",
+            }}
+          />
         </div>
       </div>
     </div>
