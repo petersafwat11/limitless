@@ -9,6 +9,7 @@ import styles from "./page.module.css";
 import axios from "axios";
 import { API_BASE_URL } from "@/utils/config";
 import { redirect } from "next/navigation";
+import Actions from "../payment-summery/_components/actions/Actions";
 
 const page = async ({ searchParams }) => {
   const { id } = await searchParams;
@@ -70,14 +71,14 @@ const page = async ({ searchParams }) => {
       <div className={"centeredContent"}>
         <div className={styles.orderSummeryContainer}>
           <div className={styles.orderSummery}>
-            <OrderSummery 
+            <OrderSummery
               data={insuranceData.quote}
               vehicleDetails={insuranceData.vehicleDetails}
               carUsage={insuranceData.carUsage}
             />
           </div>
           <div className={styles.coverLevel}>
-            <CoverLevel 
+            <CoverLevel
               data={insuranceData.quote}
               insuranceType={insuranceData.type}
             />
@@ -103,16 +104,17 @@ const page = async ({ searchParams }) => {
                 // editIcon={true}
               />
             </div>
-            <Details 
+            <Details
               data={insuranceData.userDetails}
               carUsage={insuranceData.carUsage}
             />
           </div>
           <div className={styles.right}>
-            <CoverLevel 
+            <CoverLevel
               data={insuranceData.quote}
               insuranceType={insuranceData.type}
             />
+            <Actions insuranceId={id} />
           </div>
         </div>
       </div>
