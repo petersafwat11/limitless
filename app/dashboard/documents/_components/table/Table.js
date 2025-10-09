@@ -60,7 +60,9 @@ const Table = ({ title, columns, data }) => {
             </div>
             <div className={styles.documentType}>
               <Image src="/svg/pdf.svg" alt="pdf" width={30} height={30} />
-              <span className={styles.documentTypeValue}>{row.documentType}</span>
+              <span className={styles.documentTypeValue}>
+                {row.documentType}
+              </span>
             </div>
           </div>
         ))}
