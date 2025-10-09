@@ -35,6 +35,8 @@ export default function DownloadButton({ insuranceId, insuranceType }) {
           headers: {
             Authorization: `Bearer ${token}`,
           },
+          credentials: "include",
+          mode: "cors",
         }
       );
 

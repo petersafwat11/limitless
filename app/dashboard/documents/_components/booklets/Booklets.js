@@ -33,7 +33,11 @@ const Booklets = () => {
           For RAC breakdown cover claims, please call 0345 168 5586.
         </p>
       </div>{" "}
-      <div className={styles.second} onClick={handleDownload} style={{ cursor: "pointer" }}>
+      <div
+        className={styles.second}
+        onClick={handleDownload}
+        style={{ cursor: "pointer" }}
+      >
         <div className={styles.download}>
           {isDownloading ? (
             <div style={{ fontSize: "12px" }}>...</div>
