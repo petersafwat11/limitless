@@ -36,11 +36,8 @@ const page = async () => {
 
     if (response.ok) {
       const result = await response.json();
-      if (result.data && Array.isArray(result.data)) {
-        insurances = result.data;
-      }
+      insurances = result.data?.data || [];
     }
-    // }
   } catch (error) {
     console.error("Error fetching insurance:", error);
   }
