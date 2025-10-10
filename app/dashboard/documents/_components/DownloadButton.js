@@ -52,12 +52,15 @@ export default function DownloadButton({ insuranceId, insuranceType }) {
       const link = document.createElement("a");
       link.href = url;
       link.download = `Certificate_${insuranceId}.pdf`;
+      link.style.display = "none";
       document.body.appendChild(link);
       link.click();
       
-      // Cleanup
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+      // Cleanup after a short delay to ensure download starts
+      setTimeout(() => {
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      }, 100);
       
       toast.success("Certificate downloaded successfully!");
     } catch (error) {
