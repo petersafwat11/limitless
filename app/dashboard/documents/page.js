@@ -4,6 +4,8 @@ import Booklets from "./_components/booklets/Booklets";
 import Table from "./_components/table/Table";
 import DownloadButton from "./_components/DownloadButton";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
