@@ -9,32 +9,33 @@ export default function DownloadButton({ insuranceId, insuranceType }) {
 
   const handleDownload = async () => {
     setIsDownloading(true);
-    
-    try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-      
-      // Get token from cookies
-      const token = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith("token="))
-        ?.split("=")[1];
 
-      if (!token) {
-        toast.error("Please login to download documents");
-        setIsDownloading(false);
-        return;
-      }
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+      // Get token from cookies
+      // const token = document.cookie
+      //   .split("; ")
+      //   .find((row) => row.startsWith("token="))
+      //   ?.split("=")[1];
+
+      // if (!token) {
+      //   toast.error("Please login to download documents");
+      //   setIsDownloading(false);
+      //   return;
+      // }
 
       // Determine certificate type based on insurance type
-      const certificateType = insuranceType?.toLowerCase() === "impound" ? "impound" : "standard";
+      const certificateType =
+        insuranceType?.toLowerCase() === "impound" ? "impound" : "standard";
 
       const response = await fetch(
         `${apiUrl}/api/pdf/certificate/${insuranceId}?certificateType=${certificateType}`,
         {
           method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          // headers: {
+          //   Authorization: `Bearer ${token}`,
+          // },
           credentials: "include",
           mode: "cors",
         }
@@ -46,7 +47,7 @@ export default function DownloadButton({ insuranceId, insuranceType }) {
 
       // Get the blob from response
       const blob = await response.blob();
-      
+
       // Create a download link and trigger it
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
@@ -55,13 +56,13 @@ export default function DownloadButton({ insuranceId, insuranceType }) {
       link.style.display = "none";
       document.body.appendChild(link);
       link.click();
-      
+
       // Cleanup after a short delay to ensure download starts
       setTimeout(() => {
         document.body.removeChild(link);
         window.URL.revokeObjectURL(url);
       }, 100);
-      
+
       toast.success("Certificate downloaded successfully!");
     } catch (error) {
       console.error("Download error:", error);
@@ -100,12 +101,7 @@ export default function DownloadButton({ insuranceId, insuranceType }) {
         }
       }}
     >
-      <Image
-        src="/svg/pdf.svg"
-        alt="pdf"
-        width={18}
-        height={18}
-      />
+      <Image src="/svg/pdf.svg" alt="pdf" width={18} height={18} />
       <span>{isDownloading ? "Downloading..." : "Download PDF"}</span>
     </button>
   );

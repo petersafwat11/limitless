@@ -35,12 +35,12 @@ const Table = ({ title, columns, data }) => {
                 </td>
                 <td className={styles.tableCell}>
                   <div className={styles.documentType}>
-                    <Image
+                    {/* <Image
                       src="/svg/pdf.svg"
                       alt="pdf"
                       width={24}
                       height={24}
-                    />
+                    /> */}
                     <span className={styles.datacell}>{row.documentType}</span>
                   </div>
                 </td>
@@ -59,7 +59,7 @@ const Table = ({ title, columns, data }) => {
               <p className={styles.date}>{row.documentNumber}</p>
             </div>
             <div className={styles.documentType}>
-              <Image src="/svg/pdf.svg" alt="pdf" width={30} height={30} />
+              {/* <Image src="/svg/pdf.svg" alt="pdf" width={30} height={30} /> */}
               <span className={styles.documentTypeValue}>
                 {row.documentType}
               </span>
