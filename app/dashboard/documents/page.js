@@ -4,7 +4,6 @@ import Booklets from "./_components/booklets/Booklets";
 import Table from "./_components/table/Table";
 import DownloadButton from "./_components/DownloadButton";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { cookies } from "next/headers";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -12,13 +11,26 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 const page = async () => {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("jwt")?.value;
+
+  if (!token) {
+    redirect("/login");
+  }
+
   let insurances = [];
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/insurance`, {
-      cache: "no-store",
-      credentials: "include",
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/insurance`,
+      {
+        cache: "no-store",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        credentials: "include",
+      }
+    );
 
     if (response.ok) {
       const result = await response.json();
