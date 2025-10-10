@@ -15,15 +15,7 @@ const page = async () => {
   let insurances = [];
 
   try {
-    // const token = cookies().get("token")?.value;
-
-    // if (token) {
-    // Fetch user's insurance records
-    const apiUrl = process.env.API_URL || "http://localhost:8000";
-    const response = await fetch(`${apiUrl}/api/insurance`, {
-      // headers: {
-      //   Authorization: `Bearer ${token}`,
-      // },
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/insurance`, {
       cache: "no-store",
       credentials: "include",
     });
