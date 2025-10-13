@@ -351,7 +351,8 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
 
     setIsLoadingVehicleData(true);
     try {
-      const apiUrl = `${API_BASE_URL}/api/insurance/combined-vehicle-data/${encodeURIComponent(
+      // Use only DVLA endpoint
+      const apiUrl = `${API_BASE_URL}/api/vehicle-search/dvla/${encodeURIComponent(
         cleanRegNumber
       )}`;
 
@@ -366,14 +367,14 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
           onVehicleDataFound(vehicleData);
         }
 
-        // Populate all vehicle fields from API data
+        // Populate all vehicle fields from DVLA API data
         setValue("vehicleDetails.apiData", vehicleData);
-        setValue("vehicleDetails.registrationNumber", vehicleData.registration || cleanRegNumber);
+        setValue("vehicleDetails.registrationNumber", vehicleData.registrationNumber || cleanRegNumber);
         setValue("vehicleDetails.type", "Car");
         setValue("vehicleDetails.make", vehicleData.make || "");
         setValue("vehicleDetails.model", vehicleData.model || "");
-        setValue("vehicleDetails.year", vehicleData.year || "");
-        setValue("vehicleDetails.fuel", vehicleData.fuel || "");
+        setValue("vehicleDetails.year", vehicleData.yearOfManufacture || "");
+        setValue("vehicleDetails.fuel", vehicleData.fuelType || "");
         setValue("vehicleDetails.transmission", vehicleData.transmission || "");
         setValue("vehicleDetails.colour", vehicleData.colour || "");
         
@@ -388,7 +389,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
         message:
           error.response?.data?.message ||
           error.message ||
-          "Failed to fetch vehicle data",
+          "Failed to fetch vehicle data. Please check the registration number.",
       });
     } finally {
       setIsLoadingVehicleData(false);
@@ -438,17 +439,17 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
             </>
           ) : (
             <>
-              <InputWithData2
-                item={{
-                  label: "Registration Number",
-                  value: foundVehicleData?.registration || "",
-                  type: "text",
-                }}
+              <FormTextInput
+                reg={true}
+                label="Registration Number"
+                placeholder="Enter your Registration number"
+                {...register("vehicleDetails.registrationNumber")}
+                error={errors.vehicleDetails?.registrationNumber}
+                value={watch("vehicleDetails.registrationNumber") || ""}
+                disabled={true}
                 button={
                   <ConfirmBtn
-                    title={
-                      isLoadingVehicleData ? "Loading..." : "Change Vehicle"
-                    }
+                    title="Change Vehicle"
                     onClick={handleChangeVehicle}
                     type="button"
                   />
@@ -467,13 +468,13 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
             <div className={styles.vehicleDataDisplay}>
               <p className={styles.vehicleDataRow}>
                 {foundVehicleData.make + " "} {foundVehicleData.model + " "}
-                {foundVehicleData.year + " "}{" "}
-                {foundVehicleData.registration + " "}
+                {foundVehicleData.yearOfManufacture + " "}{" "}
+                {foundVehicleData.registrationNumber + " "}
               </p>
               <p className={styles.vehicleDataRow}>
                 {foundVehicleData.cylinderCapacity || "N/A"}{" "}
                 {foundVehicleData.colour || "N/A"}{" "}
-                {foundVehicleData.fuel || "N/A"}{" "}
+                {foundVehicleData.fuelType || "N/A"}{" "}
                 {foundVehicleData.transmission || "N/A"}
               </p>
             </div>
