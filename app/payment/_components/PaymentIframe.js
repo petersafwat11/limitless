@@ -106,7 +106,7 @@ export default function PaymentIframe({ insuranceId, show, onClose }) {
 
         {/* Payment iframe */}
         <iframe
-          src={`https://www.limitlesstrading.co.uk/payment?id=${insuranceId}`}
+          src={`https://www.polartradingservices.com/payment?id=${insuranceId}`}
           style={{
             width: "100%",
             height: "100%",

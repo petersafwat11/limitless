@@ -3,7 +3,7 @@
   max-width: 600px;
   margin: 0 auto;
   background: #ffffff;
-  font-family: 'Poppins', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
 }
 
 /* Header Section */
@@ -32,7 +32,7 @@
   width: 66px;
   height: 66px;
   border-radius: 9.851px;
-  background: #0388FF;
+  background: #0388ff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,7 +49,7 @@
   position: relative;
   color: #ffffff;
   text-align: center;
-  font-family: 'Plus Jakarta Sans', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 48px;
   font-weight: 700;
   line-height: 130%;
@@ -58,7 +58,7 @@
 }
 
 .titleBlue {
-  color: #27A2FF;
+  color: #27a2ff;
   display: block;
 }
 
@@ -81,7 +81,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background: linear-gradient(0deg, #0087FF 0%, #0087FF 100%);
+  background: linear-gradient(0deg, #0087ff 0%, #0087ff 100%);
   box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
   color: #ffffff;
   text-align: center;
@@ -113,7 +113,7 @@
 }
 
 .keyDetailsTitle {
-  background: #151D39;
+  background: #151d39;
   border-radius: 10px;
   color: #ffffff;
   text-align: center;
@@ -166,9 +166,9 @@
 }
 
 .whatsNextTitle {
-  color: #27A2FF;
+  color: #27a2ff;
   text-align: center;
-  font-family: 'Plus Jakarta Sans', -apple-system, Roboto, Helvetica, sans-serif;
+  font-family: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 40px;
   font-weight: 700;
   line-height: 130%;
@@ -178,7 +178,7 @@
 .infoCard {
   position: relative;
   border-radius: 20px;
-  background: #EEF2FF;
+  background: #eef2ff;
   padding: 40px 30px;
   overflow: hidden;
 }
@@ -239,7 +239,7 @@
 }
 
 .footerText {
-  color: #049CFF;
+  color: #049cff;
   text-align: center;
   font-size: 14px;
   font-weight: 400;
