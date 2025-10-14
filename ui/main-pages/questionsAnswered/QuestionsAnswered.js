@@ -41,7 +41,7 @@ const QuestionsAnswered = () => {
                 alt="arrow-down"
                 width={27}
                 height={27}
-                onClick={() => router.push("/FAQ")}
+                onClick={() => router.push("/faq")}
               />
             </div>
           </div>
@@ -102,7 +102,7 @@ const QuestionsAnswered = () => {
                   alt="arrow-down"
                   width={27}
                   height={27}
-                  onClick={() => router.push("/contact-us")}
+                  onClick={() => router.push("/contact")}
                 />
               </div>
             </div>

@@ -16,25 +16,25 @@ const validPages = [
   "/",
   "/about-us",
   "/change-password",
-  "/comming-soon",
+  "/coming-soon",
   "/complaints",
-  "/contact-us",
+  "/contact",
   "/cookies-policy",
   "/courier",
   "/courier-insurance",
   "/dashboard",
   "/delivery",
   "/error-404",
-  "/FAQ",
+  "/faq",
   "/forget-password",
   "/impound",
-  "/impound-insurance",
+  "/impound/get-quote",
   "/login",
   "/payment",
-  "/payment-summery",
+  "/payment-summary",
   "/privacy-policy",
   "/temporary",
-  "/temporary-insurance",
+  "/temporary/get-quote",
   "/terms-and-conditions",
   "/testing",
 ];
@@ -42,7 +42,7 @@ const validPages = [
 // Helper function to determine if special styles should be applied
 const shouldUseSpecialStyles = (pathname) => {
   // Always use special styles for contact-us
-  if (pathname === "/contact-us") return true;
+  if (pathname === "/contact") return true;
 
   // Use special styles for any page that doesn't exist in our valid pages list
   // This covers 404/not-found scenarios
@@ -191,7 +191,7 @@ const Footer = () => {
               </h3>
               <div className={styles.storesContainer}>
                 <Image
-                  onClick={() => router.push("/comming-soon")}
+                  onClick={() => router.push("/coming-soon")}
                   className={styles.store}
                   src={`${
                     shouldUseSpecialStyles(pathname)
@@ -204,7 +204,7 @@ const Footer = () => {
                 />
 
                 <Image
-                  onClick={() => router.push("/comming-soon")}
+                  onClick={() => router.push("/coming-soon")}
                   className={styles.store}
                   src={`${
                     shouldUseSpecialStyles(pathname)

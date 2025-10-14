@@ -8,6 +8,10 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import axios from "axios";
 
+export const metadata = {
+  title: "Your Claims | Limitless Cover",
+};
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],

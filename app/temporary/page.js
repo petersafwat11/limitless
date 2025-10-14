@@ -18,6 +18,11 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import TemporaryCover from "./_components/temporaryCover/TemporaryCover";
 import Explaining from "./_components/explaining/Explaining";
 import Calculator from "./_components/calculator/Calculator";
+
+export const metadata = {
+  title: "Temporary Insurance | Get Insured for 1 Hour to 28 Days | Limitless Cover",
+};
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],

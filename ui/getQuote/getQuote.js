@@ -105,7 +105,7 @@ const GetQuote = () => {
       }
 
       // Redirect to temporary-insurance with parameters
-      router.push(`/temporary-insurance?${params.toString()}`);
+      router.push(`/temporary/get-quote?${params.toString()}`);
     } catch (error) {
       console.error("Error submitting quote:", error);
       setError("root", {

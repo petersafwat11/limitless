@@ -3,6 +3,11 @@ import styles from "./page.module.css";
 import Header from "./_components/header/Header";
 import QuestionsGroup from "./_components/questionsGroup/QuestionsGroup";
 import { data } from "./data";
+
+export const metadata = {
+  title: "Frequently Asked Questions | Limitless Cover",
+};
+
 const Page = () => {
 
   return (

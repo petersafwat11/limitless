@@ -7,6 +7,10 @@ import OurStory from "./_components/ourStory/OurStory";
 import FastAndFair from "./_components/fastAndFair/FastAndFair";
 import Reviews from "../../ui/main-pages/reviews/Reviews";
 
+export const metadata = {
+  title: "About Limitless Cover | Limitless Cover",
+};
+
 const page = () => {
   const data = {
     title: `Welcome to Limitless Cover , where protecting what matters

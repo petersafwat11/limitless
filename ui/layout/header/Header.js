@@ -48,12 +48,12 @@ const Header = () => {
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} href="/comming-soon">
+              <Link className={styles.menuLink} href="/coming-soon">
                 Courier
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} href="/contact-us">
+              <Link className={styles.menuLink} href="/contact">
                 Contact Us
               </Link>
             </li>
@@ -170,16 +170,16 @@ const Header = () => {
                 className={`${styles.menuLink} ${
                   pathname === "/courier" ? styles.activeMenuLink : ""
                 }`}
-                href="/comming-soon"
+                href="/coming-soon"
                 onClick={() => setIsOpen(false)}
               >
                 Courier
               </Link>
               <Link
                 className={`${styles.menuLink} ${
-                  pathname === "/contact-us" ? styles.activeMenuLink : ""
+                  pathname === "/contact" ? styles.activeMenuLink : ""
                 }`}
-                href="/contact-us"
+                href="/contact"
                 onClick={() => setIsOpen(false)}
               >
                 Contact Us

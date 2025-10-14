@@ -94,7 +94,7 @@ const Calculator = () => {
             <ConfirmBtn
               title="Get a quote"
               onClick={() => {
-                router.push("/temporary-insurance");
+                router.push("/temporary/get-quote");
               }}
               className={styles.cardButton}
             />

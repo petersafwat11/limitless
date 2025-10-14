@@ -50,7 +50,7 @@ const Header = () => {
             <button
               className={styles.confirmBtn}
               onClick={() => {
-                router.push("/temporary-insurance");
+                router.push("/temporary-get-quote");
               }}
             >
               Get a Quote{" "}

@@ -4,15 +4,15 @@ export const menus = [
     items: [
       {
         title: "Temporary Insurance",
-        link: "/temporary-insurance",
+        link: "/temporary/get-quote",
       },
       {
         title: "Impound Insurance",
-        link: "/impound-insurance",
+        link: "/impound/get-quote",
       },
       {
         title: "Courier Insurance",
-        link: "/comming-soon",
+        link: "/coming-soon",
       },
       {
         title: "1 Week Insurance",
@@ -25,7 +25,7 @@ export const menus = [
     items: [
       {
         title: "FAQs",
-        link: "/FAQ",
+        link: "/faq",
       },
       {
         title: "Make a Claim",
@@ -33,7 +33,7 @@ export const menus = [
       },
       {
         title: "Complaints",
-        link: "/contact-us",
+        link: "/contact",
       },
     ],
   },

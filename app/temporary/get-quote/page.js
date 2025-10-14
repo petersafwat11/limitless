@@ -157,7 +157,7 @@ const TemporaryInsuranceContent = () => {
 
       // Success! Show toast and redirect to payment summary
       const insuranceId = result.data.insurance._id;
-      
+
       toast.success("Insurance application submitted successfully!", {
         position: "top-right",
         autoClose: 3000,
@@ -165,9 +165,8 @@ const TemporaryInsuranceContent = () => {
 
       // Redirect to payment summary with insurance ID
       setTimeout(() => {
-        router.push(`/payment-summery?id=${insuranceId}`);
+        router.push(`/payment-summary?id=${insuranceId}`);
       }, 1000);
-
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error(

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./temporaryCover.module.css";
-import Card from "@/app/comming-soon/_components/card/Card";
+import Card from "@/app/coming-soon/_components/card/Card";
 import { features } from "./data";
 import { Plus_Jakarta_Sans } from "next/font/google";
 const plusJakartaSans = Plus_Jakarta_Sans({

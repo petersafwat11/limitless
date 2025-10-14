@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./chooseService.module.css";
-import Card from "@/app/comming-soon/_components/card/Card";
+import Card from "@/app/coming-soon/_components/card/Card";
 import Image from "next/image";
-import { features } from "@/app/comming-soon/data";
+import { features } from "@/app/coming-soon/data";
 const ChooseService = () => {
   return (
     <div className={styles.container}>

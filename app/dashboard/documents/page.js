@@ -7,6 +7,10 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
+export const metadata = {
+  title: "Your Documentation | Limitless Cover",
+};
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],

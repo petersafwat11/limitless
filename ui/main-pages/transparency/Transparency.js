@@ -29,7 +29,7 @@ const Transparency = () => {
         <div className={styles.buttons}>
           <button
             onClick={() => {
-              router.push("/temporary-insurance");
+              router.push("/temporary/get-quote");
             }}
             className={styles.getQuoteBtn}
           >

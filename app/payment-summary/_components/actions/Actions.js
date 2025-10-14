@@ -12,7 +12,7 @@ const Actions = ({ insuranceId, showPopUp, onPayClick }) => {
     if (onPayClick) {
       onPayClick();
     } else if (insuranceId) {
-      // Otherwise navigate to payment page (payment-summery page)
+      // Otherwise navigate to payment page (payment-summary page)
       router.push(`/payment?id=${insuranceId}`);
     }
   };

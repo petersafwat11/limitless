@@ -63,8 +63,13 @@ const Table = ({ title, columns, data }) => {
                     </p>
                   </div>
                 </td>
-                 <td className={styles.tableCell}>
-                  <button onClick={() => router.push(`/dashboard/manage-claims/${row.id}`)} className={styles.view}>View</button>
+                <td className={styles.tableCell}>
+                  <button
+                    onClick={() => router.push(`/dashboard/claims/${row.id}`)}
+                    className={styles.view}
+                  >
+                    View
+                  </button>
                 </td>
               </tr>
             ))}
@@ -107,9 +112,7 @@ const Table = ({ title, columns, data }) => {
               </div>
 
               <div
-                onClick={() =>
-                  router.push(`/dashboard/manage-claims/${row.id}`)
-                }
+                onClick={() => router.push(`/dashboard/claims/${row.id}`)}
                 className={styles.actions}
               >
                 <button className={styles.view}>Details</button>

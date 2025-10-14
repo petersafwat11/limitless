@@ -6,6 +6,11 @@ import LastUpdated from "@/ui/company-pages/lastUpdated/LastUpdated";
 import ListItem from "@/ui/company-pages/listItem/listItem";
 import DoubleList from "@/ui/company-pages/doubleList/DoubleList";
 import NestedListItem from "@/ui/company-pages/nestedLists/NestedLists";
+
+export const metadata = {
+  title: "Cookies Policy | Limitless Cover",
+};
+
 const page = () => {
   return (
     <div className={styles.page}>

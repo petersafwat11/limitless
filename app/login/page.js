@@ -4,6 +4,10 @@ import Form from "./_components/form/Form";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import React, { Suspense } from "react";
 
+export const metadata = {
+  title: "Log in to Your Portal | Limitless Cover",
+};
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],

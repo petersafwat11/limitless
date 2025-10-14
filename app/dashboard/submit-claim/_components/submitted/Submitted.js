@@ -75,7 +75,7 @@ const Submitted = () => {
 
       <button
         className={styles.claimsPortal}
-        onClick={() => router.push("/dashboard/manage-claims")}
+        onClick={() => router.push("/dashboard/claims")}
       >
         Claims Portal
         <Image

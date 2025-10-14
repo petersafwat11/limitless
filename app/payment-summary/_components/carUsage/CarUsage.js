@@ -3,7 +3,7 @@ import styles from "./carUsage.module.css";
 import SelectedItem2 from "../selectedItem2/SelectedItem2";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import InputWithData2 from "@/ui/inputs/InputWithData2/InputWithData2";
-import { carUsageOptions } from "@/app/temporary-insurance/data";
+import { carUsageOptions } from "@/app/temporary/get-quote/data";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],

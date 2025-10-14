@@ -54,7 +54,7 @@ const Table = ({ title, columns, data, tableType }) => {
                 <td className={styles.tableCell}>
                   <button
                     className={styles.view}
-                    onClick={() => router.push(`/dashboard/manage-policy/${row.id}`)}
+                    onClick={() => router.push(`/dashboard/policy/${row.id}`)}
                   >
                     View
                   </button>
@@ -94,7 +94,7 @@ const Table = ({ title, columns, data, tableType }) => {
               <div className={styles.actions}>
                 <button
                   className={styles.view}
-                  onClick={() => router.push(`/dashboard/manage-policy/${row.id}`)}
+                  onClick={() => router.push(`/dashboard/policy/${row.id}`)}
                 >
                   Details
                 </button>

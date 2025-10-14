@@ -30,19 +30,21 @@ const page = async ({ params }) => {
       const result = await response.json();
       insurance = result.data?.data || null;
     } else {
-      redirect("/dashboard/manage-policy");
+      redirect("/dashboard/policy");
     }
   } catch (error) {
     console.error("Error fetching insurance:", error);
-    redirect("/dashboard/manage-policy");
+    redirect("/dashboard/policy");
   }
 
   if (!insurance) {
-    redirect("/dashboard/manage-policy");
+    redirect("/dashboard/policy");
   }
 
   // Generate policy number
-  const policyNumber = `${insurance.type.substring(0, 2).toUpperCase()}-${insurance._id.substring(insurance._id.length - 6)}`;
+  const policyNumber = `${insurance.type
+    .substring(0, 2)
+    .toUpperCase()}-${insurance._id.substring(insurance._id.length - 6)}`;
 
   return (
     <div className={styles.page}>

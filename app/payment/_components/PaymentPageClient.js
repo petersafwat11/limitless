@@ -7,7 +7,7 @@ import VehicleCovered from "./vehicleCovered/VehicleCovered";
 import Details from "./details/Details";
 import Duration from "./duration/Duration";
 import CoverLevel from "./coverLevel/CoverLevel";
-import Actions from "../../payment-summery/_components/actions/Actions";
+import Actions from "../../payment-summary/_components/actions/Actions";
 import PaymentIframe from "./PaymentIframe";
 import styles from "../page.module.css";
 

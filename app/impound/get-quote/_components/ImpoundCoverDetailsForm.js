@@ -5,7 +5,7 @@ import FormDataAndTime from "@/ui/inputs/FormDataAndTime";
 import Title from "@/ui/insurance-quotes/title/Title";
 import Selection4 from "@/ui/inputs/selections/selection4/Selection4";
 import Image from "next/image";
-import styles from "../../temporary-insurance/_components/components.module.css";
+import styles from "../../temporary/get-qoute/_components/components.module.css";
 
 const impoundTypeOptions = [
   "Impound Insurance",

@@ -44,7 +44,7 @@ const page = async ({ params }) => {
 
   // Redirect if no claim found or error
   if (!claim || error) {
-    redirect("/dashboard/manage-claims");
+    redirect("/dashboard/claims");
   }
 
   return (

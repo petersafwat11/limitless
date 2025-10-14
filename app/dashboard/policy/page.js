@@ -7,6 +7,10 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import PolicyPageClient from "./_components/PolicyPageClient";
 
+export const metadata = {
+  title: "Your Policy | Limitless Cover",
+};
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],

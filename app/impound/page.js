@@ -16,6 +16,11 @@ import WhenImpound from "./_components/whenImpound/WhenImpound";
 import QuestionsGroup from "./_components/questionsGroup/QuestionsGroup";
 import { questions } from "./data";
 import { Plus_Jakarta_Sans } from "next/font/google";
+
+export const metadata = {
+  title: "Impound Insurance | Instantly Release Your Impounded Vehicle | Limitless Cover",
+};
+
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],

@@ -24,7 +24,7 @@ const SideNavbar = ({ isOpen = false, onToggle, isMobile = false }) => {
     {
       label: "Manage Policy",
       icon: <MdOutlinePolicy className={styles.icon} />,
-      href: "/dashboard/manage-policy",
+      href: "/dashboard/policy",
     },
     {
       label: "Documents",
@@ -34,7 +34,7 @@ const SideNavbar = ({ isOpen = false, onToggle, isMobile = false }) => {
     {
       label: "Manage Claims",
       icon: <IoSettingsOutline className={styles.icon} />,
-      href: "/dashboard/manage-claims",
+      href: "/dashboard/claims",
     },
     {
       label: "Submit a Claim",

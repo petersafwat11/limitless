@@ -4,10 +4,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { impoundInsuranceSchema } from "@/utils/schemas/impoundInsuranceSchema";
 import Header from "@/ui/insurance-quotes/header/Header";
-import VehicleDetailsForm from "../temporary-insurance/_components/VehicleDetailsForm";
+import VehicleDetailsForm from "../temporary/get-quote/_components/VehicleDetailsForm";
 import ImpoundCoverDetailsForm from "./_components/ImpoundCoverDetailsForm";
-import PersonalDetailsForm from "../temporary-insurance/_components/PersonalDetailsForm";
-import TermsForm from "../temporary-insurance/_components/TermsForm";
+import PersonalDetailsForm from "../temporary/get-quote/_components/PersonalDetailsForm";
+import TermsForm from "../temporary/get-quote/_components/TermsForm";
 import { useRouter, useSearchParams } from "next/navigation";
 import { API_BASE_URL } from "@/utils/config";
 import { toast } from "react-toastify";
@@ -133,16 +133,15 @@ const ImpoundInsuranceContent = () => {
       }
 
       const insuranceId = result.data.insurance._id;
-      
+
       toast.success("Insurance application submitted successfully!", {
         position: "top-right",
         autoClose: 3000,
       });
 
       setTimeout(() => {
-        router.push(`/payment-summery?id=${insuranceId}`);
+        router.push(`/payment-summary?id=${insuranceId}`);
       }, 1000);
-
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error(

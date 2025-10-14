@@ -4,6 +4,11 @@ import Header from "@/ui/company-pages/header/Header";
 import { content } from "./data";
 import LastUpdated from "@/ui/company-pages/lastUpdated/LastUpdated";
 import ListItem from "@/ui/company-pages/listItem/listItem";
+
+export const metadata = {
+  title: "Complaints | Limitless Cover",
+};
+
 const page = () => {
   return (
     <div className={styles.page}>

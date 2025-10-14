@@ -20,7 +20,7 @@ const PolicyPageClient = ({
         </h2>
         <button
           onClick={() => {
-            router.push("/dashboard/manage-policy/create");
+            router.push("/dashboard/policy/create");
           }}
           className={styles.button}
         >

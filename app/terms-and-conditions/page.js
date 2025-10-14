@@ -7,7 +7,11 @@ import ListItem from "@/ui/company-pages/listItem/listItem";
 import DoubleList from "@/ui/company-pages/doubleList/DoubleList";
 import NestedListItem from "@/ui/company-pages/nestedLists/NestedLists";
 import ListWithDescription from "@/ui/company-pages/AnotherList/ListWithDescription";
-// l;;
+
+export const metadata = {
+  title: "Terms & Conditions | Limitless Cover",
+};
+
 const page = () => {
   return (
     <div className={styles.page}>
