@@ -46,7 +46,7 @@ const Header = ({ title }) => {
         />
         <div className={styles.titles}>
           <p className={`${styles.subTitle} ${manrope.className}`}>
-            lorem ipsum dolos sit
+            SPECIALIZED FOR VEHICLE INSURANCE
           </p>
 
           <div className={`${styles.title} ${plusJakartaSans.className}`}>

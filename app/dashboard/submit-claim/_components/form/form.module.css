@@ -31,6 +31,16 @@
 .row > div {
   flex: 1;
 }
+.submitButton {
+  display: flex;
+  width: 238px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
 
 @media screen and (max-width: 900px) {
   .form {

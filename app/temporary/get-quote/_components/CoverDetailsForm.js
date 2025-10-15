@@ -2,6 +2,7 @@
 import React from "react";
 import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWrapper";
 import FormDataAndTime from "@/ui/inputs/FormDataAndTime";
+import FormDropdown from "@/ui/inputs/FormDropdown";
 import Title from "@/ui/insurance-quotes/title/Title";
 import Selection1 from "@/ui/inputs/selections/selection1/Selection1";
 import styles from "./components.module.css";
@@ -22,7 +23,20 @@ const CoverDetailsForm = ({ form }) => {
   };
 
   const handlePeriodChange = (periodValue) => {
-    setValue("coverDetails.period", parseInt(periodValue));
+    const numValue = parseInt(periodValue);
+    if (!isNaN(numValue)) {
+      setValue("coverDetails.period", numValue);
+    }
+  };
+
+  const handleDropdownChange = (e) => {
+    const value = e.target.value;
+    if (value) {
+      const numValue = parseInt(value);
+      if (!isNaN(numValue)) {
+        setValue("coverDetails.period", numValue, { shouldValidate: true });
+      }
+    }
   };
 
   const getPeriodOptions = () => {
@@ -37,6 +51,21 @@ const CoverDetailsForm = ({ form }) => {
         return ["1", "2", "3", "6", "12"];
       default:
         return ["1", "2", "3", "4", "5", "6", "7"];
+    }
+  };
+
+  const getDropdownOptions = () => {
+    switch (coverType) {
+      case "Hours":
+        return Array.from({ length: 12 }, (_, i) => (i + 13).toString());
+      case "Days":
+        return Array.from({ length: 23 }, (_, i) => (i + 8).toString());
+      case "Weeks":
+        return Array.from({ length: 48 }, (_, i) => (i + 5).toString());
+      case "Months":
+        return [];
+      default:
+        return [];
     }
   };
 
@@ -55,12 +84,36 @@ const CoverDetailsForm = ({ form }) => {
                 setSelectedItem={handleTypeChange}
                 type="checkbox"
               />
-              <Selection1
-                noDotMobile
-                items={getPeriodOptions()}
-                selectedItem={period?.toString()}
-                setSelectedItem={handlePeriodChange}
-              />
+              <div className={styles.durationWrapper}>
+                <Selection1
+                  noDotMobile
+                  items={getPeriodOptions()}
+                  selectedItem={period?.toString()}
+                  setSelectedItem={handlePeriodChange}
+                />
+                {getDropdownOptions().length > 0 && (
+                  <div className={styles.dropdownOption}>
+                    <select
+                      className={styles.customDropdown}
+                      value={
+                        period && getDropdownOptions().includes(period.toString())
+                          ? period.toString()
+                          : ""
+                      }
+                      onChange={handleDropdownChange}
+                    >
+                      <option value="" disabled>
+                        More
+                      </option>
+                      {getDropdownOptions().map((option) => (
+                        <option key={option} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
           {errors.coverDetails?.type && (

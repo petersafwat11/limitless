@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./coverDetails.module.css";
 import Selection1 from "@/ui/inputs/selections/selection1/Selection1";
 import DataAndTime from "@/ui/inputs/selections/dataAndTime/DataAndTime";
+import FormDropdown from "@/ui/inputs/FormDropdown";
 import Title from "../title/Title";
 import ComponentWrapper from "../componentWrapper/ComponentWrapper";
 const CoverDetails = () => {
@@ -27,13 +28,29 @@ const CoverDetails = () => {
                 setSelectedItem={(item) => setData({ ...data, type: item })}
                 type="checkbox"
               />
-              <Selection1
-                noDotMobile
-                items={["1", "2", "3", "4", "5", "6", "7"]}
-                selectedItem={data.value}
-                setSelectedItem={(item) => setData({ ...data, value: item })}
-                // type="radio"
-              />
+              <div className={styles.durationWrapper}>
+                <Selection1
+                  noDotMobile
+                  items={["1", "2", "3", "4", "5", "6", "7"]}
+                  selectedItem={data.value}
+                  setSelectedItem={(item) => setData({ ...data, value: item })}
+                  // type="radio"
+                />
+                <div className={styles.dropdownOption}>
+                  <FormDropdown
+                    options={
+                      data.type === "Days"
+                        ? Array.from({ length: 28 }, (_, i) => (i + 8).toString())
+                        : data.type === "Weeks"
+                        ? Array.from({ length: 45 }, (_, i) => (i + 8).toString())
+                        : Array.from({ length: 5 }, (_, i) => (i + 8).toString())
+                    }
+                    placeholder="More"
+                    value={data.value}
+                    onChange={(e) => setData({ ...data, value: e.target.value })}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

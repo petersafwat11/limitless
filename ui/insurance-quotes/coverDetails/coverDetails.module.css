@@ -24,6 +24,16 @@
   align-items: center;
   gap: 1.8rem;
 }
+.durationWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex: 1;
+}
+.dropdownOption {
+  min-width: 12rem;
+  max-width: 15rem;
+}
 .inputGroup {
   display: flex;
   flex-direction: column;

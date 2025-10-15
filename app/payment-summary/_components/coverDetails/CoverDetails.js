@@ -25,7 +25,7 @@ const CoverDetails = ({ data }) => {
       <div className={styles.content}>
         <div className={styles.first}>
           <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
-            What type of vehicle is it?
+            How long will you need it?
           </h3>
           <div className={styles.duration}>
             <p className={styles.durationQuestion}>
@@ -39,7 +39,9 @@ const CoverDetails = ({ data }) => {
                 height={18}
               />
               <p className={styles.periodAnswer}>
-                {" "}{data?.period || 0} {data?.type || "Days"}
+                {data?.impoundType === "Impound Insurance"
+                  ? "30 Days"
+                  : (data?.period || 0) + " " + (data?.type || "Days")}
               </p>
             </div>
           </div>
@@ -56,7 +58,7 @@ const CoverDetails = ({ data }) => {
                 value: formatDate(data?.startDate) || "N/A",
               }}
             />
-            <InputWithData2 
+            <InputWithData2
               item={{
                 label: "Start Time",
                 type: "time",

@@ -9,7 +9,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-const Card = ({ img, title, description, href }) => {
+const Card = ({ img, title, description, href, button }) => {
   const router = useRouter();
   return (
     <div className={styles.container}>
@@ -31,7 +31,8 @@ const Card = ({ img, title, description, href }) => {
           <p className={styles.description}>{description}</p>
         </div>
         <button className={styles.button} onClick={() => router.push(href)}>
-          Get Started <FaArrowRightLong className={styles.arrow} />
+          {button ? button : "Get Started"}{" "}
+          <FaArrowRightLong className={styles.arrow} />
         </button>
       </div>
     </div>

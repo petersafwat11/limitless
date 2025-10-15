@@ -5,23 +5,32 @@ import styles from "./getQuote.module.css";
 import Image from "next/image";
 import FormTextInput from "../inputs/FormTextInput";
 import Selection1 from "../inputs/selections/selection1/Selection1";
+import FormDropdown from "../inputs/FormDropdown";
 const GetQuote = () => {
   const router = useRouter();
   const [registrationNumber, setRegistrationNumber] = useState("");
   const [quickSelection, setQuickSelection] = useState("");
   const [customDurationType, setCustomDurationType] = useState("");
   const [customDurationValue, setCustomDurationValue] = useState("");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleContinue = () => {
+    // Reset errors
+    setErrors({});
+    const newErrors = {};
+
     // Validate inputs
     if (!registrationNumber.trim()) {
-      setError("Please enter a registration number");
-      return;
+      newErrors.registrationNumber = "Please enter a registration number";
     }
 
     if (!quickSelection && !customDurationValue) {
-      setError("Please select a duration");
+      newErrors.duration = "Please select a duration";
+    }
+
+    // If there are errors, set them and return
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
@@ -63,25 +72,12 @@ const GetQuote = () => {
   const handleRegistrationChange = (e) => {
     const value = e.target.value.toUpperCase();
     setRegistrationNumber(value);
-    setError("");
+    if (errors.registrationNumber) {
+      setErrors({ ...errors, registrationNumber: undefined });
+    }
   };
   return (
     <div className={styles.container}>
-      {/* Display errors */}
-      {error && (
-        <div
-          style={{
-            color: "red",
-            marginBottom: "1rem",
-            padding: "0.5rem",
-            backgroundColor: "#fee",
-            borderRadius: "4px",
-          }}
-        >
-          {error}
-        </div>
-      )}
-
       <div className={styles.contentContainer}>
         <div className={styles.regInputContainer}>
           <FormTextInput
@@ -90,6 +86,7 @@ const GetQuote = () => {
             reg={true}
             value={registrationNumber}
             onChange={handleRegistrationChange}
+            error={errors.registrationNumber ? { message: errors.registrationNumber } : null}
           />
         </div>
       </div>
@@ -102,10 +99,17 @@ const GetQuote = () => {
             setQuickSelection(item);
             setCustomDurationType("");
             setCustomDurationValue("");
-            setError("");
+            if (errors.duration) {
+              setErrors({ ...errors, duration: undefined });
+            }
           }}
           type="checkbox"
         />
+        {errors.duration && (
+          <span style={{ color: "#dc3545", fontSize: "1.2rem", marginTop: "0.5rem" }}>
+            {errors.duration}
+          </span>
+        )}
       </div>
 
       <div className={styles.selection}>
@@ -117,7 +121,9 @@ const GetQuote = () => {
             setCustomDurationType(item);
             setCustomDurationValue("");
             setQuickSelection("");
-            setError("");
+            if (errors.duration) {
+              setErrors({ ...errors, duration: undefined });
+            }
           }}
           type="checkbox"
         />
@@ -126,33 +132,56 @@ const GetQuote = () => {
       {["Hours", "Days", "Weeks"].includes(customDurationType) && (
         <div className={styles.selection}>
           <p className={styles.label}>Select the duration of your cover</p>
-          <Selection1
-            items={
-              customDurationType === "Days"
-                ? ["1", "2", "3", "4", "5", "6", "7"]
-                : customDurationType === "Hours"
-                ? [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                    "7",
-                    "8",
-                    "9",
-                    "10",
-                    "11",
-                    "12",
-                  ]
-                : ["1", "2", "3", "4"]
-            }
-            selectedItem={customDurationValue}
-            setSelectedItem={(item) => {
-              setCustomDurationValue(item);
-              setError("");
-            }}
-          />
+          <div className={styles.durationSelectionWrapper}>
+            <Selection1
+              items={
+                customDurationType === "Days"
+                  ? ["1", "2", "3", "4", "5", "6", "7"]
+                  : customDurationType === "Hours"
+                  ? [
+                      "1",
+                      "2",
+                      "3",
+                      "4",
+                      "5",
+                      "6",
+                      "7",
+                      "8",
+                      "9",
+                      "10",
+                      "11",
+                      "12",
+                    ]
+                  : ["1", "2", "3", "4"]
+              }
+              selectedItem={customDurationValue}
+              setSelectedItem={(item) => {
+                setCustomDurationValue(item);
+                if (errors.duration) {
+                  setErrors({ ...errors, duration: undefined });
+                }
+              }}
+            />
+            <div className={styles.dropdownOption}>
+              <FormDropdown
+                options={
+                  customDurationType === "Days"
+                    ? Array.from({ length: 23 }, (_, i) => (i + 8).toString())
+                    : customDurationType === "Hours"
+                    ? Array.from({ length: 12 }, (_, i) => (i + 13).toString())
+                    : Array.from({ length: 48 }, (_, i) => (i + 5).toString())
+                }
+                placeholder="More options"
+                value={customDurationValue}
+                onChange={(e) => {
+                  setCustomDurationValue(e.target.value);
+                  if (errors.duration) {
+                    setErrors({ ...errors, duration: undefined });
+                  }
+                }}
+              />
+            </div>
+          </div>
         </div>
       )}
 

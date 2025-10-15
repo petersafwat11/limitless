@@ -33,7 +33,7 @@ export const menus = [
       },
       {
         title: "Complaints",
-        link: "/contact",
+        link: "/complaints",
       },
     ],
   },

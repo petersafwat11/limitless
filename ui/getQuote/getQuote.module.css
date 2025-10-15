@@ -90,6 +90,21 @@
   gap: 1.6rem;
   width: 100%;
 }
+.durationSelectionWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  width: 100%;
+}
+.dropdownOption {
+  min-width: 5rem;
+  max-width: 10rem;
+  height: 100%;
+}
+
+.dropdownOption > div {
+  height: 100% !important;
+}
 .label {
   color: #000822;
   font-size: 1.4rem;

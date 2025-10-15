@@ -197,10 +197,11 @@ const Form = ({ claimReason }) => {
           style={{
             backgroundColor: "#f8d7da",
             color: "#721c24",
-            padding: "0.75rem",
+            padding: "1rem",
             marginBottom: "1rem",
             borderRadius: "0.25rem",
             border: "1px solid #f5c6cb",
+            fontSize: "2rem",
           }}
         >
           {errors.root.message}
@@ -398,20 +399,27 @@ const Form = ({ claimReason }) => {
           />
 
           {/* Submit Button */}
-          <div style={{ marginTop: "2rem" }}>
+          <div
+            style={{
+              marginTop: "2rem",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
+          >
             <button
               type="submit"
               disabled={isSubmitting}
-              style={{
-                width: "100%",
-                padding: "1rem",
-                backgroundColor: isSubmitting ? "#ccc" : "#007bff",
-                color: "white",
-                border: "none",
-                borderRadius: "0.5rem",
-                fontSize: "1rem",
-                cursor: isSubmitting ? "not-allowed" : "pointer",
-              }}
+              // style={{
+              //   width: "100%",
+              //   padding: "1rem",
+              //   backgroundColor: isSubmitting ? "#ccc" : "#007bff",
+              //   color: "white",
+              //   border: "none",
+              //   borderRadius: "0.5rem",
+              //   fontSize: "1rem",
+              //   cursor: isSubmitting ? "not-allowed" : "pointer",
+              // }}
+              className={styles.submitButton}
             >
               {isSubmitting ? "Submitting Claim..." : "Submit Claim"}
             </button>

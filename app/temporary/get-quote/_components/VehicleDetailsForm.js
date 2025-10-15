@@ -98,7 +98,11 @@ const carColors = [
   "Yellow",
 ];
 
-const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = false }) => {
+const VehicleDetailsForm = ({
+  form,
+  onVehicleDataFound,
+  autoTriggerLookup = false,
+}) => {
   const [showVehicleDetails, setShowVehicleDetails] = useState(false);
   const [isLoadingVehicleData, setIsLoadingVehicleData] = useState(false);
   const [state, dispatch] = useReducer(vehicleReducer, initialState);
@@ -198,11 +202,11 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
         // Ensure auto-selected values are included in options
         if (autoSelect) {
           const fieldMapping = {
-            model: 'models',
-            year: 'years',
-            doors: 'doors',
-            fuel: 'fuels',
-            transmission: 'transmissions'
+            model: "models",
+            year: "years",
+            doors: "doors",
+            fuel: "fuels",
+            transmission: "transmissions",
           };
 
           Object.entries(autoSelect).forEach(([field, value]) => {
@@ -287,16 +291,37 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
       let shouldClearOptions = false;
 
       const fieldChanges = [
-        { param: "make", clear: { model: "", year: "", doors: "", fuel: "", transmission: "" }, clearOptions: true },
-        { param: "model", clear: { year: "", doors: "", fuel: "", transmission: "" }, clearOptions: false },
-        { param: "year", clear: { doors: "", fuel: "", transmission: "" }, clearOptions: false },
-        { param: "doors", clear: { fuel: "", transmission: "" }, clearOptions: false },
-        { param: "fuel", clear: { transmission: "" }, clearOptions: false }
+        {
+          param: "make",
+          clear: { model: "", year: "", doors: "", fuel: "", transmission: "" },
+          clearOptions: true,
+        },
+        {
+          param: "model",
+          clear: { year: "", doors: "", fuel: "", transmission: "" },
+          clearOptions: false,
+        },
+        {
+          param: "year",
+          clear: { doors: "", fuel: "", transmission: "" },
+          clearOptions: false,
+        },
+        {
+          param: "doors",
+          clear: { fuel: "", transmission: "" },
+          clearOptions: false,
+        },
+        { param: "fuel", clear: { transmission: "" }, clearOptions: false },
       ];
 
       for (const { param, clear, clearOptions } of fieldChanges) {
         if (previousParams.get(param) !== currentParams.get(param)) {
-          clearDependentFields(param, setValue, isAutoSelectingRef, clearErrors);
+          clearDependentFields(
+            param,
+            setValue,
+            isAutoSelectingRef,
+            clearErrors
+          );
           fieldsToClear = clear;
           shouldClearOptions = clearOptions;
           break;
@@ -370,7 +395,10 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
 
         // Populate all vehicle fields from DVLA API data
         setValue("vehicleDetails.apiData", vehicleData);
-        setValue("vehicleDetails.registrationNumber", vehicleData.registrationNumber || cleanRegNumber);
+        setValue(
+          "vehicleDetails.registrationNumber",
+          vehicleData.registrationNumber || cleanRegNumber
+        );
         setValue("vehicleDetails.type", "Car");
         setValue("vehicleDetails.make", vehicleData.make || "");
         setValue("vehicleDetails.model", vehicleData.model || "");
@@ -378,7 +406,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
         setValue("vehicleDetails.fuel", vehicleData.fuelType || "");
         setValue("vehicleDetails.transmission", vehicleData.transmission || "");
         setValue("vehicleDetails.colour", vehicleData.colour || "");
-        
+
         clearErrors("vehicleDetails.registrationNumber");
         clearErrors("vehicleDetails.type");
         clearErrors("vehicleDetails.make");
@@ -403,7 +431,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
     setValue("vehicleDetails.registrationNumber", "");
     setValue("vehicleDetails.apiData", null);
     clearErrors("vehicleDetails.registrationNumber");
-    
+
     if (onVehicleDataFound) {
       onVehicleDataFound(null);
     }
@@ -503,7 +531,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
 
         {/* Vehicle Data Display */}
 
-        <Title title="What type of vehicle is it?" />
+        {showVehicleDetails && <Title title="What type of vehicle is it?" />}
 
         <div
           className={`${styles.vehicleDetailsContainer} ${
@@ -541,7 +569,11 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
                 placeholder={
                   !selectedMake ? "Select make first" : "Select Model"
                 }
-                disabled={!!foundVehicleData || !selectedMake || state.options.models.length === 0}
+                disabled={
+                  !!foundVehicleData ||
+                  !selectedMake ||
+                  state.options.models.length === 0
+                }
                 value={state.values.model || selectedModel || ""}
                 onChange={(e) => handleDropdownChange("model", e.target.value)}
                 {...register("vehicleDetails.model")}
@@ -554,7 +586,11 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
                 placeholder={
                   !selectedModel ? "Select model first" : "Select Year"
                 }
-                disabled={!!foundVehicleData || !selectedModel || state.options.years.length === 0}
+                disabled={
+                  !!foundVehicleData ||
+                  !selectedModel ||
+                  state.options.years.length === 0
+                }
                 value={state.values.year || selectedYear || ""}
                 onChange={(e) => handleDropdownChange("year", e.target.value)}
                 {...register("vehicleDetails.year")}
@@ -569,7 +605,11 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
                 placeholder={
                   !selectedYear ? "Select year first" : "Select Doors"
                 }
-                disabled={!!foundVehicleData || !selectedYear || state.options.doors.length === 0}
+                disabled={
+                  !!foundVehicleData ||
+                  !selectedYear ||
+                  state.options.doors.length === 0
+                }
                 value={state.values.doors || selectedDoors || ""}
                 onChange={(e) => handleDropdownChange("doors", e.target.value)}
                 {...register("vehicleDetails.doors")}
@@ -582,7 +622,11 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
                 placeholder={
                   !selectedDoors ? "Select doors first" : "Select Fuel Type"
                 }
-                disabled={!!foundVehicleData || !selectedDoors || state.options.fuels.length === 0}
+                disabled={
+                  !!foundVehicleData ||
+                  !selectedDoors ||
+                  state.options.fuels.length === 0
+                }
                 value={state.values.fuel || selectedFuel || ""}
                 onChange={(e) => handleDropdownChange("fuel", e.target.value)}
                 {...register("vehicleDetails.fuel")}
@@ -600,7 +644,9 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
                     : "Select Transmission"
                 }
                 disabled={
-                  !!foundVehicleData || !selectedFuel || state.options.transmissions.length === 0
+                  !!foundVehicleData ||
+                  !selectedFuel ||
+                  state.options.transmissions.length === 0
                 }
                 value={
                   state.values.transmission ||

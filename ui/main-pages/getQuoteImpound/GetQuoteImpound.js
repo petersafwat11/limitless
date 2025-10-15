@@ -13,7 +13,7 @@ const GetQuoteImpound = () => {
   const [startDateDay, setStartDateDay] = useState("");
   const [startDateMonth, setStartDateMonth] = useState("");
   const [startDateYear, setStartDateYear] = useState("");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({});
 
   // Get current date
   const today = new Date();
@@ -21,8 +21,15 @@ const GetQuoteImpound = () => {
   const currentMonth = today.getMonth(); // 0-11
   const currentDay = today.getDate();
 
-  // Generate year options (current year + next 10 years)
-  const yearOptions = Array.from({ length: 11 }, (_, i) => (currentYear + i).toString());
+  // Calculate max date (2 months ahead)
+  const maxDate = new Date(today);
+  maxDate.setMonth(maxDate.getMonth() + 2);
+  const maxYear = maxDate.getFullYear();
+  const maxMonth = maxDate.getMonth();
+  const maxDay = maxDate.getDate();
+
+  // Only current year (2025)
+  const yearOptions = [currentYear.toString()];
 
   // Month names
   const monthNames = [
@@ -34,11 +41,15 @@ const GetQuoteImpound = () => {
   const getAvailableMonths = () => {
     if (!startDateYear) return monthNames;
     const selectedYear = parseInt(startDateYear);
-    if (selectedYear > currentYear) {
-      return monthNames; // All months available for future years
+    
+    // Only current year allowed
+    if (selectedYear !== currentYear) {
+      return [];
     }
-    // For current year, only show current month onwards
-    return monthNames.slice(currentMonth);
+    
+    // For current year, show from current month to max month (2 months ahead)
+    const availableMonths = monthNames.slice(currentMonth, maxMonth + 1);
+    return availableMonths;
   };
 
   // Generate available days based on selected month and year
@@ -59,18 +70,31 @@ const GetQuoteImpound = () => {
       return allDays.filter(day => parseInt(day) >= currentDay);
     }
 
+    // If it's the max month (2 months ahead), only show days up to maxDay
+    if (selectedYear === maxYear && selectedMonthIndex === maxMonth) {
+      return allDays.filter(day => parseInt(day) <= maxDay);
+    }
+
     return allDays;
   };
 
   const handleContinue = () => {
+    // Reset errors
+    setErrors({});
+    const newErrors = {};
+
     // Validate inputs
     if (!registrationNumber.trim()) {
-      setError("Please enter a registration number");
-      return;
+      newErrors.registrationNumber = "Please enter a registration number";
     }
 
     if (!startDateDay || !startDateMonth || !startDateYear) {
-      setError("Please select a policy start date");
+      newErrors.startDate = "Please select a complete policy start date";
+    }
+
+    // If there are errors, set them and return
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
@@ -93,7 +117,9 @@ const GetQuoteImpound = () => {
   const handleRegistrationChange = (e) => {
     const value = e.target.value.toUpperCase();
     setRegistrationNumber(value);
-    setError("");
+    if (errors.registrationNumber) {
+      setErrors({ ...errors, registrationNumber: undefined });
+    }
   };
 
   // Handle year change - reset month and day if they become invalid
@@ -104,7 +130,9 @@ const GetQuoteImpound = () => {
       setStartDateMonth("");
       setStartDateDay("");
     }
-    setError("");
+    if (errors.startDate) {
+      setErrors({ ...errors, startDate: undefined });
+    }
   };
 
   // Handle month change - reset day if it becomes invalid
@@ -114,25 +142,12 @@ const GetQuoteImpound = () => {
     if (startDateDay && !availableDays.includes(startDateDay)) {
       setStartDateDay("");
     }
-    setError("");
+    if (errors.startDate) {
+      setErrors({ ...errors, startDate: undefined });
+    }
   };
   return (
     <div className={styles.container}>
-      {/* Display errors */}
-      {error && (
-        <div
-          style={{
-            color: "red",
-            marginBottom: "1rem",
-            padding: "0.5rem",
-            backgroundColor: "#fee",
-            borderRadius: "4px",
-          }}
-        >
-          {error}
-        </div>
-      )}
-
       <div className={styles.contentContainer}>
         <div className={styles.regInputContainer}>
           <TextInput
@@ -141,6 +156,7 @@ const GetQuoteImpound = () => {
             reg={true}
             value={registrationNumber}
             onChange={(e) => handleRegistrationChange(e)}
+            error={errors.registrationNumber ? { message: errors.registrationNumber } : null}
           />
         </div>
       </div>
@@ -162,7 +178,9 @@ const GetQuoteImpound = () => {
             value={startDateDay}
             onChange={(e) => {
               setStartDateDay(e.target.value);
-              setError("");
+              if (errors.startDate) {
+                setErrors({ ...errors, startDate: undefined });
+              }
             }}
             disabled={!startDateYear || !startDateMonth}
           />
@@ -180,6 +198,11 @@ const GetQuoteImpound = () => {
             onChange={(e) => handleYearChange(e.target.value)}
           />
         </div>
+        {errors.startDate && (
+          <span style={{ color: "#dc3545", fontSize: "1.2rem", marginTop: "0.5rem", display: "block" }}>
+            {errors.startDate}
+          </span>
+        )}
       </div>
       <button type="button" onClick={handleContinue} className={styles.button}>
         Continue{" "}

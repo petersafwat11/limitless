@@ -31,7 +31,6 @@ export const licenseHeldOptions = [
   "12 years",
   "13 years",
   "14 years",
-  "15 years",
   "15+ years",
 ];
 

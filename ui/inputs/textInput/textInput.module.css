@@ -29,11 +29,12 @@
   width: 100%;
   border-radius: 1.2rem;
   background: #ecf0fe;
-  height: 6.4rem;
+  /* height: 6.4rem; */
+  height: 5.73rem;
 }
 .inputSpan {
-  width: 5.2rem;
-  height: 5.2rem;
+  width: 4.4rem;
+  height: 4.4rem;
   border-radius: 1rem;
   background: #fff;
   display: flex;
@@ -57,6 +58,7 @@
   background: transparent;
   padding: 2.4rem;
   width: 100%;
+  height: 100%;
 }
 .input::placeholder {
   color: rgba(0, 8, 34, 0.4);

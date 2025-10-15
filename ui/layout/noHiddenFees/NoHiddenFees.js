@@ -41,9 +41,9 @@ const NoHiddenFees = () => {
             />
           </button>
           <button
-            // onClick={() => {
-            //   router.push("/temporary-insurance");
-            // }}
+            onClick={() => {
+              router.push("/login");
+            }}
             className={styles.membersPortalBtn}
           >
             Members Portal{" "}

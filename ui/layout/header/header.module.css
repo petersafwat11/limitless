@@ -35,15 +35,17 @@
   padding: 1rem;
   border-radius: 1rem;
 }
-.menuItem:hover {
-  background: linear-gradient(0deg, #0388ff 0%, #0388ff 100%), #fff;
-}
 .menuLink {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 124%;
+  transition: all 0.2s ease-in-out;
 }
+.menuLink:hover {
+  color: #049cff;
+}
+
 .buttons {
   /* width: 30.4rem; */
   height: 6.4rem;

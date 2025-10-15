@@ -7,7 +7,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.6rem;
   width: 100%;
   position: relative;
 }
@@ -26,13 +26,14 @@
   width: 100%;
   border-radius: 1.2rem;
   background: #ecf0fe;
-  height: 6.4rem;
+  /* height: 6.4rem; */
+  height: 5.73rem;
   position: relative;
   cursor: pointer;
 }
 .iconContainer {
-  width: 5.2rem;
-  height: 5.2rem;
+  width: 4.4rem;
+  height: 4.4rem;
   border-radius: 1rem;
   background: #fff;
   display: flex;
