@@ -144,12 +144,19 @@
     right: -20rem;
     left: auto;
   }
-  .headerContainer {
+  /* .headerContainer {
     border-radius: 18px;
     background: #000822;
     margin: 2.6rem 2% 0;
-    padding: 3.9rem 0 1.6rem;
+    padding: 0;
     width: 96%;
+  } */
+  .headerContainer {
+    border-radius: 18px;
+    background: #000822;
+    padding: 0;
+    margin: 2.6rem 4% 0;
+    width: 92%;
   }
 
   .subTitle {
