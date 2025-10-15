@@ -3,7 +3,7 @@ import styles from "./textInput.module.css";
 const TextInput = ({
   label,
   value,
-  setValue,
+  onChange,
   placeholder,
   type,
   reg,
@@ -16,12 +16,11 @@ const TextInput = ({
         <div className={styles.inputContainer}>
           {reg && <span className={styles.inputSpan}> GB</span>}
           <input
-        
             type={type}
             placeholder={placeholder}
             className={`${styles.input} ${reg ? styles.reg : ""}`}
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
+            value={value || ""}
+            onChange={onChange}
           />
         </div>
         {button && button}

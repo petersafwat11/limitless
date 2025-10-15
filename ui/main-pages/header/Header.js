@@ -7,6 +7,7 @@ import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import GetQuote from "../../getQuote/getQuote";
 import GetQuoteImpound from "../getQuoteImpound/GetQuoteImpound";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -17,6 +18,7 @@ const manrope = Manrope({
   weight: ["400", "500", "600", "700"],
 });
 const Header = ({ subTitle, title, description, features }) => {
+  const router = useRouter();
   const words = title.split(" ");
   const lastWord = words[words.length - 1];
   const withoutLastWord = words.slice(0, -1).join(" ");
@@ -61,7 +63,14 @@ const Header = ({ subTitle, title, description, features }) => {
                 </div>
               </div>
               <p className={`${styles.description} `}>{description}</p>
-              <button className={styles.confirmBtn} onClick={() => {}}>
+              <button
+                className={styles.confirmBtn}
+                onClick={() => {
+                  title === "Impound Insurance"
+                    ? router.push("/impound/get-quote")
+                    : router.push("/temporary/get-quote");
+                }}
+              >
                 Get a Quote{" "}
                 <Image
                   src="/svg/arrow-right.svg"

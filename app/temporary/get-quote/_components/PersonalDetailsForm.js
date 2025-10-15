@@ -34,6 +34,67 @@ const PersonalDetailsForm = ({ form }) => {
   const [addresses, setAddresses] = useState([]);
   const [isLoadingAddresses, setIsLoadingAddresses] = useState(false);
   const [showAddressDropdown, setShowAddressDropdown] = useState(false);
+  const [dynamicNcbOptions, setDynamicNcbOptions] = useState(ncbOptions);
+
+  // Watch employment status to disable industry and occupation
+  const employmentStatus = watch("userDetails.employmentStatus");
+  const isRetiredOrUnemployed = employmentStatus === "Retired" || employmentStatus === "Unemployed";
+  
+  // Watch date of birth to calculate dynamic NCB options
+  const dateOfBirth = watch("userDetails.dateOfBirth");
+
+  // Effect to set industry and occupation to N/A when retired or unemployed
+  React.useEffect(() => {
+    if (isRetiredOrUnemployed) {
+      setValue("userDetails.industry", "N/A");
+      setValue("userDetails.occupation", "N/A");
+    }
+  }, [isRetiredOrUnemployed, setValue]);
+
+  // Effect to calculate dynamic NCB options based on date of birth
+  React.useEffect(() => {
+    if (dateOfBirth) {
+      const dob = new Date(dateOfBirth);
+      const today = new Date();
+      const age = today.getFullYear() - dob.getFullYear();
+      const monthDiff = today.getMonth() - dob.getMonth();
+      const dayDiff = today.getDate() - dob.getDate();
+      
+      // Calculate exact age
+      let exactAge = age;
+      if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+        exactAge--;
+      }
+      
+      // Maximum NCB years = current age - 17 (minimum driving age in UK)
+      const maxNCBYears = Math.max(0, exactAge - 17);
+      
+      // Generate NCB options from 0 to maxNCBYears
+      const options = [];
+      for (let i = 0; i <= Math.min(maxNCBYears, 15); i++) {
+        options.push(i.toString());
+      }
+      
+      // Add "15+" only if user can have 15+ years of NCB
+      if (maxNCBYears >= 15) {
+        options.push("15+");
+      }
+      
+      setDynamicNcbOptions(options);
+      
+      // Reset NCB value if current value exceeds maximum
+      const currentNCB = watch("carUsage.NCB");
+      if (currentNCB) {
+        const currentNCBValue = currentNCB === "15+" ? 15 : parseInt(currentNCB);
+        if (currentNCBValue > maxNCBYears) {
+          setValue("carUsage.NCB", "");
+        }
+      }
+    } else {
+      // If no DOB selected, show all options
+      setDynamicNcbOptions(ncbOptions);
+    }
+  }, [dateOfBirth, setValue, watch]);
 
   const handleFindAddress = async () => {
     const postcode = watch("userDetails.postCode");
@@ -160,6 +221,8 @@ const PersonalDetailsForm = ({ form }) => {
             placeholder="Enter your Industry"
             {...register("userDetails.industry")}
             error={errors.userDetails?.industry}
+            disabled={isRetiredOrUnemployed}
+            value={isRetiredOrUnemployed ? "N/A" : watch("userDetails.industry")}
           />
           <FormAutocomplete
             label="Occupation"
@@ -167,8 +230,9 @@ const PersonalDetailsForm = ({ form }) => {
             placeholder="Type or select your occupation"
             {...register("userDetails.occupation")}
             error={errors.userDetails?.occupation}
-            value={watch("userDetails.occupation")}
+            value={isRetiredOrUnemployed ? "N/A" : watch("userDetails.occupation")}
             onChange={(e) => setValue("userDetails.occupation", e.target.value)}
+            disabled={isRetiredOrUnemployed}
           />
         </div>
       </div>
@@ -254,7 +318,7 @@ const PersonalDetailsForm = ({ form }) => {
           <div className={styles.row}>
             <FormDropdown
               label="No Claims Bonus (NCB) Years"
-              options={ncbOptions}
+              options={dynamicNcbOptions}
               placeholder="Select no claims bonus years"
               {...register("carUsage.NCB")}
               error={errors.carUsage?.NCB}

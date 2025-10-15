@@ -86,7 +86,11 @@ const Header = () => {
           )}
           <button
             className={styles.quoteBtn}
-            onClick={isDashboard ? openLiveChat : undefined}
+            onClick={
+              isDashboard
+                ? openLiveChat
+                : () => router.push("/temporary/get-quote")
+            }
           >
             {isDashboard ? "Live chat" : "Get Quote"}
             <Image
@@ -111,19 +115,9 @@ const Header = () => {
           <button
             onClick={() => {
               if (isDashboard) {
-                console.log(
-                  "Dashboard sidebar button clicked! Current isOpen:",
-                  isDashboardSidebarOpen
-                );
                 setIsDashboardSidebarOpen(!isDashboardSidebarOpen);
-                console.log(
-                  "Setting isDashboardSidebarOpen to:",
-                  !isDashboardSidebarOpen
-                );
               } else {
-                console.log("Button clicked! Current isOpen:", isOpen);
                 setIsOpen(!isOpen);
-                console.log("Setting isOpen to:", !isOpen);
               }
             }}
             className={styles.menuBtn}
@@ -200,6 +194,8 @@ const Header = () => {
                 onClick={() => {
                   if (isDashboard) {
                     openLiveChat();
+                  } else {
+                    router.push("/temporary/get-quote");
                   }
                   setIsOpen(false);
                 }}

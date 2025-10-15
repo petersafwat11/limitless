@@ -145,9 +145,9 @@
 @media (max-width: 800px) {
   .container {
     padding: 2.2rem;
-    width: 91.2%;
-    margin: 2.6rem 4.4% 2.6rem;
-    min-width: 91.2%;
+    width: 91.2vw;
+    margin: 2.6rem auto 2.6rem;
+    min-width: 91.2vw;
   }
   .title {
     font-size: 2.4rem;

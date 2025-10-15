@@ -15,7 +15,7 @@ const TemporaryCover = () => {
       </h3>
       <div className={styles.cardsContainer}>
         {features.map((feature, index) => (
-          <Card key={index} {...feature} />
+          <Card key={index} {...feature}  />
         ))}
       </div>
     </div>

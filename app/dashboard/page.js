@@ -1,16 +1,14 @@
+"use client";
 import React from "react";
 import Header from "@/ui/dashboard/header/Header";
 
-export const metadata = {
-  title: "Your Dashboard | Limitless Cover",
-};
-
-const page = () => {
+const Page = () => {
   return (
     <div>
+      <Header page="dashboard" />
       <div className={"centeredContent"}></div>
     </div>
   );
 };
 
-export default page;
+export default Page;

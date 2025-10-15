@@ -9,6 +9,7 @@ export const features = [
     title: "Full cover, no impact ",
     description:
       "Get fully comprehensive cover on our standard short term policies - plus it won't affect your no claims discount",
+    href: "/temporary/get-quote",
   },
   {
     img: {
@@ -20,6 +21,7 @@ export const features = [
     title: "Hourly, daily, weekly",
     description:
       "Choose the duration you want with 1-12 hour and 1-28 day cover available - don't pay for cover you don't need",
+    href: "/temporary/get-quote",
   },
   {
     img: {
@@ -31,5 +33,6 @@ export const features = [
     title: "All customised, nothing added",
     description:
       "Customise your policy to suit your specific situation - get the policy you want and even choose the minute you want your policy to begin",
+    href: "/temporary/get-quote",
   },
 ];

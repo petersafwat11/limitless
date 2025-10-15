@@ -1,191 +1,187 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./getQuoteImpound.module.css";
 import Image from "next/image";
 import TextInput from "../../inputs/textInput/TextInput";
 import Selection1 from "../../inputs/selections/selection1/Selection1";
-import Dropdown from "../../inputs/dropdown/Dropdown";
 import FormDropdown from "../../inputs/FormDropdown";
 const GetQuoteImpound = () => {
-  const [showRegDetails, setShowRegDetails] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [data, setData] = useState({
-    // type: "30 Days",
-    period: "30 Days",
-    startDateDay: "",
-    startDateMonth: "",
-    startDateYear: "",
-  });
+  const router = useRouter();
+  const [registrationNumber, setRegistrationNumber] = useState("");
+  const [period, setPeriod] = useState("30 Days");
+  const [startDateDay, setStartDateDay] = useState("");
+  const [startDateMonth, setStartDateMonth] = useState("");
+  const [startDateYear, setStartDateYear] = useState("");
+  const [error, setError] = useState("");
 
-  const handleShowRegDetails = () => {
-    if (!showRegDetails) {
-      // Transitioning to dropdowns
-      setIsTransitioning(true);
-      // Wait for fade-out animation to complete before switching content
-      setTimeout(() => {
-        setShowRegDetails(true);
-        setIsTransitioning(false);
-      }, 500); // Match the fade-out duration + buffer
-    } else {
-      // Transitioning back to registration input
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setShowRegDetails(false);
-        setIsTransitioning(false);
-      }, 500);
+  // Get current date
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const currentMonth = today.getMonth(); // 0-11
+  const currentDay = today.getDate();
+
+  // Generate year options (current year + next 10 years)
+  const yearOptions = Array.from({ length: 11 }, (_, i) => (currentYear + i).toString());
+
+  // Month names
+  const monthNames = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+
+  // Generate available months based on selected year
+  const getAvailableMonths = () => {
+    if (!startDateYear) return monthNames;
+    const selectedYear = parseInt(startDateYear);
+    if (selectedYear > currentYear) {
+      return monthNames; // All months available for future years
     }
+    // For current year, only show current month onwards
+    return monthNames.slice(currentMonth);
+  };
+
+  // Generate available days based on selected month and year
+  const getAvailableDays = () => {
+    if (!startDateYear || !startDateMonth) {
+      return Array.from({ length: 31 }, (_, i) => (i + 1).toString());
+    }
+
+    const selectedYear = parseInt(startDateYear);
+    const selectedMonthIndex = monthNames.indexOf(startDateMonth);
+    
+    // Get number of days in the selected month
+    const daysInMonth = new Date(selectedYear, selectedMonthIndex + 1, 0).getDate();
+    const allDays = Array.from({ length: daysInMonth }, (_, i) => (i + 1).toString());
+
+    // If it's the current month and year, only show days from today onwards
+    if (selectedYear === currentYear && selectedMonthIndex === currentMonth) {
+      return allDays.filter(day => parseInt(day) >= currentDay);
+    }
+
+    return allDays;
+  };
+
+  const handleContinue = () => {
+    // Validate inputs
+    if (!registrationNumber.trim()) {
+      setError("Please enter a registration number");
+      return;
+    }
+
+    if (!startDateDay || !startDateMonth || !startDateYear) {
+      setError("Please select a policy start date");
+      return;
+    }
+
+    // Create URL parameters
+    const params = new URLSearchParams();
+    params.set("fromQuote", "true");
+    params.set("registrationNumber", registrationNumber.trim().toUpperCase());
+    params.set("startDateDay", startDateDay);
+    params.set("startDateMonth", startDateMonth);
+    params.set("startDateYear", startDateYear);
+
+    // Redirect to impound get-quote with parameters
+    router.push(`/impound/get-quote?${params.toString()}`);
+  };
+
+  const handleDontKnowReg = () => {
+    router.push("/impound/get-quote");
+  };
+
+  const handleRegistrationChange = (e) => {
+    const value = e.target.value.toUpperCase();
+    setRegistrationNumber(value);
+    setError("");
+  };
+
+  // Handle year change - reset month and day if they become invalid
+  const handleYearChange = (year) => {
+    setStartDateYear(year);
+    const availableMonths = getAvailableMonths();
+    if (startDateMonth && !availableMonths.includes(startDateMonth)) {
+      setStartDateMonth("");
+      setStartDateDay("");
+    }
+    setError("");
+  };
+
+  // Handle month change - reset day if it becomes invalid
+  const handleMonthChange = (month) => {
+    setStartDateMonth(month);
+    const availableDays = getAvailableDays();
+    if (startDateDay && !availableDays.includes(startDateDay)) {
+      setStartDateDay("");
+    }
+    setError("");
   };
   return (
     <div className={styles.container}>
-      <div className={styles.contentContainer}>
-        {/* Registration Input */}
-        {!showRegDetails && (
-          <div
-            className={`${styles.regInputContainer} ${
-              isTransitioning ? styles.fadeOut : styles.fadeIn
-            }`}
-          >
-            <TextInput
-              label="Enter your Registration number"
-              placeholder="Enter your Registration number"
-              reg={true}
-            />
-          </div>
-        )}
+      {/* Display errors */}
+      {error && (
+        <div
+          style={{
+            color: "red",
+            marginBottom: "1rem",
+            padding: "0.5rem",
+            backgroundColor: "#fee",
+            borderRadius: "4px",
+          }}
+        >
+          {error}
+        </div>
+      )}
 
-        {/* Dropdown Rows */}
-        {showRegDetails && (
-          <div
-            className={`${styles.rows} ${
-              isTransitioning ? styles.fadeOut : styles.fadeIn
-            }`}
-          >
-            <div className={styles.row}>
-              <Dropdown
-                label="My Vehicle is a...."
-                options={["Car", "Motorcycle", "Truck", "Bus"]}
-                placeholder="Choose Vehicle"
-                // selected={vehicleType}
-                // setSelected={setVehicleType}
-              />
-              <Dropdown
-                label="Make"
-                options={["Toyota", "Honda", "Ford", "Chevrolet"]}
-                placeholder="Choose Make"
-                // selected={vehicleType}
-                // setSelected={setVehicleType}
-              />
-            </div>
-            <div className={styles.row}>
-              <Dropdown
-                label="Model"
-                options={["Camry", "Accord", "F-150", "Silverado"]}
-                placeholder="Choose Model"
-                // selected={vehicleType}
-                // setSelected={setVehicleType}
-              />
-              <Dropdown
-                label="Variant"
-                options={["Camry", "Accord", "F-150", "Silverado"]}
-                placeholder="Choose Variant"
-                // selected={vehicleType}
-                // setSelected={setVehicleType}
-              />
-            </div>
-          </div>
-        )}
+      <div className={styles.contentContainer}>
+        <div className={styles.regInputContainer}>
+          <TextInput
+            label="Enter your Registration number"
+            placeholder="Enter your Registration number"
+            reg={true}
+            value={registrationNumber}
+            onChange={(e) => handleRegistrationChange(e)}
+          />
+        </div>
       </div>
       <div className={styles.selection}>
         <p className={styles.label}>How long will you need it?</p>
         <Selection1
           items={["30 Days"]}
-          selectedItem={data.period}
-          setSelectedItem={(item) => setData({ ...data, period: item })}
+          selectedItem={period}
+          setSelectedItem={(item) => setPeriod(item)}
           type="checkbox"
         />
       </div>
-      {/* <div className={styles.selection}>
-        <p className={styles.label}>Need it specific? Choose your duration</p>
-        <Selection1
-          items={["Hours", "Days", "Weeks"]}
-          selectedItem={data.type}
-          setSelectedItem={(item) => setData({ ...data, type: item })}
-          type="checkbox"
-        />
-      </div>
-
-      {["Hours", "Days", "Weeks"].includes(data.type) && (
-        <div className={styles.selection}>
-          <p className={styles.label}>Select the duration of your cover</p>
-          <Selection1
-            items={
-              data.type === "Days"
-                ? ["1", "2", "3", "4", "5", "6", "7"]
-                : data.type === "Hours"
-                ? [
-                    "1",
-                    "2",
-                    "3",
-                    "4",
-                    "5",
-                    "6",
-                    "7",
-                    "8",
-                    "9",
-                    "10",
-                    "11",
-                    "12",
-                  ]
-                : ["1 Week", "2 Weeks", "3 Weeks", "4 Weeks"]
-            }
-            selectedItem={data.period}
-            setSelectedItem={(item) => setData({ ...data, period: item })}
-          />
-        </div>
-      )} */}
       <div className={styles.inputGroup}>
         <p className={styles.label}>Policy start date</p>
         <div className={styles.startDateDropdowns}>
           <FormDropdown
-            options={Array.from({ length: 31 }, (_, i) => (i + 1).toString())}
+            options={getAvailableDays()}
             placeholder="DD"
-            value={data.startDateDay}
-            onChange={(e) => setData({ ...data, startDateDay: e.target.value })}
+            value={startDateDay}
+            onChange={(e) => {
+              setStartDateDay(e.target.value);
+              setError("");
+            }}
+            disabled={!startDateYear || !startDateMonth}
           />
           <FormDropdown
-            options={[
-              "Jan",
-              "Feb",
-              "Mar",
-              "Apr",
-              "May",
-              "Jun",
-              "Jul",
-              "Aug",
-              "Sep",
-              "Oct",
-              "Nov",
-              "Dec",
-            ]}
+            options={getAvailableMonths()}
             placeholder="MM"
-            value={data.startDateMonth}
-            onChange={(e) =>
-              setData({ ...data, startDateMonth: e.target.value })
-            }
+            value={startDateMonth}
+            onChange={(e) => handleMonthChange(e.target.value)}
+            disabled={!startDateYear}
           />
           <FormDropdown
-            options={Array.from({ length: 11 }, (_, i) =>
-              (i + 2015).toString()
-            )}
+            options={yearOptions}
             placeholder="YYYY"
-            value={data.startDateYear}
-            onChange={(e) =>
-              setData({ ...data, startDateYear: e.target.value })
-            }
+            value={startDateYear}
+            onChange={(e) => handleYearChange(e.target.value)}
           />
         </div>
       </div>
-      <button className={styles.button}>
+      <button type="button" onClick={handleContinue} className={styles.button}>
         Continue{" "}
         <Image
           src="/svg/arrow-right.svg"
@@ -194,10 +190,8 @@ const GetQuoteImpound = () => {
           height={14}
         />
       </button>
-      <button onClick={handleShowRegDetails} className={styles.notYet}>
-        {showRegDetails
-          ? "Back to registration number"
-          : "I don't know my reg yet"}
+      <button type="button" onClick={handleDontKnowReg} className={styles.notYet}>
+        I don&apos;t know my reg yet
       </button>
     </div>
   );

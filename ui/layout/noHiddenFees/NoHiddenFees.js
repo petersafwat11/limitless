@@ -13,7 +13,7 @@ const NoHiddenFees = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={`${styles.title} ${plusJakartaSans.className}`}>
-          No hidden fees,{" "}
+          No hidden fees
           <div className={styles.titleSpan}>
             Limitless Cover{" "}
             <Image

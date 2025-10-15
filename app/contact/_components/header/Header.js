@@ -35,7 +35,7 @@ const Header = () => {
           <div className={styles.left}>
             <div className={styles.headers}>
               <h4 className={`${styles.subTitle} ${manrope.className}`}>
-                specialized for vehicle insurance
+                SPECIALIZED FOR VEHICLE INSURANCE
               </h4>
               <h2 className={`${styles.title} ${manrope.className}`}>
                 Contact Us
@@ -65,7 +65,7 @@ const Header = () => {
                   <h3
                     className={`${styles.infoTitle} ${plusJakartaSans.className}`}
                   >
-                    Phone Number
+                    Phone No:
                   </h3>
                   <p className={styles.infoDescription}>+1012 3456 789</p>
                 </div>
@@ -82,10 +82,11 @@ const Header = () => {
                   <h3
                     className={`${styles.infoTitle} ${plusJakartaSans.className}`}
                   >
-                    Physical Address
+                    Physical Address:
                   </h3>
                   <p className={styles.infoDescription}>
-                    123 Dartmout street bastan, ma united states.
+                    Limitless Cover, 82a James Carter Road, Mildenhall, United
+                    Kingdom, IP28 7DE
                   </p>
                 </div>
               </div>
@@ -101,9 +102,11 @@ const Header = () => {
                   <h3
                     className={`${styles.infoTitle} ${plusJakartaSans.className}`}
                   >
-                    Email Address
+                    Email Address:
                   </h3>
-                  <p className={styles.infoDescription}>info@example.com</p>
+                  <p className={styles.infoDescription}>
+                    support@limitlesscover.co.uk
+                  </p>
                 </div>
               </div>
             </div>

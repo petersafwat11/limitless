@@ -3,6 +3,12 @@ import styles from "./chooseService.module.css";
 import Card from "@/app/coming-soon/_components/card/Card";
 import Image from "next/image";
 import { features } from "@/app/coming-soon/data";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+});
 const ChooseService = () => {
   return (
     <div className={styles.container}>
@@ -13,7 +19,7 @@ const ChooseService = () => {
           width={58}
           height={58}
         />
-        <h3 className={styles.title}>
+        <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
           Choose a Service that’s<span> right for you </span>
         </h3>
         <p className={styles.description}>

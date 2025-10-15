@@ -21,7 +21,7 @@ export const features = [
     title: "Food Delivery Insurance",
     description:
       "Looking to become or continue your journey in the courier industry? Our food delivery insurance is an essential and cost-effective way to ensure you're properly covered while transporting services, whether you're using your own vehicle or working for multiple delivery platforms.",
-    href: "/courier",
+    href: "/coming-soon",
   },
   {
     img: {

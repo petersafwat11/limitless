@@ -4,10 +4,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { impoundInsuranceSchema } from "@/utils/schemas/impoundInsuranceSchema";
 import Header from "@/ui/insurance-quotes/header/Header";
-import VehicleDetailsForm from "../temporary/get-quote/_components/VehicleDetailsForm";
+import VehicleDetailsForm from "@/app/temporary/get-quote/_components/VehicleDetailsForm";
 import ImpoundCoverDetailsForm from "./_components/ImpoundCoverDetailsForm";
-import PersonalDetailsForm from "../temporary/get-quote/_components/PersonalDetailsForm";
-import TermsForm from "../temporary/get-quote/_components/TermsForm";
+import PersonalDetailsForm from "@/app/temporary/get-quote/_components/PersonalDetailsForm";
+import TermsForm from "@/app/temporary/get-quote/_components/TermsForm";
 import { useRouter, useSearchParams } from "next/navigation";
 import { API_BASE_URL } from "@/utils/config";
 import { toast } from "react-toastify";
@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 const ImpoundInsuranceContent = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [foundVehicleData, setFoundVehicleData] = useState(null);
+  const [shouldAutoTrigger, setShouldAutoTrigger] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -82,17 +83,27 @@ const ImpoundInsuranceContent = () => {
     if (fromQuote === "true") {
       const registrationNumber = searchParams.get("registrationNumber");
       if (registrationNumber) {
-        setValue("vehicleDetails.registrationNumber", registrationNumber);
-      } else {
-        const vehicleType = searchParams.get("vehicleType");
-        const make = searchParams.get("make");
-        const model = searchParams.get("model");
-        const year = searchParams.get("year");
+        setValue("vehicleDetails.registrationNumber", registrationNumber.toUpperCase());
+        // Auto-trigger vehicle lookup
+        setShouldAutoTrigger(true);
+      }
 
-        if (vehicleType) setValue("vehicleDetails.type", vehicleType);
-        if (make) setValue("vehicleDetails.make", make);
-        if (model) setValue("vehicleDetails.model", model);
-        if (year) setValue("vehicleDetails.year", year);
+      // Handle start date from URL params
+      const startDateDay = searchParams.get("startDateDay");
+      const startDateMonth = searchParams.get("startDateMonth");
+      const startDateYear = searchParams.get("startDateYear");
+
+      if (startDateDay && startDateMonth && startDateYear) {
+        // Convert month name to number (Jan = 01, Feb = 02, etc.)
+        const monthMap = {
+          "Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04",
+          "May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
+          "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"
+        };
+        const monthNum = monthMap[startDateMonth] || "01";
+        const dayPadded = startDateDay.padStart(2, "0");
+        const dateString = `${startDateYear}-${monthNum}-${dayPadded}`;
+        setValue("coverDetails.startDate", dateString);
       }
     }
   }, [searchParams, setValue]);
@@ -165,6 +176,7 @@ const ImpoundInsuranceContent = () => {
           <VehicleDetailsForm
             form={form}
             onVehicleDataFound={setFoundVehicleData}
+            autoTriggerLookup={shouldAutoTrigger}
           />
           <ImpoundCoverDetailsForm form={form} />
           <PersonalDetailsForm form={form} />

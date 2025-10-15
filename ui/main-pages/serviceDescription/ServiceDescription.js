@@ -54,7 +54,9 @@ const ServiceDescription = ({ services, title, description, button, img }) => {
         <button
           className={styles.confirmBtn}
           onClick={() => {
-            router.push("/temporary/get-quote");
+            title === "Impound Vehicle Insurance"
+              ? router.push("/impound/get-quote")
+              : router.push("/temporary/get-quote");
           }}
         >
           Get a Quote

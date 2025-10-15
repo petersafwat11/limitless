@@ -5,7 +5,7 @@ import FormDataAndTime from "@/ui/inputs/FormDataAndTime";
 import Title from "@/ui/insurance-quotes/title/Title";
 import Selection4 from "@/ui/inputs/selections/selection4/Selection4";
 import Image from "next/image";
-import styles from "../../temporary/get-qoute/_components/components.module.css";
+import styles from "@/app/temporary/get-quote/_components/components.module.css";
 
 const impoundTypeOptions = [
   "Impound Insurance",
@@ -40,7 +40,7 @@ const ImpoundCoverDetailsForm = ({ form }) => {
       const now = new Date();
       const currentDate = now.toISOString().split("T")[0];
       const currentTime = now.toTimeString().slice(0, 5);
-      
+
       setValue("coverDetails.startDate", currentDate, { shouldValidate: true });
       setValue("coverDetails.startTime", currentTime, { shouldValidate: true });
     }
@@ -53,7 +53,7 @@ const ImpoundCoverDetailsForm = ({ form }) => {
         <div className={styles.inputWrapper}>
           <div className={styles.inputGroup}>
             <Title title="When would you like the cover to start?" />
-            
+
             {!startPolicyImmediately && (
               <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
                 <div style={{ flex: 1, minWidth: "200px" }}>
@@ -112,7 +112,9 @@ const ImpoundCoverDetailsForm = ({ form }) => {
                 width={16}
                 height={16}
                 style={{
-                  filter: startPolicyImmediately ? "brightness(0) invert(1)" : "none",
+                  filter: startPolicyImmediately
+                    ? "brightness(0) invert(1)"
+                    : "none",
                 }}
               />
               Start policy immediately

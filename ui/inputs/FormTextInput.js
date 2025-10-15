@@ -9,6 +9,7 @@ const FormTextInput = ({
   reg,
   button,
   error,
+  value,
   ...props
 }) => {
   return (
@@ -21,6 +22,7 @@ const FormTextInput = ({
             type={type}
             placeholder={placeholder}
             className={`${styles.input} ${error ? styles.error : ""} ${reg ? styles.reg : ""}`}
+            value={value}
             {...props}
           />
         </div>

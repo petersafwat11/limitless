@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import styles from "./orderSummery.module.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -17,21 +18,41 @@ const OrderSummery = ({ data, vehicleDetails, carUsage }) => {
 
   const getInsuranceTitle = () => {
     const regNumber = vehicleDetails?.registrationNumber || "N/A";
-    return `Temporary insurance / ${regNumber}`;
+    // Check if it's impound or temporary insurance
+    const insuranceType = data?.insuranceType || "Temporary";
+    return `${insuranceType} insurance / ${regNumber}`;
   };
+
+  // Calculate VAT and base price from total
+  const priceBreakdown = useMemo(() => {
+    const totalPrice = data?.priceAmount || 0;
+    // VAT is 20% of total price
+    const vat = totalPrice * 0.2;
+    // Base insurance price is 80% of total
+    const basePrice = totalPrice * 0.8;
+    // Discount (previously Fee)
+    const discount = data?.price?.fee || 0;
+    
+    return {
+      basePrice,
+      vat,
+      discount,
+      total: totalPrice,
+    };
+  }, [data]);
 
   const summaryItems = [
     {
       title: getInsuranceTitle(),
-      value: formatCurrency(data?.price?.amount),
+      value: formatCurrency(priceBreakdown.basePrice),
     },
     {
       title: "VAT",
-      value: formatCurrency(data?.price?.vat),
+      value: formatCurrency(priceBreakdown.vat),
     },
     {
-      title: "Fee",
-      value: formatCurrency(data?.price?.fee),
+      title: "Discount",
+      value: priceBreakdown.discount > 0 ? `-${formatCurrency(priceBreakdown.discount)}` : formatCurrency(0),
     },
   ];
 
@@ -63,7 +84,7 @@ const OrderSummery = ({ data, vehicleDetails, carUsage }) => {
         </div>
         <div className={styles.total}>
           <p className={styles.totalTitle}>Total</p>
-          <p className={styles.totalValue}>{formatCurrency(data?.price?.total)}</p>
+          <p className={styles.totalValue}>{formatCurrency(priceBreakdown.total)}</p>
         </div>
         <button 
           className={styles.dashboardButton}
@@ -102,8 +123,16 @@ const OrderSummery = ({ data, vehicleDetails, carUsage }) => {
             You will receive a special login link via email.
           </p>
           <p className={styles.footerTextSupport}>
-            Please<span style={{ color: "#0388FF" }}> contact support</span> if
-            you have not received
+            Please{" "}
+            <Link 
+              href="https://www.limitlesscover.co.uk/contact" 
+              style={{ color: "#0388FF", textDecoration: "none" }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              contact support
+            </Link>{" "}
+            if you have not received
           </p>
         </div>
         <div className={styles.voluntaryExcess}>

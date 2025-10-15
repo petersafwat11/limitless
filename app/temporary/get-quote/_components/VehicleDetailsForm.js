@@ -98,7 +98,7 @@ const carColors = [
   "Yellow",
 ];
 
-const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
+const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = false }) => {
   const [showVehicleDetails, setShowVehicleDetails] = useState(false);
   const [isLoadingVehicleData, setIsLoadingVehicleData] = useState(false);
   const [state, dispatch] = useReducer(vehicleReducer, initialState);
@@ -106,6 +106,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
   const [foundVehicleData, setFoundVehicleData] = useState(null);
   const [showFoundData, setShowFoundData] = useState(false);
   const isAutoSelectingRef = useRef(false);
+  const hasAutoTriggeredRef = useRef(false);
 
   const {
     register,
@@ -337,7 +338,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
     state.options,
   ]);
 
-  const handleFindVehicle = async () => {
+  const handleFindVehicle = useCallback(async () => {
     const registrationNumber = watch("vehicleDetails.registrationNumber");
 
     if (!registrationNumber?.trim()) {
@@ -394,7 +395,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
     } finally {
       setIsLoadingVehicleData(false);
     }
-  };
+  }, [watch, setError, onVehicleDataFound, setValue, clearErrors]);
 
   const handleChangeVehicle = () => {
     setFoundVehicleData(null);
@@ -408,6 +409,20 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
     }
   };
 
+  // Auto-trigger vehicle lookup when registration number is provided from URL
+  useEffect(() => {
+    if (autoTriggerLookup && !hasAutoTriggeredRef.current) {
+      const registrationNumber = watch("vehicleDetails.registrationNumber");
+      if (registrationNumber && registrationNumber.trim()) {
+        hasAutoTriggeredRef.current = true;
+        // Small delay to ensure form is ready
+        setTimeout(() => {
+          handleFindVehicle();
+        }, 500);
+      }
+    }
+  }, [autoTriggerLookup, watch, handleFindVehicle]);
+
   return (
     <ComponentWrapper title="Vehicle Details">
       <div className={styles.content}>
@@ -418,7 +433,12 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
                 reg={true}
                 label="Registration Number"
                 placeholder="Enter your Registration number"
-                {...register("vehicleDetails.registrationNumber")}
+                {...register("vehicleDetails.registrationNumber", {
+                  onChange: (e) => {
+                    e.target.value = e.target.value.toUpperCase();
+                  },
+                })}
+                value={watch("vehicleDetails.registrationNumber") || ""}
                 error={errors.vehicleDetails?.registrationNumber}
                 button={
                   <ConfirmBtn
@@ -602,17 +622,18 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound }) => {
                 disabled={!!foundVehicleData}
               />
             </div>
-            <div className={styles.row}>
-              <FormDropdown
-                label="How much is your vehicle worth?"
-                options={vehicleWorthOptions}
-                placeholder="Choose Price Range"
-                {...register("vehicleDetails.worth", {
-                  required: "Please select vehicle worth",
-                })}
-                error={errors.vehicleDetails?.worth}
-              />
-            </div>
+            {/* Only show worth field if no API data is available */}
+            {!foundVehicleData && (
+              <div className={styles.row}>
+                <FormDropdown
+                  label="How much is your vehicle worth?"
+                  options={vehicleWorthOptions}
+                  placeholder="Choose Price Range"
+                  {...register("vehicleDetails.worth")}
+                  error={errors.vehicleDetails?.worth}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

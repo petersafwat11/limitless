@@ -51,6 +51,33 @@
   border: none;
   cursor: pointer;
   margin-top: 0.4rem;
+  transition: all 0.3s ease;
+}
+
+.button:hover:not(:disabled) {
+  background: #0266cc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(3, 136, 255, 0.4);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.4rem;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: 0.4rem;
+  display: block;
 }
 .dropdown {
   display: none;

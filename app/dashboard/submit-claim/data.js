@@ -51,7 +51,8 @@ export const firstClaim = {
 
 export const secondClaim = {
   title: "Optional Cover Claims",
-  description: "Explore the",
+  description:
+    "Have you experienced an issue related to your optional cover? Submit the details here, and our team will work to assist you with your claim under these additional benefits.",
   features: ["Glass repair or replacement", "Key cover", "Breakdown cover"],
   img: {
     src: "/svg/claims-card-2.svg",

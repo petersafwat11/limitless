@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 const TemporaryInsuranceContent = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [foundVehicleData, setFoundVehicleData] = useState(null);
+  const [shouldAutoTrigger, setShouldAutoTrigger] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -96,26 +97,9 @@ const TemporaryInsuranceContent = () => {
       // Check if registration number was provided
       const registrationNumber = searchParams.get("registrationNumber");
       if (registrationNumber) {
-        setValue("vehicleDetails.registrationNumber", registrationNumber);
-      } else {
-        // Use manual vehicle details from URL parameters
-        const vehicleType = searchParams.get("vehicleType");
-        const make = searchParams.get("make");
-        const model = searchParams.get("model");
-        const year = searchParams.get("year");
-
-        if (vehicleType) {
-          setValue("vehicleDetails.type", vehicleType);
-        }
-        if (make) {
-          setValue("vehicleDetails.make", make);
-        }
-        if (model) {
-          setValue("vehicleDetails.model", model);
-        }
-        if (year) {
-          setValue("vehicleDetails.year", year);
-        }
+        setValue("vehicleDetails.registrationNumber", registrationNumber.toUpperCase());
+        // Auto-trigger vehicle lookup
+        setShouldAutoTrigger(true);
       }
     }
   }, [searchParams, setValue]);
@@ -190,6 +174,7 @@ const TemporaryInsuranceContent = () => {
           <VehicleDetailsForm
             form={form}
             onVehicleDataFound={setFoundVehicleData}
+            autoTriggerLookup={shouldAutoTrigger}
           />
           <CoverDetailsForm form={form} />
           <PersonalDetailsForm form={form} />

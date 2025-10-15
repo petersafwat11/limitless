@@ -9,9 +9,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 const CoverLevel = ({ data, insuranceType }) => {
-  const formatCurrency = (amount) => {
-    return `£${amount?.toFixed(2) || "0.00"}`;
-  };
+  // const formatCurrency = (amount) => {
+  //   return `£${amount?.toFixed(2) || "0.00"}`;
+  // };
 
   const getInsuranceTypeName = () => {
     if (!insuranceType) return "N/A";
@@ -19,7 +19,24 @@ const CoverLevel = ({ data, insuranceType }) => {
     if (insuranceType === "Impound") return "Impound Insurance";
     return insuranceType;
   };
-
+  const features =
+    insuranceType === "Temp"
+      ? [
+          "Instant documents",
+          "Uninsured driver promise",
+          "European cover",
+          "Protected no claims",
+          "Loss, theft, fire or vandalism cover",
+          "Legal liability cover",
+        ]
+      : [
+          "Instant documents",
+          "Uninsured driver promise",
+          "Protected no claims",
+          "Loss, theft, fire or vandalism cover",
+          "Legal liability cover",
+          "Impound Release",
+        ];
   return (
     <div className={styles.container}>
       <h3 className={`${styles.title} ${plusJakartaSans.className}`}>
@@ -33,9 +50,9 @@ const CoverLevel = ({ data, insuranceType }) => {
       </div>
 
       <div className={styles.summery}>
-        <span className={styles.background}></span>
+        {/* <span className={styles.background}></span>
         <span className={styles.background2}></span>
-        <span className={styles.background3}></span>
+        <span className={styles.background3}></span> */}
         <div className={styles.content}>
           <div className={styles.total}>
             <Image
@@ -48,30 +65,21 @@ const CoverLevel = ({ data, insuranceType }) => {
               Total Price
             </p>
           </div>
-          <p className={styles.totalPrice}>
-            {formatCurrency(data?.priceAmount)}
-          </p>
+          <p className={styles.totalPrice}>{`£${data?.priceAmount}`}</p>
           <p className={styles.totalPriceDescription}>
-            Insurance produce information Document
+            Including all additional fees
           </p>
         </div>
         <Image
-          src="/svg/cover-level.svg"
+          src="/svg/cover-level-2.svg"
           alt="vehicle-covered"
-          width={100}
-          height={100}
+          width={153}
+          height={81}
           className={styles.vehicleCovered}
         />
       </div>
       <div className={styles.features}>
-        {[
-          "Wind screen cover",
-          "European cover",
-          "New vehicle replacement ( subject to criteria )",
-          "Up to £200 for personal belongings",
-          "Uninsured driver promise",
-          "Country car",
-        ].map((feature, index) => (
+        {features.map((feature, index) => (
           <div className={styles.featureItem} key={index}>
             <Image
               src="/svg/included.svg"

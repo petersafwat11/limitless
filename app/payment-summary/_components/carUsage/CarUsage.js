@@ -74,24 +74,23 @@ const CarUsage = ({ carUsage }) => {
           item={{
             label:
               "Do you have any unspent or outstanding criminal convictions?",
-            value: String(carUsage?.criminalConvictions) || "N/A",
+            value: carUsage?.criminalConvictions ? "Yes" : "No" || "N/A",
           }}
         />
         <InputWithData2
           item={{
             label:
               "Do you have any medical conditions that are notifible to the DVLA?",
-            value: String(carUsage?.medicalConditions) || "N/A",
+            value: carUsage?.medicalConditions ? "Yes" : "No" || "N/A",
           }}
         />
         <InputWithData2
           item={{
             label:
               "Have you ever had insurance cancelled, a claim refused, a policy voided, or any special terms imposed? Unspent or outstanding criminal convictions?",
-            value:
-              String(
-                carUsage?.insuranceCancelledOrClaimRefusedOrPolicyVoided
-              ) || "N/A",
+            value: carUsage?.insuranceCancelledOrClaimRefusedOrPolicyVoided
+              ? "Yes"
+              : "No" || "N/A",
           }}
         />
       </div>
