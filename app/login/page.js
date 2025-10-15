@@ -15,6 +15,14 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const page = () => {
   return (
     <div className={"centeredContent"}>
+      <Image
+        src="/svg/login-back-2.svg"
+        alt="contact-us"
+        width={585}
+        height={776}
+        className={styles.contact}
+      />
+
       <div className={styles.page}>
         <div className={styles.images}>
           <Image

@@ -63,6 +63,7 @@ export default function PaymentPageClient({ insuranceData, id }) {
               data={insuranceData.quote}
               insuranceType={insuranceData.type}
             />
+            <Actions insuranceId={id} onPayClick={handlePayClick} />
           </div>
         </div>
 
@@ -70,6 +71,7 @@ export default function PaymentPageClient({ insuranceData, id }) {
           <div className={styles.left}>
             <div className={styles.vehicleCoveredLarge}>
               <VehicleCovered data={insuranceData.vehicleDetails} />
+              
             </div>
             <div className={styles.durationContainer}>
               <Duration

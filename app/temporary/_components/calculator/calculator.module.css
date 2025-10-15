@@ -186,6 +186,9 @@
     flex-direction: column;
     overflow: hidden;
   }
+  .squares {
+    display: none;
+  }
   .form,
   .first {
     flex-basis: 100%;

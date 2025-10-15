@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./form.module.css";
 import Image from "next/image";
 import ConfirmButton from "@/ui/buttons/confirmBtn/ConfirmBtn";
@@ -28,6 +28,9 @@ const Form = () => {
     clearError,
     clearSuccessStates,
   } = useAuth();
+
+  // Ref for input focus
+  const emailInputRef = useRef(null);
 
   const {
     register,
@@ -114,7 +117,7 @@ const Form = () => {
             <label htmlFor="email" className={styles.label}>
               Email Address
             </label>
-            <div className={styles.inputContainer}>
+            <div className={styles.inputContainer} onClick={() => emailInputRef.current?.focus()}>
               <div className={styles.iconWrapper}>
                 <Image
                   src={"/svg/email.svg"}
@@ -131,6 +134,7 @@ const Form = () => {
                   errors.email ? styles.error : ""
                 }`}
                 {...register("email")}
+                ref={emailInputRef}
               />
             </div>
             {errors.email && (

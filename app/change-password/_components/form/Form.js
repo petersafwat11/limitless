@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./form.module.css";
 import Image from "next/image";
 import ConfirmButton from "@/ui/buttons/confirmBtn/ConfirmBtn";
@@ -45,6 +45,10 @@ const Form = () => {
     password: false,
     confirmPassword: false,
   });
+
+  // Refs for input focus
+  const passwordInputRef = useRef(null);
+  const confirmPasswordInputRef = useRef(null);
 
   // Get URL parameters
   const email = searchParams.get("email");
@@ -271,7 +275,7 @@ const Form = () => {
             <label htmlFor="password" className={styles.label}>
               {pageType === "setPassword" ? "Create Password" : "New Password"}
             </label>
-            <div className={styles.inputContainer}>
+            <div className={styles.inputContainer} onClick={() => passwordInputRef.current?.focus()}>
               <div className={styles.iconWrapper}>
                 <Image
                   src={"/svg/password.svg"}
@@ -288,6 +292,7 @@ const Form = () => {
                   errors.password ? styles.error : ""
                 }`}
                 {...register("password")}
+                ref={passwordInputRef}
               />
               <button
                 type="button"
@@ -316,7 +321,7 @@ const Form = () => {
             <label htmlFor={getPasswordFieldName()} className={styles.label}>
               Confirm Password
             </label>
-            <div className={styles.inputContainer}>
+            <div className={styles.inputContainer} onClick={() => confirmPasswordInputRef.current?.focus()}>
               <div className={styles.iconWrapper}>
                 <Image
                   src={"/svg/password.svg"}
@@ -333,6 +338,7 @@ const Form = () => {
                   errors[getPasswordFieldName()] ? styles.error : ""
                 }`}
                 {...register(getPasswordFieldName())}
+                ref={confirmPasswordInputRef}
               />
               <button
                 type="button"

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./form.module.css";
 import Image from "next/image";
 import ConfirmButton from "@/ui/buttons/confirmBtn/ConfirmBtn";
@@ -24,6 +24,10 @@ const Form = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false); // Local loading state
+
+  // Refs for input focus
+  const emailInputRef = useRef(null);
+  const passwordInputRef = useRef(null);
 
   const {
     register,
@@ -90,7 +94,9 @@ const Form = () => {
       }
     } catch (error) {
       console.error("Login error:", error);
-      setError("root", { message: "An unexpected error occurred. Please try again." });
+      setError("root", {
+        message: "An unexpected error occurred. Please try again.",
+      });
       setIsSubmitting(false); // Stop loading on error
     }
   };
@@ -140,7 +146,10 @@ const Form = () => {
             <label htmlFor="email" className={styles.label}>
               Email Address
             </label>
-            <div className={styles.inputContainer}>
+            <div
+              className={styles.inputContainer}
+              onClick={() => emailInputRef.current?.focus()}
+            >
               <div className={styles.iconWrapper}>
                 <Image
                   src={"/svg/email.svg"}
@@ -157,6 +166,7 @@ const Form = () => {
                   errors.email ? styles.error : ""
                 }`}
                 {...register("email")}
+                ref={emailInputRef}
               />
             </div>
             {errors.email && (
@@ -172,7 +182,10 @@ const Form = () => {
             <label htmlFor="password" className={styles.label}>
               Password
             </label>
-            <div className={styles.inputContainer}>
+            <div
+              className={styles.inputContainer}
+              onClick={() => passwordInputRef.current?.focus()}
+            >
               <div className={styles.iconWrapper}>
                 <Image
                   src={"/svg/password.svg"}
@@ -189,6 +202,7 @@ const Form = () => {
                   errors.password ? styles.error : ""
                 }`}
                 {...register("password")}
+                ref={passwordInputRef}
               />
               <button
                 type="button"

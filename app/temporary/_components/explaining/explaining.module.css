@@ -225,6 +225,12 @@
   }
 }
 @media screen and (max-width: 900px) {
+  .squares {
+    display: none;
+  }
+  .contact {
+    display: none;
+  }
   .container {
     gap: 4.7rem;
   }

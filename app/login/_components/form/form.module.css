@@ -9,7 +9,9 @@
   background: #fff;
   flex: 1;
   margin: auto;
+  position: relative;
 }
+
 .container > * {
   width: 100%;
 }
@@ -19,6 +21,7 @@
   font-size: 2.38rem;
   font-weight: 700;
   line-height: 100%;
+
 }
 .inputsContainer {
   display: flex;

@@ -126,8 +126,10 @@
     margin: 0 auto;
   }
   .first img {
-    height: 20rem;
-    width: auto;
+    /* height: 25rem;
+    width: auto; */
+    width: 80%;
+    height: auto;
   }
 }
 @media screen and (max-width: 900) {
@@ -153,11 +155,13 @@
   }
   .title {
     margin-top: 0rem;
-    font-size: 3.4rem;
+    font-size: 3rem;
   }
   .description {
     font-size: 1.4rem;
     margin-bottom: 0;
+    text-align: start;
+    padding-right: 25%;
   }
 
   .services {

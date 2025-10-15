@@ -11,12 +11,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 const CarUsage = ({ carUsage }) => {
-  console.log(
-    carUsage?.insuranceCancelledOrClaimRefusedOrPolicyVoided,
-    carUsage?.medicalConditions,
-    carUsage?.criminalConvictions,
-    " hahahah"
-  );
 
   return (
     <div className={styles.container}>

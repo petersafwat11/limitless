@@ -1,6 +1,6 @@
 .container {
   /* padding: 2.4rem 1.6rem 4.1rem; */
-  width: 48.8rem;
+  max-width: 48.8rem;
   border-radius: 18px;
   background: #000822;
   position: relative;
