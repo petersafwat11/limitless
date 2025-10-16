@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
 import Feature from "@/ui/feature/Feature";
 import { features } from "./data";
-import ConfirmBtn from "@/ui/buttons/confirmBtn/ConfirmBtn";
 import { useRouter } from "next/navigation";
 
 const plusJakartaSans = Plus_Jakarta_Sans({

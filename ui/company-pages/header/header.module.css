@@ -74,6 +74,7 @@
   }
   .content {
     padding: 10.7rem 0 3.3rem;
+    width: 95%;
   }
   .title {
     font-size: 4.8rem;
@@ -88,9 +89,13 @@
     scroll-behavior: smooth;
     justify-content: flex-start;
     padding: 0 1rem;
+    flex-wrap: nowrap;
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+  .menu li {
+    flex-shrink: 0;
   }
   .menuLink,
   .activeMenuLink {

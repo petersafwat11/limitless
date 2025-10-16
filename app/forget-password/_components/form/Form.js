@@ -117,7 +117,10 @@ const Form = () => {
             <label htmlFor="email" className={styles.label}>
               Email Address
             </label>
-            <div className={styles.inputContainer} onClick={() => emailInputRef.current?.focus()}>
+            <div
+              className={styles.inputContainer}
+              onClick={() => emailInputRef.current?.focus()}
+            >
               <div className={styles.iconWrapper}>
                 <Image
                   src={"/svg/email.svg"}
@@ -156,10 +159,10 @@ const Form = () => {
 
         <ConfirmButton
           style={{ justifyContent: "center", width: "100%" }}
-          title={isLoading ? "Sending..." : "Send Reset Link"}
+          title={isLoading ? "Sending..." : "Reset Password"}
           onClick={handleSubmit(onSubmit)}
           disabled={isLoading}
-          className={styles.button}
+          // className={styles.button}
         />
       </form>
 
