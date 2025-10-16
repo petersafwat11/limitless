@@ -6,6 +6,7 @@ import CreateBtn from "@/ui/dashboard/createBtn/CreateBtn";
 import { API_BASE_URL } from "@/utils/config";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
+import { serverFetch } from "@/utils/serverFetch";
 
 export const metadata = {
   title: "Your Claims | Limitless Cover",
@@ -28,9 +29,8 @@ const Page = async () => {
   let error = null;
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/claims`, {
+    const response = await serverFetch(`${API_BASE_URL}/api/claims`, {
       headers: {
-        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       cache: "no-store",

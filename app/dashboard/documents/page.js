@@ -7,6 +7,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { API_BASE_URL } from "@/utils/config";
+import { serverFetch } from "@/utils/serverFetch";
 
 export const metadata = {
   title: "Your Documentation | Limitless Cover",
@@ -28,9 +29,8 @@ const page = async () => {
   let insurances = [];
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/insurance/user/my-insurances`, {
+    const response = await serverFetch(`${API_BASE_URL}/api/insurance/user/my-insurances`, {
       headers: {
-        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       cache: "no-store",

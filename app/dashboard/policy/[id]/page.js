@@ -5,6 +5,7 @@ import CoverDetails from "../_components/coverDetails/CoverDetails";
 import { API_BASE_URL } from "@/utils/config";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
+import { serverFetch } from "@/utils/serverFetch";
 
 const page = async ({ params }) => {
   const cookieStore = await cookies();
@@ -18,9 +19,8 @@ const page = async ({ params }) => {
   let insurance = null;
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/insurance/${id}`, {
+    const response = await serverFetch(`${API_BASE_URL}/api/insurance/${id}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
       cache: "no-store",
@@ -29,17 +29,11 @@ const page = async ({ params }) => {
     if (response.ok) {
       const result = await response.json();
       insurance = result.data?.data || null;
-    } else {
-      redirect("/dashboard/policy");
     }
   } catch (error) {
     console.error("Error fetching insurance:", error);
-    redirect("/dashboard/policy");
   }
 
-  if (!insurance) {
-    redirect("/dashboard/policy");
-  }
 
   // Generate policy number
   const policyNumber = `${insurance.type

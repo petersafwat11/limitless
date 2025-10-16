@@ -137,7 +137,7 @@ const Form = ({ claimReason }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: "include",
+        credentials: "include", // This sends HTTP-only cookies with the request
         body: JSON.stringify(apiData),
       });
 

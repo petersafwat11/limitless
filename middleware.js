@@ -9,14 +9,6 @@ export function middleware(request) {
       // Check for JWT cookie
       const token = request.cookies.get("jwt");
 
-      // Simplified debug logging for Vercel Edge Runtime
-      console.log("=== MIDDLEWARE DEBUG ===");
-      console.log("Pathname:", pathname);
-      console.log("Request URL:", request.url);
-      console.log("JWT Token exists:", !!token);
-      console.log("JWT Token value:", token?.value);
-      console.log("Token value is loggedout:", token?.value === "loggedout");
-
       // Log some key headers safely
       try {
         console.log("Origin header:", request.headers.get("origin"));

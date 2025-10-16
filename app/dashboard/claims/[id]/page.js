@@ -6,8 +6,8 @@ import styles from "./page.module.css";
 import Buttons from "../_components/buttons/Buttons";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import axios from "axios";
 import { API_BASE_URL } from "@/utils/config";
+import { serverFetch } from "@/utils/serverFetch";
 
 const page = async ({ params }) => {
   const { id } = await params;
@@ -22,24 +22,25 @@ const page = async ({ params }) => {
   let error = null;
 
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/claims/${id}`, {
+    const response = await serverFetch(`${API_BASE_URL}/api/claims/${id}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
+      cache: "no-store",
     });
 
-    if (response.status === 200 && response.data.data) {
-      // Handle nested data structure: response.data.data.data
-      claim = response.data.data.data || response.data.data;
-    } else {
+    if (response.ok) {
+      const data = await response.json();
+      // Handle nested data structure: data.data.data
+      claim = data.data?.data || data.data;
+    } else if (response.status === 404) {
       error = "Claim not found";
+    } else {
+      error = "Failed to load claim details";
     }
   } catch (err) {
     console.error("Error fetching claim:", err);
-    error =
-      err.response?.status === 404
-        ? "Claim not found"
-        : "Failed to load claim details";
+    error = "Failed to load claim details";
   }
 
   // Redirect if no claim found or error
