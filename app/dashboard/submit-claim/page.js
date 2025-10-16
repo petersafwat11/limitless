@@ -9,7 +9,6 @@ import Submitted from "./_components/submitted/Submitted";
 import ClaimReason from "./_components/claimReason/ClaimReason";
 import Guidelines from "./_components/guidelines/Guidelines";
 import Form from "./_components/form/Form";
-import Header from "@/ui/dashboard/header/Header";
 import { steps, firstClaim, secondClaim, guidelinesData } from "./data";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -140,7 +139,6 @@ const SubmitClaimContent = () => {
 
   return (
     <div>
-      <Header page="submit-claim" />
       <div className={styles.page}>{renderContent()}</div>
     </div>
   );

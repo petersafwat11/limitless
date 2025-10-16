@@ -6,6 +6,7 @@ import DownloadButton from "./_components/DownloadButton";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
+import { API_BASE_URL } from "@/utils/config";
 
 export const metadata = {
   title: "Your Documentation | Limitless Cover",
@@ -27,16 +28,13 @@ const page = async () => {
   let insurances = [];
 
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/insurance`,
-      {
-        cache: "no-store",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        credentials: "include",
-      }
-    );
+    const response = await fetch(`${API_BASE_URL}/api/insurance/user/my-insurances`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      cache: "no-store",
+    });
 
     if (response.ok) {
       const result = await response.json();

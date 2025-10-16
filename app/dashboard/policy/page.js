@@ -83,7 +83,7 @@ const Page = async () => {
 
   try {
     // Fetch all insurances for the logged-in user
-    const response = await fetch(`${API_BASE_URL}/api/insurance`, {
+    const response = await fetch(`${API_BASE_URL}/api/insurance/user/my-insurances`, {
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",

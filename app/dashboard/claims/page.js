@@ -1,57 +1,51 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Table from "./_components/table/Table";
 import styles from "./page.module.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import CreateBtn from "@/ui/dashboard/createBtn/CreateBtn";
-import Header from "@/ui/dashboard/header/Header";
 import { API_BASE_URL } from "@/utils/config";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/contexts/AuthContext";
-import axios from "axios";
+import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
+
+export const metadata = {
+  title: "Your Claims | Limitless Cover",
+};
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["700"],
 });
 
-const Page = () => {
-  const router = useRouter();
-  const { isAuthenticated, token } = useAuth();
-  const [claims, setClaims] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+const Page = async () => {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("jwt")?.value;
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      router.push("/login");
-      return;
+  if (!token) {
+    redirect("/login");
+  }
+
+  let claims = [];
+  let error = null;
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/claims`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      cache: "no-store",
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      claims = data.data?.claims || [];
+    } else {
+      error = "Failed to fetch claims";
     }
-
-    const fetchClaims = async () => {
-      try {
-        const response = await axios.get(`${API_BASE_URL}/api/claims`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        if (response.status === 200) {
-          const data = response.data;
-          setClaims(data.data.claims || []);
-        } else {
-          setError("Failed to fetch claims");
-        }
-      } catch (err) {
-        console.error("Error fetching claims:", err);
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchClaims();
-  }, [isAuthenticated, token, router]);
+  } catch (err) {
+    console.error("Error fetching claims:", err);
+    error = err.message;
+  }
   // Transform claims data for table display
   const formatClaimsData = (claims) => {
     return claims.map((claim) => ({
@@ -72,20 +66,8 @@ const Page = () => {
     (claim) => claim.status !== "Pending"
   );
 
-  if (isLoading) {
-    return (
-      <div>
-        <Header page="claims" />
-        <div className={styles.page}>
-          <div style={{ padding: "40px", textAlign: "center" }}>Loading...</div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div>
-      <Header page="claims" />
       <div className={styles.page}>
         <div className={styles.header}>
         <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
