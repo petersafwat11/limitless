@@ -291,8 +291,16 @@ const Form = () => {
                 className={`${styles.input} ${
                   errors.password ? styles.error : ""
                 }`}
-                {...register("password")}
-                ref={passwordInputRef}
+                {...(() => {
+                  const { ref, ...rest } = register("password");
+                  return {
+                    ...rest,
+                    ref: (e) => {
+                      ref(e);
+                      passwordInputRef.current = e;
+                    },
+                  };
+                })()}
               />
               <button
                 type="button"
@@ -337,8 +345,16 @@ const Form = () => {
                 className={`${styles.input} ${
                   errors[getPasswordFieldName()] ? styles.error : ""
                 }`}
-                {...register(getPasswordFieldName())}
-                ref={confirmPasswordInputRef}
+                {...(() => {
+                  const { ref, ...rest } = register(getPasswordFieldName());
+                  return {
+                    ...rest,
+                    ref: (e) => {
+                      ref(e);
+                      confirmPasswordInputRef.current = e;
+                    },
+                  };
+                })()}
               />
               <button
                 type="button"

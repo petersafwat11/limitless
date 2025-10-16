@@ -165,8 +165,16 @@ const Form = () => {
                 className={`${styles.input} ${
                   errors.email ? styles.error : ""
                 }`}
-                {...register("email")}
-                ref={emailInputRef}
+                {...(() => {
+                  const { ref, ...rest } = register("email");
+                  return {
+                    ...rest,
+                    ref: (e) => {
+                      ref(e);
+                      emailInputRef.current = e;
+                    },
+                  };
+                })()}
               />
             </div>
             {errors.email && (
@@ -201,8 +209,16 @@ const Form = () => {
                 className={`${styles.input} ${
                   errors.password ? styles.error : ""
                 }`}
-                {...register("password")}
-                ref={passwordInputRef}
+                {...(() => {
+                  const { ref, ...rest } = register("password");
+                  return {
+                    ...rest,
+                    ref: (e) => {
+                      ref(e);
+                      passwordInputRef.current = e;
+                    },
+                  };
+                })()}
               />
               <button
                 type="button"

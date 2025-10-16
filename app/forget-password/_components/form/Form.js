@@ -136,8 +136,16 @@ const Form = () => {
                 className={`${styles.input} ${
                   errors.email ? styles.error : ""
                 }`}
-                {...register("email")}
-                ref={emailInputRef}
+                {...(() => {
+                  const { ref, ...rest } = register("email");
+                  return {
+                    ...rest,
+                    ref: (e) => {
+                      ref(e);
+                      emailInputRef.current = e;
+                    },
+                  };
+                })()}
               />
             </div>
             {errors.email && (
