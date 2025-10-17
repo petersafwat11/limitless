@@ -5,6 +5,10 @@
   margin: 6rem 0 8.4rem;
   width: 100%;
 }
+.top {
+  display: flex;
+  justify-content: space-between;
+}
 .title {
   color: #000822;
   font-size: 4.4rem;

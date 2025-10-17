@@ -4,7 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 import { toast } from "react-toastify";
 
-export default function DownloadButton({ insuranceId, insuranceType }) {
+export default function DownloadButton({
+  insuranceId,
+  pdfType,
+  label = "Download PDF",
+}) {
   const [isDownloading, setIsDownloading] = useState(false);
 
   const handleDownload = async () => {
@@ -13,46 +17,39 @@ export default function DownloadButton({ insuranceId, insuranceType }) {
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-      // Get token from cookies
-      // const token = document.cookie
-      //   .split("; ")
-      //   .find((row) => row.startsWith("token="))
-      //   ?.split("=")[1];
-
-      // if (!token) {
-      //   toast.error("Please login to download documents");
-      //   setIsDownloading(false);
-      //   return;
-      // }
-
-      // Determine certificate type based on insurance type
-      const certificateType =
-        insuranceType?.toLowerCase() === "impound" ? "impound" : "standard";
-
       const response = await fetch(
-        `${apiUrl}/api/pdf/certificate/${insuranceId}?certificateType=${certificateType}`,
+        `${apiUrl}/api/insurance/download-pdf/${insuranceId}/${pdfType}`,
         {
           method: "GET",
-          // headers: {
-          //   Authorization: `Bearer ${token}`,
-          // },
           credentials: "include",
           mode: "cors",
         }
       );
 
       if (!response.ok) {
-        throw new Error("Failed to download certificate");
+        throw new Error("Failed to download PDF");
       }
 
       // Get the blob from response
       const blob = await response.blob();
 
+      // Get filename from content-disposition header or use default
+      const contentDisposition = response.headers.get("content-disposition");
+      let filename = `Document_${insuranceId}.pdf`;
+      if (contentDisposition) {
+        // Match filename with or without quotes, but don't include quotes in capture
+        const filenameMatch = contentDisposition.match(/filename="([^"]+)"|filename=([^;\s]+)/);
+        if (filenameMatch) {
+          // Use the first non-null capture group
+          filename = filenameMatch[1] || filenameMatch[2];
+        }
+      }
+
       // Create a download link and trigger it
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `Certificate_${insuranceId}.pdf`;
+      link.download = filename;
       link.style.display = "none";
       document.body.appendChild(link);
       link.click();
@@ -63,10 +60,10 @@ export default function DownloadButton({ insuranceId, insuranceType }) {
         window.URL.revokeObjectURL(url);
       }, 100);
 
-      toast.success("Certificate downloaded successfully!");
+      toast.success("PDF downloaded successfully!");
     } catch (error) {
       console.error("Download error:", error);
-      toast.error("Failed to download certificate");
+      toast.error("Failed to download PDF");
     } finally {
       setIsDownloading(false);
     }
@@ -102,7 +99,7 @@ export default function DownloadButton({ insuranceId, insuranceType }) {
       }}
     >
       <Image src="/svg/pdf.svg" alt="pdf" width={18} height={18} />
-      <span>{isDownloading ? "Downloading..." : "Download PDF"}</span>
+      <span>{isDownloading ? "Downloading..." : label}</span>
     </button>
   );
 }
