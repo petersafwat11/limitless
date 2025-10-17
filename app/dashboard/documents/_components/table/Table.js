@@ -50,7 +50,7 @@ const Table = ({ title, columns, data }) => {
         </table>
       </div>
       <div className={styles.mobile}>
-        <h1 className={styles.mobileTitle}>Pending Claims</h1>
+        <h1 className={styles.mobileTitle}>Documents</h1>
         {data.map((row, index) => (
           <div className={styles.card} key={index}>
             <div className={styles.cardContent}>

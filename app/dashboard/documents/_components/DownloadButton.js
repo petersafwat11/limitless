@@ -38,7 +38,9 @@ export default function DownloadButton({
       let filename = `Document_${insuranceId}.pdf`;
       if (contentDisposition) {
         // Match filename with or without quotes, but don't include quotes in capture
-        const filenameMatch = contentDisposition.match(/filename="([^"]+)"|filename=([^;\s]+)/);
+        const filenameMatch = contentDisposition.match(
+          /filename="([^"]+)"|filename=([^;\s]+)/
+        );
         if (filenameMatch) {
           // Use the first non-null capture group
           filename = filenameMatch[1] || filenameMatch[2];
@@ -77,24 +79,24 @@ export default function DownloadButton({
         display: "flex",
         alignItems: "center",
         gap: "8px",
-        background: isDownloading ? "#9ca3af" : "#3b82f6",
-        color: "white",
-        padding: "8px 16px",
-        borderRadius: "6px",
+        color: "#0388FF",
+        fontSize: "14px",
+        fontWeight: "400",
+        lineHeight: "124%",
+        letterSpacing: "0.56px",
+        background: "transparent",
         border: "none",
         cursor: isDownloading ? "not-allowed" : "pointer",
-        fontSize: "14px",
-        fontWeight: "500",
         transition: "all 0.2s",
       }}
       onMouseEnter={(e) => {
         if (!isDownloading) {
-          e.target.style.background = "#2563eb";
+          e.target.style.color = "#2563eb";
         }
       }}
       onMouseLeave={(e) => {
         if (!isDownloading) {
-          e.target.style.background = "#3b82f6";
+          e.target.style.color = "#3b82f6";
         }
       }}
     >

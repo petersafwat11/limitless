@@ -37,6 +37,60 @@ const CoverDetails = ({ insurance, policyNumber }) => {
   const coverDetails = insurance?.coverDetails || {};
   const carUsage = insurance?.carUsage || {};
 
+  // Calculate end date and time based on period
+  const calculateEndDateTime = () => {
+    if (!coverDetails.startDate || !coverDetails.startTime) {
+      return { endDate: null, endTime: null };
+    }
+
+    try {
+      // Parse start date and time
+      const [year, month, day] = coverDetails.startDate.split('-').map(Number);
+      const [hours, minutes] = coverDetails.startTime.split(':').map(Number);
+      
+      const startDateTime = new Date(year, month - 1, day, hours, minutes);
+
+      // Determine period in days
+      let daysToAdd = 0;
+      
+      if (coverDetails.impoundType) {
+        // Impound insurance is always 30 days
+        daysToAdd = 30;
+      } else if (coverDetails.type && coverDetails.period) {
+        // Calculate based on type
+        if (coverDetails.type === "Days") {
+          daysToAdd = coverDetails.period;
+        } else if (coverDetails.type === "Weeks") {
+          daysToAdd = coverDetails.period * 7;
+        } else if (coverDetails.type === "Months") {
+          daysToAdd = coverDetails.period * 30; // Approximate
+        }
+      }
+
+      // Add days to start date
+      const endDateTime = new Date(startDateTime);
+      endDateTime.setDate(endDateTime.getDate() + daysToAdd);
+
+      // Format end date as YYYY-MM-DD
+      const endYear = endDateTime.getFullYear();
+      const endMonth = String(endDateTime.getMonth() + 1).padStart(2, '0');
+      const endDay = String(endDateTime.getDate()).padStart(2, '0');
+      const endDate = `${endYear}-${endMonth}-${endDay}`;
+
+      // Format end time as HH:MM
+      const endHours = String(endDateTime.getHours()).padStart(2, '0');
+      const endMinutes = String(endDateTime.getMinutes()).padStart(2, '0');
+      const endTime = `${endHours}:${endMinutes}`;
+
+      return { endDate, endTime };
+    } catch (error) {
+      console.error("Error calculating end date/time:", error);
+      return { endDate: null, endTime: null };
+    }
+  };
+
+  const { endDate, endTime } = calculateEndDateTime();
+
   // Format vehicle title
   const vehicleTitle = `${vehicleDetails.make || ""} ${vehicleDetails.model || ""}`.trim() || "Vehicle";
 
@@ -152,6 +206,8 @@ const CoverDetails = ({ insurance, policyNumber }) => {
         <CoverStart 
           startDate={coverDetails.startDate}
           startTime={coverDetails.startTime}
+          endDate={endDate}
+          endTime={endTime}
         />
       </div>
     </div>

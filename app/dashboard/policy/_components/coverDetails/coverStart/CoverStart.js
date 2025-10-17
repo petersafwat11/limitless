@@ -8,7 +8,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["700"],
 });
 
-const CoverStart = ({ startDate, startTime }) => {
+const CoverStart = ({ startDate, startTime, endDate, endTime }) => {
   // Format date
   const formatDate = (dateString) => {
     if (!dateString) return "N/A";
@@ -25,6 +25,8 @@ const CoverStart = ({ startDate, startTime }) => {
 
   const formattedStartDate = formatDate(startDate);
   const formattedStartTime = startTime || "00:00";
+  const formattedEndDate = formatDate(endDate);
+  const formattedEndTime = endTime || "00:00";
 
   return (
     <div className={styles.container}>
@@ -63,6 +65,20 @@ const CoverStart = ({ startDate, startTime }) => {
             height={43}
             className={styles.blue}
           />
+        </div>
+        <div className={styles.start}>
+          <Image
+            className={styles.startIcon}
+            src="/svg/end.svg"
+            alt="end"
+            width={29}
+            height={32}
+          />
+          <div className={styles.text}>
+            <p className={styles.title}>End</p>
+            <p className={styles.date}>{formattedEndDate}</p>
+            <p className={styles.time}>{formattedEndTime}</p>
+          </div>
         </div>
       </div>
     </div>
