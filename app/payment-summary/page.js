@@ -1,32 +1,19 @@
 import React from "react";
-import Header from "./_components/header/Header";
-import PersonalDetails from "./_components/personalDetails/PersonalDetails";
-import CoverDetails from "./_components/coverDetails/CoverDetails";
-import VehicleDetails from "./_components/vehicleDetails/VehicleDetails";
-import styles from "./page.module.css";
-import CoverLevel from "./_components/coverLevel/CoverLevel";
-import Actions from "./_components/actions/Actions";
 import axios from "axios";
 import { API_BASE_URL } from "@/utils/config";
 import { redirect } from "next/navigation";
+import PaymentSummaryClient from "./_components/PaymentSummaryClient";
+
 const page = async ({ searchParams }) => {
   const { id } = await searchParams;
   let insuranceData = null;
   let error = null;
-  console.log(id);
-  console.log(`${API_BASE_URL}/api/insurance/${id}`);
 
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/insurance/${id}`, {
-      // headers: {
-      //   Authorization: `Bearer ${token}`,
-      // },
-    });
+    const response = await axios.get(`${API_BASE_URL}/api/insurance/${id}`);
 
     if (response.status === 200 && response.data.data) {
-      // Handle nested data structure: response.data.data.data
       insuranceData = response.data.data.data || response.data.data;
-      console.log(insuranceData);
     } else {
       error = "Insurance not found";
     }
@@ -43,33 +30,7 @@ const page = async ({ searchParams }) => {
     redirect("/error");
   }
 
-  return (
-    <div>
-      <Header title="Payment Summary" />
-      <div className={"centeredContent"}>
-        <div className={styles.container}>
-          <div className={styles.first}>
-            <VehicleDetails
-              data={insuranceData.vehicleDetails}
-              carUsage={insuranceData.carUsage}
-            />
-            <CoverDetails data={insuranceData.coverDetails} />
-            <PersonalDetails
-              data={insuranceData.userDetails}
-              carUsage={insuranceData.carUsage}
-            />
-          </div>
-          <div className={styles.second}>
-            <CoverLevel
-              data={insuranceData.quote}
-              insuranceType={insuranceData.type}
-            />
-            <Actions insuranceId={id} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <PaymentSummaryClient insuranceData={insuranceData} id={id} />;
 };
 
 export default page;

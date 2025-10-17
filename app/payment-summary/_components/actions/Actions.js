@@ -4,16 +4,13 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import styles from "./actions.module.css";
 
-const Actions = ({ insuranceId, showPopUp, onPayClick }) => {
+const Actions = ({ insuranceId, onPayClick }) => {
   const router = useRouter();
 
   const handlePayment = () => {
-    // If onPayClick is provided (payment page), use it to show iframe
+    // Show iframe if onPayClick callback is provided
     if (onPayClick) {
       onPayClick();
-    } else if (insuranceId) {
-      // Otherwise navigate to payment page (payment-summary page)
-      router.push(`/payment?id=${insuranceId}`);
     }
   };
 

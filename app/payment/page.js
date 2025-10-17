@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { API_BASE_URL } from "@/utils/config";
 import { redirect } from "next/navigation";
-import PaymentPageClient from "./_components/PaymentPageClient";
+import PaymentConfirmationClient from "./_components/PaymentConfirmationClient";
 
 const page = async ({ searchParams }) => {
   const { id } = await searchParams;
@@ -10,11 +10,7 @@ const page = async ({ searchParams }) => {
   let error = null;
 
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/insurance/${id}`, {
-      // headers: {
-      //   Authorization: `Bearer ${token}`,
-      // },
-    });
+    const response = await axios.get(`${API_BASE_URL}/api/insurance/${id}`);
 
     if (response.status === 200 && response.data.data) {
       insuranceData = response.data.data.data || response.data.data;
@@ -34,7 +30,7 @@ const page = async ({ searchParams }) => {
     redirect("/error");
   }
 
-  return <PaymentPageClient insuranceData={insuranceData} id={id} />;
+  return <PaymentConfirmationClient insuranceData={insuranceData} />;
 };
 
 export default page;

@@ -129,8 +129,8 @@ const Form = ({ claimReason }) => {
       // Transform flat form data to nested structure for API
       const apiData = transformFormDataToApiFormat(data);
 
-      // Add userId from auth context
-      apiData.userId = user?.id || user?._id;
+      // userId will be set by backend from authenticated user
+      // No need to send it from frontend
 
       const response = await fetch(`${API_BASE_URL}/api/claims`, {
         method: "POST",
@@ -141,7 +141,18 @@ const Form = ({ claimReason }) => {
         body: JSON.stringify(apiData),
       });
 
-      const result = await response.json();
+      // Check if response is JSON before parsing
+      const contentType = response.headers.get("content-type");
+      let result;
+      
+      if (contentType && contentType.includes("application/json")) {
+        result = await response.json();
+      } else {
+        // Server returned HTML (likely an error page)
+        const text = await response.text();
+        console.error("Server returned non-JSON response:", text.substring(0, 200));
+        throw new Error(`Server error (${response.status}). Please try again or contact support.`);
+      }
 
       if (response.ok) {
         console.log("API Response:", result); // Debug: Full API response

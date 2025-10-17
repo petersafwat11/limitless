@@ -1,19 +1,21 @@
 "use client";
 
-import { useState } from "react";
 import Header from "./header/Header";
 import OrderSummery from "./orderSummery/OrderSummery";
 import VehicleCovered from "./vehicleCovered/VehicleCovered";
 import Details from "./details/Details";
 import Duration from "./duration/Duration";
 import CoverLevel from "./coverLevel/CoverLevel";
-import Actions from "../../payment-summary/_components/actions/Actions";
-import PaymentIframe from "./PaymentIframe";
 import styles from "../page.module.css";
+import { redirect } from "next/navigation";
 
-export default function PaymentPageClient({ insuranceData, id }) {
-  const [showIframe, setShowIframe] = useState(false);
-
+export default function PaymentConfirmationClient({ insuranceData }) {
+  const { quote } = insuranceData;
+  console.log("quote", quote);
+  console.log(`/payment-summary?id=${insuranceData?._id}`);
+  if (quote.paid === false || !quote.sumupData) {
+    redirect(`/payment-summary?id=${insuranceData?._id}`);
+  }
   // Format duration value
   const getDurationValue = () => {
     if (!insuranceData.coverDetails) return "N/A";
@@ -38,14 +40,6 @@ export default function PaymentPageClient({ insuranceData, id }) {
     return "Policy starts immediately";
   };
 
-  const handlePayClick = () => {
-    setShowIframe(true);
-  };
-
-  const handleCloseIframe = () => {
-    setShowIframe(false);
-  };
-
   return (
     <div>
       <Header title="Thank you for your purchase" />
@@ -63,7 +57,7 @@ export default function PaymentPageClient({ insuranceData, id }) {
               data={insuranceData.quote}
               insuranceType={insuranceData.type}
             />
-            <Actions insuranceId={id} onPayClick={handlePayClick} />
+            {/* No action buttons - payment already completed */}
           </div>
         </div>
 
@@ -71,7 +65,6 @@ export default function PaymentPageClient({ insuranceData, id }) {
           <div className={styles.left}>
             <div className={styles.vehicleCoveredLarge}>
               <VehicleCovered data={insuranceData.vehicleDetails} />
-              
             </div>
             <div className={styles.durationContainer}>
               <Duration
@@ -95,17 +88,10 @@ export default function PaymentPageClient({ insuranceData, id }) {
               data={insuranceData.quote}
               insuranceType={insuranceData.type}
             />
-            <Actions insuranceId={id} onPayClick={handlePayClick} />
+            {/* No action buttons - payment already completed */}
           </div>
         </div>
       </div>
-
-      {/* Payment iframe - shown when Pay button is clicked */}
-      <PaymentIframe
-        insuranceId={id}
-        show={showIframe}
-        onClose={handleCloseIframe}
-      />
     </div>
   );
 }

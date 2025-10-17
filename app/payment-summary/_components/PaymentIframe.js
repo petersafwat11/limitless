@@ -32,12 +32,12 @@ export default function PaymentIframe({ insuranceId, show, onClose }) {
             clearInterval(intervalId);
             
             // Show success message
-            toast.success("Payment successful! Redirecting to documents...");
+            toast.success("Payment successful! Redirecting...");
             
-            // Wait a moment then close iframe and redirect
+            // Wait a moment then close iframe and redirect to payment confirmation page
             setTimeout(() => {
               onClose();
-              router.push("/dashboard/documents");
+              router.push(`/payment?id=${insuranceId}`);
             }, 2000);
           }
         }
@@ -144,7 +144,7 @@ export default function PaymentIframe({ insuranceId, show, onClose }) {
             <h2 style={{ color: "#22c55e", marginBottom: "10px" }}>
               Payment Successful!
             </h2>
-            <p style={{ color: "#666" }}>Redirecting to your documents...</p>
+            <p style={{ color: "#666" }}>Redirecting to confirmation page...</p>
           </div>
         )}
       </div>
