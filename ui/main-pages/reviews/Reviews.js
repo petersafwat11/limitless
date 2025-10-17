@@ -166,47 +166,12 @@ const Reviews = () => {
           </div>
         </div>
 
-        {/* Mobile version - slideshow with fade effects */}
+        {/* Mobile version - smooth horizontal slide */}
         <div className={styles.mobileReviews}>
           <div className={styles.slideContainer}>
-            {/* Previous review (faded) */}
-            <div className={styles.fadeReview + " " + styles.fadeLeft}>
-              {(() => {
-                const prevIndex =
-                  currentSlide === 0
-                    ? reviewsData.length - 2
-                    : currentSlide - 2;
-                const prevReview = reviewsData[prevIndex];
-                return (
-                  <div className={styles.review} key={`prev-${prevReview.id}`}>
-                    <p className={styles.text}>{prevReview.text}</p>
-                    <div className={styles.bottom}>
-                      <div className={styles.author}>
-                        <p className={styles.name}>{prevReview.name}</p>
-                        <p className={styles.date}>{prevReview.date}</p>
-                      </div>
-                      <div className={styles.stars}>
-                        {[1, 2, 3, 4, 5].map((item) => (
-                          <Image
-                            className={styles.star}
-                            src={`/svg/star.svg`}
-                            alt="star"
-                            width={18}
-                            height={18}
-                            key={item}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })()}
-            </div>
-
-            {/* Current reviews (main visible) */}
-            <div className={styles.mainReviews}>
+            <div className={styles.mainReviews} key={currentSlide}>
               {getVisibleReviews().map((review, index) => (
-                <div className={styles.review} key={`main-${review.id}`}>
+                <div className={styles.review} key={`main-${review.id}-${currentSlide}`}>
                   <p className={styles.text}>{review.text}</p>
                   <div className={styles.bottom}>
                     <div className={styles.author}>
@@ -228,37 +193,6 @@ const Reviews = () => {
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* Next review (faded) */}
-            <div className={styles.fadeReview + " " + styles.fadeRight}>
-              {(() => {
-                const nextIndex = (currentSlide + 2) % reviewsData.length;
-                const nextReview = reviewsData[nextIndex];
-                return (
-                  <div className={styles.review} key={`next-${nextReview.id}`}>
-                    <p className={styles.text}>{nextReview.text}</p>
-                    <div className={styles.bottom}>
-                      <div className={styles.author}>
-                        <p className={styles.name}>{nextReview.name}</p>
-                        <p className={styles.date}>{nextReview.date}</p>
-                      </div>
-                      <div className={styles.stars}>
-                        {[1, 2, 3, 4, 5].map((item) => (
-                          <Image
-                            className={styles.star}
-                            src={`/svg/star.svg`}
-                            alt="star"
-                            width={18}
-                            height={18}
-                            key={item}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })()}
             </div>
           </div>
 
