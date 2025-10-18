@@ -34,7 +34,7 @@ const Header = ({ page }) => {
           return "Policy Documents";
         case "dashboard":
         default:
-          return user ? `Welcome, ${user.firstName}` : "Welcome";
+          return "Welcome";
       }
     }
 
@@ -48,7 +48,7 @@ const Header = ({ page }) => {
     } else if (pathname.includes("/documents")) {
       return "Policy Documents";
     } else {
-      return user ? `Welcome, ${user.firstName}` : "Welcome";
+      return "Welcome";
     }
   };
 

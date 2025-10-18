@@ -79,7 +79,9 @@
     border-radius: 18px;
     padding: 2.2rem 0 2.2rem 2.2rem;
     flex-direction: column;
-    align-items: 2.6rem;
+    gap: 2.6rem;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
   .first {
     gap: 1.4rem;

@@ -84,12 +84,15 @@ const Page = async () => {
 
   try {
     // Fetch all insurances for the logged-in user
-    const response = await serverFetch(`${API_BASE_URL}/api/insurance/user/my-insurances`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      cache: "no-store",
-    });
+    const response = await serverFetch(
+      `${API_BASE_URL}/api/insurance/user/my-insurances`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        cache: "no-store",
+      }
+    );
 
     if (response.ok) {
       const result = await response.json();
@@ -98,11 +101,10 @@ const Page = async () => {
       insurances.forEach((insurance) => {
         const policyData = {
           id: insurance._id,
-          policyNumber: `${insurance.type
-            .substring(0, 2)
-            .toUpperCase()}-${insurance._id.substring(
-            insurance._id.length - 6
-          )}`,
+          policyNumber: `LC-${insurance._id
+            .toString()
+            .slice(-8)
+            .toUpperCase()}`,
           remaining: calculateRemainingDays(insurance.coverDetails),
           name: insurance.userDetails
             ? `${insurance.userDetails.firstName} ${insurance.userDetails.surname}`
