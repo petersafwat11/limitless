@@ -197,7 +197,7 @@ const FormDateInput = forwardRef(
                   minDate={allowPastDates ? null : today}
                   maxDate={
                     allowPastDates && dateLabel === "Date of Birth"
-                      ? today
+                      ? new Date(2010, 11, 31) // December 31, 2010
                       : null
                   }
                   filterDate={allowPastDates ? null : (date) => date >= today}

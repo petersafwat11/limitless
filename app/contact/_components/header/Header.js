@@ -67,7 +67,7 @@ const Header = () => {
                   >
                     Phone No:
                   </h3>
-                  <p className={styles.infoDescription}>+1012 3456 789</p>
+                  <p className={styles.infoDescription}>+442080586743</p>
                 </div>
               </div>
               <div className={styles.contactOption}>

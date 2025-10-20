@@ -150,8 +150,15 @@ const ImpoundInsuranceContent = () => {
         autoClose: 3000,
       });
 
+      // Check if payment=false is in search params
+      const skipPayment = searchParams.get("payment") === "false";
+
       setTimeout(() => {
-        router.push(`/payment-summary?id=${insuranceId}`);
+        if (skipPayment) {
+          router.push(`/dashboard/policy`);
+        } else {
+          router.push(`/payment-summary?id=${insuranceId}`);
+        }
       }, 1000);
     } catch (error) {
       console.error("Error submitting form:", error);

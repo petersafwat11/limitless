@@ -220,7 +220,7 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles.copyright}>
-          © 2025 Limitless Trading Services . All Rights Reserved
+          © 2025 Limitless Cover Services . All Rights Reserved
         </div>
       </div>
     </footer>

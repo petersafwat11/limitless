@@ -42,11 +42,17 @@ const Form = () => {
     },
   });
 
-  // Check for success message from URL params
+  // Check for message from URL params
   useEffect(() => {
     const message = searchParams.get("message");
     if (message) {
-      setSuccessMessage(message);
+      // Check if it's an error message (e.g., from middleware redirect)
+      if (message.toLowerCase().includes("login") || message.toLowerCase().includes("error") || message.toLowerCase().includes("authentication")) {
+        // Clear any success message and let the error appear naturally on next attempt
+        setSuccessMessage("");
+      } else {
+        setSuccessMessage(message);
+      }
       // Clear the message from URL after showing it
       const newUrl = window.location.pathname;
       window.history.replaceState(null, "", newUrl);
@@ -83,11 +89,8 @@ const Form = () => {
       const result = await login(data.email, data.password);
 
       if (result.success) {
-        // Force a hard redirect to ensure cookie is properly set
-        // Use window.location for a full page reload which ensures middleware runs with fresh cookies
-        setTimeout(() => {
-          window.location.href = "/dashboard";
-        }, 100);
+        // Redirect to dashboard after successful login
+        router.push("/dashboard");
       } else {
         setError("root", { message: result.message });
         setIsSubmitting(false); // Stop loading on error

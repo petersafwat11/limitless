@@ -139,12 +139,6 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
   const pathname = usePathname();
-  // Check for existing authentication on mount
-  useEffect(() => {
-    if (pathname.startsWith("/dashboard")) {
-      checkAuthStatus();
-    }
-  }, [pathname]);
 
   const checkAuthStatus = async () => {
     try {
@@ -378,6 +372,14 @@ export const AuthProvider = ({ children }) => {
       dispatch({ type: AUTH_ACTIONS.SET_LOADING, payload: false });
     }
   };
+
+  // Check auth status once on mount if on dashboard
+  useEffect(() => {
+    if (pathname.startsWith("/dashboard")) {
+      checkAuthStatus();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only run once on mount
 
   const value = {
     ...state,

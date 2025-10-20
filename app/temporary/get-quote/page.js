@@ -147,9 +147,16 @@ const TemporaryInsuranceContent = () => {
         autoClose: 3000,
       });
 
-      // Redirect to payment summary with insurance ID
+      // Check if payment=false is in search params
+      const skipPayment = searchParams.get("payment") === "false";
+
+      // Redirect to payment summary with insurance ID or dashboard if payment is skipped
       setTimeout(() => {
-        router.push(`/payment-summary?id=${insuranceId}`);
+        if (skipPayment) {
+          router.push(`/dashboard/policy`);
+        } else {
+          router.push(`/payment-summary?id=${insuranceId}`);
+        }
       }, 1000);
     } catch (error) {
       console.error("Error submitting form:", error);

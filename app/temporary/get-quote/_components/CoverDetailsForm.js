@@ -61,7 +61,7 @@ const CoverDetailsForm = ({ form }) => {
       case "Days":
         return Array.from({ length: 23 }, (_, i) => (i + 8).toString());
       case "Weeks":
-        return Array.from({ length: 48 }, (_, i) => (i + 5).toString());
+        return []; // No dropdown for weeks
       case "Months":
         return [];
       default:

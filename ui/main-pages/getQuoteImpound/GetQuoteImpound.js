@@ -8,18 +8,24 @@ import Selection1 from "../../inputs/selections/selection1/Selection1";
 import FormDropdown from "../../inputs/FormDropdown";
 const GetQuoteImpound = () => {
   const router = useRouter();
-  const [registrationNumber, setRegistrationNumber] = useState("");
-  const [period, setPeriod] = useState("30 Days");
-  const [startDateDay, setStartDateDay] = useState("");
-  const [startDateMonth, setStartDateMonth] = useState("");
-  const [startDateYear, setStartDateYear] = useState("");
-  const [errors, setErrors] = useState({});
-
-  // Get current date
+  // Get current date first
   const today = new Date();
   const currentYear = today.getFullYear();
   const currentMonth = today.getMonth(); // 0-11
   const currentDay = today.getDate();
+  
+  // Month names
+  const monthNames = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+  
+  const [registrationNumber, setRegistrationNumber] = useState("");
+  const [period, setPeriod] = useState("30 Days");
+  const [startDateDay, setStartDateDay] = useState("");
+  const [startDateMonth, setStartDateMonth] = useState(monthNames[currentMonth]); // Set to current month
+  const [startDateYear, setStartDateYear] = useState(currentYear.toString()); // Set to current year
+  const [errors, setErrors] = useState({});
 
   // Calculate max date (2 months ahead)
   const maxDate = new Date(today);
@@ -30,12 +36,6 @@ const GetQuoteImpound = () => {
 
   // Only current year (2025)
   const yearOptions = [currentYear.toString()];
-
-  // Month names
-  const monthNames = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-  ];
 
   // Generate available months based on selected year
   const getAvailableMonths = () => {

@@ -43,7 +43,7 @@ const Page = () => {
             "Immediate cover. Save on impound storage fees",
           ]}
           title="Impound Vehicle Insurance"
-          description="Temporary compound insurance allows you to release your car quickly
+          description="Temporary impound insurance allows you to release your car quickly
                   and easily."
           img={{
             src: "/svg/get-quote.svg",

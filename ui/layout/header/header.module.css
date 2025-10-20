@@ -46,6 +46,10 @@
   color: #049cff;
 }
 
+.activeMenuLink {
+  color: #049cff !important;
+}
+
 .buttons {
   /* width: 30.4rem; */
   height: 6.4rem;

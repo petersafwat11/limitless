@@ -2,18 +2,21 @@
 import React from "react";
 import styles from "./sideNavbar.module.css";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { RiHome2Line } from "react-icons/ri";
 import { HiOutlineLogout } from "react-icons/hi";
 import { TiDocumentAdd } from "react-icons/ti";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlinePolicy } from "react-icons/md";
 import { HiOutlineDocumentText } from "react-icons/hi2";
+import { useAuth } from "@/contexts/AuthContext";
 // import { FaBriefcase } from "react-icons/fa";
 // <FaBriefcase />
 
 const SideNavbar = ({ isOpen = false, onToggle, isMobile = false }) => {
   const pathname = usePathname();
+  const router = useRouter();
+  const { logout } = useAuth();
   const page = pathname.split("/")[2];
   const navItems = [
     {
@@ -73,8 +76,9 @@ const SideNavbar = ({ isOpen = false, onToggle, isMobile = false }) => {
               style={{
                 animationDelay: isOpen ? `${(index + 1) * 0.1}s` : "0s",
               }}
-              onClick={() => {
-                console.log("Logout button clicked");
+              onClick={async () => {
+                await logout();
+                router.push("/login");
               }}
             >
               {item.icon}

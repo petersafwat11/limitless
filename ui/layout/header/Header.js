@@ -38,22 +38,34 @@ const Header = () => {
         {!isDashboard && (
           <menu className={styles.menu}>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} href="/temporary">
+              <Link 
+                className={`${styles.menuLink} ${pathname === "/temporary" ? styles.activeMenuLink : ""}`} 
+                href="/temporary"
+              >
                 Temporary
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} href="/impound">
+              <Link 
+                className={`${styles.menuLink} ${pathname === "/impound" ? styles.activeMenuLink : ""}`} 
+                href="/impound"
+              >
                 Impound
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} href="/coming-soon">
+              <Link 
+                className={`${styles.menuLink} ${pathname === "/coming-soon" ? styles.activeMenuLink : ""}`} 
+                href="/coming-soon"
+              >
                 Courier
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} href="/contact">
+              <Link 
+                className={`${styles.menuLink} ${pathname === "/contact" ? styles.activeMenuLink : ""}`} 
+                href="/contact"
+              >
                 Contact Us
               </Link>
             </li>
