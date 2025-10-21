@@ -23,25 +23,41 @@ export default function DownloadButton({
         {
           method: "GET",
           credentials: "include", // This sends cookies cross-origin
-          // mode: "cors",
           headers: {
             "Accept": "application/pdf",
           },
-          // Important: Don't set Content-Type for GET requests
         }
       );
 
-      // if (!response.ok) {
-      //   // Handle authentication errors
-      //   if (response.status === 401) {
-      //     toast.error("Authentication failed. Please refresh the page and try again.");
-      //     return;
-      //   }
-      //   throw new Error("Failed to download PDF");
-      // }
+      if (!response.ok) {
+        // Handle authentication errors
+        if (response.status === 401) {
+          toast.error("Authentication failed. Please refresh the page and try again.");
+          return;
+        }
+        if (response.status === 404) {
+          toast.error("Document not found.");
+          return;
+        }
+        throw new Error(`Failed to download PDF: ${response.status} ${response.statusText}`);
+      }
+
+      // Check if response is actually a PDF
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/pdf")) {
+        console.error("Invalid content type:", contentType);
+        toast.error("Server did not return a valid PDF file.");
+        return;
+      }
 
       // Get the blob from response
       const blob = await response.blob();
+      
+      // Verify blob is not empty
+      if (blob.size === 0) {
+        toast.error("Downloaded file is empty.");
+        return;
+      }
 
       // Get filename from content-disposition header or use default
       const contentDisposition = response.headers.get("content-disposition");
@@ -57,8 +73,11 @@ export default function DownloadButton({
         }
       }
 
+      // Create a blob URL with explicit PDF type
+      const pdfBlob = new Blob([blob], { type: "application/pdf" });
+      const url = window.URL.createObjectURL(pdfBlob);
+      
       // Create a download link and trigger it
-      const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
       link.download = filename;

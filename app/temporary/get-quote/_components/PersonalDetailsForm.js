@@ -75,8 +75,8 @@ const PersonalDetailsForm = ({ form }) => {
         options.push(i.toString());
       }
       
-      // Add "15+" only if user can have 15+ years of NCB
-      if (maxNCBYears >= 14) {
+      // Add "15+" only if user can have 15 or more years of NCB
+      if (maxNCBYears >= 15) {
         options.push("15+");
       }
       
