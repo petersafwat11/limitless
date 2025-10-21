@@ -185,6 +185,9 @@ export const AuthProvider = ({ children }) => {
       const data = await response.json();
 
       if (response.ok) {
+        // Small delay to ensure cookie is set before redirecting
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
         dispatch({
           type: AUTH_ACTIONS.LOGIN_SUCCESS,
           payload: {

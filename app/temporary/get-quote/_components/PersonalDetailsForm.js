@@ -71,12 +71,12 @@ const PersonalDetailsForm = ({ form }) => {
       
       // Generate NCB options from 0 to maxNCBYears
       const options = [];
-      for (let i = 0; i <= Math.min(maxNCBYears, 15); i++) {
+      for (let i = 0; i <= Math.min(maxNCBYears, 14); i++) {
         options.push(i.toString());
       }
       
       // Add "15+" only if user can have 15+ years of NCB
-      if (maxNCBYears >= 15) {
+      if (maxNCBYears >= 14) {
         options.push("15+");
       }
       

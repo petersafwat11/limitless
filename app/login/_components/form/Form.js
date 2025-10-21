@@ -47,7 +47,11 @@ const Form = () => {
     const message = searchParams.get("message");
     if (message) {
       // Check if it's an error message (e.g., from middleware redirect)
-      if (message.toLowerCase().includes("login") || message.toLowerCase().includes("error") || message.toLowerCase().includes("authentication")) {
+      if (
+        message.toLowerCase().includes("login") ||
+        message.toLowerCase().includes("error") ||
+        message.toLowerCase().includes("authentication")
+      ) {
         // Clear any success message and let the error appear naturally on next attempt
         setSuccessMessage("");
       } else {

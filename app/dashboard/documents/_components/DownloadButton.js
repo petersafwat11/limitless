@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export default function DownloadButton({
   insuranceId,
@@ -10,6 +11,7 @@ export default function DownloadButton({
   label = "Download PDF",
 }) {
   const [isDownloading, setIsDownloading] = useState(false);
+  const router = useRouter();
 
   const handleDownload = async () => {
     setIsDownloading(true);
@@ -17,17 +19,36 @@ export default function DownloadButton({
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
+      if (!apiUrl) {
+        throw new Error("API URL not configured");
+      }
+
+      console.log(`Downloading PDF: ${pdfType} for insurance ${insuranceId}`);
+      console.log(`API URL: ${apiUrl}`);
+
       const response = await fetch(
         `${apiUrl}/api/insurance/download-pdf/${insuranceId}/${pdfType}`,
         {
           method: "GET",
-          credentials: "include",
+          credentials: "include", // Include cookies for authentication
           mode: "cors",
+          headers: {
+            "Accept": "application/pdf",
+          },
         }
       );
 
       if (!response.ok) {
-        throw new Error("Failed to download PDF");
+        if (response.status === 401) {
+          console.error("Authentication failed - redirecting to login");
+          toast.error("Session expired. Please login again.");
+          // Redirect to login after a short delay
+          setTimeout(() => {
+            router.push("/login");
+          }, 1500);
+          return;
+        }
+        throw new Error(`Failed to download PDF: ${response.status} ${response.statusText}`);
       }
 
       // Get the blob from response
