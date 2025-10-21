@@ -15,27 +15,39 @@ export default function DownloadButton({
     setIsDownloading(true);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+      // Use server-side proxy route to avoid CORS/cookie issues
+      const downloadUrl = `/api/download-pdf/${insuranceId}/${pdfType}`;
 
-      // Make request with credentials to include cookies
-      const response = await fetch(
-        `${apiUrl}/api/insurance/download-pdf/${insuranceId}/${pdfType}`,
-        {
-          method: "GET",
-          credentials: "include", // This sends cookies cross-origin
-          headers: {
-            "Accept": "application/pdf",
-          },
-        }
-      );
+      console.log(`📥 Downloading PDF via proxy - URL: ${downloadUrl}`);
+
+      // Make request to our Next.js API route (same-origin, no CORS issues)
+      const response = await fetch(downloadUrl, {
+        method: "GET",
+        headers: {
+          "Accept": "application/pdf",
+        },
+      });
+
+      console.log(`📡 Response status: ${response.status}`);
 
       if (!response.ok) {
         // Handle authentication errors
         if (response.status === 401) {
-          toast.error("Authentication failed. Please refresh the page and try again.");
+          console.error("❌ 401 Unauthorized - Authentication failed");
+          toast.error("Session expired. Please log in again.");
+          // Redirect to login after a short delay
+          setTimeout(() => {
+            window.location.href = "/login";
+          }, 2000);
+          return;
+        }
+        if (response.status === 403) {
+          console.error("❌ 403 Forbidden - Access denied");
+          toast.error("You don't have permission to access this document.");
           return;
         }
         if (response.status === 404) {
+          console.error("❌ 404 Not Found");
           toast.error("Document not found.");
           return;
         }
