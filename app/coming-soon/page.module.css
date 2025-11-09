@@ -1,0 +1,77 @@
+.page {
+  /* position: relative;
+  overflow: hidden; */
+}
+
+.cardsContainer {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 2.4rem;
+  padding: 0 4.4%;
+  margin-top: -34.8rem;
+  margin-bottom: 8.2rem;
+  position: relative;
+  z-index: 2;
+}
+.cardsContainer > div {
+  flex: 1;
+}
+.squareLight {
+  position: absolute;
+  z-index: 1;
+  top: 2.7rem;
+  right: 1.1%;
+  width: calc(34.6rem - 1.1%);
+  height: 77rem;
+  background: linear-gradient(
+    to top,
+    rgba(3, 136, 255, 0) 0%,
+    rgba(3, 136, 255, 0.48) 100%
+  );
+}
+.squareLight2 {
+  position: absolute;
+  z-index: 1;
+  top: 2.7rem;
+  right: 34.6rem;
+  width: 35.2rem;
+  height: 48rem;
+  background: linear-gradient(
+    to top,
+    rgba(3, 136, 255, 0) 0%,
+    rgba(3, 136, 255, 0.48) 100%
+  );
+}
+@media screen and (max-width: 1200px) {
+  .squareLight {
+    z-index: 0.8;
+    top: -2.96rem;
+    right: 0.88%;
+    width: calc(27.68rem - 0.88%);
+    height: 64.48rem;
+  }
+
+  .squareLight2 {
+    z-index: 0.8;
+    top: -2.96rem;
+    right: 27.68rem;
+    width: 28.16rem;
+    height: 41.28rem;
+  }
+  .cardsContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.2rem;
+  }
+  .squareLight,
+  .squareLight2 {
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  .cardsContainer {
+    margin-top: -4rem;
+  }
+}

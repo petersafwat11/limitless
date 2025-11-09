@@ -1,0 +1,728 @@
+.wrapper {
+  width: 100%;
+  padding: 3.4rem 0 16.4rem;
+  background: transparent;
+}
+
+.container {
+  max-width: 132rem;
+  margin: 0 auto;
+  padding: 0 4.4%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4.8rem;
+  align-items: flex-start;
+}
+
+.header {
+  grid-column: 1;
+  grid-row: 1;
+  margin-bottom: 0;
+}
+
+.title {
+  color: #1D1F2C;
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.prevButton {
+  display: flex;
+  width: 4.2rem;
+  height: 4.2rem;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1.5px solid #E5E7EB;
+  background: #FFFFFF;
+  color: #9CA3AF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.prevButton svg {
+  width: 2.4rem;
+  height: 2.4rem;
+  stroke-width: 2;
+}
+
+.prevButton:hover:not(:disabled) {
+  border-color: #D1D5DB;
+}
+
+.prevButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.prevButtonActive {
+  background: transparent;
+  color: #1B1464;
+  border-color: #1B1464;
+}
+
+.prevButtonActive:hover:not(:disabled) {
+  background: rgba(27, 20, 100, 0.05);
+}
+
+.nextButton {
+  display: flex;
+  width: 4.2rem;
+  height: 4.2rem;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: #F3F4F6;
+  color: #9CA3AF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.nextButton svg {
+  width: 2.4rem;
+  height: 2.4rem;
+  stroke-width: 2;
+}
+
+.nextButton:hover:not(:disabled) {
+  background: #E5E7EB;
+}
+
+.nextButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.nextButtonActive {
+  background: #1B1464;
+  color: #FFFFFF;
+  border: none;
+}
+
+.nextButtonActive:hover:not(:disabled) {
+  background: #251a7f;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+.summaryCard {
+  display: flex;
+  width: 28rem;
+  min-width: 28rem;
+  height: 22rem;
+  padding: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  background: #FFF;
+  flex-shrink: 0;
+}
+
+.excellent {
+  color: #000;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+}
+
+.largeStars {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.largeStars svg {
+  width: 3.3rem;
+  height: 3.4rem;
+  flex-shrink: 0;
+}
+
+.largeStars > div {
+  width: 3.4rem;
+  height: 3.4rem;
+  flex-shrink: 0;
+}
+
+.reviewsCount {
+  color: #000;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+}
+
+.trustpilotBadge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.trustpilotBadge svg {
+  width: 2.54rem;
+  height: 2.4rem;
+}
+
+.trustpilotText {
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+}
+
+.reviewsContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 3.2rem;
+  flex: 1;
+}
+
+.reviewCard {
+  display: flex;
+  height: 22rem;
+  padding: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.8rem;
+  flex: 1;
+  background: #FFF;
+  box-shadow: 0 1.2rem 2.4rem 0 rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+  animation: pageSwipeIn 0.5s ease-out forwards;
+}
+
+.reviewCard:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.reviewCard:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.reviewCard:hover {
+  box-shadow: 0 1.2rem 3rem 0 rgba(0, 0, 0, 0.08);
+}
+
+@keyframes pageSwipeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes smoothSwipeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.rating {
+  display: flex;
+  height: 2.6rem;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.stars {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.stars svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.timestamp {
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+}
+
+.reviewTitle {
+  align-self: stretch;
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+}
+
+.reviewText {
+  align-self: stretch;
+  color: #1f2937;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+  max-height: 4.4rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.divider {
+  width: 6rem;
+  height: 0.1rem;
+  background: #D9D9D9;
+}
+
+.username {
+  color: #4A4C56;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2.2rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    padding: 6rem 0;
+  }
+
+  .container {
+    gap: 3.2rem;
+    grid-template-columns: 1fr auto;
+  }
+
+  .header {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0;
+  }
+
+  .navigation {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .content {
+    gap: 1.6rem;
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .reviewsContainer {
+    gap: 2rem;
+  }
+
+  .summaryCard {
+    width: 24rem;
+    min-width: 24rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper {
+    padding: 2rem 0 8rem 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .header {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 3.2rem;
+    margin: 0;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 0.2rem;
+    justify-content: flex-start;
+    align-items: stretch;
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 3rem;
+  }
+
+  .navigation {
+    display: flex;
+    gap: 1.6rem;
+    width: 100%;
+    justify-content: center;
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .prevButton,
+  .nextButton {
+    width: 4.6rem;
+    height: 4.6rem;
+  }
+
+  .prevButton svg,
+  .nextButton svg {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 0.2rem;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .summaryCard {
+    width: 100%;
+    max-width: 40rem;
+    margin: 0 auto 0 auto;
+    text-align: center;
+  }
+
+  .reviewsContainer {
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    touch-action: pan-y;
+    box-shadow: 0 2rem 3.2rem 0 rgba(0, 0, 0, 0.06);
+    border-radius: 1.2rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .reviewCard {
+    width: 100%;
+    height: auto;
+    min-height: 22rem;
+    flex: 0 0 100%;
+    animation: smoothSwipeIn 1.2s ease-out forwards;
+    box-shadow: none;
+    border-radius: 1.2rem;
+  }
+
+  .reviewCard:nth-child(2) {
+    animation-delay: 0s;
+  }
+
+  .reviewCard:nth-child(3) {
+    animation-delay: 0s;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    padding: 1.5rem 0 6rem 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .header {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 2.8rem;
+    margin: 0;
+  }
+
+  .content {
+    gap: 0rem;
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 2.5rem;
+  }
+
+  .navigation {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1.4rem;
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .prevButton,
+  .nextButton {
+    width: 4.2rem;
+    height: 4.2rem;
+  }
+
+  .prevButton svg,
+  .nextButton svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .content {
+    gap: 0rem;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .summaryCard {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.2rem;
+    gap: 0.6rem;
+    margin: 0;
+    height: auto;
+    text-align: center;
+  }
+
+  .reviewsContainer {
+    margin: 0;
+  }
+
+  .largeStars {
+    gap: 0.5rem;
+  }
+
+  .largeStars svg {
+    width: 2.4rem;
+    height: 2.48rem;
+  }
+
+  .largeStars > div {
+    width: 2.48rem;
+    height: 2.48rem;
+  }
+
+  .largeStars > div > div {
+    width: 2.48rem;
+    height: 2.48rem;
+  }
+
+  .largeStars > div > svg {
+    width: 2.08rem;
+    height: 2.08rem;
+  }
+
+  .excellent {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+  }
+
+  .reviewsCount {
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+
+  .trustpilotBadge {
+    gap: 0.4rem;
+  }
+
+  .trustpilotBadge svg {
+    width: 2.2rem;
+    height: 2.1rem;
+  }
+
+  .trustpilotText {
+    font-size: 1.3rem;
+  }
+
+  .reviewsContainer {
+    touch-action: pan-y;
+    cursor: grab;
+    box-shadow: 0 2rem 3.2rem 0 rgba(0, 0, 0, 0.06);
+    border-radius: 1.2rem;
+    padding: 0;
+  }
+
+  .reviewsContainer:active {
+    cursor: grabbing;
+  }
+
+  .reviewCard {
+    padding: 1.6rem;
+    min-height: 20rem;
+    flex: 0 0 100%;
+    animation: smoothSwipeIn 1.2s ease-out forwards;
+    box-shadow: none;
+    border-radius: 1.2rem;
+  }
+
+  .reviewTitle {
+    font-size: 1.6rem;
+  }
+
+  .reviewText {
+    font-size: 1.3rem;
+  }
+
+  .username {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper {
+    padding: 1rem 0 5rem 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .title {
+    font-size: 2.4rem;
+    margin: 0;
+  }
+
+  .header {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .content {
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 2rem;
+  }
+
+  .navigation {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1.2rem;
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .prevButton,
+  .nextButton {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .prevButton svg,
+  .nextButton svg {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .content {
+    gap: 0rem;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .summaryCard {
+    padding: 1rem;
+    gap: 0.5rem;
+    margin: 0;
+    height: auto;
+    text-align: center;
+  }
+
+  .reviewsContainer {
+    margin: 0;
+  }
+
+  .largeStars {
+    gap: 0.4rem;
+  }
+
+  .largeStars svg {
+    width: 2.2rem;
+    height: 2.28rem;
+  }
+
+  .largeStars > div {
+    width: 2.28rem;
+    height: 2.28rem;
+  }
+
+  .largeStars > div > div {
+    width: 2.28rem;
+    height: 2.28rem;
+  }
+
+  .largeStars > div > svg {
+    width: 1.92rem;
+    height: 1.92rem;
+  }
+
+  .excellent {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+
+  .reviewsCount {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+
+  .trustpilotBadge {
+    gap: 0.3rem;
+  }
+
+  .trustpilotBadge svg {
+    width: 2rem;
+    height: 1.92rem;
+  }
+
+  .trustpilotText {
+    font-size: 1.2rem;
+  }
+
+  .reviewsContainer {
+    box-shadow: 0 2rem 3.2rem 0 rgba(0, 0, 0, 0.06);
+    border-radius: 1.2rem;
+    padding: 0;
+  }
+
+  .reviewCard {
+    padding: 1.4rem;
+    flex: 0 0 100%;
+    animation: smoothSwipeIn 1.2s ease-out forwards;
+    box-shadow: none;
+    border-radius: 1.2rem;
+  }
+}

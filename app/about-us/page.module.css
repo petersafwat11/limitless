@@ -1,0 +1,16 @@
+.reviewsContainer {
+  padding: 0;
+}
+.aboutUsContainer {
+  padding: 12.1rem 0 16.1rem;
+}
+@media screen and (max-width: 1300px) {
+  .aboutUsContainer {
+    padding: 9rem 0 12rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .aboutUsContainer {
+    padding: 7.4rem 0 10.9rem;
+  }
+}

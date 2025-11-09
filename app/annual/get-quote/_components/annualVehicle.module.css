@@ -1,0 +1,880 @@
+/* Annual Vehicle Details Styles */
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  width: 100%;
+  gap: 2.4rem;
+}
+
+@media (max-width: 640px) {
+  .content {
+    gap: 4.3rem;
+  }
+
+  .registrationSection,
+  .additionalDetailsSection,
+  .ownershipSection,
+  .rows {
+    margin-bottom: 3.4rem;
+  }
+}
+
+/* Section Wrapper with Title and Content */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #000822;
+  margin: 0;
+  padding-left: 1.6rem;
+  border-left: 4px solid;
+  border-image: linear-gradient(180deg, #0388ff 0%, #0270cc 100%) 1;
+  letter-spacing: -0.4px;
+  line-height: 1.3;
+}
+
+.sectionDescription {
+  font-size: 1.2rem;
+  color: #5a6b7d;
+  margin: 0;
+  padding-left: 1.6rem;
+  font-weight: 400;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* Instruction Box */
+.instructionBox {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 1.6rem;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  margin-bottom: 0.6rem;
+  opacity: 0.65;
+}
+
+.instructionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+}
+
+
+.instructionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.instructionText {
+  color: #6b7c8f;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+/* Clean Form Grid Layouts */
+.cleanFormGrid2Col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.cleanFormGrid3Col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  width: 100%;
+}
+
+/* Field Label Styling */
+.cleanFormFieldLabel {
+  color: #000822;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 130%;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+  margin: 0 0 0.8rem 0;
+}
+
+.registrationSection,
+.registrationSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 2.4rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  border: 1.5px solid rgba(3, 136, 255, 0.12);
+  box-shadow: none;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.additionalDetailsSection,
+.ownershipSection,
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.4rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  border: 1.5px solid rgba(3, 136, 255, 0.12);
+  box-shadow: none;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.registrationSection:hover,
+.additionalDetailsSection:hover,
+.ownershipSection:hover,
+.rows:hover {
+  border-color: rgba(3, 136, 255, 0.18);
+  background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%);
+}
+
+/* Registration Input Wrapper */
+.registrationInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.inputContainer {
+  width: 100%;
+}
+
+/* Divider with OR text */
+.dividerWithText {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  margin: 0.8rem 0;
+}
+
+.dividerWithText::before,
+.dividerWithText::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(3, 136, 255, 0) 0%, rgba(3, 136, 255, 0.25) 50%, rgba(3, 136, 255, 0) 100%);
+}
+
+.dividerText {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #7a8a9d;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+/* Manual Entry Button */
+.manualEntryBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.2rem 2rem;
+  background: transparent;
+  border: 1.5px solid #d5dce3;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.manualEntryBtn:hover {
+  background: transparent;
+  border-color: #a8b2bd;
+}
+
+.manualEntryBtn:active {
+  background: transparent;
+}
+
+.manualEntryIcon {
+  display: none;
+}
+
+.manualEntryBtn:hover .manualEntryIcon {
+  transform: none;
+}
+
+.manualEntryText {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #5a6b7d;
+  letter-spacing: 0.02em;
+}
+
+.manualEntryBtn:hover .manualEntryText {
+  color: #000822;
+}
+
+/* Change Vehicle Button */
+.changeVehicleBtn {
+  padding: 1.6rem 3.2rem;
+  background: #0388ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.02em;
+  align-self: flex-start;
+}
+
+.changeVehicleBtn:hover {
+  background: #0270cc;
+}
+
+.changeVehicleBtn:active {
+  background: #025ab3;
+}
+
+.regBtn {
+  color: #0388ff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  background: transparent;
+  padding: 0.6rem 0;
+  align-self: flex-start;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.regBtn:hover {
+  color: #0270cc;
+  transform: translateX(2px);
+}
+
+.regBtn:active {
+  transform: translateX(1px);
+}
+
+.vehicleDataDisplay {
+  background: #fff;
+  border: 1px solid rgba(3, 136, 255, 0.12);
+  border-radius: 10px;
+  padding: 1.6rem;
+  margin: 1.2rem 0 0 0;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vehicleDataRow {
+  margin: 0.8rem 0;
+  font-size: 1.3rem;
+  line-height: 160%;
+  color: #1a1a2e;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.vehicleDetailsContainer {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.vehicleDetailsHidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+}
+
+.vehicleDetailsVisible {
+  max-height: 7000px;
+  opacity: 1;
+  overflow: visible;
+  animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Rows are unified with sections above */
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+  width: 100%;
+  align-items: start;
+}
+
+@keyframes rowFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.row > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.progressiveRow {
+  animation: progressiveSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes progressiveSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 500px;
+  }
+}
+
+/* Sections are now unified above */
+
+/* Date with Checkbox */
+.dateWithCheckbox {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  flex: 1;
+}
+
+.dateWithCheckbox.disabled > div:first-child {
+  opacity: 0.65 !important;
+  pointer-events: none !important;
+  filter: grayscale(15%) !important;
+}
+
+.haventBoughtBtn {
+  background: transparent;
+  border: none;
+  color: #0388ff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  margin-top: -6px;
+}
+
+.haventBoughtBtn:hover {
+  color: #0270cc;
+}
+
+/* Owner/Keeper Field Wrappers for "Other" input */
+.ownerFieldWrapper,
+.keeperFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Target input elements inside the wrappers to add padding */
+.ownerFieldWrapper > div:last-child,
+.keeperFieldWrapper > div:last-child {
+  margin-top: 0.4rem;
+}
+
+.ownerFieldWrapper div:last-child input,
+.keeperFieldWrapper div:last-child input {
+  padding: 0 1.6rem !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .content {
+    gap: 3.2rem;
+    padding: 0 1.4rem;
+  }
+
+  .instructionBox {
+    padding: 1.8rem 2rem;
+    gap: 1.4rem;
+    opacity: 0.65;
+    margin-bottom: 0.8rem;
+  }
+
+  .instructionIcon {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .instructionIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .instructionText {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .cleanFormFieldLabel {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+
+  .row,
+  .cleanFormGrid2Col,
+  .cleanFormGrid3Col {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .registrationSection,
+  .additionalDetailsSection,
+  .ownershipSection,
+  .rows {
+    padding: 2rem;
+    gap: 1.8rem;
+    margin-bottom: 3.4rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+    padding-left: 1.4rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .sectionDescription {
+    font-size: 1.2rem;
+    padding-left: 1.4rem;
+    line-height: 1.6;
+  }
+
+  .registrationInputWrapper {
+    gap: 1.8rem;
+  }
+
+  .dividerWithText {
+    margin: 0.4rem 0;
+  }
+
+  .manualEntryBtn {
+    padding: 1.1rem 1.6rem;
+    font-size: 1.2rem;
+  }
+
+  .manualEntryIcon {
+    display: none;
+  }
+
+  .changeVehicleBtn {
+    padding: 1.4rem 2.4rem;
+    font-size: 1.3rem;
+  }
+}
+
+/* Modifications List */
+.modificationsListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0.8rem 0 1.2rem;
+  padding: 1.6rem;
+  background: linear-gradient(135deg, rgba(3, 136, 255, 0.05) 0%, rgba(3, 136, 255, 0.02) 100%);
+  border: 1px solid rgba(3, 136, 255, 0.1);
+  border-radius: 10px;
+  animation: slideDown 0.3s ease;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modificationsListContainer:hover {
+  border-color: rgba(3, 136, 255, 0.15);
+  background: linear-gradient(135deg, rgba(3, 136, 255, 0.06) 0%, rgba(3, 136, 255, 0.03) 100%);
+}
+
+.modificationsLabelWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.modificationsLabel {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #5a6b7d;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.editModificationsBtn {
+  background: transparent;
+  border: 1.5px solid rgba(3, 136, 255, 0.12);
+  color: #0388ff;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.editModificationsBtn:hover {
+  border-color: rgba(3, 136, 255, 0.25);
+  background: #f0f6ff;
+  color: #0270cc;
+}
+
+.modificationsTagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.modificationTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(3, 136, 255, 0.08);
+  color: #6b7c8f;
+  border: 1px solid rgba(3, 136, 255, 0.12);
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0.85;
+  cursor: default;
+}
+
+.modificationTag::before {
+  content: "✓";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #7a8a9d;
+}
+
+@media (max-width: 600px) {
+  .content {
+    gap: 3.2rem;
+    padding: 0 1.6rem;
+  }
+
+  .instructionBox {
+    padding: 1.2rem 1.4rem;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+    opacity: 0.65;
+  }
+
+  .instructionIcon {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .instructionIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .instructionText {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .cleanFormFieldLabel {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+
+  .row,
+  .cleanFormGrid2Col,
+  .cleanFormGrid3Col {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .registrationSection,
+  .additionalDetailsSection,
+  .ownershipSection,
+  .rows {
+    padding: 1.8rem;
+    gap: 1.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 3.4rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+    padding-left: 1.2rem;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .sectionDescription {
+    font-size: 1.3rem;
+    padding-left: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .cleanFormFieldLabel {
+    font-size: 1.2rem;
+  }
+
+  .checkboxLabel {
+    font-size: 1.2rem;
+  }
+
+  .modificationTag {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .registrationInputWrapper {
+    gap: 1.2rem;
+  }
+
+  .dividerWithText {
+    margin: 1.2rem 0;
+  }
+
+  .dividerText {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .manualEntryBtn {
+    padding: 1.3rem 1.8rem;
+    gap: 0.6rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+  }
+
+  .manualEntryIcon {
+    display: none;
+  }
+
+  .manualEntryText {
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+
+  .changeVehicleBtn {
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .content {
+    gap: 2.8rem;
+    padding: 0 1.2rem;
+  }
+
+  .instructionBox {
+    padding: 1.2rem 1.4rem;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+    opacity: 0.65;
+  }
+
+  .instructionIcon {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .instructionIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .instructionText {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .row,
+  .cleanFormGrid2Col,
+  .cleanFormGrid3Col {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .registrationSection,
+  .additionalDetailsSection,
+  .ownershipSection,
+  .rows {
+    padding: 1.6rem;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 3.4rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+    padding-left: 1rem;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .sectionDescription {
+    font-size: 1.3rem;
+    padding-left: 1rem;
+    line-height: 1.6;
+  }
+
+  .cleanFormFieldLabel {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 360px) {
+  .content {
+    gap: 2.6rem;
+    padding: 0 1rem;
+  }
+
+  .instructionBox {
+    padding: 1.8rem 2rem;
+    gap: 1.4rem;
+    margin-bottom: 0.8rem;
+    opacity: 0.65;
+  }
+
+  .instructionIcon {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .instructionIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .instructionText {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .row,
+  .cleanFormGrid2Col,
+  .cleanFormGrid3Col {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .registrationSection,
+  .additionalDetailsSection,
+  .ownershipSection,
+  .rows {
+    padding: 1.6rem;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 3.4rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+    padding-left: 1rem;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .sectionDescription {
+    font-size: 1.3rem;
+    padding-left: 1rem;
+    line-height: 1.6;
+  }
+
+  .cleanFormFieldLabel {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+}

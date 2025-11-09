@@ -1,0 +1,47 @@
+.container {
+  margin-top: 2.1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.headerTitle {
+  color: #000822;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 100%;
+}
+.content {
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1.8rem 1.6rem;
+  border-radius: 16px;
+  background: #fff;
+}
+@media screen and (max-width: 800px) {
+  .container {
+    margin-top: 3.8rem;
+    gap: 2.3rem;
+  }
+  .icon {
+    width: 3.7rem;
+    height: 3.7rem;
+  }
+  .header {
+    gap: 1.2rem;
+  }
+  .headerTitle {
+    font-size: 2.4rem;
+  }
+  .content {
+    gap: 2.6rem;
+    padding: 2rem;
+  }
+}

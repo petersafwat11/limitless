@@ -1,0 +1,239 @@
+.container {
+  margin: 4.8rem 0 2.8rem;
+  padding: 0.1rem 4.4% 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9.6rem;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.first {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2.4rem;
+  width: 100%;
+  max-width: 61rem;
+  /* flex-basis: 48%; */
+}
+.first img {
+  width: 100%;
+
+  height: auto;
+}
+.second {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 3.6rem;
+  flex: 1;
+  width: 100%;
+  max-width: 65rem;
+}
+.servicesContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+.title {
+  margin-top: 0;
+  color: #000822;
+  font-size: 5.6rem;
+  font-weight: 700;
+  line-height: 110%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.title span {
+  background: linear-gradient(135deg, #0388ff 0%, #0270cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.description {
+  color: #5a6b7d;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: -0.2px;
+  margin-bottom: 3.2rem;
+  text-align: left;
+  max-width: 55rem;
+}
+
+.secondPart {
+  color: #0388ff;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+.service {
+  display: flex;
+  gap: 2.4rem;
+  align-items: flex-start;
+  padding: 2.4rem;
+  background: #ffffff;
+  border: 1px solid rgba(3, 136, 255, 0.08);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.checkmarkWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.2rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.checkmark {
+  width: 100%;
+  height: 100%;
+}
+
+.serviceTitle {
+  color: #000822;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+.confirmBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  height: 5.2rem;
+  padding: 0 3.625rem 0 2.9375rem;
+  border-radius: 12px;
+  background: #0388ff;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  margin-top: 1.6rem;
+}
+
+.confirmBtn:hover {
+  background: #0270cc;
+}
+
+.confirmBtn:active {
+  background: #0156a8;
+}
+@media screen and (max-width: 1400px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    margin: 0;
+  }
+  .first {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .first img {
+    /* height: 25rem;
+    width: auto; */
+    width: 80%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 4.8rem 5%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    margin: 4.8rem 0 2.8rem;
+    padding: 4.8rem 4.4%;
+    flex-direction: column;
+    gap: 4.8rem;
+    align-items: flex-start;
+  }
+  .first {
+    width: 100%;
+    max-width: 100%;
+  }
+  .first img {
+    width: 100%;
+    height: auto;
+  }
+  .second {
+    width: 100%;
+    gap: 3.2rem;
+    align-items: flex-start;
+  }
+  .servicesContent {
+    gap: 1.6rem;
+    width: 100%;
+  }
+  .title {
+    font-size: 3.2rem;
+    line-height: 110%;
+  }
+  .description {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    max-width: 100%;
+    line-height: 150%;
+  }
+
+  .services {
+    width: 100%;
+    gap: 1.6rem;
+  }
+  .service {
+    gap: 1.8rem;
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .checkmarkWrapper {
+    min-width: 2.8rem;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .serviceTitle {
+    font-size: 1.5rem;
+    line-height: 130%;
+  }
+  .confirmBtn {
+    width: 100%;
+    height: 4.8rem;
+    padding: 0 2.4rem;
+    font-size: 1.5rem;
+    margin-top: 1.2rem;
+  }
+}

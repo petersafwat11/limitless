@@ -1,0 +1,118 @@
+.container {
+  border-radius: 18px;
+  border: 1px solid #c2c4ca;
+  padding: 2.3rem 4.6rem 2.3rem 2.9rem;
+  display: flex;
+}
+
+.first {
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+  padding-right: 4rem;
+  border-right: 1px solid #000822;
+}
+.first p {
+  color: #000822;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 124%; /* 22.32px */
+  letter-spacing: 0.72px;
+}
+.second {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  padding: 0 0 0 5.4rem;
+}
+.start,
+.end {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.start .text,
+.end .text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.title {
+  color: rgba(0, 0, 0, 0.34);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 124%; /* 19.84px */
+  letter-spacing: 0.64px;
+}
+.date {
+  color: #000822;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 124%; /* 17.36px */
+  letter-spacing: 0.56px;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: 18px;
+    background: #000822;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .first {
+    gap: 2.8rem;
+    padding: 2.3rem 2.4rem 2rem;
+    border-right: none;
+  }
+  .icon {
+    width: 40px;
+    height: 55px;
+  }
+  .startIcon {
+    width: 28px;
+    height: 38px;
+  }
+  .endIcon {
+    width: 26px;
+    height: 28px;
+  }
+  .first p {
+    font-size: 16px;
+    color: #fff;
+  }
+  .second {
+    padding: 2.5rem 2.5rem 2.9rem;
+  }
+  .start,
+  .end {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.6rem;
+  }
+  .start .text,
+  .end .text {
+    gap: 0.6rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .title {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.34);
+  }
+  .date {
+    font-size: 14px;
+    color: #fff;
+  }
+}

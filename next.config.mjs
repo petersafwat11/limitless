@@ -1,0 +1,33 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  env: {
+    POST_CODE_ApiKey: process.env.POST_CODE_ApiKey,
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000",
+  },
+  // Allow HMR from Builder.io preview domains
+  onDemandEntries: {
+    maxInactiveAge: 60000,
+    pagesBufferLength: 5,
+  },
+  // Optimize preloading to reduce warnings
+  experimental: {
+    optimizeCss: true,
+  },
+  // Allow external images from builder.io
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.builder.io",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "api.builder.io",
+        pathname: "/**",
+      },
+    ],
+  },
+};
+
+export default nextConfig;

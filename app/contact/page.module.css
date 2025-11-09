@@ -1,0 +1,21 @@
+.page {
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.page::after {
+  content: "";
+  display: block;
+  height: 88px;
+  margin-top: -88px;
+}
+.squareLight {
+  display: none;
+}
+
+.page :global(footer) {
+  margin-top: -88px !important;
+}
+
+@media screen and (max-width: 900px) {
+}

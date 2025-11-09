@@ -1,0 +1,133 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14.5rem;
+}
+.title {
+  color: #000;
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 3.5rem;
+}
+.titleSpan {
+  color: #049cff;
+  position: relative;
+}
+.curvedBorder {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.6rem;
+  height: 64px;
+  border-radius: 12px;
+  background: #0388ff;
+  margin: 3.1rem 0 2.1rem;
+  width: 456px;
+}
+.headerItem {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.headerItemTitle,
+.headerItemValue {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 124%; /* 19.84px */
+  letter-spacing: 0.64px;
+}
+
+.description {
+  color: #494f64;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.64px;
+  margin-bottom: 3.5rem;
+}
+
+.claimsPortal {
+  display: flex;
+  height: 6.2rem;
+  padding: 0 2.4rem;
+  /* flex-direction: column; */
+  align-items: center;
+  gap: 1.8rem;
+  border-radius: 12px;
+  background: #fdfdfd;
+  box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
+  color: #0388ff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 124%;
+  border: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 900px) {
+  .container {
+    margin-top: 6.8rem;
+  }
+  .submittedImage{
+    width: 81px;
+    height: 91px;
+  }
+  .title {
+    font-size: 2.4rem;
+    gap: 0.3rem;
+    margin-top: 3.2rem;
+  }
+  .header {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1.6rem;
+    height: 106px;
+    width: 36.4rem;
+    border-radius: 1.2rem;
+    margin: 4.1rem 0 2.2rem;
+  }
+  .headerItem {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    padding-bottom: 1.4rem;
+  }
+  .headerItemValue {
+    padding-top: 1.6rem;
+  }
+  .headerItemIcon {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+  .description {
+    font-size: 1.4rem;
+    line-height: 100%;
+    letter-spacing: 0.56px;
+    margin-bottom: 3.2rem;
+  }
+
+  .claimsPortal {
+    height: 4.8rem;
+    font-size: 1.4rem;
+    line-height: 100%;
+  }
+}

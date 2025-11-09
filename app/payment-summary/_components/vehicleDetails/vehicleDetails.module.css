@@ -1,0 +1,125 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.vehicleInfoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 1.6rem;
+  background: linear-gradient(135deg, #fafbfd 0%, #ffffff 100%);
+  border: 1px solid rgba(3, 136, 255, 0.08);
+  border-radius: 12px;
+}
+
+.sectionTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #5a6b7d;
+  margin: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(3, 136, 255, 0.12);
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.field label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6b7c8f;
+  opacity: 0.85;
+}
+
+.field p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #6b7c8f;
+  margin: 0;
+  opacity: 0.85;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+}
+
+@media (max-width: 900px) {
+  .content {
+    gap: 1.2rem;
+  }
+
+  .vehicleInfoSection {
+    gap: 1.2rem;
+    padding: 1.4rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.3rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    gap: 1rem;
+  }
+
+  .vehicleInfoSection {
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.2rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .cards {
+    gap: 1rem;
+  }
+
+  .field label {
+    font-size: 1rem;
+  }
+
+  .field p {
+    font-size: 1.2rem;
+  }
+}

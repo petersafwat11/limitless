@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: none;
+}
+
+.button,
+.active {
+  display: flex;
+  flex: 1;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  background: #fff;
+  border: 1.5px solid rgba(3, 136, 255, 0.12);
+  border-radius: 8px;
+  color: #000822;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: background 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.3rem 1.6rem;
+}
+
+.button:hover {
+  background: #fff;
+  border-color: rgba(3, 136, 255, 0.2);
+}
+
+.active {
+  background: transparent;
+  border-color: #0388ff;
+  color: #0388ff;
+  font-weight: 600;
+}
+
+.active:hover {
+  background: rgba(3, 136, 255, 0.08);
+  border-color: #0277e3;
+  color: #0277e3;
+}
+
+.selectionSpan,
+.selectedSpan {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    height: 5.6rem;
+  }
+
+  .button,
+  .active {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 1.5rem 1.8rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    height: 6rem;
+  }
+
+  .button,
+  .active {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1.6rem 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    height: 5.4rem;
+  }
+
+  .button,
+  .active {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 1.4rem 1.8rem;
+  }
+}

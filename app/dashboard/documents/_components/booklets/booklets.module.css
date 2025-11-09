@@ -1,0 +1,138 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: linear-gradient(135deg, #1a1f3a 0%, #222d45 100%);
+  border: 1.5px solid rgba(3, 136, 255, 0.25);
+  border-radius: 14px;
+  padding: 2.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0388ff 0%, #049cff 100%);
+}
+
+.blueBackground,
+.blueBackground2,
+.blueBackground3 {
+  display: none;
+}
+
+.first {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 130%;
+  letter-spacing: -0.3px;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #d4dae6;
+  margin: 0;
+  line-height: 130%;
+  font-weight: 400;
+}
+
+.second {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.download {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0388ff 0%, #049cff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2.4rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(3, 136, 255, 0.3);
+}
+
+.download img {
+  filter: brightness(0) invert(1);
+}
+
+.downloadText {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #64b5f6;
+  margin: 0;
+  line-height: 130%;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 1.6rem;
+  }
+
+  .first {
+    width: 100%;
+  }
+
+  .second {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .download {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  .downloadText {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 1.6rem;
+    gap: 1.2rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+
+  .download {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .downloadText {
+    font-size: 1.2rem;
+  }
+}

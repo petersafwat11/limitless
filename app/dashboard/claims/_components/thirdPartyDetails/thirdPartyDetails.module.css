@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.title {
+  color: #000822;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 124%;
+  letter-spacing: 0.72px;
+  padding: 2.4rem;
+  border-bottom: 1px solid rgba(0, 8, 34, 0.18);
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  padding: 2.4rem;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+@media screen and (max-width: 900px) {
+  .title {
+    padding: 2.2rem;
+  }
+  .body {
+    gap: 2.6rem;
+    padding: 2.2rem;
+  }
+  .row {
+    gap: 2.6rem;
+    flex-direction: column;
+  }
+}

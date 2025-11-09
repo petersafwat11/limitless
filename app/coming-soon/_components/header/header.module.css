@@ -1,0 +1,187 @@
+.squares {
+  position: absolute;
+  top: calc(21rem + 1.1%);
+  left: calc(-45.4rem - 1.1%);
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 16.8rem;
+  padding: 0 1.8rem 1.8rem;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  width: 32.5%;
+  margin: 0.4rem auto 27.2rem;
+  position: relative;
+  z-index: 2;
+}
+.commingSoon {
+  display: flex;
+  width: 18.2rem;
+  height: 4.9rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rem;
+  background: #fff;
+  color: #049cff;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 124%;
+  letter-spacing: 0.72px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.commingSoon:hover {
+  background: #049cff;
+  color: #fff;
+}
+.title {
+  color: #fff;
+  font-size: 6.7rem;
+  font-weight: 700;
+  line-height: 94%;
+  text-align: center;
+}
+.mailingList {
+  color: #049cff;
+  position: relative;
+}
+.curvedBorder {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+}
+.description {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 124%;
+  letter-spacing: 0.64px;
+  text-align: center;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  width: 48.3rem;
+  height: 6.4rem;
+  border-radius: 12px;
+  background: #151d39;
+  box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.12);
+  padding: 1rem;
+  margin-top: 2.4rem;
+}
+.input {
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 124%;
+  padding: 0 1.4rem;
+}
+.subscribeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  width: 18.9rem;
+  height: 4.8rem;
+  border-radius: 8px;
+  background: linear-gradient(0deg, #0388ff 0%, #0388ff 100%), #fff;
+  box-shadow: 0 4px 84px 0 rgba(0, 8, 34, 0.04);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.arrow {
+  width: 2.8rem;
+  height: 1.4rem;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+@media screen and (max-width: 900px) {
+  .squares {
+    display: none;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+    padding: 2.4rem 3.5% 8.2rem;
+  }
+  .content {
+    gap: 2.1rem;
+    width: 100%;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .commingSoon {
+    display: flex;
+    /* margin: 0 auto; */
+    width: 14.2rem;
+    height: 3.8rem;
+    border-radius: 10rem;
+    font-size: 1.4rem;
+    line-height: 100%;
+  }
+  .title {
+    font-size: 4.8rem;
+    text-align: left;
+  }
+  .description {
+    font-size: 1.4rem;
+  }
+  .commingSoon,
+  .title,
+  .description {
+    margin-left: 1rem;
+  }
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.9rem;
+    width: 100%;
+    height: auto;
+    padding: 0.8rem;
+    margin-top: 0.4rem;
+  }
+  .input {
+    height: auto;
+    width: 100%;
+    font-size: 1.4rem;
+    line-height: 100%;
+    padding: 1rem 2.4rem;
+  }
+  .subscribeButton {
+    width: 100%;
+    width: 100%;
+    height: 4.8rem;
+    font-size: 1.4rem;
+  }
+  .arrow {
+    width: 3.3rem;
+    height: 1.7rem;
+  }
+}

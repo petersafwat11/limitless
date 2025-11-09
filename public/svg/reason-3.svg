@@ -1,0 +1,22 @@
+<svg width="90" height="85" viewBox="0 0 90 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1" y="17.4375" width="38" height="67.0217" fill="url(#paint0_linear_93_1658)" fill-opacity="0.74"/>
+<rect x="39" y="0.140625" width="38" height="84.3176" fill="url(#paint1_linear_93_1658)" fill-opacity="0.74"/>
+<path d="M1 67.3223V74.03C1 75.1961 1.94534 76.1414 3.11147 76.1414H87.0995C88.2656 76.1414 89.2109 75.1961 89.2109 74.03V65.0805C89.2109 63.331 87.9841 61.8213 86.2716 61.4635L75.8398 59.284C75.0776 59.1248 74.4008 58.6903 73.9386 58.0637L66.7847 48.3639C66.1876 47.5544 65.2416 47.0766 64.2358 47.0766L35.4938 47.0762C34.612 47.0762 33.7701 47.4438 33.1707 48.0906L23.6736 58.3384C23.2518 58.7936 22.7056 59.1148 22.1028 59.2622L3.81748 63.7329C2.16351 64.1373 1 65.6196 1 67.3223Z" fill="#000822"/>
+<ellipse cx="25.0315" cy="76.1406" rx="7.82643" ry="8.31857" fill="#000822"/>
+<ellipse cx="69.1214" cy="76.1406" rx="7.82643" ry="8.31857" fill="#000822"/>
+<path d="M16.9441 31.6504C15.831 32.6385 14.2925 35.5734 17.0434 39.408C20.4821 44.2014 18.3206 46.511 17.1615 48.6252" stroke="#0388FF" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M21.6091 32.4561C20.496 33.4442 18.9575 36.379 21.7085 40.2137C25.1472 45.0071 22.9856 47.3166 21.8265 49.4308" stroke="#0388FF" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M12.2761 30.6145C11.163 31.6026 9.62452 34.5375 12.3755 38.3722C15.8142 43.1655 13.6526 45.4751 12.4935 47.5893" stroke="#0388FF" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M0.893555 48.6016L25.0841 61.2189L20.7086 61.9153L0.83513 49.6231L0.893555 48.6016Z" fill="#000822"/>
+<circle cx="25.0303" cy="76.1416" r="1.77539" fill="#0388FF"/>
+<defs>
+<linearGradient id="paint0_linear_93_1658" x1="20" y1="17.4375" x2="20" y2="84.4592" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0388FF" stop-opacity="0"/>
+<stop offset="1" stop-color="#0388FF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_93_1658" x1="58" y1="0.140625" x2="58" y2="84.4583" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0388FF" stop-opacity="0"/>
+<stop offset="1" stop-color="#0388FF"/>
+</linearGradient>
+</defs>
+</svg>

@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #fafbff 0%, #f8f9ff 100%);
+  padding: 3.6rem;
+  border: 1px solid rgba(3, 136, 255, 0.08);
+}
+.firstSection,
+.secondSection,
+.thirdSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 3.6rem;
+  border-bottom: 1px solid rgba(3, 136, 255, 0.1);
+}
+.selections {
+  margin-top: 3.2rem;
+}
+.secondSection,
+.thirdSection {
+  padding-top: 3.6rem;
+}
+.thirdSection {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.secondSection {
+  gap: 3.6rem;
+}
+.thirdSection {
+  gap: 4.8rem;
+}
+.row {
+  display: flex;
+  gap: 2rem;
+}
+.yesNo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+.yesNoTitle {
+  color: #000822;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 0.2px;
+}
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 2rem 2.6rem;
+  }
+  .firstSection,
+  .secondSection,
+  .thirdSection {
+    padding-bottom: 2.8rem;
+  }
+  .secondSection,
+  .thirdSection {
+    padding-top: 2.8rem;
+  }
+  .secondSection {
+    gap: 2.6rem;
+  }
+  .thirdSection {
+    gap: 2.8rem;
+  }
+  .row {
+    gap: 2.6rem;
+    flex-direction: column;
+  }
+  .yesNo {
+    gap: 1.4rem;
+  }
+  .yesNoTitle {
+    font-size: 1.4rem;
+  }
+}

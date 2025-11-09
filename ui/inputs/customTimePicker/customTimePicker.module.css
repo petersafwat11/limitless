@@ -1,0 +1,198 @@
+.timePicker {
+  background: #1a1f3a;
+  border-radius: 12px;
+  padding: 1.6rem;
+  width: 100%;
+  max-width: 32rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  overflow: visible;
+  position: relative;
+  z-index: 99999;
+  box-sizing: border-box;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  animation: slideDown 0.28s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@media screen and (max-width: 900px) {
+  .timePicker {
+    max-width: min(90vw, 36rem);
+    width: 90vw;
+    padding: 1.6rem;
+    margin: 0 auto;
+  }
+}
+
+.timePicker.slideUp {
+  animation: slideUp 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  width: 100%;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 0.4rem;
+}
+
+.timeSlot {
+  padding: 0.8rem 0.6rem;
+  border: 1.5px solid rgba(3, 136, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(3, 136, 255, 0.04);
+  color: #e0e8f0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.timeSlot:hover:not(.timeSlotSelected) {
+  border-color: rgba(3, 136, 255, 0.25);
+  background: rgba(3, 136, 255, 0.08);
+}
+
+.timeSlotSelected {
+  background: #0388ff;
+  border-color: #0388ff;
+  color: #fff;
+  font-weight: 700;
+}
+
+.timeSlotSelected:hover {
+  background: #0270cc;
+  border-color: #0270cc;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpMobile {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .timePicker {
+    max-width: 30rem;
+    width: calc(100vw - 4rem);
+    padding: 1.4rem;
+    gap: 1.2rem;
+  }
+
+  .timeGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
+    max-height: 45vh;
+  }
+
+  .timeSlot {
+    padding: 0.8rem 0.5rem;
+    font-size: 1rem;
+    min-height: 3.8rem;
+    font-weight: 600;
+  }
+
+  .timeSlot:active {
+    background: #0270cc;
+    border-color: #0270cc;
+    transform: scale(0.95);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .timePicker {
+    max-width: 28rem;
+    width: calc(100vw - 3.2rem);
+    padding: 1.4rem;
+    gap: 1.2rem;
+  }
+
+  .timeGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    max-height: 42vh;
+  }
+
+  .timeSlot {
+    padding: 1rem 0.8rem;
+    font-size: 1.2rem;
+    min-height: 4.8rem;
+    font-weight: 600;
+  }
+
+  .timeSlot:active:not(.timeSlotSelected) {
+    background: rgba(3, 136, 255, 0.2);
+    border-color: rgba(3, 136, 255, 0.4);
+    transform: scale(0.95);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .timePicker {
+    max-width: 26rem;
+    width: calc(100vw - 2.4rem);
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  .timeGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+    max-height: 40vh;
+  }
+
+  .timeSlot {
+    padding: 0.9rem 0.6rem;
+    font-size: 1.1rem;
+    min-height: 4.4rem;
+    font-weight: 600;
+  }
+}

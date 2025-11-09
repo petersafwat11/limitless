@@ -1,0 +1,13 @@
+.title {
+  color: #000822;
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 100%;
+  margin-bottom: 2.6rem;
+}
+@media (max-width: 900px) {
+  .title {
+    font-size: 3.4rem;
+    margin-bottom: 2.8rem;
+  }
+}

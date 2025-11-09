@@ -1,0 +1,49 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 8, 34, 0.24);
+}
+.header {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.6rem;
+  padding: 0.4rem 2.4rem 2.4rem;
+  height: 7.2rem;
+}
+.title {
+  color: #0388ff;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 124%; /* 19.84px */
+  letter-spacing: 0.64px;
+}
+
+.value {
+  color: #000822;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 124%; /* 22.32px */
+  letter-spacing: 0.72px;
+  padding: 2.7rem 2.4rem;
+  border-top: 1px solid rgba(0, 8, 34, 0.18);
+}
+@media screen and (max-width: 900) {
+  .header {
+    gap: 1.2rem;
+    padding: 2rem 2.3rem;
+    height: auto;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .value {
+    font-size: 1.4rem;
+    padding: 2rem;
+  }
+}

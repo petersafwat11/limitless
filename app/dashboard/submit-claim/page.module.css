@@ -1,0 +1,103 @@
+/* Cache bust: v2 */
+.page {
+  margin: 2rem 0 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2%;
+}
+
+.page > div {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.claims {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  margin-top: 0;
+  width: 100%;
+}
+
+.claimsTitle {
+  color: #000822;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 120%;
+  letter-spacing: -0.3px;
+  text-align: center;
+  margin: 0 0 1.6rem 0;
+}
+
+.claimsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+  width: 100%;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.fullWidthContainer {
+  width: 100%;
+}
+
+.fullWidthContainer > form {
+  width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .claimsContainer {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .page {
+    margin: 0;
+    padding: 0 1.5%;
+  }
+
+  .claims {
+    gap: 1.8rem;
+    margin-top: 0;
+  }
+
+  .claimsTitle {
+    font-size: 1.8rem;
+    margin: 0 0 1.2rem 0;
+  }
+
+  .claimsContainer {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page {
+    margin: 0;
+    padding: 0 1%;
+  }
+
+  .claims {
+    gap: 1.4rem;
+    margin-top: 0;
+  }
+
+  .claimsTitle {
+    font-size: 1.6rem;
+    margin: 0 0 1rem 0;
+  }
+
+  .claimsContainer {
+    gap: 1.4rem;
+  }
+}

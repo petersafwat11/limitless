@@ -1,0 +1,446 @@
+html {
+  width: 100%;
+  overflow-x: hidden;
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+  scrollbar-gutter: stable;
+  background: #000822;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-size: 62.5%;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--foreground);
+  background: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 900px) {
+  html {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    width: 100%;
+    overflow-x: hidden;
+    padding-top: 80px;
+  }
+}
+@keyframes driftHorizontal {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+@keyframes driftDiagonal {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 150px 150px;
+  }
+}
+
+.headerContainer,
+.headerDashboardContainer {
+  width: 100%;
+  height: 90rem;
+  flex-grow: 0;
+  border-radius: 0;
+  background: #000822;
+  margin: -120px 0 8rem 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.headerContainer::before,
+.headerDashboardContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  pointer-events: none;
+  display: none;
+}
+.dashboard-content {
+  margin: 0 auto;
+  margin-top: 145px;
+  width: calc(100% - 8.8%);
+  display: flex;
+  align-items: flex-start;
+  gap: 4.7rem;
+  max-width: 130rem;
+  background: #ffffff;
+}
+.pageContainer {
+  width: 100%;
+  flex: 1;
+}
+.companyPageContainer {
+  width: 100%;
+  padding: 12rem 13.8% 11.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5.4rem;
+}
+.insuranceQuotesContainer {
+  width: 90%;
+  padding: 8.8rem 10.6% 8.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+.centeredContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 130rem;
+  width: 100%;
+}
+@media (max-width: 1200px) {
+  .insuranceQuotesContainer {
+    padding: 8.8rem 7% 8.8rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .headerContainer {
+    border-radius: 0;
+    background: #000822;
+    padding: 0;
+    margin: 0 0 8rem 0;
+    width: 100%;
+    margin-left: 0;
+  }
+  .headerDashboardContainer {
+    padding: 0;
+    margin: 0 1.1%;
+  }
+  .companyPageContainer {
+    padding: 7.2rem 5.8% 8.5rem;
+    gap: 4.4rem;
+  }
+  .nav {
+    display: none;
+  }
+  .insuranceQuotesContainer {
+    padding: 3.8rem 4% 6.8rem;
+    gap: 2.4rem;
+  }
+}
+@media (max-width: 640px) {
+  .headerContainer {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .headerContainer {
+    margin: 0 0 6rem 0;
+    padding: 0 0 26px 0;
+    width: 100%;
+    margin-left: 0;
+    height: auto;
+  }
+  .insuranceQuotesContainer {
+    padding: 3.8rem 2% 6.8rem;
+    gap: 2.4rem;
+  }
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body textarea,
+body input {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+body .react-datepicker {
+  border: none !important;
+  border-radius: 1.6rem !important;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%) !important;
+  box-shadow: 0 8px 32px rgba(79, 99, 215, 0.15),
+    0 4px 16px rgba(0, 8, 34, 0.08) !important;
+  font-size: 1.6rem !important;
+  width: 32rem !important;
+  padding: 1.2rem !important;
+}
+
+body .react-datepicker__header {
+  background: linear-gradient(135deg, #4f63d7 0%, #6b7cef 100%) !important;
+  border-bottom: none !important;
+  border-radius: 1.2rem !important;
+  padding: 2rem 1.6rem !important;
+  margin-bottom: 1.2rem !important;
+}
+
+body .react-datepicker__current-month {
+  color: #ffffff !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  margin-bottom: 1rem !important;
+}
+
+body .react-datepicker__day-names {
+  margin-bottom: 0.8rem !important;
+}
+
+body .react-datepicker__day-name {
+  color: #ffffff !important;
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  margin: 0.6rem !important;
+  width: 2.6rem !important;
+  line-height: 3.6rem !important;
+}
+
+body .react-datepicker__month {
+  margin: 0 !important;
+  padding: 0.8rem !important;
+}
+
+body .react-datepicker__week {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-bottom: 0.4rem !important;
+}
+
+body .react-datepicker__day {
+  color: #000822 !important;
+  font-size: 1.5rem !important;
+  font-weight: 500 !important;
+  margin: 0.2rem !important;
+  border-radius: 1rem !important;
+  width: 2.6rem !important;
+  height: 3.6rem !important;
+  line-height: 3.6rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+
+/* Gray out and disable past days */
+body .react-datepicker__day--disabled,
+body .react-datepicker__day--outside-month.react-datepicker__day--disabled {
+  color: rgba(0, 8, 34, 0.35) !important;
+  background: transparent !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+/* Keep disabled hover neutral */
+body .react-datepicker__day--disabled:hover {
+  background: transparent !important;
+  color: rgba(0, 8, 34, 0.35) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+body .react-datepicker__day:hover {
+  background: linear-gradient(135deg, #ecf0fe 0%, #dce7fd 100%) !important;
+  color: #4f63d7 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(79, 99, 215, 0.2) !important;
+}
+
+body .react-datepicker__day--selected {
+  background: linear-gradient(135deg, #4f63d7 0%, #6b7cef 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(79, 99, 215, 0.4) !important;
+  transform: scale(1.05) !important;
+  font-weight: 700 !important;
+}
+
+body .react-datepicker__day--today {
+  background: linear-gradient(135deg, #fef7cd 0%, #fef3c0 100%) !important;
+  color: #92400e !important;
+  border: 2px solid #f59e0b !important;
+  font-weight: 600 !important;
+}
+
+body .react-datepicker__day--today:hover {
+  background: linear-gradient(135deg, #fef3c0 0%, #fed7aa 100%) !important;
+  color: #92400e !important;
+}
+
+body .react-datepicker__day--keyboard-selected {
+  background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%) !important;
+  color: #4f63d7 !important;
+}
+
+body .react-datepicker__day--outside-month {
+  color: rgba(0, 8, 34, 0.3) !important;
+}
+
+body .react-datepicker__navigation {
+  top: 2.4rem !important;
+  width: 3.2rem !important;
+  height: 3.2rem !important;
+  border-radius: 0.8rem !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(8px) !important;
+  transition: all 0.3s ease !important;
+}
+
+body .react-datepicker__navigation:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: scale(1.1) !important;
+}
+
+body .react-datepicker__navigation--previous {
+  left: 1.6rem !important;
+  border-right-color: #ffffff !important;
+  border-width: 0.8rem 0.8rem 0.8rem 0 !important;
+}
+
+body .react-datepicker__navigation--next {
+  right: 1.6rem !important;
+  border-left-color: #ffffff !important;
+  border-width: 0.8rem 0 0.8rem 0.8rem !important;
+}
+
+body .react-datepicker__navigation--next:hover,
+body .react-datepicker__navigation--previous:hover {
+  border-color: #ffffff !important;
+}
+
+/* Modern Red Bottom Center Toast Notifications - Rounded Pill Style */
+.Toastify__toast-container {
+  width: auto;
+  padding: 0;
+  margin: 0;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Toastify__toast-container--bottom-center {
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+}
+
+.Toastify__toast {
+  font-family: inherit;
+  border-radius: 50px;
+  padding: 14px 28px;
+  min-height: auto;
+  margin-bottom: 0;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 40px rgba(220, 38, 38, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25);
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 500px;
+  animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Toastify__toast--error {
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  color: #ffffff;
+}
+
+.Toastify__toast--success {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: #ffffff;
+}
+
+.Toastify__toast--info {
+  background: linear-gradient(135deg, #0388ff 0%, #0270cc 100%);
+  color: #ffffff;
+}
+
+.Toastify__toast--warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+}
+
+.Toastify__toast-body {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.Toastify__toast-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.Toastify__close-button {
+  display: none;
+}
+
+.Toastify__close-button:hover {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .Toastify__toast {
+    max-width: calc(100vw - 2rem);
+    padding: 12px 24px;
+    font-size: 14px;
+    margin: 0 1rem;
+    border-radius: 50px;
+  }
+
+  .Toastify__toast-container--bottom-center {
+    width: auto;
+    bottom: 1rem;
+  }
+}

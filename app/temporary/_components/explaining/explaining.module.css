@@ -1,0 +1,410 @@
+.wrapper {
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding: 6rem calc(50vw - 50%);
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  background: #000822;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2%;
+}
+
+.first {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 5rem;
+}
+
+.images {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2.4rem;
+  flex: 1;
+}
+
+.first .content {
+  max-width: 90%;
+}
+
+.title {
+  color: #fff;
+  font-size: 4.2rem;
+  font-weight: 700;
+  line-height: 110%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  letter-spacing: -0.4px;
+}
+
+.title span {
+  color: #0388ff;
+  font-size: 4.2rem;
+}
+
+.title2 {
+  color: #fff;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: 0.32px;
+  margin: 0;
+  max-width: 90%;
+}
+
+.second {
+  width: 100%;
+  min-height: auto;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  overflow: visible;
+  gap: 4rem;
+}
+
+.second .content {
+  width: 48%;
+  padding: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.second > div {
+  min-height: auto;
+}
+
+.featuresContainer {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1;
+  width: 52%;
+}
+
+.background1,
+.background2,
+.background3 {
+  display: none;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 1.6rem;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  width: 100%;
+}
+
+.feature {
+  padding: 2.4rem 2rem;
+  width: 100%;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.featureNumber {
+  min-width: 4.8rem;
+  min-height: 4.8rem;
+  border-radius: 50%;
+  background: #0388ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 100%;
+  flex-shrink: 0;
+}
+
+.featureContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.featureTitle {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 120%;
+  margin: 0;
+}
+
+.featureDescription {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.32px;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1400px) {
+  .first {
+    gap: 4rem;
+  }
+
+  .title {
+    font-size: 3.8rem;
+  }
+
+  .image {
+    max-width: 480px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .wrapper {
+    margin: 2.4 auto;
+  }
+
+  .container {
+    gap: 4rem;
+  }
+
+  .first,
+  .second {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .second {
+    padding: 0 0 3rem 0;
+    flex-direction: column-reverse;
+  }
+
+  .first {
+    padding: 0;
+  }
+
+  .first .content,
+  .second .content {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    min-height: auto;
+  }
+
+  .second > div {
+    min-height: auto;
+    padding: 2.5rem 0;
+    width: 100%;
+  }
+
+  .images {
+    width: 100%;
+  }
+
+  .images img {
+    width: 100%;
+    height: auto;
+  }
+
+  .featuresContainer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .squares {
+    display: none;
+  }
+
+  .contact {
+    display: none;
+  }
+
+  .container {
+    gap: 4.7rem;
+  }
+
+  .second {
+    width: 92.6%;
+    min-height: auto;
+    margin: 0 3.7% 1.9rem;
+    flex-direction: column-reverse;
+    padding: 0 0 1.8rem;
+    overflow: hidden;
+  }
+
+  .content {
+    gap: 2.4rem;
+  }
+
+  .first {
+    gap: 4rem;
+    padding: 0;
+  }
+
+  .first .content {
+    padding: 0 7%;
+  }
+
+  .second .content {
+    width: 100%;
+    padding: 0 7%;
+  }
+
+  .second > div {
+    min-height: auto;
+    padding: 1.3rem 0 5.1rem;
+  }
+
+  .title {
+    font-size: 3.4rem;
+  }
+
+  .description {
+    font-size: 1.4rem;
+  }
+
+  .description,
+  .title {
+    max-width: 100%;
+  }
+
+  .features {
+    gap: 1.2rem;
+    margin: 0 3.5%;
+  }
+
+  .feature {
+    padding: 2rem 2.3rem;
+    gap: 2.4rem;
+  }
+
+  .featureNumber {
+    min-width: 4rem;
+    min-height: 4rem;
+    font-size: 1.4rem;
+  }
+
+  .featureContent {
+    gap: 0.6rem;
+  }
+
+  .featureTitle {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    padding: 4rem 4.4%;
+    gap: 3rem;
+  }
+
+  .container {
+    gap: 3rem;
+  }
+
+  .first {
+    gap: 2rem;
+  }
+
+  .first .content {
+    padding: 0;
+  }
+
+  .second {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .second .content {
+    padding: 2rem;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .description {
+    font-size: 1.2rem;
+    max-width: 100%;
+  }
+
+  .feature {
+    padding: 1.6rem;
+    gap: 1.6rem;
+  }
+
+  .featureNumber {
+    min-width: 3.8rem;
+    min-height: 3.8rem;
+    font-size: 1.2rem;
+  }
+
+  .featureTitle {
+    font-size: 1.4rem;
+  }
+
+  .featureDescription {
+    font-size: 1.2rem;
+  }
+}

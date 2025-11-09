@@ -1,0 +1,149 @@
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.field label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6b7c8f;
+  opacity: 0.85;
+}
+
+.field p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #6b7c8f;
+  margin: 0;
+  opacity: 0.85;
+}
+
+.sectionsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+}
+
+.selections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+  margin-top: 1rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(3, 136, 255, 0.08);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.6rem;
+  background: linear-gradient(135deg, #fafbfd 0%, #ffffff 100%);
+  border: 1px solid rgba(3, 136, 255, 0.08);
+  border-radius: 12px;
+}
+
+.section.disabled {
+  background: rgba(3, 136, 255, 0.04);
+  border: 1px solid rgba(3, 136, 255, 0.08);
+  opacity: 0.85;
+}
+
+.section.disabled .sectionTitle {
+  color: #5a6b7d;
+}
+
+.sectionTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #5a6b7d;
+  margin: 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(3, 136, 255, 0.12);
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.driverBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.2rem;
+  background: rgba(3, 136, 255, 0.02);
+  border: 1px solid rgba(3, 136, 255, 0.08);
+  border-radius: 8px;
+}
+
+.driverBlock:not(:last-child) {
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 1200px) {
+  .row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .sectionsWrapper {
+    gap: 1.4rem;
+  }
+
+  .section {
+    padding: 1.4rem;
+    gap: 1.2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.3rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .selections {
+    margin-top: 0.8rem;
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .sectionsWrapper {
+    gap: 1.2rem;
+  }
+
+  .section {
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.2rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .selections {
+    gap: 1rem;
+  }
+}

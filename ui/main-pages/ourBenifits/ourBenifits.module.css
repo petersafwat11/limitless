@@ -1,0 +1,314 @@
+.container {
+  width: 100vw;
+  padding: 7.9rem 5% 13.1rem;
+  margin: 0 calc(-50vw + 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -10%;
+  width: 50rem;
+  height: 50rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(3, 136, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  max-width: 80rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 5.6rem;
+  font-weight: 800;
+  line-height: 120%;
+  letter-spacing: -1.2px;
+  color: #000822;
+}
+
+.title span {
+  display: none;
+}
+
+.description {
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 160%;
+  color: rgba(0, 8, 34, 0.7);
+  max-width: 70rem;
+}
+
+.benifits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.6rem;
+  width: 100%;
+  max-width: 119rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.benifit {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  padding: 3.2rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+  border: 2px solid #f0f4ff;
+  position: relative;
+  box-shadow: none !important;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
+
+.benifit:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+  border: 2px solid #0388ff;
+  box-shadow: 0 12px 32px rgba(3, 136, 255, 0.15) !important;
+}
+
+.benifit,
+.benifit * {
+  box-shadow: none !important;
+}
+
+.imgContainer {
+  width: 6.8rem;
+  height: 6.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e8f1ff 0%, #dce7fd 100%);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.benifit:hover .imgContainer {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(135deg, #0388ff 0%, #0270cc 100%);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.benifitTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 130%;
+  color: #000822;
+  letter-spacing: -0.4px;
+}
+
+.benifitDescription {
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 155%;
+  color: rgba(0, 8, 34, 0.65);
+  letter-spacing: 0.1px;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 0 6.2%;
+  }
+
+  .benifits {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.8rem;
+  }
+
+  .title {
+    font-size: 4.4rem;
+  }
+
+  .description {
+    font-size: 1.5rem;
+    margin: 0 -3px 0 -4px;
+  }
+
+  .benifit {
+    padding: 2.8rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 5rem 4.5%;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .description {
+    font-size: 1.38rem;
+  }
+
+  .imgContainer {
+    width: 6.8rem;
+    height: 6.8rem;
+  }
+
+  .benifitTitle {
+    font-size: 1.9rem;
+  }
+
+  .benifitDescription {
+    font-size: 1.32rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    width: 100%;
+    margin: 0;
+    padding: 8rem 4%;
+    gap: 6rem;
+  }
+
+  .top {
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 3.8rem;
+    letter-spacing: -0.8px;
+  }
+
+  .description {
+    font-size: 1.4rem;
+    margin: 0 -3px 0 -4px;
+  }
+
+  .benifits {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .benifit {
+    padding: 2.6rem;
+    gap: 1.8rem;
+  }
+
+  .imgContainer {
+    width: 7.4rem;
+    height: 7.4rem;
+  }
+
+  .benifitTitle {
+    font-size: 1.85rem;
+  }
+
+  .benifitDescription {
+    font-size: 1.35rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 0 6.2%;
+  }
+
+  .description {
+    margin: 0 -3px 0 -4px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    margin: 0;
+    padding: 6rem 3.2%;
+    gap: 4rem;
+  }
+
+  .title {
+    font-size: 2.9rem;
+    letter-spacing: -0.6px;
+  }
+
+  .description {
+    font-size: 1.32rem;
+    margin: 0 -3px 0 -4px;
+  }
+
+  .benifits {
+    gap: 1.6rem;
+  }
+
+  .benifit {
+    padding: 2.2rem;
+    gap: 1.6rem;
+  }
+
+  .imgContainer {
+    width: 6.4rem;
+    height: 6.4rem;
+  }
+
+  .benifitTitle {
+    font-size: 1.7rem;
+  }
+
+  .benifitDescription {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 6rem 5.8%;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
+  }
+
+  .description {
+    font-size: 1.2rem;
+    margin: 0 -3px 0 -4px;
+  }
+
+  .benifit {
+    padding: 1.8rem;
+    gap: 1.4rem;
+  }
+
+  .imgContainer {
+    width: 5.8rem;
+    height: 5.8rem;
+  }
+
+  .benifitTitle {
+    font-size: 1.5rem;
+  }
+
+  .benifitDescription {
+    font-size: 1.1rem;
+  }
+}
