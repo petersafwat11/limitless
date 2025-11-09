@@ -775,7 +775,7 @@ const AnnualPersonalDetailsForm = ({ form }) => {
 
             <div className={styles.cleanFormGrid1Col}>
               <p className={styles.cleanFormFieldLabel}>Have you continuously lived in the UK since birth?</p>
-              <p className={styles.cleanSubLabel}>Insurance providers need to know how long you've lived in the UK on a continuous basis, without any breaks lasting 6 months or longer.</p>
+              <p className={styles.cleanSubLabel}>Insurance providers need to know how long you&apos;ve lived in the UK on a continuous basis, without any breaks lasting 6 months or longer.</p>
               <YesORNo
                 value={watch("carUsage.livedInUKSinceBirth")}
                 onChange={(value) =>

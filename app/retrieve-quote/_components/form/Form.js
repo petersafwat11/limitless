@@ -151,7 +151,7 @@ const Form = () => {
 
         <div className={styles.footer}>
           <p className={styles.footerText}>
-            Don't have a quote reference? <a href="/temporary/get-quote" className={styles.getQuoteLink}>Get a new quote</a>
+            Don&apos;t have a quote reference? <a href="/temporary/get-quote" className={styles.getQuoteLink}>Get a new quote</a>
           </p>
         </div>
       </div>

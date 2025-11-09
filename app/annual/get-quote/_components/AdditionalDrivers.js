@@ -80,7 +80,7 @@ const AdditionalDrivers = ({
                 <div className={styles.cleanFormGrid1Col}>
                   <p className={styles.cleanFormFieldLabel}>Full name</p>
                   <p className={styles.cleanSubLabel}>
-                    If you select 'Dr' or 'Mx' as their title, you may see fewer results. A small number of providers are still updating their systems to support these options.
+                    If you select &apos;Dr&apos; or &apos;Mx&apos; as their title, you may see fewer results. A small number of providers are still updating their systems to support these options.
                   </p>
                 </div>
 
@@ -262,7 +262,7 @@ const AdditionalDrivers = ({
       {/* Maximum Drivers Reached Message */}
       {drivers.length >= 5 && (
         <div className={styles.cleanMaxDriversMessage}>
-          <p>You've added the maximum of 5 drivers.</p>
+          <p>You&apos;ve added the maximum of 5 drivers.</p>
         </div>
       )}
     </section>

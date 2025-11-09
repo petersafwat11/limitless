@@ -220,7 +220,7 @@ export const carUsageSchema = z.object({
       "Company car (including personal use)",
       "Company car (excluding personal use)",
     ]
-  ).optional(),
+  ).optional().or(z.literal("")).optional(),
   hasAdditionalQualifications: z.boolean().nullable().optional(),
   additionalQualificationType: z.enum(
     [
@@ -228,7 +228,7 @@ export const carUsageSchema = z.object({
       "Institute of Advanced Motorists",
       "Pass Plus",
     ]
-  ).optional(),
+  ).optional().or(z.literal("")).optional(),
   qualificationMonth: z.string().optional(),
   qualificationYear: z.string().optional(),
   ownsHome: z.boolean().nullable().optional(),
@@ -331,11 +331,11 @@ export const insuranceSchema = z.object({
 
 // Optional Extras Schema - for annual insurance
 export const optionalExtrasSchema = z.object({
-  protectedNCD: z.boolean().optional(),
-  motorLegal: z.boolean().optional(),
-  courtesyCar: z.boolean().optional(),
-  breakdownCover: z.boolean().optional(),
-  foreignUseCover: z.boolean().optional(),
+  protectedNCD: z.boolean().nullable().optional().default(false),
+  motorLegal: z.boolean().nullable().optional().default(false),
+  courtesyCar: z.boolean().nullable().optional().default(false),
+  breakdownCover: z.boolean().nullable().optional().default(false),
+  foreignUseCover: z.boolean().nullable().optional().default(false),
 }).optional();
 
 // Annual Insurance Schema

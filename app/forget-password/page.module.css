@@ -1,15 +1,8 @@
-:root {
-  --color-dark: #010923;
-  --color-white: #ffffff;
-  --color-blue: #0388ff;
-  --gradient-blue: linear-gradient(218deg, #0388ff -5.84%, #50acff 106.73%);
-}
-
 .page {
   display: flex;
   width: 100%;
   min-height: 100vh;
-  background: var(--color-white);
+  background: #ffffff;
   position: relative;
 }
 
@@ -34,7 +27,7 @@
   align-items: center;
   justify-content: center;
   flex-basis: 60%;
-  background: var(--color-dark);
+  background: #010923;
   position: relative;
   overflow: hidden;
 }
@@ -46,7 +39,7 @@
   right: 0;
   width: 28px;
   height: 100%;
-  background: var(--gradient-blue);
+  background: linear-gradient(218deg, #0388ff -5.84%, #50acff 106.73%);
   z-index: 1;
   pointer-events: none;
 }
@@ -81,7 +74,7 @@
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  background: var(--color-white);
+  background: #ffffff;
   min-width: 0;
 }
 

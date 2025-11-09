@@ -298,8 +298,20 @@ const AnnualInsuranceContent = () => {
           ...data.userDetails,
           address: data.userDetails?.address || "N/A",
         },
-        carUsage: data.carUsage,
-        optionalExtras: data.optionalExtras,
+        carUsage: {
+          ...data.carUsage,
+          // Convert empty strings to undefined for conditional enum fields
+          otherVehiclesType: data.carUsage?.otherVehiclesType === "" ? undefined : data.carUsage?.otherVehiclesType,
+          additionalQualificationType: data.carUsage?.additionalQualificationType === "" ? undefined : data.carUsage?.additionalQualificationType,
+        },
+        optionalExtras: {
+          // Convert null to false for boolean fields
+          protectedNCD: data.optionalExtras?.protectedNCD === true,
+          motorLegal: data.optionalExtras?.motorLegal === true,
+          courtesyCar: data.optionalExtras?.courtesyCar === true,
+          breakdownCover: data.optionalExtras?.breakdownCover === true,
+          foreignUseCover: data.optionalExtras?.foreignUseCover === true,
+        },
         terms: data.terms,
       };
       

@@ -451,7 +451,7 @@ const AnnualVehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup 
           <div className={styles.section}>
             <div className={styles.sectionHeader}>
               <h3 className={styles.sectionTitle}>Vehicle Specification</h3>
-              <p className={styles.sectionDescription}>Provide details about your vehicle's make, model, and features</p>
+              <p className={styles.sectionDescription}>Provide details about your vehicle&apos;s make, model, and features</p>
             </div>
           </div>
         )}
@@ -572,7 +572,7 @@ const AnnualVehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup 
         <div className={styles.section}>
           <div className={styles.sectionHeader}>
             <h3 className={styles.sectionTitle}>Safety & Security Features</h3>
-            <p className={styles.sectionDescription}>Tell us about your vehicle's safety and security features</p>
+            <p className={styles.sectionDescription}>Tell us about your vehicle&apos;s safety and security features</p>
           </div>
           <div className={styles.additionalDetailsSection}>
           <div className={styles.cleanFormGrid2Col}>
@@ -669,7 +669,7 @@ const AnnualVehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup 
                 className={styles.haventBoughtBtn}
                 onClick={(e) => handleHaventBoughtChange({ target: { checked: !haventBoughtYet } })}
               >
-                I haven't bought it yet
+                I haven&apos;t bought it yet
               </button>
             </div>
             {haventBoughtYet && (

@@ -45,7 +45,7 @@ const AnnualCoverDetailsForm = ({ form }) => {
         <div className={styles.section}>
           <div className={styles.sectionHeader}>
             <h2 className={styles.sectionTitle}>
-              What's the minimum level of cover you're looking for?
+              What&apos;s the minimum level of cover you&apos;re looking for?
             </h2>
             <p className={styles.sectionSubtitle}>
               Comprehensive cover can cost less than third party or third party fire and theft

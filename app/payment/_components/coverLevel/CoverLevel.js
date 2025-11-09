@@ -48,7 +48,7 @@ const CoverLevel = ({ data, insuranceType }) => {
       </div>
 
       <div className={styles.featuresSection}>
-        <h4 className={styles.featuresTitle}>What's Included</h4>
+        <h4 className={styles.featuresTitle}>What&apos;s Included</h4>
         <div className={styles.featuresList}>
           {features.map((feature, index) => (
             <div className={styles.featureItem} key={index}>
