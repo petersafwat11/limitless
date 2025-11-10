@@ -77,7 +77,7 @@ export const temporaryCoverDetails = {
     "Limitless Cover collaborates with a panel of insurers to offer comprehensive car insurance coverage. As a result, the full details of your cover may vary based on your chosen insurer. With our impound car insurance policies lasting 30 days, you’ll enjoy the flexibility to decide your car’s next step after recovery - whether selling it, declaring it SORN, or returning it to the road. Please review the policy wording carefully before purchasing.",
 };
 export const temporaryEligibility = {
-  title: "Check your eligibility for impound car insurance",
+  title: "Check your eligibility for temporary car insurance",
   description:
     "Want to check  eligibility criteria for temporary car insurance? Here's everything you need to know:",
 

@@ -166,7 +166,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(3, 136, 255, 0.1) 0%, transparent 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(3, 136, 255, 0.1) 0%,
+    transparent 100%
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -212,7 +216,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 100%
+  );
   opacity: 0;
   transition: opacity 0.25s ease;
   pointer-events: none;
@@ -545,29 +553,29 @@
   }
 
   .menuLink {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 120%;
-  transition: none;
-  padding: 1.6rem 2.4rem;
-  border-radius: 0;
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0;
-  cursor: pointer;
-  white-space: nowrap;
-  background: #000822;
-}
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 120%;
+    transition: none;
+    padding: 1.6rem 2.4rem;
+    border-radius: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    cursor: pointer;
+    white-space: nowrap;
+    background: #000822;
+  }
 
-.menuLink:last-of-type {
-  border-bottom: none;
-}
+  .menuLink:last-of-type {
+    border-bottom: none;
+  }
 
-.menuLink svg {
-  display: none;
-}
+  .menuLink svg {
+    display: none;
+  }
 
   .menuLink::before {
     content: none;
@@ -636,7 +644,7 @@
 
 .stickyContent {
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   max-width: 1400px;
   margin: 0 auto;
@@ -649,7 +657,7 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  grid-column: 1;
+  /* grid-column: 1; */
 }
 
 .stickyLogo {
@@ -668,7 +676,7 @@
   margin: 0;
   padding: 0 1rem;
   justify-content: flex-end;
-  grid-column: 3;
+  /* grid-column: 3; */
 }
 
 .stickyMenu a {
@@ -683,7 +691,7 @@
 }
 
 .stickyMenu a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -707,6 +715,7 @@
   display: flex;
   gap: 1rem;
   flex-shrink: 0;
+  justify-self: end;
 }
 
 .stickyLoginBtn {
@@ -814,7 +823,11 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, rgba(0, 8, 34, 0.99) 0%, rgba(10, 15, 46, 0.99) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 8, 34, 0.99) 0%,
+    rgba(10, 15, 46, 0.99) 100%
+  );
   backdrop-filter: blur(12px);
   border: 1px solid rgba(3, 136, 255, 0.25);
   border-radius: 10px;
@@ -911,7 +924,7 @@
 }
 
 .stickyMenuButton::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -949,7 +962,11 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(135deg, rgba(0, 8, 34, 0.99) 0%, rgba(10, 15, 46, 0.99) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 8, 34, 0.99) 0%,
+    rgba(10, 15, 46, 0.99) 100%
+  );
   border: 1px solid rgba(3, 136, 255, 0.25);
   border-radius: 8px;
   min-width: 200px;

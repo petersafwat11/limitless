@@ -315,7 +315,7 @@ const FormDateInput = forwardRef(
               <CustomDatePicker
                 selectedDate={parseDate(value)}
                 onDateSelect={handleDateSelect}
-                minDate={minDate || (allowPastDates ? null : today)}
+                minDate={allowPastDates ? (minDate || null) : (minDate || today)}
                 maxDate={maxDate}
                 showAbove={pickerPosition.showAbove}
                 defaultYear={defaultYear}
