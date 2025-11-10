@@ -19,7 +19,7 @@ const Page = async () => {
   try {
     // Fetch dashboard stats from backend
     const response = await serverFetch(
-      `${NEXT_PUBLIC_API_URL}/api/user-dashboard/stats`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/user-dashboard/stats`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +39,7 @@ const Page = async () => {
 
   return (
     <div className={styles.page}>
-      <DashboardClient 
+      <DashboardClient
         activePoliciesCount={activePoliciesCount}
         pendingClaimsCount={pendingClaimsCount}
       />

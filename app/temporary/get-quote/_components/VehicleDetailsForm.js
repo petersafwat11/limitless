@@ -246,7 +246,7 @@ const VehicleDetailsForm = ({
   const fetchMakes = useCallback(async () => {
     try {
       const response = await fetch(
-        `${NEXT_PUBLIC_API_URL}/api/vehicle-models/makes`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/vehicle-models/makes`
       );
       if (response.ok) {
         const result = await response.json();
@@ -269,7 +269,7 @@ const VehicleDetailsForm = ({
 
     try {
       const response = await fetch(
-        `${NEXT_PUBLIC_API_URL}/api/vehicle-models/options?${queryString}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/vehicle-models/options?${queryString}`
       );
 
       if (!response.ok) {
@@ -466,9 +466,9 @@ const VehicleDetailsForm = ({
     setIsLoadingVehicleData(true);
     try {
       // Use DVLA endpoint
-      const apiUrl = `${NEXT_PUBLIC_API_URL}/api/vehicle-search/dvla/${encodeURIComponent(
-        cleanRegNumber
-      )}`;
+      const apiUrl = `${
+        process.env.NEXT_PUBLIC_API_URL
+      }/api/vehicle-search/dvla/${encodeURIComponent(cleanRegNumber)}`;
 
       const response = await axios.get(apiUrl);
       if (response.data.status === "success" && response.data.data) {

@@ -9,7 +9,9 @@ const page = async ({ searchParams }) => {
   let error = null;
 
   try {
-    const response = await axios.get(`${NEXT_PUBLIC_API_URL}/api/insurance/${id}`);
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/insurance/${id}`
+    );
 
     if (response.status === 200 && response.data.data) {
       insuranceData = response.data.data.data || response.data.data;

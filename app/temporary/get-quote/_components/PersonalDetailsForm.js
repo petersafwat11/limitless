@@ -100,9 +100,9 @@ const PersonalDetailsForm = ({ form }) => {
 
     try {
       const response = await fetch(
-        `${NEXT_PUBLIC_API_URL}/api/insurance/lookup-postcode/${encodeURIComponent(
-          postcode.trim()
-        )}`
+        `${
+          process.env.NEXT_PUBLIC_API_URL
+        }/api/insurance/lookup-postcode/${encodeURIComponent(postcode.trim())}`
       );
 
       if (!response.ok) {

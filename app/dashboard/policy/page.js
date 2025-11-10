@@ -84,7 +84,7 @@ const Page = async () => {
   try {
     // Fetch all insurances for the logged-in user
     const response = await serverFetch(
-      `${NEXT_PUBLIC_API_URL}/api/insurance/user/my-insurances`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/insurance/user/my-insurances`,
       {
         headers: {
           "Content-Type": "application/json",

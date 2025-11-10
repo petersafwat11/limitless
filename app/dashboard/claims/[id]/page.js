@@ -41,7 +41,7 @@ const page = async ({ params }) => {
   } else {
     try {
       const response = await serverFetch(
-        `${NEXT_PUBLIC_API_URL}/api/claims/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/claims/${id}`,
         {
           headers: {
             "Content-Type": "application/json",

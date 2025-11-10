@@ -131,14 +131,17 @@ const Form = ({ claimReason }) => {
       // userId will be set by backend from authenticated user
       // No need to send it from frontend
 
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/claims`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include", // This sends HTTP-only cookies with the request
-        body: JSON.stringify(apiData),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/claims`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include", // This sends HTTP-only cookies with the request
+          body: JSON.stringify(apiData),
+        }
+      );
 
       // Check if response is JSON before parsing
       const contentType = response.headers.get("content-type");

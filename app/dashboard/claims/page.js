@@ -33,24 +33,29 @@ const Page = async () => {
     claims = [
       {
         _id: "dev-claim-1",
-        estimatedResolutionDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+        estimatedResolutionDate: new Date(
+          Date.now() + 7 * 24 * 60 * 60 * 1000
+        ).toISOString(),
         orderReference: "DEV001",
         status: "Pending",
         claimDetails: {
           placeHolderFirstName: "Dev",
-          placeHolderLastName: "User"
+          placeHolderLastName: "User",
         },
-        updatedAt: new Date().toISOString()
-      }
+        updatedAt: new Date().toISOString(),
+      },
     ];
   } else {
     try {
-      const response = await serverFetch(`${NEXT_PUBLIC_API_URL}/api/claims`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        cache: "no-store",
-      });
+      const response = await serverFetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/claims`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          cache: "no-store",
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -87,65 +92,68 @@ const Page = async () => {
     <div>
       <div className={styles.page}>
         <div className={styles.header}>
-        <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
-          Your Claims
-        </h2>
-        <CreateBtn title="Create a new claim" href="/dashboard/submit-claim" />
-      </div>
-
-      {error && (
-        <div
-          style={{
-            backgroundColor: "#f8d7da",
-            color: "#721c24",
-            padding: "1rem",
-            marginBottom: "1rem",
-            borderRadius: "0.25rem",
-            border: "1px solid #f5c6cb",
-          }}
-        >
-          {error}
+          <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
+            Your Claims
+          </h2>
+          <CreateBtn
+            title="Create a new claim"
+            href="/dashboard/submit-claim"
+          />
         </div>
-      )}
 
-      {claims.length === 0 && !error ? (
-        <div className={styles.emptyState}>
-          <h3 className={styles.emptyTitle}>No claims found</h3>
-          <p className={styles.emptyDescription}>
-            You haven&apos;t submitted any claims yet.
-          </p>
-        </div>
-      ) : (
-        <>
-          {pendingClaims.length > 0 && (
-            <Table
-              title="Pending Claims"
-              columns={[
-                "Date of Claim",
-                "Status",
-                "Claimant",
-                "Last Updated",
-                "Actions",
-              ]}
-              data={pendingClaims}
-            />
-          )}
+        {error && (
+          <div
+            style={{
+              backgroundColor: "#f8d7da",
+              color: "#721c24",
+              padding: "1rem",
+              marginBottom: "1rem",
+              borderRadius: "0.25rem",
+              border: "1px solid #f5c6cb",
+            }}
+          >
+            {error}
+          </div>
+        )}
 
-          {completedClaims.length > 0 && (
-            <Table
-              title="Claim History"
-              columns={[
-                "Date of Claim",
-                "Status",
-                "Claimant",
-                "Last Updated",
-                "Actions",
-              ]}
-              data={completedClaims}
-            />
-          )}
-        </>
-      )}
+        {claims.length === 0 && !error ? (
+          <div className={styles.emptyState}>
+            <h3 className={styles.emptyTitle}>No claims found</h3>
+            <p className={styles.emptyDescription}>
+              You haven&apos;t submitted any claims yet.
+            </p>
+          </div>
+        ) : (
+          <>
+            {pendingClaims.length > 0 && (
+              <Table
+                title="Pending Claims"
+                columns={[
+                  "Date of Claim",
+                  "Status",
+                  "Claimant",
+                  "Last Updated",
+                  "Actions",
+                ]}
+                data={pendingClaims}
+              />
+            )}
+
+            {completedClaims.length > 0 && (
+              <Table
+                title="Claim History"
+                columns={[
+                  "Date of Claim",
+                  "Status",
+                  "Claimant",
+                  "Last Updated",
+                  "Actions",
+                ]}
+                data={completedClaims}
+              />
+            )}
+          </>
+        )}
       </div>
     </div>
   );

@@ -144,10 +144,13 @@ export const AuthProvider = ({ children }) => {
     try {
       dispatch({ type: AUTH_ACTIONS.SET_LOADING, payload: true });
 
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/auth/verify`, {
-        method: "GET",
-        credentials: "include", // Include cookies
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/verify`,
+        {
+          method: "GET",
+          credentials: "include", // Include cookies
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -173,14 +176,17 @@ export const AuthProvider = ({ children }) => {
     try {
       dispatch({ type: AUTH_ACTIONS.LOGIN_START });
 
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include", // Include cookies
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include", // Include cookies
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       const data = await response.json();
 
@@ -215,7 +221,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await fetch(`${NEXT_PUBLIC_API_URL}/api/auth/logout`, {
+      await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/logout`, {
         method: "POST",
         credentials: "include",
       });
@@ -231,7 +237,7 @@ export const AuthProvider = ({ children }) => {
       dispatch({ type: AUTH_ACTIONS.FORGOT_PASSWORD_START });
 
       const response = await fetch(
-        `${NEXT_PUBLIC_API_URL}/api/auth/forgot-password`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/forgot-password`,
         {
           method: "POST",
           headers: {
@@ -274,7 +280,7 @@ export const AuthProvider = ({ children }) => {
       dispatch({ type: AUTH_ACTIONS.RESET_PASSWORD_START });
 
       const response = await fetch(
-        `${NEXT_PUBLIC_API_URL}/api/auth/reset-password/${token}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/reset-password/${token}`,
         {
           method: "PATCH",
           headers: {
@@ -312,7 +318,7 @@ export const AuthProvider = ({ children }) => {
       dispatch({ type: AUTH_ACTIONS.RESET_PASSWORD_START });
 
       const response = await fetch(
-        `${NEXT_PUBLIC_API_URL}/api/auth/set-password`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/set-password`,
         {
           method: "POST",
           headers: {
@@ -348,9 +354,9 @@ export const AuthProvider = ({ children }) => {
   const getUserInfo = async (email, userId) => {
     try {
       const response = await fetch(
-        `${NEXT_PUBLIC_API_URL}/api/auth/user?email=${encodeURIComponent(
-          email
-        )}&userId=${userId}`,
+        `${
+          process.env.NEXT_PUBLIC_API_URL
+        }/api/auth/user?email=${encodeURIComponent(email)}&userId=${userId}`,
         {
           method: "GET",
           credentials: "include",

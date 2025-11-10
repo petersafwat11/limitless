@@ -20,7 +20,7 @@ const page = async () => {
   let insurances = [];
   try {
     const response = await serverFetch(
-      `${NEXT_PUBLIC_API_URL}/api/insurance/user/my-insurances`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/insurance/user/my-insurances`,
       {
         headers: {
           "Content-Type": "application/json",

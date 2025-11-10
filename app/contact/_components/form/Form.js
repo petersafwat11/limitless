@@ -49,7 +49,7 @@ const Form = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/contacts`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contacts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

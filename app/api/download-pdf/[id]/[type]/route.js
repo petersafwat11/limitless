@@ -19,7 +19,7 @@ export async function GET(request, { params }) {
     }
 
     // Make request to backend with the JWT cookie
-    const backendUrl = `${NEXT_PUBLIC_API_URL}/api/insurance/download-pdf/${id}/${type}`;
+    const backendUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/insurance/download-pdf/${id}/${type}`;
     console.log(`📡 Fetching from backend: ${backendUrl}`);
 
     const response = await fetch(backendUrl, {
