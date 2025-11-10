@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWrapper";
-import { API_BASE_URL } from "@/utils/config";
+
 import FormTextInput from "@/ui/inputs/FormTextInput";
 import FormDataAndTime from "@/ui/inputs/FormDataAndTime";
 import FormDropdown from "@/ui/inputs/FormDropdown";
@@ -25,14 +25,20 @@ import {
 } from "../data";
 
 const PersonalDetailsForm = ({ form }) => {
-  const { register, formState: { errors }, watch, setValue } = form;
+  const {
+    register,
+    formState: { errors },
+    watch,
+    setValue,
+  } = form;
 
   const [addresses, setAddresses] = useState([]);
   const [isLoadingAddresses, setIsLoadingAddresses] = useState(false);
   const [dynamicNcbOptions, setDynamicNcbOptions] = useState(ncbOptions);
 
   const employmentStatus = watch("userDetails.employmentStatus");
-  const isRetiredOrUnemployed = employmentStatus === "Retired" || employmentStatus === "Unemployed";
+  const isRetiredOrUnemployed =
+    employmentStatus === "Retired" || employmentStatus === "Unemployed";
 
   const dateOfBirth = watch("userDetails.dateOfBirth");
 
@@ -71,7 +77,8 @@ const PersonalDetailsForm = ({ form }) => {
 
       const currentNCB = watch("carUsage.NCB");
       if (currentNCB) {
-        const currentNCBValue = currentNCB === "15+" ? 15 : parseInt(currentNCB);
+        const currentNCBValue =
+          currentNCB === "15+" ? 15 : parseInt(currentNCB);
         if (currentNCBValue > maxNCBYears) {
           setValue("carUsage.NCB", "");
         }
@@ -93,7 +100,7 @@ const PersonalDetailsForm = ({ form }) => {
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/insurance/lookup-postcode/${encodeURIComponent(
+        `${NEXT_PUBLIC_API_URL}/api/insurance/lookup-postcode/${encodeURIComponent(
           postcode.trim()
         )}`
       );
@@ -121,10 +128,11 @@ const PersonalDetailsForm = ({ form }) => {
   return (
     <ComponentWrapper title="Personal Details">
       <div className={styles.cleanFormContent}>
-
         {/* About You Section */}
         <section className={styles.cleanSection}>
-          <h3 className={styles.cleanSectionTitle} data-section="1">About You</h3>
+          <h3 className={styles.cleanSectionTitle} data-section="1">
+            About You
+          </h3>
 
           <div className={styles.cleanFormGrid2Col}>
             <FormTextInput
@@ -179,7 +187,13 @@ const PersonalDetailsForm = ({ form }) => {
               type="date"
               allowPastDates={true}
               isDateOfBirth={true}
-              maxDate={new Date(new Date().getFullYear() - 16, new Date().getMonth(), new Date().getDate())}
+              maxDate={
+                new Date(
+                  new Date().getFullYear() - 16,
+                  new Date().getMonth(),
+                  new Date().getDate()
+                )
+              }
               defaultYear={2009}
               reducedPadding={true}
               {...register("userDetails.dateOfBirth")}
@@ -209,7 +223,9 @@ const PersonalDetailsForm = ({ form }) => {
 
         {/* Employment Section */}
         <section className={styles.cleanSection}>
-          <h3 className={styles.cleanSectionTitle} data-section="3">Your Employment</h3>
+          <h3 className={styles.cleanSectionTitle} data-section="3">
+            Your Employment
+          </h3>
 
           <div className={styles.cleanFormGrid2Col}>
             <FormDropdown
@@ -226,8 +242,12 @@ const PersonalDetailsForm = ({ form }) => {
               placeholder="Type or select your occupation"
               {...register("userDetails.occupation")}
               error={errors.userDetails?.occupation}
-              value={isRetiredOrUnemployed ? "N/A" : watch("userDetails.occupation")}
-              onChange={(e) => setValue("userDetails.occupation", e.target.value)}
+              value={
+                isRetiredOrUnemployed ? "N/A" : watch("userDetails.occupation")
+              }
+              onChange={(e) =>
+                setValue("userDetails.occupation", e.target.value)
+              }
               disabled={isRetiredOrUnemployed}
               inputStyle={{ paddingLeft: "14px" }}
             />
@@ -240,7 +260,9 @@ const PersonalDetailsForm = ({ form }) => {
               placeholder="Type or select your industry"
               {...register("userDetails.industry")}
               error={errors.userDetails?.industry}
-              value={isRetiredOrUnemployed ? "N/A" : watch("userDetails.industry")}
+              value={
+                isRetiredOrUnemployed ? "N/A" : watch("userDetails.industry")
+              }
               onChange={(e) => setValue("userDetails.industry", e.target.value)}
               disabled={isRetiredOrUnemployed}
               inputStyle={{ paddingLeft: "14px" }}
@@ -250,7 +272,9 @@ const PersonalDetailsForm = ({ form }) => {
 
         {/* Car Parking Section */}
         <section className={styles.cleanSection}>
-          <h3 className={styles.cleanSectionTitle} data-section="4">Parking & Storage</h3>
+          <h3 className={styles.cleanSectionTitle} data-section="4">
+            Parking & Storage
+          </h3>
 
           <div className={styles.cleanFormGrid2Col}>
             <div className={styles.cleanSelectionCard}>
@@ -258,7 +282,12 @@ const PersonalDetailsForm = ({ form }) => {
                 title="Where do you keep your car during the day?"
                 description="Select where your car is typically parked during daytime hours."
                 items={keepingCarDuringDayOptions}
-                img={{ src: "/svg/day.svg", alt: "sun", width: 79, height: 106 }}
+                img={{
+                  src: "/svg/day.svg",
+                  alt: "sun",
+                  width: 79,
+                  height: 106,
+                }}
                 selectedItem={watch("carUsage.keepingCarDuringDay")}
                 setSelectedItem={(item) =>
                   setValue("carUsage.keepingCarDuringDay", item)
@@ -276,7 +305,12 @@ const PersonalDetailsForm = ({ form }) => {
                 title="Where do you keep your car during the night?"
                 description="Select where your car is typically parked during nighttime hours."
                 items={keepingCarDuringNightOptions}
-                img={{ src: "/svg/night.svg", alt: "moon", width: 79, height: 106 }}
+                img={{
+                  src: "/svg/night.svg",
+                  alt: "moon",
+                  width: 79,
+                  height: 106,
+                }}
                 selectedItem={watch("carUsage.keepingCarDuringNight")}
                 setSelectedItem={(item) =>
                   setValue("carUsage.keepingCarDuringNight", item)
@@ -293,7 +327,9 @@ const PersonalDetailsForm = ({ form }) => {
 
         {/* Car Usage Section */}
         <section className={styles.cleanSection}>
-          <h3 className={styles.cleanSectionTitle} data-section="5">Usage Details</h3>
+          <h3 className={styles.cleanSectionTitle} data-section="5">
+            Usage Details
+          </h3>
 
           <div className={styles.cleanFormGrid1Col}>
             <p className={styles.cleanLabel}>What do you use the car for?</p>
@@ -311,20 +347,26 @@ const PersonalDetailsForm = ({ form }) => {
             </div>
           </div>
 
-          <div className={`${styles.cleanFormGrid1Col} ${styles.cleanFormGrid1ColWithTopGap}`}>
+          <div
+            className={`${styles.cleanFormGrid1Col} ${styles.cleanFormGrid1ColWithTopGap}`}
+          >
             <p className={styles.cleanLabel}>Do you use any other vehicles?</p>
             <YesORNo
               value={watch("carUsage.otherVehicles")}
-              onChange={(value) =>
-                setValue("carUsage.otherVehicles", value)
-              }
+              onChange={(value) => setValue("carUsage.otherVehicles", value)}
             />
           </div>
 
           {watch("carUsage.otherVehicles") && (
-            <div className={`${styles.cleanFormGrid1Col} ${styles.cleanFormGrid1ColWithTopPadding}`}>
-              <p className={styles.cleanLabel}>What other vehicles do you have use of?</p>
-              <p className={styles.cleanSubLabel}>Select the most applicable option.</p>
+            <div
+              className={`${styles.cleanFormGrid1Col} ${styles.cleanFormGrid1ColWithTopPadding}`}
+            >
+              <p className={styles.cleanLabel}>
+                What other vehicles do you have use of?
+              </p>
+              <p className={styles.cleanSubLabel}>
+                Select the most applicable option.
+              </p>
               <FormDropdown
                 label=""
                 options={otherVehiclesOptions}
@@ -339,7 +381,9 @@ const PersonalDetailsForm = ({ form }) => {
 
         {/* Your Driving Record Section */}
         <section className={styles.cleanSection}>
-          <h3 className={styles.cleanSectionTitle} data-section="6">Your Driving Record</h3>
+          <h3 className={styles.cleanSectionTitle} data-section="6">
+            Your Driving Record
+          </h3>
 
           <div className={styles.cleanFormGrid3Col}>
             <FormDropdown
@@ -389,8 +433,10 @@ const PersonalDetailsForm = ({ form }) => {
 
         {/* Declarations Section */}
         <section className={styles.cleanSection}>
-          <h3 className={styles.cleanSectionTitle} data-section="7">Important Declarations</h3>
-          
+          <h3 className={styles.cleanSectionTitle} data-section="7">
+            Important Declarations
+          </h3>
+
           <div className={styles.cleanDeclarationsContainer}>
             <div className={styles.cleanDeclarationItem}>
               <p className={styles.cleanDeclarationQuestion}>
@@ -411,7 +457,8 @@ const PersonalDetailsForm = ({ form }) => {
 
             <div className={styles.cleanDeclarationItem}>
               <p className={styles.cleanDeclarationQuestion}>
-                Do you have any medical conditions that are notifiable to the DVLA?
+                Do you have any medical conditions that are notifiable to the
+                DVLA?
               </p>
               <YesORNo
                 value={watch("carUsage.medicalConditions")}
@@ -428,7 +475,8 @@ const PersonalDetailsForm = ({ form }) => {
 
             <div className={styles.cleanDeclarationItem}>
               <p className={styles.cleanDeclarationQuestion}>
-                Have you ever had insurance cancelled, a claim refused, a policy voided, or any special terms imposed?
+                Have you ever had insurance cancelled, a claim refused, a policy
+                voided, or any special terms imposed?
               </p>
               <YesORNo
                 value={watch(
@@ -441,9 +489,13 @@ const PersonalDetailsForm = ({ form }) => {
                   )
                 }
               />
-              {errors.carUsage?.insuranceCancelledOrClaimRefusedOrPolicyVoided && (
+              {errors.carUsage
+                ?.insuranceCancelledOrClaimRefusedOrPolicyVoided && (
                 <span className={styles.cleanError}>
-                  {errors.carUsage.insuranceCancelledOrClaimRefusedOrPolicyVoided.message}
+                  {
+                    errors.carUsage
+                      .insuranceCancelledOrClaimRefusedOrPolicyVoided.message
+                  }
                 </span>
               )}
             </div>

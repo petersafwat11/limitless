@@ -1,6 +1,12 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect, useReducer, useCallback, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useReducer,
+  useCallback,
+  useRef,
+} from "react";
 import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWrapper";
 import FormTextInput from "@/ui/inputs/FormTextInput";
 import FormDropdown from "@/ui/inputs/FormDropdown";
@@ -9,8 +15,12 @@ import Title from "@/ui/insurance-quotes/title/Title";
 import VehicleModificationsModal from "@/app/annual/get-quote/_components/VehicleModificationsModal";
 import styles from "@/app/annual/get-quote/_components/annualVehicle.module.css";
 import ConfirmBtn from "@/ui/buttons/confirmBtn/ConfirmBtn";
-import { buildVehicleQuery, clearDependentFields, shouldAutoSelect } from "../helperFucntion";
-import { API_BASE_URL } from "@/utils/config";
+import {
+  buildVehicleQuery,
+  clearDependentFields,
+  shouldAutoSelect,
+} from "../helperFucntion";
+
 import axios from "axios";
 
 // Simplified state for vehicle data
@@ -88,7 +98,11 @@ const carColors = [
   "Yellow",
 ];
 
-const trackingDeviceOptions = ["No", "Yes - Factory Fitted", "Yes - Aftermarket"];
+const trackingDeviceOptions = [
+  "No",
+  "Yes - Factory Fitted",
+  "Yes - Aftermarket",
+];
 const alarmImmobiliserOptions = [
   "No",
   "Thatcham approved immobiliser",
@@ -99,10 +113,26 @@ const alarmImmobiliserOptions = [
   "Other",
 ];
 const yesNoOptions = ["No", "Yes"];
-const ownerOptions = ["Policyholder", "Spouse/Partner", "Parent", "Company", "Other"];
-const keeperOptions = ["Policyholder", "Spouse/Partner", "Parent", "Company", "Other"];
+const ownerOptions = [
+  "Policyholder",
+  "Spouse/Partner",
+  "Parent",
+  "Company",
+  "Other",
+];
+const keeperOptions = [
+  "Policyholder",
+  "Spouse/Partner",
+  "Parent",
+  "Company",
+  "Other",
+];
 
-const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = false }) => {
+const VehicleDetailsForm = ({
+  form,
+  onVehicleDataFound,
+  autoTriggerLookup = false,
+}) => {
   const [showVehicleDetails, setShowVehicleDetails] = useState(false);
   const [isLoadingVehicleData, setIsLoadingVehicleData] = useState(false);
   const [state, dispatch] = useReducer(vehicleReducer, initialState);
@@ -114,7 +144,16 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
   const isAutoSelectingRef = useRef(false);
   const hasAutoTriggeredRef = useRef(false);
 
-  const { register, formState: { errors }, watch, setValue, setError, trigger, clearErrors, reset } = form;
+  const {
+    register,
+    formState: { errors },
+    watch,
+    setValue,
+    setError,
+    trigger,
+    clearErrors,
+    reset,
+  } = form;
 
   // Watch all form values
   const selectedMake = watch("vehicleDetails.make");
@@ -127,22 +166,34 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
   const registeredKeeper = watch("vehicleDetails.registeredKeeper");
   const legalOwner = watch("vehicleDetails.legalOwner");
   const vehicleModified = watch("vehicleDetails.vehicleModified");
-  const vehicleModifications = watch("vehicleDetails.vehicleModifications") || [];
+  const vehicleModifications =
+    watch("vehicleDetails.vehicleModifications") || [];
+  const previousVehicleModifiedRef = useRef(vehicleModified);
 
-  // Open modifications modal when "Yes" is selected
+  // Open modifications modal only when user actively changes to "Yes", not on mount or back navigation
   useEffect(() => {
-    if (vehicleModified === "Yes") {
+    const previous = previousVehicleModifiedRef.current;
+    if (
+      vehicleModified === "Yes" &&
+      previous !== "Yes" &&
+      vehicleModifications.length === 0
+    ) {
       setShowModificationsModal(true);
     }
-  }, [vehicleModified]);
+    previousVehicleModifiedRef.current = vehicleModified;
+  }, [vehicleModified, vehicleModifications.length]);
 
   // Clear owner and keeper fields if legal owner is "Yes"
   useEffect(() => {
     if (legalOwner === "Yes") {
       setValue("vehicleDetails.owner", "", { shouldValidate: false });
-      setValue("vehicleDetails.registeredKeeper", "", { shouldValidate: false });
+      setValue("vehicleDetails.registeredKeeper", "", {
+        shouldValidate: false,
+      });
       setValue("vehicleDetails.ownerOther", "", { shouldValidate: false });
-      setValue("vehicleDetails.registeredKeeperOther", "", { shouldValidate: false });
+      setValue("vehicleDetails.registeredKeeperOther", "", {
+        shouldValidate: false,
+      });
     }
   }, [legalOwner, setValue]);
 
@@ -194,7 +245,9 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
 
   const fetchMakes = useCallback(async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/api/vehicle-models/makes`);
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/vehicle-models/makes`
+      );
       if (response.ok) {
         const result = await response.json();
         const makes = result.data || [];
@@ -216,7 +269,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
 
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/vehicle-models/options?${queryString}`
+        `${NEXT_PUBLIC_API_URL}/api/vehicle-models/options?${queryString}`
       );
 
       if (!response.ok) {
@@ -326,16 +379,37 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
       let shouldClearOptions = false;
 
       const fieldChanges = [
-        { param: "make", clear: { model: "", year: "", doors: "", fuel: "", transmission: "" }, clearOptions: true },
-        { param: "model", clear: { year: "", doors: "", fuel: "", transmission: "" }, clearOptions: false },
-        { param: "year", clear: { doors: "", fuel: "", transmission: "" }, clearOptions: false },
-        { param: "doors", clear: { fuel: "", transmission: "" }, clearOptions: false },
+        {
+          param: "make",
+          clear: { model: "", year: "", doors: "", fuel: "", transmission: "" },
+          clearOptions: true,
+        },
+        {
+          param: "model",
+          clear: { year: "", doors: "", fuel: "", transmission: "" },
+          clearOptions: false,
+        },
+        {
+          param: "year",
+          clear: { doors: "", fuel: "", transmission: "" },
+          clearOptions: false,
+        },
+        {
+          param: "doors",
+          clear: { fuel: "", transmission: "" },
+          clearOptions: false,
+        },
         { param: "fuel", clear: { transmission: "" }, clearOptions: false },
       ];
 
       for (const { param, clear, clearOptions } of fieldChanges) {
         if (previousParams.get(param) !== currentParams.get(param)) {
-          clearDependentFields(param, setValue, isAutoSelectingRef, clearErrors);
+          clearDependentFields(
+            param,
+            setValue,
+            isAutoSelectingRef,
+            clearErrors
+          );
           fieldsToClear = clear;
           shouldClearOptions = clearOptions;
           break;
@@ -364,7 +438,18 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
         dispatch({ type: "CLEAR_OPTIONS" });
       }
     }
-  }, [selectedMake, selectedModel, selectedYear, selectedDoors, selectedFuel, fetchVehicleData, watch, setValue, clearErrors, state.options]);
+  }, [
+    selectedMake,
+    selectedModel,
+    selectedYear,
+    selectedDoors,
+    selectedFuel,
+    fetchVehicleData,
+    watch,
+    setValue,
+    clearErrors,
+    state.options,
+  ]);
 
   const handleFindVehicle = useCallback(async () => {
     const registrationNumber = watch("vehicleDetails.registrationNumber");
@@ -381,7 +466,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
     setIsLoadingVehicleData(true);
     try {
       // Use DVLA endpoint
-      const apiUrl = `${API_BASE_URL}/api/vehicle-search/dvla/${encodeURIComponent(
+      const apiUrl = `${NEXT_PUBLIC_API_URL}/api/vehicle-search/dvla/${encodeURIComponent(
         cleanRegNumber
       )}`;
 
@@ -409,7 +494,7 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
         setValue("vehicleDetails.fuel", vehicleData.fuelType || "");
         setValue("vehicleDetails.transmission", vehicleData.transmission || "");
         setValue("vehicleDetails.colour", vehicleData.colour || "");
-        
+
         // Set additional fields if available
         if (vehicleData.cylinderCapacity) {
           setValue("vehicleDetails.engineSize", vehicleData.cylinderCapacity);
@@ -483,364 +568,483 @@ const VehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup = fals
       />
       <ComponentWrapper title="Your Vehicle Information">
         <div className={styles.content}>
-        {/* Instruction Message */}
-        <div className={styles.instructionBox}>
-          <div className={styles.instructionIcon}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="10" stroke="#5a6b7d" strokeWidth="2"/>
-              <path d="M12 16V12M12 8H12.01" stroke="#5a6b7d" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
+          {/* Instruction Message */}
+          <div className={styles.instructionBox}>
+            <div className={styles.instructionIcon}>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="#5a6b7d"
+                  strokeWidth="2"
+                />
+                <path
+                  d="M12 16V12M12 8H12.01"
+                  stroke="#5a6b7d"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+            <div className={styles.instructionContent}>
+              <p className={styles.instructionText}>
+                Please provide accurate vehicle details to ensure we calculate
+                the correct insurance quote for you.
+              </p>
+            </div>
           </div>
-          <div className={styles.instructionContent}>
-            <p className={styles.instructionText}>Please provide accurate vehicle details to ensure we calculate the correct insurance quote for you.</p>
-          </div>
-        </div>
 
-        {/* Vehicle Registration Section */}
-        <div className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <h3 className={styles.sectionTitle}>Vehicle Registration</h3>
-            <p className={styles.sectionDescription}>Find your vehicle using its registration number or enter details manually</p>
-          </div>
-          <div className={styles.registrationSection}>
-            {!showFoundData ? (
-              <div className={styles.registrationInputWrapper}>
-                <div className={styles.inputContainer}>
-                  <FormTextInput
-                    reg={true}
-                    label="What is your registration number?"
-                    placeholder=""
-                    value={watch("vehicleDetails.registrationNumber") || ""}
-                    onChange={(e) => {
-                      const formattedValue = e.target.value.toUpperCase();
-                      setValue("vehicleDetails.registrationNumber", formattedValue, {
-                        shouldValidate: false,
-                        shouldDirty: true,
-                        shouldTouch: true,
-                      });
-                    }}
-                    error={errors.vehicleDetails?.registrationNumber}
-                    disabled={showFoundData || isLoadingVehicleData}
-                    button={
-                      <ConfirmBtn
-                        title={isLoadingVehicleData ? "Searching..." : "Find Vehicle"}
-                        onClick={handleFindVehicle}
-                        disabled={isLoadingVehicleData || !watch("vehicleDetails.registrationNumber")?.trim()}
-                        type="button"
-                        hideArrow={true}
-                        variant="primary"
-                      />
-                    }
-                  />
-                </div>
-                <div className={styles.dividerWithText}>
-                  <span className={styles.dividerText}>OR</span>
-                </div>
-                <button type="button" className={styles.manualEntryBtn} onClick={toggleVehicleDetails}>
-                  <span className={styles.manualEntryIcon}>✎</span>
-                  <span className={styles.manualEntryText}>Enter Vehicle Details Manually</span>
-                </button>
-              </div>
-            ) : (
-              <>
-                <div className={styles.vehicleDataDisplay}>
-                  <p className={styles.vehicleDataRow}>
-                    {foundVehicleData.make} {foundVehicleData.model} {foundVehicleData.yearOfManufacture}
-                  </p>
-                  <p className={styles.vehicleDataRow}>
-                    {foundVehicleData.cylinderCapacity || "N/A"}cc {foundVehicleData.colour || "N/A"} {foundVehicleData.fuelType || "N/A"} {foundVehicleData.transmission || "N/A"}
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  className={styles.changeVehicleBtn}
-                  onClick={handleChangeVehicle}
-                >
-                  Change Vehicle
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-
-        {showVehicleDetails && !foundVehicleData && (
+          {/* Vehicle Registration Section */}
           <div className={styles.section}>
             <div className={styles.sectionHeader}>
-              <h3 className={styles.sectionTitle}>Vehicle Specification</h3>
-              <p className={styles.sectionDescription}>{`Provide details about your vehicle's make, model, and features`}</p>
+              <h3 className={styles.sectionTitle}>Vehicle Registration</h3>
+              <p className={styles.sectionDescription}>
+                Find your vehicle using its registration number or enter details
+                manually
+              </p>
+            </div>
+            <div className={styles.registrationSection}>
+              {!showFoundData ? (
+                <div className={styles.registrationInputWrapper}>
+                  <div className={styles.inputContainer}>
+                    <FormTextInput
+                      reg={true}
+                      label="What is your registration number?"
+                      placeholder=""
+                      value={watch("vehicleDetails.registrationNumber") || ""}
+                      onChange={(e) => {
+                        const formattedValue = e.target.value.toUpperCase();
+                        setValue(
+                          "vehicleDetails.registrationNumber",
+                          formattedValue,
+                          {
+                            shouldValidate: false,
+                            shouldDirty: true,
+                            shouldTouch: true,
+                          }
+                        );
+                      }}
+                      error={errors.vehicleDetails?.registrationNumber}
+                      disabled={showFoundData || isLoadingVehicleData}
+                      button={
+                        <ConfirmBtn
+                          title={
+                            isLoadingVehicleData
+                              ? "Searching..."
+                              : "Find Vehicle"
+                          }
+                          onClick={handleFindVehicle}
+                          disabled={
+                            isLoadingVehicleData ||
+                            !watch("vehicleDetails.registrationNumber")?.trim()
+                          }
+                          type="button"
+                          hideArrow={true}
+                          variant="primary"
+                        />
+                      }
+                    />
+                  </div>
+                  <div className={styles.dividerWithText}>
+                    <span className={styles.dividerText}>OR</span>
+                  </div>
+                  <button
+                    type="button"
+                    className={styles.manualEntryBtn}
+                    onClick={toggleVehicleDetails}
+                  >
+                    <span className={styles.manualEntryIcon}>✎</span>
+                    <span className={styles.manualEntryText}>
+                      Enter Vehicle Details Manually
+                    </span>
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <div className={styles.vehicleDataDisplay}>
+                    <p className={styles.vehicleDataRow}>
+                      {foundVehicleData.make} {foundVehicleData.model}{" "}
+                      {foundVehicleData.yearOfManufacture}
+                    </p>
+                    <p className={styles.vehicleDataRow}>
+                      {foundVehicleData.cylinderCapacity || "N/A"}cc{" "}
+                      {foundVehicleData.colour || "N/A"}{" "}
+                      {foundVehicleData.fuelType || "N/A"}{" "}
+                      {foundVehicleData.transmission || "N/A"}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    className={styles.changeVehicleBtn}
+                    onClick={handleChangeVehicle}
+                  >
+                    Change Vehicle
+                  </button>
+                </>
+              )}
             </div>
           </div>
-        )}
 
-        {/* Manual Vehicle Entry */}
-        <div
-          className={`${styles.vehicleDetailsContainer} ${
-            showVehicleDetails && !foundVehicleData ? styles.vehicleDetailsVisible : styles.vehicleDetailsHidden
-          }`}
-        >
-          <div className={styles.rows}>
-            {!foundVehicleData && (
-              <div className={styles.cleanFormGrid2Col}>
-                <FormDropdown
-                  label="My Vehicle is a...."
-                  options={["Car", "Motorcycle", "Truck", "Bus"]}
-                  placeholder="Choose Vehicle"
-                  {...register("vehicleDetails.type")}
-                  error={errors.vehicleDetails?.type}
-                  disabled={!!foundVehicleData}
-                />
-                {watch("vehicleDetails.type") && !foundVehicleData && (
+          {showVehicleDetails && !foundVehicleData && (
+            <div className={styles.section}>
+              <div className={styles.sectionHeader}>
+                <h3 className={styles.sectionTitle}>Vehicle Specification</h3>
+                <p
+                  className={styles.sectionDescription}
+                >{`Provide details about your vehicle's make, model, and features`}</p>
+              </div>
+            </div>
+          )}
+
+          {/* Manual Vehicle Entry */}
+          <div
+            className={`${styles.vehicleDetailsContainer} ${
+              showVehicleDetails && !foundVehicleData
+                ? styles.vehicleDetailsVisible
+                : styles.vehicleDetailsHidden
+            }`}
+          >
+            <div className={styles.rows}>
+              {!foundVehicleData && (
+                <div className={styles.cleanFormGrid2Col}>
                   <FormDropdown
-                    label="Make"
-                    options={state.makes}
-                    placeholder="Select Make"
-                    value={state.values.make || selectedMake || ""}
-                    onChange={(e) => handleDropdownChange("make", e.target.value)}
-                    {...register("vehicleDetails.make")}
-                    error={errors.vehicleDetails?.make}
+                    label="My Vehicle is a...."
+                    options={["Car", "Motorcycle", "Truck", "Bus"]}
+                    placeholder="Choose Vehicle"
+                    {...register("vehicleDetails.type")}
+                    error={errors.vehicleDetails?.type}
                     disabled={!!foundVehicleData}
                   />
-                )}
-              </div>
-            )}
+                  {watch("vehicleDetails.type") && !foundVehicleData && (
+                    <FormDropdown
+                      label="Make"
+                      options={state.makes}
+                      placeholder="Select Make"
+                      value={state.values.make || selectedMake || ""}
+                      onChange={(e) =>
+                        handleDropdownChange("make", e.target.value)
+                      }
+                      {...register("vehicleDetails.make")}
+                      error={errors.vehicleDetails?.make}
+                      disabled={!!foundVehicleData}
+                    />
+                  )}
+                </div>
+              )}
 
-            {selectedMake && !foundVehicleData && (
-              <div className={`${styles.cleanFormGrid2Col} ${styles.progressiveRow}`}>
-                <FormDropdown
-                  key={`model-${forceUpdate}`}
-                  label="Model"
-                  options={state.options.models}
-                  placeholder="Select Model"
-                  disabled={!!foundVehicleData || !selectedMake || state.options.models.length === 0}
-                  value={state.values.model || selectedModel || ""}
-                  onChange={(e) => handleDropdownChange("model", e.target.value)}
-                  {...register("vehicleDetails.model")}
-                  error={errors.vehicleDetails?.model}
-                />
-                <FormDropdown
-                  key={`year-${forceUpdate}`}
-                  label="Year"
-                  options={state.options.years}
-                  placeholder="Select Year"
-                  disabled={!!foundVehicleData || !selectedMake || state.options.years.length === 0}
-                  value={state.values.year || selectedYear || ""}
-                  onChange={(e) => handleDropdownChange("year", e.target.value)}
-                  {...register("vehicleDetails.year")}
-                  error={errors.vehicleDetails?.year}
-                />
-              </div>
-            )}
-
-            {selectedYear && !foundVehicleData && (
-              <div className={`${styles.cleanFormGrid2Col} ${styles.progressiveRow}`}>
-                <FormDropdown
-                  key={`doors-${forceUpdate}`}
-                  label="Doors"
-                  options={state.options.doors}
-                  placeholder="Select Doors"
-                  disabled={!!foundVehicleData || !selectedYear || state.options.doors.length === 0}
-                  value={state.values.doors || selectedDoors || ""}
-                  onChange={(e) => handleDropdownChange("doors", e.target.value)}
-                  {...register("vehicleDetails.doors")}
-                  error={errors.vehicleDetails?.doors}
-                />
-                <FormDropdown
-                  key={`fuel-${forceUpdate}`}
-                  label="Fuel Type"
-                  options={state.options.fuels}
-                  placeholder="Select Fuel Type"
-                  disabled={!!foundVehicleData || !selectedYear || state.options.fuels.length === 0}
-                  value={state.values.fuel || selectedFuel || ""}
-                  onChange={(e) => handleDropdownChange("fuel", e.target.value)}
-                  {...register("vehicleDetails.fuel")}
-                  error={errors.vehicleDetails?.fuel}
-                />
-              </div>
-            )}
-
-            {selectedFuel && !foundVehicleData && (
-              <div className={`${styles.cleanFormGrid2Col} ${styles.progressiveRow}`}>
-                <FormDropdown
-                  key={`transmission-${forceUpdate}`}
-                  label="Transmission"
-                  options={state.options.transmissions}
-                  placeholder="Select Transmission"
-                  disabled={!!foundVehicleData || !selectedFuel || state.options.transmissions.length === 0}
-                  value={state.values.transmission || watch("vehicleDetails.transmission") || ""}
-                  onChange={(e) => handleDropdownChange("transmission", e.target.value)}
-                  {...register("vehicleDetails.transmission")}
-                  error={errors.vehicleDetails?.transmission}
-                />
-                <FormDropdown
-                  label="Vehicle Color"
-                  options={carColors}
-                  placeholder="Select Color"
-                  {...register("vehicleDetails.colour")}
-                  error={errors.vehicleDetails?.colour}
-                  disabled={!!foundVehicleData}
-                />
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Safety & Security Features Section */}
-        <div className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <h3 className={styles.sectionTitle}>Safety & Security Features</h3>
-            <p className={styles.sectionDescription}>{`Tell us about your vehicle's safety and security features`}</p>
-          </div>
-          <div className={styles.additionalDetailsSection}>
-          <div className={styles.cleanFormGrid2Col}>
-            <FormDropdown
-              label="Tracking device"
-              options={trackingDeviceOptions}
-              placeholder="Please select"
-              {...register("vehicleDetails.trackingDevice")}
-              error={errors.vehicleDetails?.trackingDevice}
-            />
-            <FormDropdown
-              label="Alarm / Immobiliser"
-              options={alarmImmobiliserOptions}
-              placeholder="Please select"
-              {...register("vehicleDetails.alarmImmobiliser")}
-              error={errors.vehicleDetails?.alarmImmobiliser}
-            />
-          </div>
-
-          <div className={styles.cleanFormGrid2Col}>
-            <FormDropdown
-              label="Imported vehicle"
-              options={yesNoOptions}
-              placeholder="Please select"
-              {...register("vehicleDetails.importedVehicle")}
-              error={errors.vehicleDetails?.importedVehicle}
-            />
-            <FormDropdown
-              label="Has your vehicle been modified?"
-              options={yesNoOptions}
-              placeholder="Please select"
-              {...register("vehicleDetails.vehicleModified")}
-              error={errors.vehicleDetails?.vehicleModified}
-            />
-          </div>
-          {vehicleModified === "Yes" && vehicleModifications.length > 0 && (
-            <div className={styles.modificationsListContainer}>
-              <div className={styles.modificationsLabelWrapper}>
-                <p className={styles.modificationsLabel}>Selected Modifications:</p>
-                <button
-                  type="button"
-                  className={styles.editModificationsBtn}
-                  onClick={() => setShowModificationsModal(true)}
+              {selectedMake && !foundVehicleData && (
+                <div
+                  className={`${styles.cleanFormGrid2Col} ${styles.progressiveRow}`}
                 >
-                  Edit
-                </button>
-              </div>
-              <div className={styles.modificationsTagsList}>
-                {vehicleModifications.map((modification) => (
-                  <span key={modification} className={styles.modificationTag}>
-                    {modification}
-                  </span>
-                ))}
-              </div>
+                  <FormDropdown
+                    key={`model-${forceUpdate}`}
+                    label="Model"
+                    options={state.options.models}
+                    placeholder="Select Model"
+                    disabled={
+                      !!foundVehicleData ||
+                      !selectedMake ||
+                      state.options.models.length === 0
+                    }
+                    value={state.values.model || selectedModel || ""}
+                    onChange={(e) =>
+                      handleDropdownChange("model", e.target.value)
+                    }
+                    {...register("vehicleDetails.model")}
+                    error={errors.vehicleDetails?.model}
+                  />
+                  <FormDropdown
+                    key={`year-${forceUpdate}`}
+                    label="Year"
+                    options={state.options.years}
+                    placeholder="Select Year"
+                    disabled={
+                      !!foundVehicleData ||
+                      !selectedMake ||
+                      state.options.years.length === 0
+                    }
+                    value={state.values.year || selectedYear || ""}
+                    onChange={(e) =>
+                      handleDropdownChange("year", e.target.value)
+                    }
+                    {...register("vehicleDetails.year")}
+                    error={errors.vehicleDetails?.year}
+                  />
+                </div>
+              )}
+
+              {selectedYear && !foundVehicleData && (
+                <div
+                  className={`${styles.cleanFormGrid2Col} ${styles.progressiveRow}`}
+                >
+                  <FormDropdown
+                    key={`doors-${forceUpdate}`}
+                    label="Doors"
+                    options={state.options.doors}
+                    placeholder="Select Doors"
+                    disabled={
+                      !!foundVehicleData ||
+                      !selectedYear ||
+                      state.options.doors.length === 0
+                    }
+                    value={state.values.doors || selectedDoors || ""}
+                    onChange={(e) =>
+                      handleDropdownChange("doors", e.target.value)
+                    }
+                    {...register("vehicleDetails.doors")}
+                    error={errors.vehicleDetails?.doors}
+                  />
+                  <FormDropdown
+                    key={`fuel-${forceUpdate}`}
+                    label="Fuel Type"
+                    options={state.options.fuels}
+                    placeholder="Select Fuel Type"
+                    disabled={
+                      !!foundVehicleData ||
+                      !selectedYear ||
+                      state.options.fuels.length === 0
+                    }
+                    value={state.values.fuel || selectedFuel || ""}
+                    onChange={(e) =>
+                      handleDropdownChange("fuel", e.target.value)
+                    }
+                    {...register("vehicleDetails.fuel")}
+                    error={errors.vehicleDetails?.fuel}
+                  />
+                </div>
+              )}
+
+              {selectedFuel && !foundVehicleData && (
+                <div
+                  className={`${styles.cleanFormGrid2Col} ${styles.progressiveRow}`}
+                >
+                  <FormDropdown
+                    key={`transmission-${forceUpdate}`}
+                    label="Transmission"
+                    options={state.options.transmissions}
+                    placeholder="Select Transmission"
+                    disabled={
+                      !!foundVehicleData ||
+                      !selectedFuel ||
+                      state.options.transmissions.length === 0
+                    }
+                    value={
+                      state.values.transmission ||
+                      watch("vehicleDetails.transmission") ||
+                      ""
+                    }
+                    onChange={(e) =>
+                      handleDropdownChange("transmission", e.target.value)
+                    }
+                    {...register("vehicleDetails.transmission")}
+                    error={errors.vehicleDetails?.transmission}
+                  />
+                  <FormDropdown
+                    label="Vehicle Color"
+                    options={carColors}
+                    placeholder="Select Color"
+                    {...register("vehicleDetails.colour")}
+                    error={errors.vehicleDetails?.colour}
+                    disabled={!!foundVehicleData}
+                  />
+                </div>
+              )}
             </div>
-          )}
+          </div>
 
-          <div className={styles.cleanFormGrid2Col}>
-            <FormDropdown
-              label="How much is your vehicle worth?"
-              options={vehicleWorthOptions}
-              placeholder="Please select"
-              {...register("vehicleDetails.worth")}
-              error={errors.vehicleDetails?.worth}
-            />
-          </div>
-          </div>
-        </div>
-
-        {/* Purchase & Ownership Section */}
-        <div className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <h3 className={styles.sectionTitle}>Purchase & Ownership</h3>
-            <p className={styles.sectionDescription}>Details about when you purchased the vehicle and who owns it</p>
-          </div>
-          <div className={styles.ownershipSection}>
-          <div className={styles.cleanFormGrid2Col}>
-            <div className={`${styles.dateWithCheckbox} ${haventBoughtYet ? styles.disabled : ''}`}>
-              <FormDateInput
-                type="date"
-                dateLabel="When was the car bought?"
-                {...register("vehicleDetails.purchaseDate")}
-                value={purchaseDate || ""}
-                onChange={(e) => setValue("vehicleDetails.purchaseDate", e.target.value)}
-                error={errors.vehicleDetails?.purchaseDate}
-                allowPastDates={true}
-                reducedPadding={true}
-                minDate={new Date(1960, 0, 1)}
-                maxDate={new Date()}
-                disabled={haventBoughtYet}
-              />
-              <button
-                type="button"
-                className={styles.haventBoughtBtn}
-                onClick={(e) => handleHaventBoughtChange({ target: { checked: !haventBoughtYet } })}
-              >
-                {`I haven't bought it yet`}
-              </button>
+          {/* Safety & Security Features Section */}
+          <div className={styles.section}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.sectionTitle}>
+                Safety & Security Features
+              </h3>
+              <p
+                className={styles.sectionDescription}
+              >{`Tell us about your vehicle's safety and security features`}</p>
             </div>
-            {haventBoughtYet && (
-              <FormDropdown
-                label="Will you be the legal and registered owner?"
-                options={yesNoOptions}
-                placeholder="Please select"
-                {...register("vehicleDetails.legalOwner")}
-                error={errors.vehicleDetails?.legalOwner}
-              />
-            )}
-          </div>
-
-          {legalOwner !== "Yes" && (
-            <div className={styles.cleanFormGrid2Col}>
-              <div className={styles.ownerFieldWrapper}>
+            <div className={styles.additionalDetailsSection}>
+              <div className={styles.cleanFormGrid2Col}>
                 <FormDropdown
-                  label={haventBoughtYet ? "Who will be the owner?" : "Who is the owner?"}
-                  options={ownerOptions}
+                  label="Tracking device"
+                  options={trackingDeviceOptions}
                   placeholder="Please select"
-                  {...register("vehicleDetails.owner")}
-                  error={errors.vehicleDetails?.owner}
+                  {...register("vehicleDetails.trackingDevice")}
+                  error={errors.vehicleDetails?.trackingDevice}
                 />
-                {owner === "Other" && (
-                  <FormTextInput
-                    label="Please specify owner"
-                    placeholder="Enter owner details"
-                    {...register("vehicleDetails.ownerOther")}
-                    error={errors.vehicleDetails?.ownerOther}
+                <FormDropdown
+                  label="Alarm / Immobiliser"
+                  options={alarmImmobiliserOptions}
+                  placeholder="Please select"
+                  {...register("vehicleDetails.alarmImmobiliser")}
+                  error={errors.vehicleDetails?.alarmImmobiliser}
+                />
+              </div>
+
+              <div className={styles.cleanFormGrid2Col}>
+                <FormDropdown
+                  label="Imported vehicle"
+                  options={yesNoOptions}
+                  placeholder="Please select"
+                  {...register("vehicleDetails.importedVehicle")}
+                  error={errors.vehicleDetails?.importedVehicle}
+                />
+                <FormDropdown
+                  label="Has your vehicle been modified?"
+                  options={yesNoOptions}
+                  placeholder="Please select"
+                  {...register("vehicleDetails.vehicleModified")}
+                  error={errors.vehicleDetails?.vehicleModified}
+                />
+              </div>
+              {vehicleModified === "Yes" && vehicleModifications.length > 0 && (
+                <div className={styles.modificationsListContainer}>
+                  <div className={styles.modificationsLabelWrapper}>
+                    <p className={styles.modificationsLabel}>
+                      Selected Modifications:
+                    </p>
+                    <button
+                      type="button"
+                      className={styles.editModificationsBtn}
+                      onClick={() => setShowModificationsModal(true)}
+                    >
+                      Edit
+                    </button>
+                  </div>
+                  <div className={styles.modificationsTagsList}>
+                    {vehicleModifications.map((modification) => (
+                      <span
+                        key={modification}
+                        className={styles.modificationTag}
+                      >
+                        {modification}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className={styles.cleanFormGrid2Col}>
+                <FormDropdown
+                  label="How much is your vehicle worth?"
+                  options={vehicleWorthOptions}
+                  placeholder="Please select"
+                  {...register("vehicleDetails.worth")}
+                  error={errors.vehicleDetails?.worth}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Purchase & Ownership Section */}
+          <div className={styles.section}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.sectionTitle}>Purchase & Ownership</h3>
+              <p className={styles.sectionDescription}>
+                Details about when you purchased the vehicle and who owns it
+              </p>
+            </div>
+            <div className={styles.ownershipSection}>
+              <div className={styles.cleanFormGrid2Col}>
+                <div
+                  className={`${styles.dateWithCheckbox} ${
+                    haventBoughtYet ? styles.disabled : ""
+                  }`}
+                >
+                  <FormDateInput
+                    type="date"
+                    dateLabel="When was the car bought?"
+                    {...register("vehicleDetails.purchaseDate")}
+                    value={purchaseDate || ""}
+                    onChange={(e) =>
+                      setValue("vehicleDetails.purchaseDate", e.target.value)
+                    }
+                    error={errors.vehicleDetails?.purchaseDate}
+                    allowPastDates={true}
+                    reducedPadding={true}
+                    minDate={new Date(1960, 0, 1)}
+                    maxDate={new Date()}
+                    disabled={haventBoughtYet}
+                  />
+                  <button
+                    type="button"
+                    className={styles.haventBoughtBtn}
+                    onClick={(e) =>
+                      handleHaventBoughtChange({
+                        target: { checked: !haventBoughtYet },
+                      })
+                    }
+                  >
+                    {`I haven't bought it yet`}
+                  </button>
+                </div>
+                {haventBoughtYet && (
+                  <FormDropdown
+                    label="Will you be the legal and registered owner?"
+                    options={yesNoOptions}
+                    placeholder="Please select"
+                    {...register("vehicleDetails.legalOwner")}
+                    error={errors.vehicleDetails?.legalOwner}
                   />
                 )}
               </div>
-              <div className={styles.keeperFieldWrapper}>
-                <FormDropdown
-                  label={haventBoughtYet ? "Who will be the registered keeper?" : "Who is the registered keeper?"}
-                  options={keeperOptions}
-                  placeholder="Please select"
-                  {...register("vehicleDetails.registeredKeeper")}
-                  error={errors.vehicleDetails?.registeredKeeper}
-                />
-                {registeredKeeper === "Other" && (
-                  <FormTextInput
-                    label="Please specify registered keeper"
-                    placeholder="Enter registered keeper details"
-                    {...register("vehicleDetails.registeredKeeperOther")}
-                    error={errors.vehicleDetails?.registeredKeeperOther}
-                  />
-                )}
-              </div>
+
+              {legalOwner !== "Yes" && (
+                <div className={styles.cleanFormGrid2Col}>
+                  <div className={styles.ownerFieldWrapper}>
+                    <FormDropdown
+                      label={
+                        haventBoughtYet
+                          ? "Who will be the owner?"
+                          : "Who is the owner?"
+                      }
+                      options={ownerOptions}
+                      placeholder="Please select"
+                      {...register("vehicleDetails.owner")}
+                      error={errors.vehicleDetails?.owner}
+                    />
+                    {owner === "Other" && (
+                      <FormTextInput
+                        label="Please specify owner"
+                        placeholder="Enter owner details"
+                        {...register("vehicleDetails.ownerOther")}
+                        error={errors.vehicleDetails?.ownerOther}
+                      />
+                    )}
+                  </div>
+                  <div className={styles.keeperFieldWrapper}>
+                    <FormDropdown
+                      label={
+                        haventBoughtYet
+                          ? "Who will be the registered keeper?"
+                          : "Who is the registered keeper?"
+                      }
+                      options={keeperOptions}
+                      placeholder="Please select"
+                      {...register("vehicleDetails.registeredKeeper")}
+                      error={errors.vehicleDetails?.registeredKeeper}
+                    />
+                    {registeredKeeper === "Other" && (
+                      <FormTextInput
+                        label="Please specify registered keeper"
+                        placeholder="Enter registered keeper details"
+                        {...register("vehicleDetails.registeredKeeperOther")}
+                        error={errors.vehicleDetails?.registeredKeeperOther}
+                      />
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
-        </div>
-      </div>
-    </ComponentWrapper>
+      </ComponentWrapper>
     </>
   );
 };

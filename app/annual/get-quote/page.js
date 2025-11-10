@@ -9,11 +9,12 @@ import GetQuoteHeaderWithNav from "@/ui/getQuote/GetQuoteHeaderWithNav";
 import StepActions from "@/app/temporary/get-quote/_components/StepActions";
 import LoadingOverlay from "@/ui/loadingSpinner/LoadingOverlay";
 import { useRouter, useSearchParams } from "next/navigation";
-import { API_BASE_URL } from "@/utils/config";
 import { toast } from "react-toastify";
+import { annualDefaultValues, STEPS } from "@/utils/defaultValues";
+import { handleNextStep, handlePreviousStep, submitInsurance } from "@/lib/getQuotePagesHelper";
 import styles from "@/app/temporary/get-quote/stepForm.module.css";
 
-const AnnualVehicleDetailsForm = dynamic(() => import("./_components/AnnualVehicleDetailsForm"), { loading: () => <StepFallback /> });
+const VehicleDetailsForm = dynamic(() => import("@/app/temporary/get-quote/_components/VehicleDetailsForm"), { loading: () => <StepFallback /> });
 const AnnualCoverDetailsForm = dynamic(() => import("./_components/AnnualCoverDetailsForm"), { loading: () => <StepFallback /> });
 const AnnualPersonalDetailsForm = dynamic(() => import("./_components/AnnualPersonalDetailsForm"), { loading: () => <StepFallback /> });
 const ReviewQuote = dynamic(() => import("@/app/temporary/get-quote/_components/ReviewQuote"), { loading: () => <StepFallback /> });
@@ -24,123 +25,26 @@ const StepFallback = () => (
   </div>
 );
 
-const STEPS = {
-  VEHICLE: 1,
-  COVER: 2,
-  PERSONAL: 3,
-  REVIEW: 4,
-};
-
 const TOTAL_STEPS = 4;
-
-const STEP_TITLES = [
-  "Vehicle Details",
-  "Cover Details",
-  "Personal Details",
-  "Review Your Quote",
-];
 
 const AnnualInsuranceContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [isMounted, setIsMounted] = useState(false);
   const [currentStep, setCurrentStep] = useState(STEPS.VEHICLE);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
   const [foundVehicleData, setFoundVehicleData] = useState(null);
   const [shouldAutoTrigger, setShouldAutoTrigger] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   const form = useForm({
     resolver: zodResolver(annualInsuranceSchema),
-    defaultValues: {
-      type: "Annual",
-      vehicleDetails: {
-        registrationNumber: "",
-        type: "",
-        make: "",
-        model: "",
-        year: "",
-        fuel: "",
-        transmission: "",
-        doors: "",
-        colour: "",
-        worth: "",
-        trackingDevice: "",
-        alarmImmobiliser: "",
-        importedVehicle: "",
-        vehicleModified: "No",
-        vehicleModifications: [],
-        purchaseDate: "",
-        legalOwner: "",
-        owner: "",
-        ownerOther: "",
-        registeredKeeper: "",
-        registeredKeeperOther: "",
-        apiData: null,
-      },
-      coverDetails: {
-        level: "",
-        startDate: "",
-      },
-      optionalExtras: {
-        courtesyCar: null,
-        breakdownCover: null,
-        foreignUseCover: null,
-      },
-      userDetails: {
-        firstName: "",
-        surname: "",
-        email: "",
-        phone: "",
-        dateOfBirth: "",
-        postCode: "",
-        address: "",
-        employmentStatus: "",
-        occupation: "",
-        industry: "",
-      },
-      carUsage: {
-        industry: "",
-        keepingCarDuringDay: "",
-        keepingCarDuringNight: "",
-        usageType: "",
-        otherVehicles: null,
-        otherVehiclesType: "",
-        hasAdditionalQualifications: null,
-        additionalQualificationType: "",
-        qualificationMonth: "",
-        qualificationYear: "",
-        licenseType: "",
-        licenseHeld: "",
-        licenseNumber: "",
-        NCB: "",
-        voluntaryExcess: "",
-        ownsHome: null,
-        childrenUnder16: null,
-        livedInUKSinceBirth: null,
-        hasAdditionalDrivers: null,
-        additionalDrivers: [],
-        criminalConvictions: null,
-        medicalConditions: null,
-        insuranceCancelledOrClaimRefusedOrPolicyVoided: null,
-      },
-      terms: {
-        acceptTerms: false,
-        acceptMarketing: false,
-      },
-    },
+    defaultValues: annualDefaultValues,
+    mode: "onChange", // Enable real-time validation - errors disappear when fixed
   });
 
-  const { setValue, trigger } = form;
+  const { setValue, trigger, formState: { errors } } = form;
 
-  // Handle step parameter from URL (only on client)
   useEffect(() => {
-    if (!isMounted) return;
-
     const stepParam = searchParams.get("step");
     if (stepParam) {
       const step = parseInt(stepParam);
@@ -148,235 +52,54 @@ const AnnualInsuranceContent = () => {
         setCurrentStep(step);
       }
     }
-  }, [isMounted, searchParams]);
+  }, [searchParams]);
 
-  // Populate form with URL parameters from GetQuote (only on client)
   useEffect(() => {
-    if (!isMounted) return;
-
     const fromQuote = searchParams.get("fromQuote");
-
     if (fromQuote === "true") {
-      // Check if registration number was provided
       const registrationNumber = searchParams.get("registrationNumber");
       if (registrationNumber) {
         setValue("vehicleDetails.registrationNumber", registrationNumber.toUpperCase());
-        // Auto-trigger vehicle lookup
         setShouldAutoTrigger(true);
       }
     }
-  }, [isMounted, searchParams, setValue]);
+  }, [searchParams, setValue]);
 
-  // Step validation fields
-  const vehicleFields = [
-    "vehicleDetails.registrationNumber",
-    "vehicleDetails.type",
-    "vehicleDetails.make",
-    "vehicleDetails.model",
-    "vehicleDetails.year",
-    "vehicleDetails.fuel",
-    "vehicleDetails.transmission",
-    "vehicleDetails.colour",
-    "vehicleDetails.worth",
-    "vehicleDetails.trackingDevice",
-    "vehicleDetails.alarmImmobiliser",
-    "vehicleDetails.importedVehicle",
-    "vehicleDetails.vehicleModified",
-    "vehicleDetails.vehicleModifications",
-    "vehicleDetails.purchaseDate",
-    "vehicleDetails.legalOwner",
-    "vehicleDetails.owner",
-    "vehicleDetails.registeredKeeper",
-  ];
-
-  const coverFields = [
-    "coverDetails.level",
-    "coverDetails.startDate",
-  ];
-
-  const personalFields = [
-    "userDetails.firstName",
-    "userDetails.surname",
-    "userDetails.email",
-    "userDetails.phone",
-    "userDetails.dateOfBirth",
-    "userDetails.postCode",
-    "userDetails.address",
-    "userDetails.employmentStatus",
-    "userDetails.industry",
-    "userDetails.occupation",
-    "carUsage.keepingCarDuringDay",
-    "carUsage.keepingCarDuringNight",
-    "carUsage.usageType",
-    "carUsage.licenseType",
-    "carUsage.licenseHeld",
-    "carUsage.NCB",
-    "carUsage.voluntaryExcess",
-    "carUsage.criminalConvictions",
-    "carUsage.medicalConditions",
-    "carUsage.insuranceCancelledOrClaimRefusedOrPolicyVoided",
-  ];
-
-  const getFieldsForStep = (step) => {
-    switch (step) {
-      case STEPS.VEHICLE:
-        return vehicleFields;
-      case STEPS.COVER:
-        return coverFields;
-      case STEPS.PERSONAL:
-        return personalFields;
-      default:
-        return [];
-    }
+  const onNext = async () => {
+    await handleNextStep({
+      currentStep,
+      defaultValues: annualDefaultValues,
+      trigger,
+      setCurrentStep,
+      totalSteps: TOTAL_STEPS,
+      formErrors: errors,
+    });
   };
 
-  const handleNextStep = async () => {
-    const fieldsToValidate = getFieldsForStep(currentStep);
-    const isValid = await trigger(fieldsToValidate);
-
-    if (isValid) {
-      if (currentStep === STEPS.PERSONAL) {
-        setCurrentStep(STEPS.REVIEW);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        return;
-      }
-      if (currentStep === STEPS.REVIEW) {
-        // Final step - will be handled by form submission
-        return;
-      }
-      setCurrentStep(currentStep + 1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      toast.error("Please fill in all required fields");
-    }
+  const onBack = () => {
+    handlePreviousStep({
+      currentStep,
+      setCurrentStep,
+    });
   };
-
-  const handlePreviousStep = () => {
-    if (currentStep > STEPS.VEHICLE) {
-      setCurrentStep(currentStep - 1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  // Debug: Test if form submission is working
-  useEffect(() => {
-    const formElement = document.querySelector('form');
-    if (formElement) {
-      const handleFormSubmit = (e) => {
-        console.log('📝 Form submit event detected!', e);
-      };
-      formElement.addEventListener('submit', handleFormSubmit);
-      return () => formElement.removeEventListener('submit', handleFormSubmit);
-    }
-  }, []);
-
-  // Debug: Log form errors
-  useEffect(() => {
-    const errors = form.formState.errors;
-    if (Object.keys(errors).length > 0) {
-      console.log('⚠️ Current form errors:', errors);
-      console.log('⚠️ Error fields:', Object.keys(errors));
-    }
-  }, [form.formState.errors]);
 
   const onSubmit = async (data) => {
-    console.log('🚀 onSubmit function called!');
-    console.log('🚀 Form is valid - proceeding with submission');
-    setIsSubmitting(true);
-    setShowLoading(true);
+    await submitInsurance({
+      data,
+      insuranceType: "Annual",
+      router,
+      searchParams,
+      setIsSubmitting,
+      setShowLoading,
+      toast,
+    });
+  };
 
-    try {
-      console.log('📋 Form data received:', data);
-      console.log('📋 Data keys:', Object.keys(data));
-      
-      // Clean the data to remove any React internal objects
-      const submissionData = {
-        type: data.type || "Annual", // Ensure type is always set
-        vehicleDetails: data.vehicleDetails,
-        coverDetails: data.coverDetails,
-        userDetails: {
-          ...data.userDetails,
-          address: data.userDetails?.address || "N/A",
-        },
-        carUsage: {
-          ...data.carUsage,
-          // Convert empty strings to undefined for conditional enum fields
-          otherVehiclesType: data.carUsage?.otherVehiclesType === "" ? undefined : data.carUsage?.otherVehiclesType,
-          additionalQualificationType: data.carUsage?.additionalQualificationType === "" ? undefined : data.carUsage?.additionalQualificationType,
-        },
-        optionalExtras: {
-          // Convert null to false for boolean fields
-          protectedNCD: data.optionalExtras?.protectedNCD === true,
-          motorLegal: data.optionalExtras?.motorLegal === true,
-          courtesyCar: data.optionalExtras?.courtesyCar === true,
-          breakdownCover: data.optionalExtras?.breakdownCover === true,
-          foreignUseCover: data.optionalExtras?.foreignUseCover === true,
-        },
-        terms: data.terms,
-      };
-      
-      console.log('📤 Submission data:', submissionData);
-      console.log('📤 Submission keys:', Object.keys(submissionData));
-      console.log('📤 Type:', submissionData.type);
-      console.log('📤 VehicleDetails exists:', !!submissionData.vehicleDetails);
-      console.log('📤 CoverDetails exists:', !!submissionData.coverDetails);
-      console.log('📤 UserDetails exists:', !!submissionData.userDetails);
-
-      const response = await fetch(`${API_BASE_URL}/api/insurance`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(submissionData),
-      });
-      
-      console.log('Response status:', response.status);
-
-      const result = await response.json();
-
-      if (response.status === 409) {
-        toast.error(
-          `An account with email ${data.userDetails.email} already exists. Please login to continue.`
-        );
-        router.push(
-          `/login?email=${encodeURIComponent(data.userDetails.email)}`
-        );
-        return;
-      }
-
-      if (!response.ok) {
-        throw new Error(
-          result.message || "Failed to submit insurance application"
-        );
-      }
-
-      const insuranceId = result.data.insurance._id;
-
-      toast.success("Insurance application submitted successfully!", {
-        position: "top-right",
-        autoClose: 3000,
-      });
-
-      // Check if payment=false is in search params
-      const skipPayment = searchParams.get("payment") === "false";
-
-      setTimeout(() => {
-        if (skipPayment) {
-          router.push(`/dashboard/policy`);
-        } else {
-          router.push(`/payment-summary?id=${insuranceId}`);
-        }
-      }, 1000);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error(
-        error.message ||
-          "Failed to submit insurance application. Please try again."
-      );
-    } finally {
-      setIsSubmitting(false);
-      setShowLoading(false);
-    }
+  const onError = (errors) => {
+    console.log("=== Form Submit Validation Errors ===");
+    console.log("Insurance Type: Annual");
+    console.log("Errors:", errors);
+    console.log("=====================================");
   };
 
   return (
@@ -386,13 +109,13 @@ const AnnualInsuranceContent = () => {
       <div className="centeredContent" suppressHydrationWarning>
         <form
           className={styles.stepFormContainer}
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={form.handleSubmit(onSubmit, onError)}
           noValidate
           suppressHydrationWarning
         >
           <div className={styles.stepContent}>
             {currentStep === STEPS.VEHICLE && (
-              <AnnualVehicleDetailsForm
+              <VehicleDetailsForm
                 form={form}
                 onVehicleDataFound={setFoundVehicleData}
                 autoTriggerLookup={shouldAutoTrigger}
@@ -410,8 +133,8 @@ const AnnualInsuranceContent = () => {
           <StepActions
             currentStep={currentStep}
             totalSteps={TOTAL_STEPS}
-            onNext={handleNextStep}
-            onBack={handlePreviousStep}
+            onNext={onNext}
+            onBack={onBack}
             isLoading={isSubmitting}
             nextLabel={currentStep === STEPS.REVIEW ? "Get Quote" : "Next"}
             backLabel="Back"
@@ -431,3 +154,6 @@ const AnnualInsurancePage = () => {
 };
 
 export default AnnualInsurancePage;
+
+
+

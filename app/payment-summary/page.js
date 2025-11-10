@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { API_BASE_URL } from "@/utils/config";
 import { redirect } from "next/navigation";
 import PaymentSummaryClient from "./_components/PaymentSummaryClient";
 
@@ -10,7 +9,7 @@ const page = async ({ searchParams }) => {
   let error = null;
 
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/insurance/${id}`);
+    const response = await axios.get(`${NEXT_PUBLIC_API_URL}/api/insurance/${id}`);
 
     if (response.status === 200 && response.data.data) {
       insuranceData = response.data.data.data || response.data.data;

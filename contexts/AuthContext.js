@@ -1,6 +1,6 @@
 "use client";
 import React, { createContext, useContext, useReducer, useEffect } from "react";
-import { API_BASE_URL } from "@/utils/config";
+
 import { usePathname } from "next/navigation";
 // Initial state
 const initialState = {
@@ -144,7 +144,7 @@ export const AuthProvider = ({ children }) => {
     try {
       dispatch({ type: AUTH_ACTIONS.SET_LOADING, payload: true });
 
-      const response = await fetch(`${API_BASE_URL}/api/auth/verify`, {
+      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/auth/verify`, {
         method: "GET",
         credentials: "include", // Include cookies
       });
@@ -173,7 +173,7 @@ export const AuthProvider = ({ children }) => {
     try {
       dispatch({ type: AUTH_ACTIONS.LOGIN_START });
 
-      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -186,8 +186,8 @@ export const AuthProvider = ({ children }) => {
 
       if (response.ok) {
         // Small delay to ensure cookie is set before redirecting
-        await new Promise(resolve => setTimeout(resolve, 300));
-        
+        await new Promise((resolve) => setTimeout(resolve, 300));
+
         dispatch({
           type: AUTH_ACTIONS.LOGIN_SUCCESS,
           payload: {
@@ -215,7 +215,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await fetch(`${API_BASE_URL}/api/auth/logout`, {
+      await fetch(`${NEXT_PUBLIC_API_URL}/api/auth/logout`, {
         method: "POST",
         credentials: "include",
       });
@@ -230,14 +230,17 @@ export const AuthProvider = ({ children }) => {
     try {
       dispatch({ type: AUTH_ACTIONS.FORGOT_PASSWORD_START });
 
-      const response = await fetch(`${API_BASE_URL}/api/auth/forgot-password`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ email }),
-      });
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/auth/forgot-password`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ email }),
+        }
+      );
 
       const data = await response.json();
 
@@ -271,7 +274,7 @@ export const AuthProvider = ({ children }) => {
       dispatch({ type: AUTH_ACTIONS.RESET_PASSWORD_START });
 
       const response = await fetch(
-        `${API_BASE_URL}/api/auth/reset-password/${token}`,
+        `${NEXT_PUBLIC_API_URL}/api/auth/reset-password/${token}`,
         {
           method: "PATCH",
           headers: {
@@ -308,14 +311,17 @@ export const AuthProvider = ({ children }) => {
     try {
       dispatch({ type: AUTH_ACTIONS.RESET_PASSWORD_START });
 
-      const response = await fetch(`${API_BASE_URL}/api/auth/set-password`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ email, userId, password, confirmPassword }),
-      });
+      const response = await fetch(
+        `${NEXT_PUBLIC_API_URL}/api/auth/set-password`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ email, userId, password, confirmPassword }),
+        }
+      );
 
       const data = await response.json();
 
@@ -342,7 +348,7 @@ export const AuthProvider = ({ children }) => {
   const getUserInfo = async (email, userId) => {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/auth/user?email=${encodeURIComponent(
+        `${NEXT_PUBLIC_API_URL}/api/auth/user?email=${encodeURIComponent(
           email
         )}&userId=${userId}`,
         {

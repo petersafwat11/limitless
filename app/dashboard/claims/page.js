@@ -3,7 +3,6 @@ import Table from "./_components/table/Table";
 import styles from "./page.module.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import CreateBtn from "@/ui/dashboard/createBtn/CreateBtn";
-import { API_BASE_URL } from "@/utils/config";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { serverFetch } from "@/utils/serverFetch";
@@ -46,7 +45,7 @@ const Page = async () => {
     ];
   } else {
     try {
-      const response = await serverFetch(`${API_BASE_URL}/api/claims`, {
+      const response = await serverFetch(`${NEXT_PUBLIC_API_URL}/api/claims`, {
         headers: {
           "Content-Type": "application/json",
         },

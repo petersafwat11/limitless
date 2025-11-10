@@ -2,7 +2,7 @@ import React from "react";
 import Table from "./_components/table/Table";
 import styles from "./page.module.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { API_BASE_URL } from "@/utils/config";
+
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import PolicyPageClient from "./_components/PolicyPageClient";
@@ -81,52 +81,52 @@ const Page = async () => {
 
   let activePolicies = [];
   let expiredPolicies = [];
-    try {
-      // Fetch all insurances for the logged-in user
-      const response = await serverFetch(
-        `${API_BASE_URL}/api/insurance/user/my-insurances`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          cache: "no-store",
-        }
-      );
-
-      if (response.ok) {
-        const result = await response.json();
-        const insurances = result.data?.data || [];
-
-        insurances.forEach((insurance) => {
-          const policyData = {
-            id: insurance._id,
-            policyNumber: `LC-${insurance._id
-              .toString()
-              .slice(-8)
-              .toUpperCase()}`,
-            remaining: calculateRemainingDays(insurance.coverDetails),
-            name: insurance.userDetails
-              ? `${insurance.userDetails.firstName} ${insurance.userDetails.surname}`
-              : "N/A",
-            vehicleReg:
-              insurance.vehicleDetails?.registrationNumber?.toUpperCase() ||
-              "N/A",
-            details: "View",
-            isPaid: insurance.quote?.paid || false,
-          };
-
-          // Check if policy is active or expired
-          if (policyData.remaining === "Expired" || !policyData.isPaid) {
-            expiredPolicies.push(policyData);
-          } else {
-            activePolicies.push(policyData);
-          }
-        });
-        console.log(insurances);
+  try {
+    // Fetch all insurances for the logged-in user
+    const response = await serverFetch(
+      `${NEXT_PUBLIC_API_URL}/api/insurance/user/my-insurances`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        cache: "no-store",
       }
-    } catch (error) {
-      console.error("Error fetching policies:", error);
+    );
+
+    if (response.ok) {
+      const result = await response.json();
+      const insurances = result.data?.data || [];
+
+      insurances.forEach((insurance) => {
+        const policyData = {
+          id: insurance._id,
+          policyNumber: `LC-${insurance._id
+            .toString()
+            .slice(-8)
+            .toUpperCase()}`,
+          remaining: calculateRemainingDays(insurance.coverDetails),
+          name: insurance.userDetails
+            ? `${insurance.userDetails.firstName} ${insurance.userDetails.surname}`
+            : "N/A",
+          vehicleReg:
+            insurance.vehicleDetails?.registrationNumber?.toUpperCase() ||
+            "N/A",
+          details: "View",
+          isPaid: insurance.quote?.paid || false,
+        };
+
+        // Check if policy is active or expired
+        if (policyData.remaining === "Expired" || !policyData.isPaid) {
+          expiredPolicies.push(policyData);
+        } else {
+          activePolicies.push(policyData);
+        }
+      });
+      console.log(insurances);
     }
+  } catch (error) {
+    console.error("Error fetching policies:", error);
+  }
 
   return (
     <div className={styles.page}>

@@ -25,14 +25,14 @@ const FastAndFair = () => {
           Fast. <span>Flexible. Fair.</span>
         </h2>
         <p className={`${styles.description} ${manrope.className}`}>
-          Our policies are designed to adapt to your life, not the other way
+          {`Our policies are designed to adapt to your life, not the other way
           around. Whether you need short-term cover, specialist insurance, or a
           flexible plan to match your driving habits, we’ve got options to suit
           you. From first-time drivers to those with complex histories, we make
           it easy to find the right cover on your terms. We treat every customer
           with transparency and respect, offering fair prices and honest advice.
           No hidden fees, no judgment, just straightforward insurance that puts
-          you in control.{" "}
+          you in control.`}
         </p>
       </div>
     </div>

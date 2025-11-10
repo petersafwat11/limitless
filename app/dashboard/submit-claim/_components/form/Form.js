@@ -13,7 +13,6 @@ import FormTextArea from "@/ui/inputs/FormTextArea";
 import FormDropdown from "@/ui/inputs/FormDropdown";
 import FormDateInput from "@/ui/inputs/FormDateInput";
 import { useAuth } from "@/contexts/AuthContext";
-import { API_BASE_URL } from "@/utils/config";
 
 const Form = ({ claimReason }) => {
   const router = useRouter();
@@ -132,7 +131,7 @@ const Form = ({ claimReason }) => {
       // userId will be set by backend from authenticated user
       // No need to send it from frontend
 
-      const response = await fetch(`${API_BASE_URL}/api/claims`, {
+      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/claims`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -144,14 +143,19 @@ const Form = ({ claimReason }) => {
       // Check if response is JSON before parsing
       const contentType = response.headers.get("content-type");
       let result;
-      
+
       if (contentType && contentType.includes("application/json")) {
         result = await response.json();
       } else {
         // Server returned HTML (likely an error page)
         const text = await response.text();
-        console.error("Server returned non-JSON response:", text.substring(0, 200));
-        throw new Error(`Server error (${response.status}). Please try again or contact support.`);
+        console.error(
+          "Server returned non-JSON response:",
+          text.substring(0, 200)
+        );
+        throw new Error(
+          `Server error (${response.status}). Please try again or contact support.`
+        );
       }
 
       if (response.ok) {

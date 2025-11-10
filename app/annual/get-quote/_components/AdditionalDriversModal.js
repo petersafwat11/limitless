@@ -28,7 +28,7 @@ const AdditionalDriversModal = ({
   drivers = [],
   onAddDriver,
   onRemoveDriver,
-  onUpdateDriver
+  onUpdateDriver,
 }) => {
   const { watch, setValue } = form;
   const [driverAddresses, setDriverAddresses] = useState({});
@@ -39,9 +39,9 @@ const AdditionalDriversModal = ({
   const [validationError, setValidationError] = useState("");
 
   const toggleDriver = (driverIndex) => {
-    setExpandedDriver(prev => ({
+    setExpandedDriver((prev) => ({
       ...prev,
-      [driverIndex]: !prev[driverIndex]
+      [driverIndex]: !prev[driverIndex],
     }));
   };
 
@@ -50,8 +50,10 @@ const AdditionalDriversModal = ({
   };
 
   const toggleTile = (driverIndex, tileKey) => {
-    setExpandedTiles(prev => {
-      const driverTiles = prev[driverIndex] ? new Set(prev[driverIndex]) : new Set(['about']);
+    setExpandedTiles((prev) => {
+      const driverTiles = prev[driverIndex]
+        ? new Set(prev[driverIndex])
+        : new Set(["about"]);
       if (driverTiles.has(tileKey)) {
         driverTiles.delete(tileKey);
       } else {
@@ -61,66 +63,75 @@ const AdditionalDriversModal = ({
     });
   };
 
-  const isTileExpanded = (driverIndex, tileKey) => {
-    const driverTiles = expandedTiles[driverIndex];
-    return driverTiles && driverTiles.has ? driverTiles.has(tileKey) : false;
-  };
+  const isTileExpanded = useCallback(
+    (driverIndex, tileKey) => {
+      const driverTiles = expandedTiles[driverIndex];
+      return driverTiles && driverTiles.has ? driverTiles.has(tileKey) : false;
+    },
+    [expandedTiles]
+  );
 
-  const checkTileCompletion = (driverIndex, tileKey) => {
-    const driver = drivers[driverIndex];
-    if (!driver) return false;
+  const checkTileCompletion = useCallback(
+    (driverIndex, tileKey) => {
+      const driver = drivers[driverIndex];
+      if (!driver) return false;
 
-    const requiredFields = {
-      about: ['firstName', 'lastName', 'dateOfBirth', 'livedInUKSinceBirth'],
-      employment: ['employmentStatus', 'occupation', 'industry'],
-      usage: ['otherVehicles'],
-      driving: ['licenseType', 'licenseHeld', 'hasAdditionalQualifications'],
-      declarations: ['criminalConvictions', 'medicalConditions', 'insuranceCancelledOrClaimRefusedOrPolicyVoided']
-    };
+      const requiredFields = {
+        about: ["firstName", "lastName", "dateOfBirth", "livedInUKSinceBirth"],
+        employment: ["employmentStatus", "occupation", "industry"],
+        usage: ["otherVehicles"],
+        driving: ["licenseType", "licenseHeld", "hasAdditionalQualifications"],
+        declarations: [
+          "criminalConvictions",
+          "medicalConditions",
+          "insuranceCancelledOrClaimRefusedOrPolicyVoided",
+        ],
+      };
 
-    const fieldsToCheck = requiredFields[tileKey] || [];
-    return fieldsToCheck.every(field => {
-      const value = driver[field];
-      return value !== null && value !== undefined && value !== '';
-    });
-  };
-
+      const fieldsToCheck = requiredFields[tileKey] || [];
+      return fieldsToCheck.every((field) => {
+        const value = driver[field];
+        return value !== null && value !== undefined && value !== "";
+      });
+    },
+    [drivers]
+  );
 
   useEffect(() => {
     drivers.forEach((_, index) => {
       // Initialize expanded tiles with 'about' as first tile
       if (!expandedTiles[index]) {
-        setExpandedTiles(prev => ({ ...prev, [index]: new Set(['about']) }));
+        setExpandedTiles((prev) => ({ ...prev, [index]: new Set(["about"]) }));
       }
       // Auto-expand drivers that are newly added or become available
       if (!isDriverDisabled(index)) {
-        setExpandedDriver(prev => ({ ...prev, [index]: true }));
+        setExpandedDriver((prev) => ({ ...prev, [index]: true }));
       }
     });
     setValidationError("");
-  }, [drivers.length, isOpen]);
+  }, [drivers.length, isOpen, drivers, expandedTiles, isDriverDisabled]);
 
   const isDriverComplete = (driver) => {
     const requiredFields = [
-      'firstName',
-      'lastName',
-      'dateOfBirth',
-      'livedInUKSinceBirth',
-      'employmentStatus',
-      'occupation',
-      'industry',
-      'otherVehicles',
-      'licenseType',
-      'licenseHeld',
-      'hasAdditionalQualifications',
-      'criminalConvictions',
-      'medicalConditions',
-      'insuranceCancelledOrClaimRefusedOrPolicyVoided'
+      "firstName",
+      "lastName",
+      "dateOfBirth",
+      "livedInUKSinceBirth",
+      "employmentStatus",
+      "occupation",
+      "industry",
+      "otherVehicles",
+      "licenseType",
+      "licenseHeld",
+      "hasAdditionalQualifications",
+      "criminalConvictions",
+      "medicalConditions",
+      "insuranceCancelledOrClaimRefusedOrPolicyVoided",
     ];
 
-    return requiredFields.every(field => {
+    return requiredFields.every((field) => {
       const value = driver[field];
-      return value !== null && value !== undefined && value !== '';
+      return value !== null && value !== undefined && value !== "";
     });
   };
 
@@ -129,13 +140,19 @@ const AdditionalDriversModal = ({
       return true;
     }
 
-    const incompleteDriverIndex = drivers.findIndex(driver => !isDriverComplete(driver));
+    const incompleteDriverIndex = drivers.findIndex(
+      (driver) => !isDriverComplete(driver)
+    );
 
     if (incompleteDriverIndex !== -1) {
-      const driverName = drivers[incompleteDriverIndex].firstName && drivers[incompleteDriverIndex].lastName
-        ? `${drivers[incompleteDriverIndex].firstName} ${drivers[incompleteDriverIndex].lastName}`
-        : `Driver ${incompleteDriverIndex + 1}`;
-      setValidationError(`Please complete all details for ${driverName} before saving.`);
+      const driverName =
+        drivers[incompleteDriverIndex].firstName &&
+        drivers[incompleteDriverIndex].lastName
+          ? `${drivers[incompleteDriverIndex].firstName} ${drivers[incompleteDriverIndex].lastName}`
+          : `Driver ${incompleteDriverIndex + 1}`;
+      setValidationError(
+        `Please complete all details for ${driverName} before saving.`
+      );
       return false;
     }
 
@@ -154,18 +171,21 @@ const AdditionalDriversModal = ({
     onClose();
   };
 
-
-
-  const getTileOrder = () => ['about', 'employment', 'usage', 'driving', 'declarations'];
-
+  const getTileOrder = () => [
+    "about",
+    "employment",
+    "usage",
+    "driving",
+    "declarations",
+  ];
 
   const getTileLabel = (tileKey) => {
     const labels = {
-      about: 'About You',
-      employment: 'Your Employment',
-      usage: 'Usage Details',
-      driving: 'Driving Record',
-      declarations: 'Declarations'
+      about: "About You",
+      employment: "Your Employment",
+      usage: "Usage Details",
+      driving: "Driving Record",
+      declarations: "Declarations",
     };
     return labels[tileKey] || tileKey;
   };
@@ -178,22 +198,27 @@ const AdditionalDriversModal = ({
     return getTileLabel(previousKey);
   };
 
-  const isTileDisabled = (driverIndex, tileKey) => {
-    const tiles = getTileOrder();
-    const currentTileIndex = tiles.indexOf(tileKey);
+  const isTileDisabled = useCallback(
+    (driverIndex, tileKey) => {
+      const tiles = getTileOrder();
+      const currentTileIndex = tiles.indexOf(tileKey);
 
-    if (currentTileIndex === 0) return false; // First tile is always enabled
+      if (currentTileIndex === 0) return false; // First tile is always enabled
 
-    const previousTileKey = tiles[currentTileIndex - 1];
-    return !checkTileCompletion(driverIndex, previousTileKey);
-  };
+      const previousTileKey = tiles[currentTileIndex - 1];
+      return !checkTileCompletion(driverIndex, previousTileKey);
+    },
+    [checkTileCompletion]
+  );
 
-  const isDriverDisabled = (driverIndex) => {
-    if (driverIndex === 0) return false; // First driver is always enabled
-    const previousDriver = drivers[driverIndex - 1];
-    return !isDriverComplete(previousDriver);
-  };
-
+  const isDriverDisabled = useCallback(
+    (driverIndex) => {
+      if (driverIndex === 0) return false; // First driver is always enabled
+      const previousDriver = drivers[driverIndex - 1];
+      return !isDriverComplete(previousDriver);
+    },
+    [drivers]
+  );
 
   // Auto-expand next tile when current tile is completed
   useEffect(() => {
@@ -208,10 +233,15 @@ const AdditionalDriversModal = ({
           const isNextTileExpanded = isTileExpanded(driverIndex, nextTileKey);
 
           // Auto-expand next tile if not already expanded and not disabled
-          if (!isNextTileExpanded && !isTileDisabled(driverIndex, nextTileKey)) {
+          if (
+            !isNextTileExpanded &&
+            !isTileDisabled(driverIndex, nextTileKey)
+          ) {
             setTimeout(() => {
-              setExpandedTiles(prev => {
-                const driverTiles = prev[driverIndex] ? new Set(prev[driverIndex]) : new Set();
+              setExpandedTiles((prev) => {
+                const driverTiles = prev[driverIndex]
+                  ? new Set(prev[driverIndex])
+                  : new Set();
                 driverTiles.add(nextTileKey);
                 return { ...prev, [driverIndex]: driverTiles };
               });
@@ -220,25 +250,28 @@ const AdditionalDriversModal = ({
         }
       });
     });
-  }, [drivers]);
+  }, [drivers, checkTileCompletion, isTileExpanded, isTileDisabled]);
 
   useEffect(() => {
     drivers.forEach((driver, index) => {
-      const dateOfBirth = watch(`carUsage.additionalDrivers.${index}.dateOfBirth`);
+      const dateOfBirth = watch(
+        `carUsage.additionalDrivers.${index}.dateOfBirth`
+      );
       if (dateOfBirth) {
         const birthYear = new Date(dateOfBirth).getFullYear();
         const currentYear = new Date().getFullYear();
         const age = currentYear - birthYear;
 
         const ncbOptionsForAge = ncbOptions.filter((option) => {
-          if (age >= 75) return option !== "20+ years" && option !== "18+ years";
+          if (age >= 75)
+            return option !== "20+ years" && option !== "18+ years";
           if (age >= 70) return option !== "20+ years";
           return true;
         });
 
-        setDynamicDriverNcbOptions(prev => ({
+        setDynamicDriverNcbOptions((prev) => ({
           ...prev,
-          [index]: ncbOptionsForAge
+          [index]: ncbOptionsForAge,
         }));
       }
     });
@@ -246,7 +279,12 @@ const AdditionalDriversModal = ({
 
   useEffect(() => {
     drivers.forEach((driver, index) => {
-      const isDisabledStatus = ["Retired", "Unemployed", "Student", "Houseperson"].includes(driver.employmentStatus);
+      const isDisabledStatus = [
+        "Retired",
+        "Unemployed",
+        "Student",
+        "Houseperson",
+      ].includes(driver.employmentStatus);
       if (isDisabledStatus) {
         if (driver.industry !== "N/A") {
           onUpdateDriver(index, "industry", "N/A");
@@ -269,18 +307,21 @@ const AdditionalDriversModal = ({
     const postcode = watch(`carUsage.additionalDrivers.${index}.postCode`);
     if (!postcode) return;
 
-    setDriverLoadingStates(prev => ({ ...prev, [index]: true }));
+    setDriverLoadingStates((prev) => ({ ...prev, [index]: true }));
 
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}api/vehicle-search/postcode?postcode=${postcode}`
       );
       const data = await response.json();
-      setDriverAddresses(prev => ({ ...prev, [index]: data?.addresses || [] }));
+      setDriverAddresses((prev) => ({
+        ...prev,
+        [index]: data?.addresses || [],
+      }));
     } catch (error) {
       console.error("Error fetching addresses:", error);
     } finally {
-      setDriverLoadingStates(prev => ({ ...prev, [index]: false }));
+      setDriverLoadingStates((prev) => ({ ...prev, [index]: false }));
     }
   };
 
@@ -291,16 +332,29 @@ const AdditionalDriversModal = ({
       <div className={modalStyles.modalContainer}>
         <div className={modalStyles.modalHeader}>
           <h2 className={modalStyles.modalTitle}>Add Additional Drivers</h2>
-          <p className={modalStyles.modalSubtitle}>Complete the details for each driver</p>
+          <p className={modalStyles.modalSubtitle}>
+            Complete the details for each driver
+          </p>
         </div>
 
         <div className={modalStyles.modalContent}>
           <div className={modalStyles.driversList}>
             {drivers.map((driver, index) => (
               <div key={index} className={modalStyles.driverItem}>
-                <div className={`${modalStyles.driverHeader} ${isDriverExpanded(index) ? modalStyles.expanded : ''} ${isDriverDisabled(index) ? modalStyles.disabled : ''}`} onClick={() => !isDriverDisabled(index) && toggleDriver(index)} role="button" tabIndex={isDriverDisabled(index) ? -1 : 0}>
+                <div
+                  className={`${modalStyles.driverHeader} ${
+                    isDriverExpanded(index) ? modalStyles.expanded : ""
+                  } ${isDriverDisabled(index) ? modalStyles.disabled : ""}`}
+                  onClick={() =>
+                    !isDriverDisabled(index) && toggleDriver(index)
+                  }
+                  role="button"
+                  tabIndex={isDriverDisabled(index) ? -1 : 0}
+                >
                   <span className={modalStyles.driverNumber}>
-                    {driver.firstName && driver.lastName ? `${driver.firstName} ${driver.lastName}` : `Driver ${index + 1}`}
+                    {driver.firstName && driver.lastName
+                      ? `${driver.firstName} ${driver.lastName}`
+                      : `Driver ${index + 1}`}
                   </span>
                   <div className={modalStyles.driverHeaderActions}>
                     <span className={modalStyles.expandIcon}>+</span>
@@ -325,179 +379,659 @@ const AdditionalDriversModal = ({
                 )}
 
                 {isDriverExpanded(index) && !isDriverDisabled(index) && (
-                <div className={modalStyles.driverFormContent}>
-                  {/* About You Section */}
-                  <div className={`${modalStyles.formSection} ${isTileExpanded(index, 'about') ? modalStyles.expanded : ''} ${isTileDisabled(index, 'about') ? modalStyles.disabled : ''}`}>
-                    <button type="button" className={`${modalStyles.tileHeader} ${isTileExpanded(index, 'about') ? modalStyles.expanded : ''} ${isTileDisabled(index, 'about') ? modalStyles.disabled : ''}`} onClick={() => toggleTile(index, 'about')}>
-                      <h4 className={modalStyles.sectionLabel}>About You</h4>
-                      <span className={modalStyles.expandIcon}>+</span>
-                    </button>
-                    {isTileExpanded(index, 'about') && isTileDisabled(index, 'about') && (
-                      <div className={modalStyles.errorMessage}>
-                        <span className={modalStyles.errorIcon}>!</span>
-                        <span>Complete {getPreviousTileLabel('about')} first</span>
-                      </div>
-                    )}
-                    {isTileExpanded(index, 'about') && !isTileDisabled(index, 'about') && <>
-                      <div className={modalStyles.fieldRow2Col}>
-                        <div className={modalStyles.field}>
-                          <FormTextInput label="First Name" placeholder="Enter first name" value={watch(`carUsage.additionalDrivers.${index}.firstName`) || ""} onChange={(e) => onUpdateDriver(index, "firstName", e.target.value)} inputStyle={{ paddingLeft: "14px" }} />
-                        </div>
-                        <div className={modalStyles.field}>
-                          <FormTextInput label="Last Name" placeholder="Enter last name" value={watch(`carUsage.additionalDrivers.${index}.lastName`) || ""} onChange={(e) => onUpdateDriver(index, "lastName", e.target.value)} inputStyle={{ paddingLeft: "14px" }} />
-                        </div>
-                      </div>
-                      <div className={modalStyles.fieldRow2Col}>
-                        <div className={modalStyles.field}>
-                          <FormDataAndTime
-                            dateLabel="Date of Birth"
-                            type="date"
-                            allowPastDates={true}
-                            isDateOfBirth={true}
-                            maxDate={new Date(new Date().getFullYear() - 16, new Date().getMonth(), new Date().getDate())}
-                            defaultYear={2009}
-                            reducedPadding={true}
-                            value={watch(`carUsage.additionalDrivers.${index}.dateOfBirth`) || ""}
-                            onChange={(e) => onUpdateDriver(index, "dateOfBirth", e.target.value)}
-                          />
-                        </div>
-                      </div>
-                      <div className={modalStyles.field}>
-                        <label className={modalStyles.inputLabel}>Lived in UK since birth?</label>
-                        <YesORNo value={watch(`carUsage.additionalDrivers.${index}.livedInUKSinceBirth`)} onChange={(value) => onUpdateDriver(index, "livedInUKSinceBirth", value)} />
-                      </div>
-                    </>}
-                  </div>
-
-                  {/* Employment Section */}
-                  <div className={`${modalStyles.formSection} ${isTileExpanded(index, 'employment') ? modalStyles.expanded : ''} ${isTileDisabled(index, 'employment') ? modalStyles.disabled : ''}`}>
-                    <button type="button" className={`${modalStyles.tileHeader} ${isTileExpanded(index, 'employment') ? modalStyles.expanded : ''} ${isTileDisabled(index, 'employment') ? modalStyles.disabled : ''}`} onClick={() => toggleTile(index, 'employment')}>
-                      <h4 className={modalStyles.sectionLabel}>Your Employment</h4>
-                      <span className={modalStyles.expandIcon}>+</span>
-                    </button>
-                    {isTileExpanded(index, 'employment') && isTileDisabled(index, 'employment') && (
-                      <div className={modalStyles.errorMessage}>
-                        <span className={modalStyles.errorIcon}>!</span>
-                        <span>Complete {getPreviousTileLabel('employment')} first</span>
-                      </div>
-                    )}
-                    {isTileExpanded(index, 'employment') && !isTileDisabled(index, 'employment') && <>
-                      <div className={modalStyles.fieldRow2Col}>
-                        <div className={modalStyles.field}>
-                          <FormDropdown label="Employment Status" options={employmentStatusOptions} placeholder="Select status" value={watch(`carUsage.additionalDrivers.${index}.employmentStatus`) || ""} onChange={(e) => onUpdateDriver(index, "employmentStatus", e.target.value)} inputStyle={{ paddingLeft: "14px" }} />
-                        </div>
-                        <div className={modalStyles.field}>
-                          <FormAutocomplete label="Occupation" options={occupationOptions} placeholder="Type your occupation..." value={watch(`carUsage.additionalDrivers.${index}.occupation`) || ""} onChange={(e) => { const value = typeof e === "string" ? e : (e?.target?.value || ""); onUpdateDriver(index, "occupation", value); }} disabled={["Retired", "Unemployed", "Student", "Houseperson"].includes(watch(`carUsage.additionalDrivers.${index}.employmentStatus`))} inputStyle={{ paddingLeft: "14px" }} />
-                        </div>
-                      </div>
-                      <div className={modalStyles.field}>
-                        <FormAutocomplete label="Industry" options={industryOptions} placeholder="Type your industry..." value={watch(`carUsage.additionalDrivers.${index}.industry`) || ""} onChange={(e) => { const value = typeof e === "string" ? e : (e?.target?.value || ""); onUpdateDriver(index, "industry", value); }} disabled={["Retired", "Unemployed", "Student", "Houseperson"].includes(watch(`carUsage.additionalDrivers.${index}.employmentStatus`))} inputStyle={{ paddingLeft: "14px" }} />
-                      </div>
-                    </>}
-                  </div>
-
-                  {/* Usage Details Section */}
-                  <div className={`${modalStyles.formSection} ${isTileExpanded(index, 'usage') ? modalStyles.expanded : ''} ${isTileDisabled(index, 'usage') ? modalStyles.disabled : ''}`}>
-                    <button type="button" className={`${modalStyles.tileHeader} ${isTileExpanded(index, 'usage') ? modalStyles.expanded : ''} ${isTileDisabled(index, 'usage') ? modalStyles.disabled : ''}`} onClick={() => toggleTile(index, 'usage')}>
-                      <h4 className={modalStyles.sectionLabel}>Usage Details</h4>
-                      <span className={modalStyles.expandIcon}>+</span>
-                    </button>
-                    {isTileExpanded(index, 'usage') && isTileDisabled(index, 'usage') && (
-                      <div className={modalStyles.errorMessage}>
-                        <span className={modalStyles.errorIcon}>!</span>
-                        <span>Complete {getPreviousTileLabel('usage')} first</span>
-                      </div>
-                    )}
-                    {isTileExpanded(index, 'usage') && !isTileDisabled(index, 'usage') && <>
-                      <div className={modalStyles.field}>
-                        <label className={modalStyles.inputLabel}>Other Vehicles?</label>
-                        <YesORNo value={watch(`carUsage.additionalDrivers.${index}.otherVehicles`)} onChange={(value) => onUpdateDriver(index, "otherVehicles", value)} />
-                      </div>
-                      {watch(`carUsage.additionalDrivers.${index}.otherVehicles`) && (
-                        <div className={modalStyles.field}>
-                          <FormDropdown label="What other vehicles?" options={otherVehiclesOptions} placeholder="Select vehicle type" value={watch(`carUsage.additionalDrivers.${index}.otherVehiclesType`) || ""} onChange={(value) => onUpdateDriver(index, "otherVehiclesType", value)} inputStyle={{ paddingLeft: "14px" }} />
-                        </div>
-                      )}
-                    </>}
-                  </div>
-
-                  {/* Driving Record Section */}
-                  <div className={`${modalStyles.formSection} ${isTileExpanded(index, 'driving') ? modalStyles.expanded : ''} ${isTileDisabled(index, 'driving') ? modalStyles.disabled : ''}`}>
-                    <button type="button" className={`${modalStyles.tileHeader} ${isTileExpanded(index, 'driving') ? modalStyles.expanded : ''} ${isTileDisabled(index, 'driving') ? modalStyles.disabled : ''}`} onClick={() => toggleTile(index, 'driving')}>
-                      <h4 className={modalStyles.sectionLabel}>Driving Record</h4>
-                      <span className={modalStyles.expandIcon}>+</span>
-                    </button>
-                    {isTileExpanded(index, 'driving') && isTileDisabled(index, 'driving') && (
-                      <div className={modalStyles.errorMessage}>
-                        <span className={modalStyles.errorIcon}>!</span>
-                        <span>Complete {getPreviousTileLabel('driving')} first</span>
-                      </div>
-                    )}
-                    {isTileExpanded(index, 'driving') && !isTileDisabled(index, 'driving') && <>
-                      <div className={modalStyles.fieldRow3Col}>
-                        <div className={modalStyles.field}>
-                          <FormDropdown label="License Type" options={["Full UK", "Provisional UK", "International", "Other"]} placeholder="Select type" value={watch(`carUsage.additionalDrivers.${index}.licenseType`) || ""} onChange={(e) => onUpdateDriver(index, "licenseType", e.target.value)} inputStyle={{ paddingLeft: "14px" }} />
-                        </div>
-                        <div className={modalStyles.field}>
-                          <FormDropdown label="License Held" options={licenseHeldOptions} placeholder="Select duration" value={watch(`carUsage.additionalDrivers.${index}.licenseHeld`) || ""} onChange={(e) => onUpdateDriver(index, "licenseHeld", e.target.value)} inputStyle={{ paddingLeft: "14px" }} />
-                        </div>
-                        <div className={modalStyles.field}>
-                          <FormTextInput label="License Number" placeholder="Optional" value={watch(`carUsage.additionalDrivers.${index}.licenseNumber`) || ""} onChange={(e) => onUpdateDriver(index, "licenseNumber", e.target.value)} inputStyle={{ paddingLeft: "14px" }} />
-                        </div>
-                      </div>
-                      <div className={modalStyles.field}>
-                        <label className={modalStyles.inputLabel}>Additional Driving Qualifications?</label>
-                        <YesORNo value={watch(`carUsage.additionalDrivers.${index}.hasAdditionalQualifications`)} onChange={(value) => onUpdateDriver(index, "hasAdditionalQualifications", value)} />
-                      </div>
-                      {watch(`carUsage.additionalDrivers.${index}.hasAdditionalQualifications`) && (<>
-                        <div className={modalStyles.field}>
-                          <FormDropdown label="Qualification Type" options={additionalQualificationsOptions} placeholder="Select type" value={watch(`carUsage.additionalDrivers.${index}.additionalQualificationType`) || ""} onChange={(e) => onUpdateDriver(index, "additionalQualificationType", e.target.value)} inputStyle={{ paddingLeft: "14px" }} />
-                        </div>
-                        <div className={modalStyles.fieldRow2Col}>
-                          <div className={modalStyles.field}>
-                            <FormDropdown label="Month" options={monthOptions} placeholder="Select month" value={watch(`carUsage.additionalDrivers.${index}.qualificationMonth`) || ""} onChange={(e) => onUpdateDriver(index, "qualificationMonth", e.target.value)} inputStyle={{ paddingLeft: "14px" }} />
+                  <div className={modalStyles.driverFormContent}>
+                    {/* About You Section */}
+                    <div
+                      className={`${modalStyles.formSection} ${
+                        isTileExpanded(index, "about")
+                          ? modalStyles.expanded
+                          : ""
+                      } ${
+                        isTileDisabled(index, "about")
+                          ? modalStyles.disabled
+                          : ""
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        className={`${modalStyles.tileHeader} ${
+                          isTileExpanded(index, "about")
+                            ? modalStyles.expanded
+                            : ""
+                        } ${
+                          isTileDisabled(index, "about")
+                            ? modalStyles.disabled
+                            : ""
+                        }`}
+                        onClick={() => toggleTile(index, "about")}
+                      >
+                        <h4 className={modalStyles.sectionLabel}>About You</h4>
+                        <span className={modalStyles.expandIcon}>+</span>
+                      </button>
+                      {isTileExpanded(index, "about") &&
+                        isTileDisabled(index, "about") && (
+                          <div className={modalStyles.errorMessage}>
+                            <span className={modalStyles.errorIcon}>!</span>
+                            <span>
+                              Complete {getPreviousTileLabel("about")} first
+                            </span>
                           </div>
-                          <div className={modalStyles.field}>
-                            <FormDropdown label="Year" options={yearOptions} placeholder="Select year" value={watch(`carUsage.additionalDrivers.${index}.qualificationYear`) || ""} onChange={(e) => onUpdateDriver(index, "qualificationYear", e.target.value)} inputStyle={{ paddingLeft: "14px" }} />
-                          </div>
-                        </div>
-                      </>)}
-                    </>}
-                  </div>
+                        )}
+                      {isTileExpanded(index, "about") &&
+                        !isTileDisabled(index, "about") && (
+                          <>
+                            <div className={modalStyles.fieldRow2Col}>
+                              <div className={modalStyles.field}>
+                                <FormTextInput
+                                  label="First Name"
+                                  placeholder="Enter first name"
+                                  value={
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.firstName`
+                                    ) || ""
+                                  }
+                                  onChange={(e) =>
+                                    onUpdateDriver(
+                                      index,
+                                      "firstName",
+                                      e.target.value
+                                    )
+                                  }
+                                  inputStyle={{ paddingLeft: "14px" }}
+                                />
+                              </div>
+                              <div className={modalStyles.field}>
+                                <FormTextInput
+                                  label="Last Name"
+                                  placeholder="Enter last name"
+                                  value={
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.lastName`
+                                    ) || ""
+                                  }
+                                  onChange={(e) =>
+                                    onUpdateDriver(
+                                      index,
+                                      "lastName",
+                                      e.target.value
+                                    )
+                                  }
+                                  inputStyle={{ paddingLeft: "14px" }}
+                                />
+                              </div>
+                            </div>
+                            <div className={modalStyles.fieldRow2Col}>
+                              <div className={modalStyles.field}>
+                                <FormDataAndTime
+                                  dateLabel="Date of Birth"
+                                  type="date"
+                                  allowPastDates={true}
+                                  isDateOfBirth={true}
+                                  maxDate={
+                                    new Date(
+                                      new Date().getFullYear() - 16,
+                                      new Date().getMonth(),
+                                      new Date().getDate()
+                                    )
+                                  }
+                                  defaultYear={2009}
+                                  reducedPadding={true}
+                                  value={
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.dateOfBirth`
+                                    ) || ""
+                                  }
+                                  onChange={(e) =>
+                                    onUpdateDriver(
+                                      index,
+                                      "dateOfBirth",
+                                      e.target.value
+                                    )
+                                  }
+                                />
+                              </div>
+                            </div>
+                            <div className={modalStyles.field}>
+                              <label className={modalStyles.inputLabel}>
+                                Lived in UK since birth?
+                              </label>
+                              <YesORNo
+                                value={watch(
+                                  `carUsage.additionalDrivers.${index}.livedInUKSinceBirth`
+                                )}
+                                onChange={(value) =>
+                                  onUpdateDriver(
+                                    index,
+                                    "livedInUKSinceBirth",
+                                    value
+                                  )
+                                }
+                              />
+                            </div>
+                          </>
+                        )}
+                    </div>
 
-                  {/* Declarations Section */}
-                  <div className={`${modalStyles.formSection} ${isTileExpanded(index, 'declarations') ? modalStyles.expanded : ''} ${isTileDisabled(index, 'declarations') ? modalStyles.disabled : ''}`}>
-                    <button type="button" className={`${modalStyles.tileHeader} ${isTileExpanded(index, 'declarations') ? modalStyles.expanded : ''} ${isTileDisabled(index, 'declarations') ? modalStyles.disabled : ''}`} onClick={() => toggleTile(index, 'declarations')}>
-                      <h4 className={modalStyles.sectionLabel}>Declarations</h4>
-                      <span className={modalStyles.expandIcon}>+</span>
-                    </button>
-                    {isTileExpanded(index, 'declarations') && isTileDisabled(index, 'declarations') && (
-                      <div className={modalStyles.errorMessage}>
-                        <span className={modalStyles.errorIcon}>!</span>
-                        <span>Complete {getPreviousTileLabel('declarations')} first</span>
-                      </div>
-                    )}
-                    {isTileExpanded(index, 'declarations') && !isTileDisabled(index, 'declarations') && <>
-                      <div className={modalStyles.field}>
-                        <label className={modalStyles.inputLabel}>Do you have any unspent or outstanding criminal convictions?</label>
-                        <YesORNo value={watch(`carUsage.additionalDrivers.${index}.criminalConvictions`)} onChange={(value) => onUpdateDriver(index, "criminalConvictions", value)} />
-                      </div>
-                      <div className={modalStyles.field}>
-                        <label className={modalStyles.inputLabel}>Do you have any medical conditions that are notifiable to the DVLA?</label>
-                        <YesORNo value={watch(`carUsage.additionalDrivers.${index}.medicalConditions`)} onChange={(value) => onUpdateDriver(index, "medicalConditions", value)} />
-                      </div>
-                      <div className={modalStyles.field}>
-                        <label className={modalStyles.inputLabel}>Have you ever had insurance cancelled, a claim refused, a policy voided, or any special terms imposed?</label>
-                        <YesORNo value={watch(`carUsage.additionalDrivers.${index}.insuranceCancelledOrClaimRefusedOrPolicyVoided`)} onChange={(value) => onUpdateDriver(index, "insuranceCancelledOrClaimRefusedOrPolicyVoided", value)} />
-                      </div>
-                    </>}
+                    {/* Employment Section */}
+                    <div
+                      className={`${modalStyles.formSection} ${
+                        isTileExpanded(index, "employment")
+                          ? modalStyles.expanded
+                          : ""
+                      } ${
+                        isTileDisabled(index, "employment")
+                          ? modalStyles.disabled
+                          : ""
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        className={`${modalStyles.tileHeader} ${
+                          isTileExpanded(index, "employment")
+                            ? modalStyles.expanded
+                            : ""
+                        } ${
+                          isTileDisabled(index, "employment")
+                            ? modalStyles.disabled
+                            : ""
+                        }`}
+                        onClick={() => toggleTile(index, "employment")}
+                      >
+                        <h4 className={modalStyles.sectionLabel}>
+                          Your Employment
+                        </h4>
+                        <span className={modalStyles.expandIcon}>+</span>
+                      </button>
+                      {isTileExpanded(index, "employment") &&
+                        isTileDisabled(index, "employment") && (
+                          <div className={modalStyles.errorMessage}>
+                            <span className={modalStyles.errorIcon}>!</span>
+                            <span>
+                              Complete {getPreviousTileLabel("employment")}{" "}
+                              first
+                            </span>
+                          </div>
+                        )}
+                      {isTileExpanded(index, "employment") &&
+                        !isTileDisabled(index, "employment") && (
+                          <>
+                            <div className={modalStyles.fieldRow2Col}>
+                              <div className={modalStyles.field}>
+                                <FormDropdown
+                                  label="Employment Status"
+                                  options={employmentStatusOptions}
+                                  placeholder="Select status"
+                                  value={
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.employmentStatus`
+                                    ) || ""
+                                  }
+                                  onChange={(e) =>
+                                    onUpdateDriver(
+                                      index,
+                                      "employmentStatus",
+                                      e.target.value
+                                    )
+                                  }
+                                  inputStyle={{ paddingLeft: "14px" }}
+                                />
+                              </div>
+                              <div className={modalStyles.field}>
+                                <FormAutocomplete
+                                  label="Occupation"
+                                  options={occupationOptions}
+                                  placeholder="Type your occupation..."
+                                  value={
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.occupation`
+                                    ) || ""
+                                  }
+                                  onChange={(e) => {
+                                    const value =
+                                      typeof e === "string"
+                                        ? e
+                                        : e?.target?.value || "";
+                                    onUpdateDriver(index, "occupation", value);
+                                  }}
+                                  disabled={[
+                                    "Retired",
+                                    "Unemployed",
+                                    "Student",
+                                    "Houseperson",
+                                  ].includes(
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.employmentStatus`
+                                    )
+                                  )}
+                                  inputStyle={{ paddingLeft: "14px" }}
+                                />
+                              </div>
+                            </div>
+                            <div className={modalStyles.field}>
+                              <FormAutocomplete
+                                label="Industry"
+                                options={industryOptions}
+                                placeholder="Type your industry..."
+                                value={
+                                  watch(
+                                    `carUsage.additionalDrivers.${index}.industry`
+                                  ) || ""
+                                }
+                                onChange={(e) => {
+                                  const value =
+                                    typeof e === "string"
+                                      ? e
+                                      : e?.target?.value || "";
+                                  onUpdateDriver(index, "industry", value);
+                                }}
+                                disabled={[
+                                  "Retired",
+                                  "Unemployed",
+                                  "Student",
+                                  "Houseperson",
+                                ].includes(
+                                  watch(
+                                    `carUsage.additionalDrivers.${index}.employmentStatus`
+                                  )
+                                )}
+                                inputStyle={{ paddingLeft: "14px" }}
+                              />
+                            </div>
+                          </>
+                        )}
+                    </div>
+
+                    {/* Usage Details Section */}
+                    <div
+                      className={`${modalStyles.formSection} ${
+                        isTileExpanded(index, "usage")
+                          ? modalStyles.expanded
+                          : ""
+                      } ${
+                        isTileDisabled(index, "usage")
+                          ? modalStyles.disabled
+                          : ""
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        className={`${modalStyles.tileHeader} ${
+                          isTileExpanded(index, "usage")
+                            ? modalStyles.expanded
+                            : ""
+                        } ${
+                          isTileDisabled(index, "usage")
+                            ? modalStyles.disabled
+                            : ""
+                        }`}
+                        onClick={() => toggleTile(index, "usage")}
+                      >
+                        <h4 className={modalStyles.sectionLabel}>
+                          Usage Details
+                        </h4>
+                        <span className={modalStyles.expandIcon}>+</span>
+                      </button>
+                      {isTileExpanded(index, "usage") &&
+                        isTileDisabled(index, "usage") && (
+                          <div className={modalStyles.errorMessage}>
+                            <span className={modalStyles.errorIcon}>!</span>
+                            <span>
+                              Complete {getPreviousTileLabel("usage")} first
+                            </span>
+                          </div>
+                        )}
+                      {isTileExpanded(index, "usage") &&
+                        !isTileDisabled(index, "usage") && (
+                          <>
+                            <div className={modalStyles.field}>
+                              <label className={modalStyles.inputLabel}>
+                                Other Vehicles?
+                              </label>
+                              <YesORNo
+                                value={watch(
+                                  `carUsage.additionalDrivers.${index}.otherVehicles`
+                                )}
+                                onChange={(value) =>
+                                  onUpdateDriver(index, "otherVehicles", value)
+                                }
+                              />
+                            </div>
+                            {watch(
+                              `carUsage.additionalDrivers.${index}.otherVehicles`
+                            ) && (
+                              <div className={modalStyles.field}>
+                                <FormDropdown
+                                  label="What other vehicles?"
+                                  options={otherVehiclesOptions}
+                                  placeholder="Select vehicle type"
+                                  value={
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.otherVehiclesType`
+                                    ) || ""
+                                  }
+                                  onChange={(value) =>
+                                    onUpdateDriver(
+                                      index,
+                                      "otherVehiclesType",
+                                      value
+                                    )
+                                  }
+                                  inputStyle={{ paddingLeft: "14px" }}
+                                />
+                              </div>
+                            )}
+                          </>
+                        )}
+                    </div>
+
+                    {/* Driving Record Section */}
+                    <div
+                      className={`${modalStyles.formSection} ${
+                        isTileExpanded(index, "driving")
+                          ? modalStyles.expanded
+                          : ""
+                      } ${
+                        isTileDisabled(index, "driving")
+                          ? modalStyles.disabled
+                          : ""
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        className={`${modalStyles.tileHeader} ${
+                          isTileExpanded(index, "driving")
+                            ? modalStyles.expanded
+                            : ""
+                        } ${
+                          isTileDisabled(index, "driving")
+                            ? modalStyles.disabled
+                            : ""
+                        }`}
+                        onClick={() => toggleTile(index, "driving")}
+                      >
+                        <h4 className={modalStyles.sectionLabel}>
+                          Driving Record
+                        </h4>
+                        <span className={modalStyles.expandIcon}>+</span>
+                      </button>
+                      {isTileExpanded(index, "driving") &&
+                        isTileDisabled(index, "driving") && (
+                          <div className={modalStyles.errorMessage}>
+                            <span className={modalStyles.errorIcon}>!</span>
+                            <span>
+                              Complete {getPreviousTileLabel("driving")} first
+                            </span>
+                          </div>
+                        )}
+                      {isTileExpanded(index, "driving") &&
+                        !isTileDisabled(index, "driving") && (
+                          <>
+                            <div className={modalStyles.fieldRow3Col}>
+                              <div className={modalStyles.field}>
+                                <FormDropdown
+                                  label="License Type"
+                                  options={[
+                                    "Full UK",
+                                    "Provisional UK",
+                                    "International",
+                                    "Other",
+                                  ]}
+                                  placeholder="Select type"
+                                  value={
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.licenseType`
+                                    ) || ""
+                                  }
+                                  onChange={(e) =>
+                                    onUpdateDriver(
+                                      index,
+                                      "licenseType",
+                                      e.target.value
+                                    )
+                                  }
+                                  inputStyle={{ paddingLeft: "14px" }}
+                                />
+                              </div>
+                              <div className={modalStyles.field}>
+                                <FormDropdown
+                                  label="License Held"
+                                  options={licenseHeldOptions}
+                                  placeholder="Select duration"
+                                  value={
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.licenseHeld`
+                                    ) || ""
+                                  }
+                                  onChange={(e) =>
+                                    onUpdateDriver(
+                                      index,
+                                      "licenseHeld",
+                                      e.target.value
+                                    )
+                                  }
+                                  inputStyle={{ paddingLeft: "14px" }}
+                                />
+                              </div>
+                              <div className={modalStyles.field}>
+                                <FormTextInput
+                                  label="License Number"
+                                  placeholder="Optional"
+                                  value={
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.licenseNumber`
+                                    ) || ""
+                                  }
+                                  onChange={(e) =>
+                                    onUpdateDriver(
+                                      index,
+                                      "licenseNumber",
+                                      e.target.value
+                                    )
+                                  }
+                                  inputStyle={{ paddingLeft: "14px" }}
+                                />
+                              </div>
+                            </div>
+                            <div className={modalStyles.field}>
+                              <label className={modalStyles.inputLabel}>
+                                Additional Driving Qualifications?
+                              </label>
+                              <YesORNo
+                                value={watch(
+                                  `carUsage.additionalDrivers.${index}.hasAdditionalQualifications`
+                                )}
+                                onChange={(value) =>
+                                  onUpdateDriver(
+                                    index,
+                                    "hasAdditionalQualifications",
+                                    value
+                                  )
+                                }
+                              />
+                            </div>
+                            {watch(
+                              `carUsage.additionalDrivers.${index}.hasAdditionalQualifications`
+                            ) && (
+                              <>
+                                <div className={modalStyles.field}>
+                                  <FormDropdown
+                                    label="Qualification Type"
+                                    options={additionalQualificationsOptions}
+                                    placeholder="Select type"
+                                    value={
+                                      watch(
+                                        `carUsage.additionalDrivers.${index}.additionalQualificationType`
+                                      ) || ""
+                                    }
+                                    onChange={(e) =>
+                                      onUpdateDriver(
+                                        index,
+                                        "additionalQualificationType",
+                                        e.target.value
+                                      )
+                                    }
+                                    inputStyle={{ paddingLeft: "14px" }}
+                                  />
+                                </div>
+                                <div className={modalStyles.fieldRow2Col}>
+                                  <div className={modalStyles.field}>
+                                    <FormDropdown
+                                      label="Month"
+                                      options={monthOptions}
+                                      placeholder="Select month"
+                                      value={
+                                        watch(
+                                          `carUsage.additionalDrivers.${index}.qualificationMonth`
+                                        ) || ""
+                                      }
+                                      onChange={(e) =>
+                                        onUpdateDriver(
+                                          index,
+                                          "qualificationMonth",
+                                          e.target.value
+                                        )
+                                      }
+                                      inputStyle={{ paddingLeft: "14px" }}
+                                    />
+                                  </div>
+                                  <div className={modalStyles.field}>
+                                    <FormDropdown
+                                      label="Year"
+                                      options={yearOptions}
+                                      placeholder="Select year"
+                                      value={
+                                        watch(
+                                          `carUsage.additionalDrivers.${index}.qualificationYear`
+                                        ) || ""
+                                      }
+                                      onChange={(e) =>
+                                        onUpdateDriver(
+                                          index,
+                                          "qualificationYear",
+                                          e.target.value
+                                        )
+                                      }
+                                      inputStyle={{ paddingLeft: "14px" }}
+                                    />
+                                  </div>
+                                </div>
+                              </>
+                            )}
+                          </>
+                        )}
+                    </div>
+
+                    {/* Declarations Section */}
+                    <div
+                      className={`${modalStyles.formSection} ${
+                        isTileExpanded(index, "declarations")
+                          ? modalStyles.expanded
+                          : ""
+                      } ${
+                        isTileDisabled(index, "declarations")
+                          ? modalStyles.disabled
+                          : ""
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        className={`${modalStyles.tileHeader} ${
+                          isTileExpanded(index, "declarations")
+                            ? modalStyles.expanded
+                            : ""
+                        } ${
+                          isTileDisabled(index, "declarations")
+                            ? modalStyles.disabled
+                            : ""
+                        }`}
+                        onClick={() => toggleTile(index, "declarations")}
+                      >
+                        <h4 className={modalStyles.sectionLabel}>
+                          Declarations
+                        </h4>
+                        <span className={modalStyles.expandIcon}>+</span>
+                      </button>
+                      {isTileExpanded(index, "declarations") &&
+                        isTileDisabled(index, "declarations") && (
+                          <div className={modalStyles.errorMessage}>
+                            <span className={modalStyles.errorIcon}>!</span>
+                            <span>
+                              Complete {getPreviousTileLabel("declarations")}{" "}
+                              first
+                            </span>
+                          </div>
+                        )}
+                      {isTileExpanded(index, "declarations") &&
+                        !isTileDisabled(index, "declarations") && (
+                          <>
+                            <div className={modalStyles.field}>
+                              <label className={modalStyles.inputLabel}>
+                                Do you have any unspent or outstanding criminal
+                                convictions?
+                              </label>
+                              <YesORNo
+                                value={watch(
+                                  `carUsage.additionalDrivers.${index}.criminalConvictions`
+                                )}
+                                onChange={(value) =>
+                                  onUpdateDriver(
+                                    index,
+                                    "criminalConvictions",
+                                    value
+                                  )
+                                }
+                              />
+                            </div>
+                            <div className={modalStyles.field}>
+                              <label className={modalStyles.inputLabel}>
+                                Do you have any medical conditions that are
+                                notifiable to the DVLA?
+                              </label>
+                              <YesORNo
+                                value={watch(
+                                  `carUsage.additionalDrivers.${index}.medicalConditions`
+                                )}
+                                onChange={(value) =>
+                                  onUpdateDriver(
+                                    index,
+                                    "medicalConditions",
+                                    value
+                                  )
+                                }
+                              />
+                            </div>
+                            <div className={modalStyles.field}>
+                              <label className={modalStyles.inputLabel}>
+                                Have you ever had insurance cancelled, a claim
+                                refused, a policy voided, or any special terms
+                                imposed?
+                              </label>
+                              <YesORNo
+                                value={watch(
+                                  `carUsage.additionalDrivers.${index}.insuranceCancelledOrClaimRefusedOrPolicyVoided`
+                                )}
+                                onChange={(value) =>
+                                  onUpdateDriver(
+                                    index,
+                                    "insuranceCancelledOrClaimRefusedOrPolicyVoided",
+                                    value
+                                  )
+                                }
+                              />
+                            </div>
+                          </>
+                        )}
+                    </div>
                   </div>
-                </div>
                 )}
               </div>
             ))}
 
-            <button type="button" className={modalStyles.addButton} onClick={onAddDriver}>
+            <button
+              type="button"
+              className={modalStyles.addButton}
+              onClick={onAddDriver}
+            >
               + Add Another Driver
             </button>
           </div>
@@ -514,7 +1048,11 @@ const AdditionalDriversModal = ({
           <button className={modalStyles.cancelButton} onClick={handleCancel}>
             Cancel
           </button>
-          <button className={modalStyles.doneButton} onClick={handleSaveDrivers} type="button">
+          <button
+            className={modalStyles.doneButton}
+            onClick={handleSaveDrivers}
+            type="button"
+          >
             Save Drivers
           </button>
         </div>

@@ -125,13 +125,16 @@ const AnnualVehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup 
   const legalOwner = watch("vehicleDetails.legalOwner");
   const vehicleModified = watch("vehicleDetails.vehicleModified");
   const vehicleModifications = watch("vehicleDetails.vehicleModifications") || [];
+  const previousVehicleModifiedRef = useRef(vehicleModified);
 
-  // Open modifications modal when "Yes" is selected
+  // Open modifications modal only when user actively changes to "Yes", not on mount or back navigation
   useEffect(() => {
-    if (vehicleModified === "Yes") {
+    const previous = previousVehicleModifiedRef.current;
+    if (vehicleModified === "Yes" && previous !== "Yes" && vehicleModifications.length === 0) {
       setShowModificationsModal(true);
     }
-  }, [vehicleModified]);
+    previousVehicleModifiedRef.current = vehicleModified;
+  }, [vehicleModified, vehicleModifications.length]);
 
   // Clear owner and keeper fields if legal owner is "Yes"
   useEffect(() => {
@@ -192,7 +195,7 @@ const AnnualVehicleDetailsForm = ({ form, onVehicleDataFound, autoTriggerLookup 
   const fetchMakes = useCallback(async () => {
     const defaultMakes = ["Audi", "BMW", "Ford", "Honda", "Toyota", "Volkswagen"];
     dispatch({ type: "SET_MAKES", payload: defaultMakes });
-  }, [setValue]);
+  }, []);
 
   const fetchVehicleData = useCallback(async () => {
     const defaultOptions = {

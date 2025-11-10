@@ -6,7 +6,6 @@ import styles from "./page.module.css";
 import Buttons from "../_components/buttons/Buttons";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import { API_BASE_URL } from "@/utils/config";
 import { serverFetch } from "@/utils/serverFetch";
 
 const page = async ({ params }) => {
@@ -32,21 +31,24 @@ const page = async ({ params }) => {
       updatedAt: new Date().toISOString(),
       claimDetails: {
         placeHolderFirstName: "Dev",
-        placeHolderLastName: "User"
+        placeHolderLastName: "User",
       },
       thirdPartyDetails: {
         name: "Third Party",
-        registrationNumber: "CD22TEST"
-      }
+        registrationNumber: "CD22TEST",
+      },
     };
   } else {
     try {
-      const response = await serverFetch(`${API_BASE_URL}/api/claims/${id}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        cache: "no-store",
-      });
+      const response = await serverFetch(
+        `${NEXT_PUBLIC_API_URL}/api/claims/${id}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          cache: "no-store",
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();

@@ -30,9 +30,11 @@ const INSURANCE_LEVELS = [
 const AnnualCoverDetailsForm = ({ form }) => {
   const selectedLevel = form.watch("coverDetails.level");
   const startDate = form.watch("coverDetails.startDate");
+  const levelError = form.formState.errors.coverDetails?.level;
 
   const handleLevelChange = (levelId) => {
     form.setValue("coverDetails.level", levelId, { shouldValidate: true });
+    form.clearErrors("coverDetails.level");
   };
 
   const handleDateChange = (e) => {
@@ -52,7 +54,7 @@ const AnnualCoverDetailsForm = ({ form }) => {
             </p>
           </div>
 
-          <div className={styles.levelsGrid}>
+          <div className={`${styles.levelsGrid} ${levelError ? styles.levelsGridError : ""}`}>
             {INSURANCE_LEVELS.map((level) => (
               <button
                 key={level.id}
@@ -76,6 +78,11 @@ const AnnualCoverDetailsForm = ({ form }) => {
               </button>
             ))}
           </div>
+          {levelError && (
+            <span className={styles.errorMessage}>
+              {levelError.message}
+            </span>
+          )}
         </div>
 
         <div className={styles.section}>

@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { API_BASE_URL } from "@/utils/config";
 
 export async function GET(request, { params }) {
   try {
@@ -20,7 +19,7 @@ export async function GET(request, { params }) {
     }
 
     // Make request to backend with the JWT cookie
-    const backendUrl = `${API_BASE_URL}/api/insurance/download-pdf/${id}/${type}`;
+    const backendUrl = `${NEXT_PUBLIC_API_URL}/api/insurance/download-pdf/${id}/${type}`;
     console.log(`📡 Fetching from backend: ${backendUrl}`);
 
     const response = await fetch(backendUrl, {

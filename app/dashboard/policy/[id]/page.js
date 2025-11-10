@@ -1,7 +1,7 @@
 import React from "react";
 import PolicyDetailsReview from "../_components/PolicyDetailsReview";
 import styles from "./page.module.css";
-import { API_BASE_URL } from "@/utils/config";
+
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { serverFetch } from "@/utils/serverFetch";
@@ -18,12 +18,15 @@ const page = async ({ params }) => {
   let insurance = null;
 
   try {
-    const response = await serverFetch(`${API_BASE_URL}/api/insurance/${id}`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      cache: "no-store",
-    });
+    const response = await serverFetch(
+      `${NEXT_PUBLIC_API_URL}/api/insurance/${id}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        cache: "no-store",
+      }
+    );
 
     if (response.ok) {
       const result = await response.json();

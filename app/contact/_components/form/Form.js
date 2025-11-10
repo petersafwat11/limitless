@@ -5,7 +5,6 @@ import Image from "next/image";
 import TextInput from "@/ui/inputs/textInput/TextInput";
 import TextArea from "@/ui/inputs/textArea/TextArea";
 import Selection1 from "@/ui/inputs/selections/selection1/Selection1";
-import { API_BASE_URL } from "@/utils/config";
 import { toast } from "react-toastify";
 const Form = () => {
   const [data, setData] = useState({
@@ -50,7 +49,7 @@ const Form = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await fetch(`${API_BASE_URL}/api/contacts`, {
+      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/contacts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -3,7 +3,6 @@ import styles from "./page.module.css";
 import DashboardClient from "./_components/DashboardClient";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import { API_BASE_URL } from "@/utils/config";
 import { serverFetch } from "@/utils/serverFetch";
 
 const Page = async () => {
@@ -20,7 +19,7 @@ const Page = async () => {
   try {
     // Fetch dashboard stats from backend
     const response = await serverFetch(
-      `${API_BASE_URL}/api/user-dashboard/stats`,
+      `${NEXT_PUBLIC_API_URL}/api/user-dashboard/stats`,
       {
         headers: {
           "Content-Type": "application/json",
