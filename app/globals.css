@@ -35,6 +35,10 @@ body {
   body {
     width: 100%;
     overflow-x: hidden;
+  }
+
+  /* Only add padding-top for pages with normal header */
+  .has-normal-header {
     padding-top: 80px;
   }
 }

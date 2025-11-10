@@ -182,9 +182,12 @@ const AnnualPersonalDetailsForm = ({ form }) => {
 
   const handleAddDriver = () => {
     const newDriver = {
+      relationship: "",
+      title: "",
       firstName: "",
       lastName: "",
       dateOfBirth: "",
+      relationshipStatus: "",
       email: "",
       phone: "",
       postCode: "",
@@ -212,6 +215,7 @@ const AnnualPersonalDetailsForm = ({ form }) => {
       criminalConvictions: null,
       medicalConditions: null,
       insuranceCancelledOrClaimRefusedOrPolicyVoided: null,
+      insuranceHistory: null,
     };
     setValue("carUsage.additionalDrivers", [...additionalDrivers, newDriver]);
   };

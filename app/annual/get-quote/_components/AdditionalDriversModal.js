@@ -16,9 +16,6 @@ import {
   monthOptions,
   yearOptions,
   ncbOptions,
-  carUsageOptions,
-  keepingCarDuringDayOptions,
-  keepingCarDuringNightOptions,
 } from "@/app/temporary/get-quote/data";
 
 const AdditionalDriversModal = ({
@@ -77,14 +74,14 @@ const AdditionalDriversModal = ({
       if (!driver) return false;
 
       const requiredFields = {
-        about: ["firstName", "lastName", "dateOfBirth", "livedInUKSinceBirth"],
-        employment: ["employmentStatus", "occupation", "industry"],
+        about: ["relationship", "title", "firstName", "lastName", "dateOfBirth", "relationshipStatus", "livedInUKSinceBirth"],
+        employment: ["employmentStatus"],
         usage: ["otherVehicles"],
-        driving: ["licenseType", "licenseHeld", "hasAdditionalQualifications"],
+        driving: ["licenseType", "licenseHeld"],
         declarations: [
           "criminalConvictions",
           "medicalConditions",
-          "insuranceCancelledOrClaimRefusedOrPolicyVoided",
+          "insuranceHistory",
         ],
       };
 
@@ -95,6 +92,39 @@ const AdditionalDriversModal = ({
       });
     },
     [drivers]
+  );
+
+  const isDriverComplete = useCallback((driver) => {
+    const requiredFields = [
+      "relationship",
+      "title",
+      "firstName",
+      "lastName",
+      "dateOfBirth",
+      "relationshipStatus",
+      "livedInUKSinceBirth",
+      "employmentStatus",
+      "otherVehicles",
+      "licenseType",
+      "licenseHeld",
+      "criminalConvictions",
+      "medicalConditions",
+      "insuranceHistory",
+    ];
+
+    return requiredFields.every((field) => {
+      const value = driver[field];
+      return value !== null && value !== undefined && value !== "";
+    });
+  }, []);
+
+  const isDriverDisabled = useCallback(
+    (driverIndex) => {
+      if (driverIndex === 0) return false; // First driver is always enabled
+      const previousDriver = drivers[driverIndex - 1];
+      return !isDriverComplete(previousDriver);
+    },
+    [drivers, isDriverComplete]
   );
 
   useEffect(() => {
@@ -110,30 +140,6 @@ const AdditionalDriversModal = ({
     });
     setValidationError("");
   }, [drivers.length, isOpen, drivers, expandedTiles, isDriverDisabled]);
-
-  const isDriverComplete = (driver) => {
-    const requiredFields = [
-      "firstName",
-      "lastName",
-      "dateOfBirth",
-      "livedInUKSinceBirth",
-      "employmentStatus",
-      "occupation",
-      "industry",
-      "otherVehicles",
-      "licenseType",
-      "licenseHeld",
-      "hasAdditionalQualifications",
-      "criminalConvictions",
-      "medicalConditions",
-      "insuranceCancelledOrClaimRefusedOrPolicyVoided",
-    ];
-
-    return requiredFields.every((field) => {
-      const value = driver[field];
-      return value !== null && value !== undefined && value !== "";
-    });
-  };
 
   const validateAllDrivers = () => {
     if (drivers.length === 0) {
@@ -209,15 +215,6 @@ const AdditionalDriversModal = ({
       return !checkTileCompletion(driverIndex, previousTileKey);
     },
     [checkTileCompletion]
-  );
-
-  const isDriverDisabled = useCallback(
-    (driverIndex) => {
-      if (driverIndex === 0) return false; // First driver is always enabled
-      const previousDriver = drivers[driverIndex - 1];
-      return !isDriverComplete(previousDriver);
-    },
-    [drivers]
   );
 
   // Auto-expand next tile when current tile is completed
@@ -420,7 +417,47 @@ const AdditionalDriversModal = ({
                       {isTileExpanded(index, "about") &&
                         !isTileDisabled(index, "about") && (
                           <>
-                            <div className={modalStyles.fieldRow2Col}>
+                            <div className={modalStyles.field}>
+                              <FormDropdown
+                                label="Relationship to you"
+                                options={["Spouse", "Child", "Parent", "Sibling", "Friend", "Other"]}
+                                placeholder="Select relationship"
+                                value={
+                                  watch(
+                                    `carUsage.additionalDrivers.${index}.relationship`
+                                  ) || ""
+                                }
+                                onChange={(e) =>
+                                  onUpdateDriver(
+                                    index,
+                                    "relationship",
+                                    e.target.value
+                                  )
+                                }
+                                inputStyle={{ paddingLeft: "14px" }}
+                              />
+                            </div>
+                            <div className={modalStyles.fieldRow3Col}>
+                              <div className={modalStyles.field}>
+                                <FormDropdown
+                                  label="Title"
+                                  options={["Mr", "Mrs", "Miss", "Ms", "Dr", "Mx"]}
+                                  placeholder="Select..."
+                                  value={
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.title`
+                                    ) || ""
+                                  }
+                                  onChange={(e) =>
+                                    onUpdateDriver(
+                                      index,
+                                      "title",
+                                      e.target.value
+                                    )
+                                  }
+                                  inputStyle={{ paddingLeft: "14px" }}
+                                />
+                              </div>
                               <div className={modalStyles.field}>
                                 <FormTextInput
                                   label="First Name"
@@ -488,6 +525,26 @@ const AdditionalDriversModal = ({
                                       e.target.value
                                     )
                                   }
+                                />
+                              </div>
+                              <div className={modalStyles.field}>
+                                <FormDropdown
+                                  label="Relationship Status"
+                                  options={["Single", "Married", "Divorced", "Widowed", "In a civil partnership"]}
+                                  placeholder="Select..."
+                                  value={
+                                    watch(
+                                      `carUsage.additionalDrivers.${index}.relationshipStatus`
+                                    ) || ""
+                                  }
+                                  onChange={(e) =>
+                                    onUpdateDriver(
+                                      index,
+                                      "relationshipStatus",
+                                      e.target.value
+                                    )
+                                  }
+                                  inputStyle={{ paddingLeft: "14px" }}
                                 />
                               </div>
                             </div>
@@ -1014,6 +1071,23 @@ const AdditionalDriversModal = ({
                                   onUpdateDriver(
                                     index,
                                     "insuranceCancelledOrClaimRefusedOrPolicyVoided",
+                                    value
+                                  )
+                                }
+                              />
+                            </div>
+                            <div className={modalStyles.field}>
+                              <label className={modalStyles.inputLabel}>
+                                Has an insurance provider ever declined, cancelled, or voided their policy or imposed special terms?
+                              </label>
+                              <YesORNo
+                                value={watch(
+                                  `carUsage.additionalDrivers.${index}.insuranceHistory`
+                                )}
+                                onChange={(value) =>
+                                  onUpdateDriver(
+                                    index,
+                                    "insuranceHistory",
                                     value
                                   )
                                 }

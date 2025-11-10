@@ -163,22 +163,24 @@ const Header = () => {
     },
   ];
 
-  const isPolicyPage = [
+  // Pages that use GetQuoteHeaderWithNav - hide normal header on these
+  const pagesWithCustomHeader = [
+    "/login",
+    "/forget-password",
+    "/change-password",
+    "/retrieve-quote",
     "/privacy-policy",
     "/terms-and-conditions",
     "/cookies-policy",
     "/complaints",
-  ].includes(pathname);
-  const isMobile = typeof window !== "undefined" && window.innerWidth <= 900;
+    "/FAQ",
+  ];
 
   const shouldHideHeader =
-    (pathname === "/login" && !isMobile) ||
-    pathname === "/forget-password" ||
-    pathname === "/change-password" ||
-    (pathname === "/retrieve-quote" && !isMobile) ||
-    (isPolicyPage && !isMobile) ||
+    pagesWithCustomHeader.includes(pathname) ||
     pathname.startsWith("/dashboard") ||
-    pathname.startsWith("/payment");
+    pathname.startsWith("/payment") ||
+    pathname.includes("/get-quote");
 
   if (shouldHideHeader) {
     return null;

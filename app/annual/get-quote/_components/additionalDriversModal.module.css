@@ -743,24 +743,24 @@
   .modalContainer {
     width: 96%;
     max-width: 76rem;
-    max-height: min(70vh, 100dvh - 80px);
+    max-height: min(85vh, 100dvh - 40px);
     overflow-y: auto;
   }
 
   .modalHeader {
-    padding: 2rem;
+    padding: 2rem 1.6rem;
   }
 
   .modalTitle {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 
   .modalContent {
-    padding: 1.6rem 0.8rem;
+    padding: 1.6rem 1.2rem;
   }
 
   .driverFormContent {
-    padding: 1.4rem 0.4rem 1.4rem;
+    padding: 1.6rem 1rem 1.6rem;
     gap: 2rem;
   }
 
@@ -841,33 +841,34 @@
   .modalContainer {
     width: 98%;
     max-width: 100%;
-    max-height: min(70vh, 100dvh - 80px);
+    max-height: min(88vh, 100dvh - 40px);
     border-radius: 12px;
     overflow-y: auto;
   }
 
   .modalHeader {
-    padding: 1.6rem;
+    padding: 1.8rem 1.4rem;
   }
 
   .modalTitle {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
+    padding-right: 3.5rem;
   }
 
   .closeButton {
-    width: 2.8rem;
-    height: 2.8rem;
-    top: 1.2rem;
-    right: 1.2rem;
-    font-size: 1.6rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    top: 1.4rem;
+    right: 1.4rem;
+    font-size: 1.8rem;
   }
 
   .modalContent {
-    padding: 1.4rem 0.6rem;
+    padding: 1.6rem 1rem;
   }
 
   .driverFormContent {
-    padding: 1.2rem 0;
+    padding: 1.4rem 0.8rem;
     gap: 1.8rem;
   }
 
@@ -996,17 +997,18 @@
   .modalContainer {
     width: 98%;
     max-width: 100%;
-    max-height: min(70vh, 100dvh - 80px);
+    max-height: min(90vh, 100dvh - 30px);
     border-radius: 10px;
     overflow-y: auto;
   }
 
   .modalHeader {
-    padding: 1.4rem;
+    padding: 1.6rem 1.2rem;
   }
 
   .modalTitle {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    padding-right: 3.2rem;
   }
 
   .modalSubtitle {
@@ -1014,19 +1016,19 @@
   }
 
   .closeButton {
-    width: 2.6rem;
-    height: 2.6rem;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    top: 1.2rem;
+    right: 1.2rem;
+    font-size: 1.6rem;
   }
 
   .modalContent {
-    padding: 1.2rem 0.4rem;
+    padding: 1.4rem 0.8rem;
   }
 
   .driverFormContent {
-    padding: 1rem 0;
+    padding: 1.2rem 0.6rem;
     gap: 1.6rem;
   }
 

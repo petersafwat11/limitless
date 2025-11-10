@@ -335,7 +335,7 @@
   }
 
   .navigationBar {
-    display: none;
+    display: flex;
   }
 
   .logo {
