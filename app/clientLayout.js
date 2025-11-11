@@ -35,7 +35,7 @@ export default function ClientLayout({ children }) {
       </div>
       <ToastContainer
         position="bottom-center"
-        autoClose={3500}
+        autoClose={5000}
         hideProgressBar={true}
         newestOnTop={true}
         closeOnClick={false}

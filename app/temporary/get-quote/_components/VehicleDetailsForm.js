@@ -11,7 +11,6 @@ import ComponentWrapper from "@/ui/insurance-quotes/componentWrapper/ComponentWr
 import FormTextInput from "@/ui/inputs/FormTextInput";
 import FormDropdown from "@/ui/inputs/FormDropdown";
 import FormDateInput from "@/ui/inputs/FormDateInput";
-import Title from "@/ui/insurance-quotes/title/Title";
 import VehicleModificationsModal from "@/app/annual/get-quote/_components/VehicleModificationsModal";
 import styles from "@/app/annual/get-quote/_components/annualVehicle.module.css";
 import ConfirmBtn from "@/ui/buttons/confirmBtn/ConfirmBtn";
