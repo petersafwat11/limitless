@@ -85,7 +85,7 @@ body {
 }
 .dashboard-content {
   margin: 0 auto;
-  margin-top: 145px;
+  margin-top: 102px;
   width: calc(100% - 8.8%);
   display: flex;
   align-items: flex-start;
@@ -138,6 +138,9 @@ body {
   .headerDashboardContainer {
     padding: 0;
     margin: 0 1.1%;
+  }
+  .dashboard-content {
+    margin-top: 80px;
   }
   .companyPageContainer {
     padding: 7.2rem 5.8% 8.5rem;
