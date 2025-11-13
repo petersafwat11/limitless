@@ -182,12 +182,18 @@ const FormDateInput = forwardRef(
       if (!date) return;
 
       // Check date restrictions
-      if (!allowPastDates) {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
 
+      if (allowPastDates) {
+        // When allowPastDates is true, only allow past dates (not future)
+        if (date > today) {
+          return; // Don't allow future dates when allowPastDates is true
+        }
+      } else {
+        // When allowPastDates is false, only allow future dates (not past)
         if (date < today) {
-          return; // Don't allow past dates unless explicitly allowed
+          return; // Don't allow past dates when allowPastDates is false
         }
       }
 
@@ -316,7 +322,7 @@ const FormDateInput = forwardRef(
                 selectedDate={parseDate(value)}
                 onDateSelect={handleDateSelect}
                 minDate={allowPastDates ? (minDate || null) : (minDate || today)}
-                maxDate={maxDate}
+                maxDate={allowPastDates ? (maxDate || today) : maxDate}
                 showAbove={pickerPosition.showAbove}
                 defaultYear={defaultYear}
               />

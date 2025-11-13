@@ -2,7 +2,8 @@
 const nextConfig = {
   env: {
     POST_CODE_ApiKey: process.env.POST_CODE_ApiKey,
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000",
+    NEXT_PUBLIC_API_URL:
+      process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000",
   },
   // Allow HMR from Builder.io preview domains
   onDemandEntries: {

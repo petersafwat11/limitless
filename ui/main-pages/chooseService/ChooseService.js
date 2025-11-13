@@ -23,7 +23,7 @@ const ChooseService = () => {
           Choose the <span>right insurance for you</span>
         </h2>
         <p className={styles.description}>
-          At <strong>Limitless Cover</strong>, we offer fast, flexible, and affordable insurance tailored to your lifestyle. Whether you're a young driver, courier, or need impound cover, we've got <strong>instant solutions</strong> for all drivers—because insurance should work your way.
+          At <strong>Limitless Cover</strong>, we offer fast, flexible, and affordable insurance tailored to your lifestyle. Whether you&apos;re a young driver, courier, or need impound cover, we&apos;ve got <strong>instant solutions</strong> for all drivers because insurance should work your way.
         </p>
       </div>
       <div className={styles.cardsContainer}>

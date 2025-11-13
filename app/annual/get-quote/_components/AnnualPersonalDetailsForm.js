@@ -36,6 +36,7 @@ const AnnualPersonalDetailsForm = ({ form }) => {
   } = form;
 
   const [dynamicNcbOptions, setDynamicNcbOptions] = useState(ncbOptions);
+  const [dynamicLicenseHeldOptions, setDynamicLicenseHeldOptions] = useState(licenseHeldOptions);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedTiles, setExpandedTiles] = useState(new Set(['about']));
 
@@ -108,6 +109,36 @@ const AnnualPersonalDetailsForm = ({ form }) => {
     return expandedTiles.has(tileKey);
   };
 
+  const checkTileCompletion = useCallback((tileKey) => {
+    const requiredFields = {
+      about: ['userDetails.firstName', 'userDetails.surname', 'userDetails.dateOfBirth', 'userDetails.email', 'userDetails.phone'],
+      location: ['userDetails.postCode', 'userDetails.address'],
+      employment: ['userDetails.employmentStatus', 'userDetails.occupation', 'userDetails.industry'],
+      parking: ['carUsage.keepingCarDuringDay', 'carUsage.keepingCarDuringNight'],
+      usage: ['carUsage.usageType'],
+      driving: ['carUsage.licenseType', 'carUsage.licenseHeld', 'carUsage.NCB'],
+      additional: ['carUsage.ownsHome', 'carUsage.childrenUnder16', 'carUsage.livedInUKSinceBirth'],
+      declarations: ['carUsage.criminalConvictions', 'carUsage.medicalConditions', 'carUsage.insuranceCancelledOrClaimRefusedOrPolicyVoided'],
+      additionalDrivers: []
+    };
+
+    const fieldsToCheck = requiredFields[tileKey] || [];
+    return fieldsToCheck.every(field => {
+      const value = watch(field);
+      return value !== null && value !== undefined && value !== '';
+    });
+  }, [watch]);
+
+  const isTileDisabled = useCallback((tileKey) => {
+    const tiles = getTileOrder();
+    const currentTileIndex = tiles.indexOf(tileKey);
+
+    if (currentTileIndex === 0) return false;
+
+    const previousTileKey = tiles[currentTileIndex - 1];
+    return !checkTileCompletion(previousTileKey);
+  }, [checkTileCompletion]);
+
   // Debounced auto-expand on form changes
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -146,38 +177,8 @@ const AnnualPersonalDetailsForm = ({ form }) => {
     firstName, surname, dateOfBirth, userEmail, userPhone, postCode, address, employmentStatus, industry, occupation,
     keepingCarDuringDay, keepingCarDuringNight, usageType, licenseType, licenseHeld, ncb,
     ownsHome, childrenUnder16, livedInUKSinceBirth, criminalConvictions, medicalConditions, insuranceCancelledStatus,
-    additionalDrivers, hasAdditionalDrivers
+    additionalDrivers, hasAdditionalDrivers, checkTileCompletion, isTileDisabled
   ]);
-
-  const checkTileCompletion = (tileKey) => {
-    const requiredFields = {
-      about: ['userDetails.firstName', 'userDetails.surname', 'userDetails.dateOfBirth', 'userDetails.email', 'userDetails.phone'],
-      location: ['userDetails.postCode', 'userDetails.address'],
-      employment: ['userDetails.employmentStatus', 'userDetails.occupation', 'userDetails.industry'],
-      parking: ['carUsage.keepingCarDuringDay', 'carUsage.keepingCarDuringNight'],
-      usage: ['carUsage.usageType'],
-      driving: ['carUsage.licenseType', 'carUsage.licenseHeld', 'carUsage.NCB'],
-      additional: ['carUsage.ownsHome', 'carUsage.childrenUnder16', 'carUsage.livedInUKSinceBirth'],
-      declarations: ['carUsage.criminalConvictions', 'carUsage.medicalConditions', 'carUsage.insuranceCancelledOrClaimRefusedOrPolicyVoided'],
-      additionalDrivers: []
-    };
-
-    const fieldsToCheck = requiredFields[tileKey] || [];
-    return fieldsToCheck.every(field => {
-      const value = watch(field);
-      return value !== null && value !== undefined && value !== '';
-    });
-  };
-
-  const isTileDisabled = (tileKey) => {
-    const tiles = getTileOrder();
-    const currentTileIndex = tiles.indexOf(tileKey);
-
-    if (currentTileIndex === 0) return false;
-
-    const previousTileKey = tiles[currentTileIndex - 1];
-    return !checkTileCompletion(previousTileKey);
-  };
 
 
   const handleAddDriver = () => {
@@ -261,18 +262,19 @@ const AnnualPersonalDetailsForm = ({ form }) => {
         exactAge--;
       }
       
+      // Calculate max years for NCB (age - 17)
       const maxNCBYears = Math.max(0, exactAge - 17);
-      const options = [];
+      const ncbOptionsArray = [];
       
       for (let i = 0; i <= Math.min(maxNCBYears, 14); i++) {
-        options.push(i.toString());
+        ncbOptionsArray.push(i.toString());
       }
       
       if (maxNCBYears >= 15) {
-        options.push("15+");
+        ncbOptionsArray.push("15+");
       }
       
-      setDynamicNcbOptions(options);
+      setDynamicNcbOptions(ncbOptionsArray);
       
       const currentNCB = watch("carUsage.NCB");
       if (currentNCB) {
@@ -281,8 +283,31 @@ const AnnualPersonalDetailsForm = ({ form }) => {
           setValue("carUsage.NCB", "");
         }
       }
+
+      // Calculate max years for License Held (age - 17)
+      const maxLicenseYears = Math.max(0, exactAge - 17);
+      const licenseOptionsArray = [];
+      
+      for (let i = 0; i <= Math.min(maxLicenseYears, 14); i++) {
+        licenseOptionsArray.push(i.toString());
+      }
+      
+      if (maxLicenseYears >= 15) {
+        licenseOptionsArray.push("15+");
+      }
+      
+      setDynamicLicenseHeldOptions(licenseOptionsArray);
+      
+      const currentLicenseHeld = watch("carUsage.licenseHeld");
+      if (currentLicenseHeld) {
+        const currentLicenseValue = currentLicenseHeld === "15+" ? 15 : parseInt(currentLicenseHeld);
+        if (currentLicenseValue > maxLicenseYears) {
+          setValue("carUsage.licenseHeld", "");
+        }
+      }
     } else {
       setDynamicNcbOptions(ncbOptions);
+      setDynamicLicenseHeldOptions(licenseHeldOptions);
     }
   }, [dateOfBirth, setValue, watch]);
 
@@ -656,7 +681,7 @@ const AnnualPersonalDetailsForm = ({ form }) => {
             />
             <FormDropdown
               label="License Held"
-              options={licenseHeldOptions}
+              options={dynamicLicenseHeldOptions}
               placeholder="Select how long held"
               {...register("carUsage.licenseHeld")}
               error={errors.carUsage?.licenseHeld}

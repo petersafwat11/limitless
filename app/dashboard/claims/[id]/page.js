@@ -106,7 +106,7 @@ const page = async ({ params }) => {
             },
           ]}
         />
-        <Buttons />
+        <Buttons claimId={claim._id} />
       </div>
     </div>
   );

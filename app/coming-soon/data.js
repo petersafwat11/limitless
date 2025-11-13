@@ -21,7 +21,7 @@ export const features = [
     },
     title: "Annual Insurance",
     description:
-      "Get year-round protection with our comprehensive annual car insurance policies. Our flexible coverage options are designed for drivers who want reliable, long-term security at competitive rates. With quick, hassle-free setup and transparent pricing, you get the peace of mind you deserve—backed by our commitment to excellent customer service.",
+      "Get year-round protection with our comprehensive annual car insurance policies. Our flexible coverage options are designed for drivers who want reliable, long-term security at competitive rates. With quick, hassle-free setup and transparent pricing, you get the peace of mind you deserve backed by our commitment to excellent customer service.",
     href: "/annual",
     button: "Learn more",
   },

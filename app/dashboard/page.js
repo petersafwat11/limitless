@@ -8,9 +8,13 @@ import { serverFetch } from "@/utils/serverFetch";
 const Page = async () => {
   const cookieStore = await cookies();
   const token = cookieStore.get("jwt")?.value;
-  const devMode = process.env.NEXT_PUBLIC_DEV_MODE === "true";
+  const allCookies = cookieStore.getAll();
 
-  if (!token && !devMode) {
+  console.log("Dashboard Page - JWT Token present:", !!token);
+  console.log("Dashboard Page - All cookies:", allCookies.map(c => c.name));
+
+  if (!token) {
+    console.log("No JWT token found, redirecting to login");
     redirect("/login");
   }
 
@@ -20,25 +24,46 @@ const Page = async () => {
   try {
     // Fetch dashboard stats from backend
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-    const response = await serverFetch(
-      `${apiUrl}/api/user-dashboard/stats`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        cache: "no-store",
-      }
-    );
+    const fullUrl = `${apiUrl}/api/user-dashboard/stats`;
+    
+    console.log("Fetching dashboard stats from:", fullUrl);
+    console.log("API URL from env:", process.env.NEXT_PUBLIC_API_URL);
+    
+    const response = await serverFetch(fullUrl, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "no-store",
+    });
+
+    console.log("Response received:", {
+      ok: response?.ok,
+      status: response?.status,
+      statusText: response?.statusText,
+    });
 
     if (response && response.ok) {
       const result = await response.json();
+      console.log("Dashboard stats data:", result);
       activePoliciesCount = result.data?.activePolicies || 0;
       pendingClaimsCount = result.data?.pendingClaims || 0;
+    } else if (response) {
+      const errorText = await response.text().catch(() => "Unable to read response");
+      console.error("Dashboard stats fetch failed:", {
+        status: response.status,
+        statusText: response.statusText,
+        url: fullUrl,
+        body: errorText,
+      });
     } else {
-      console.warn("Dashboard stats fetch failed:", response?.status, response?.statusText);
+      console.error("No response received from server");
     }
   } catch (error) {
-    console.error("Error fetching dashboard stats:", error);
+    console.error("Error fetching dashboard stats:", {
+      message: error.message,
+      stack: error.stack,
+      error: error,
+    });
     // Continue rendering with default values
   }
 
