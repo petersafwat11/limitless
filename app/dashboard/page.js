@@ -10,12 +10,6 @@ const Page = async () => {
   const token = cookieStore.get("jwt")?.value;
   const allCookies = cookieStore.getAll();
 
-  // console.log("Dashboard Page - JWT Token present:", !!token);
-  // console.log(
-  //   "Dashboard Page - All cookies:",
-  //   allCookies.map((c) => c.name)
-  // );
-
   if (!token) {
     console.log("No JWT token found, redirecting to login");
     redirect("/login");

@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useAuth } from "@/contexts/AuthContext";
 import Stepper from "./_components/stepper/Stepper";
 import styles from "./page.module.css";
 import ClaimFeature from "./_components/claimFeature/ClaimFeature";
@@ -20,7 +19,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const SubmitClaimContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { user, isAuthenticated, isLoading } = useAuth();
 
   const type = searchParams.get("type");
   const step = searchParams.get("step");
@@ -73,35 +71,6 @@ const SubmitClaimContent = () => {
       }
     }
   }, [type, step, reason, router]);
-
-  // Check auth and redirect if needed - AFTER all hooks
-  useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
-      router.push("/login");
-    }
-  }, [isLoading, isAuthenticated, router]);
-
-  // Show loading while checking authentication
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          minHeight: "400px",
-          color: "#666",
-        }}
-      >
-        Loading...
-      </div>
-    );
-  }
-
-  // Don't render if not authenticated (redirect will happen via useEffect)
-  if (!isAuthenticated) {
-    return null;
-  }
 
   // Render different components based on search params
   const renderContent = () => {
