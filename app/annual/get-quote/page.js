@@ -11,16 +11,41 @@ import LoadingOverlay from "@/ui/loadingSpinner/LoadingOverlay";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import { annualDefaultValues, STEPS } from "@/utils/defaultValues";
-import { handleNextStep, handlePreviousStep, submitInsurance } from "@/lib/getQuotePagesHelper";
+import {
+  handleNextStep,
+  handlePreviousStep,
+  submitInsurance,
+} from "@/lib/getQuotePagesHelper";
 import styles from "@/app/temporary/get-quote/stepForm.module.css";
 
-const VehicleDetailsForm = dynamic(() => import("@/app/temporary/get-quote/_components/VehicleDetailsForm"), { loading: () => <StepFallback /> });
-const AnnualCoverDetailsForm = dynamic(() => import("./_components/AnnualCoverDetailsForm"), { loading: () => <StepFallback /> });
-const AnnualPersonalDetailsForm = dynamic(() => import("./_components/AnnualPersonalDetailsForm"), { loading: () => <StepFallback /> });
-const ReviewQuote = dynamic(() => import("@/app/temporary/get-quote/_components/ReviewQuote"), { loading: () => <StepFallback /> });
+const VehicleDetailsForm = dynamic(
+  () => import("@/app/temporary/get-quote/_components/VehicleDetailsForm"),
+  { loading: () => <StepFallback /> }
+);
+const AnnualCoverDetailsForm = dynamic(
+  () => import("./_components/AnnualCoverDetailsForm"),
+  { loading: () => <StepFallback /> }
+);
+const AnnualPersonalDetailsForm = dynamic(
+  () => import("./_components/AnnualPersonalDetailsForm"),
+  { loading: () => <StepFallback /> }
+);
+const ReviewQuote = dynamic(
+  () => import("@/app/temporary/get-quote/_components/ReviewQuote"),
+  { loading: () => <StepFallback /> }
+);
 
 const StepFallback = () => (
-  <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "400px", color: "#666", fontSize: "1.3rem" }}>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "400px",
+      color: "#666",
+      fontSize: "1.3rem",
+    }}
+  >
     Loading...
   </div>
 );
@@ -42,7 +67,11 @@ const AnnualInsuranceContent = () => {
     mode: "onChange", // Enable real-time validation - errors disappear when fixed
   });
 
-  const { setValue, trigger, formState: { errors } } = form;
+  const {
+    setValue,
+    trigger,
+    formState: { errors },
+  } = form;
 
   useEffect(() => {
     const stepParam = searchParams.get("step");
@@ -59,7 +88,10 @@ const AnnualInsuranceContent = () => {
     if (fromQuote === "true") {
       const registrationNumber = searchParams.get("registrationNumber");
       if (registrationNumber) {
-        setValue("vehicleDetails.registrationNumber", registrationNumber.toUpperCase());
+        setValue(
+          "vehicleDetails.registrationNumber",
+          registrationNumber.toUpperCase()
+        );
         setShouldAutoTrigger(true);
       }
     }
@@ -103,10 +135,21 @@ const AnnualInsuranceContent = () => {
   };
 
   return (
-    <div suppressHydrationWarning>
+    <div
+      suppressHydrationWarning
+      style={{ position: "relative", minHeight: "100vh" }}
+    >
       <LoadingOverlay isVisible={showLoading} />
-      <GetQuoteHeaderWithNav title="Annual Insurance Quote" currentStep={currentStep} totalSteps={TOTAL_STEPS} />
-      <div className="centeredContent" suppressHydrationWarning>
+      <GetQuoteHeaderWithNav
+        title="Annual Insurance Quote"
+        currentStep={currentStep}
+        totalSteps={TOTAL_STEPS}
+      />
+      <div
+        className="centeredContent"
+        suppressHydrationWarning
+        style={{ position: "relative", zIndex: 1 }}
+      >
         <form
           className={styles.stepFormContainer}
           onSubmit={form.handleSubmit(onSubmit, onError)}
@@ -121,7 +164,9 @@ const AnnualInsuranceContent = () => {
                 autoTriggerLookup={shouldAutoTrigger}
               />
             )}
-            {currentStep === STEPS.COVER && <AnnualCoverDetailsForm form={form} />}
+            {currentStep === STEPS.COVER && (
+              <AnnualCoverDetailsForm form={form} />
+            )}
             {currentStep === STEPS.PERSONAL && (
               <AnnualPersonalDetailsForm form={form} />
             )}
@@ -147,13 +192,18 @@ const AnnualInsuranceContent = () => {
 
 const AnnualInsurancePage = () => {
   return (
-    <Suspense fallback={<GetQuoteHeaderWithNav title="Annual Insurance Quote" currentStep={1} totalSteps={4} />}>
+    <Suspense
+      fallback={
+        <GetQuoteHeaderWithNav
+          title="Annual Insurance Quote"
+          currentStep={1}
+          totalSteps={4}
+        />
+      }
+    >
       <AnnualInsuranceContent />
     </Suspense>
   );
 };
 
 export default AnnualInsurancePage;
-
-
-

@@ -11,16 +11,40 @@ import LoadingOverlay from "@/ui/loadingSpinner/LoadingOverlay";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import { temporaryDefaultValues, STEPS } from "@/utils/defaultValues";
-import { handleNextStep, handlePreviousStep, submitInsurance } from "@/lib/getQuotePagesHelper";
+import {
+  handleNextStep,
+  handlePreviousStep,
+  submitInsurance,
+} from "@/lib/getQuotePagesHelper";
 import styles from "./stepForm.module.css";
 
-const VehicleDetailsForm = dynamic(() => import("./_components/VehicleDetailsForm"), { loading: () => <StepFallback /> });
-const CoverDetailsForm = dynamic(() => import("./_components/CoverDetailsForm"), { loading: () => <StepFallback /> });
-const PersonalDetailsForm = dynamic(() => import("./_components/PersonalDetailsForm"), { loading: () => <StepFallback /> });
-const ReviewQuote = dynamic(() => import("./_components/ReviewQuote"), { loading: () => <StepFallback /> });
+const VehicleDetailsForm = dynamic(
+  () => import("./_components/VehicleDetailsForm"),
+  { loading: () => <StepFallback /> }
+);
+const CoverDetailsForm = dynamic(
+  () => import("./_components/CoverDetailsForm"),
+  { loading: () => <StepFallback /> }
+);
+const PersonalDetailsForm = dynamic(
+  () => import("./_components/PersonalDetailsForm"),
+  { loading: () => <StepFallback /> }
+);
+const ReviewQuote = dynamic(() => import("./_components/ReviewQuote"), {
+  loading: () => <StepFallback />,
+});
 
 const StepFallback = () => (
-  <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "400px", color: "#666", fontSize: "1.3rem" }}>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "400px",
+      color: "#666",
+      fontSize: "1.3rem",
+    }}
+  >
     Loading...
   </div>
 );
@@ -42,7 +66,11 @@ const TemporaryInsuranceContent = () => {
     mode: "onChange", // Enable real-time validation - errors disappear when fixed
   });
 
-  const { setValue, trigger, formState: { errors } } = form;
+  const {
+    setValue,
+    trigger,
+    formState: { errors },
+  } = form;
 
   // Handle step parameter from URL
   useEffect(() => {
@@ -75,7 +103,10 @@ const TemporaryInsuranceContent = () => {
       // Check if registration number was provided
       const registrationNumber = searchParams.get("registrationNumber");
       if (registrationNumber) {
-        setValue("vehicleDetails.registrationNumber", registrationNumber.toUpperCase());
+        setValue(
+          "vehicleDetails.registrationNumber",
+          registrationNumber.toUpperCase()
+        );
         // Auto-trigger vehicle lookup
         setShouldAutoTrigger(true);
       }
@@ -120,10 +151,21 @@ const TemporaryInsuranceContent = () => {
   };
 
   return (
-    <div suppressHydrationWarning>
+    <div
+      suppressHydrationWarning
+      style={{ position: "relative", minHeight: "100vh" }}
+    >
       <LoadingOverlay isVisible={showLoading} />
-      <GetQuoteHeaderWithNav title="Temporary Insurance Quote" currentStep={currentStep} totalSteps={4} />
-      <div className="centeredContent" suppressHydrationWarning>
+      <GetQuoteHeaderWithNav
+        title="Temporary Insurance Quote"
+        currentStep={currentStep}
+        totalSteps={4}
+      />
+      <div
+        className="centeredContent"
+        suppressHydrationWarning
+        style={{ position: "relative", zIndex: 1 }}
+      >
         <form
           className={styles.stepFormContainer}
           onSubmit={form.handleSubmit(onSubmit, onError)}
@@ -164,7 +206,15 @@ const TemporaryInsuranceContent = () => {
 
 const TemporaryInsurancePage = () => {
   return (
-    <Suspense fallback={<GetQuoteHeaderWithNav title="Temporary Insurance Quote" currentStep={1} totalSteps={4} />}>
+    <Suspense
+      fallback={
+        <GetQuoteHeaderWithNav
+          title="Temporary Insurance Quote"
+          currentStep={1}
+          totalSteps={4}
+        />
+      }
+    >
       <TemporaryInsuranceContent />
     </Suspense>
   );

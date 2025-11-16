@@ -25,10 +25,12 @@ const Dropdown = ({ insurances, selectedInsuranceId, onInsuranceChange }) => {
   );
 
   const getDisplayText = (insurance) => {
-    const policyNumber = insurance._id.toString().slice(-8).toUpperCase();
+    const policyNumber =
+      insurance.referenceNumber ||
+      `LC-${insurance._id.toString().slice(-8).toUpperCase()}`;
     const vehicleMake = insurance.vehicleDetails?.make || "N/A";
     const vehicleModel = insurance.vehicleDetails?.model || "N/A";
-    return `LC-${policyNumber} - ${vehicleMake} ${vehicleModel}`;
+    return `${policyNumber} - ${vehicleMake} ${vehicleModel}`;
   };
 
   if (insurances.length === 0) {

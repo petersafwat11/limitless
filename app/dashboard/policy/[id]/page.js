@@ -43,7 +43,10 @@ const page = async ({ params }) => {
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <h1 className={styles.title}>{insurance.policyNumber}</h1>
+        <h1 className={styles.title}>
+          {insurance.referenceNumber ||
+            `LC-${insurance._id.toString().slice(-8).toUpperCase()}`}
+        </h1>
       </div>
       <PolicyDetailsReview policy={insurance} />
     </div>

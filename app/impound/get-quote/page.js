@@ -11,16 +11,41 @@ import LoadingOverlay from "@/ui/loadingSpinner/LoadingOverlay";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-toastify";
 import { impoundDefaultValues, STEPS } from "@/utils/defaultValues";
-import { handleNextStep, handlePreviousStep, submitInsurance } from "@/lib/getQuotePagesHelper";
+import {
+  handleNextStep,
+  handlePreviousStep,
+  submitInsurance,
+} from "@/lib/getQuotePagesHelper";
 import styles from "@/app/temporary/get-quote/stepForm.module.css";
 
-const VehicleDetailsForm = dynamic(() => import("@/app/temporary/get-quote/_components/VehicleDetailsForm"), { loading: () => <StepFallback /> });
-const ImpoundCoverDetailsForm = dynamic(() => import("./_components/ImpoundCoverDetailsForm"), { loading: () => <StepFallback /> });
-const PersonalDetailsForm = dynamic(() => import("@/app/temporary/get-quote/_components/PersonalDetailsForm"), { loading: () => <StepFallback /> });
-const ReviewQuote = dynamic(() => import("@/app/temporary/get-quote/_components/ReviewQuote"), { loading: () => <StepFallback /> });
+const VehicleDetailsForm = dynamic(
+  () => import("@/app/temporary/get-quote/_components/VehicleDetailsForm"),
+  { loading: () => <StepFallback /> }
+);
+const ImpoundCoverDetailsForm = dynamic(
+  () => import("./_components/ImpoundCoverDetailsForm"),
+  { loading: () => <StepFallback /> }
+);
+const PersonalDetailsForm = dynamic(
+  () => import("@/app/temporary/get-quote/_components/PersonalDetailsForm"),
+  { loading: () => <StepFallback /> }
+);
+const ReviewQuote = dynamic(
+  () => import("@/app/temporary/get-quote/_components/ReviewQuote"),
+  { loading: () => <StepFallback /> }
+);
 
 const StepFallback = () => (
-  <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "400px", color: "#666", fontSize: "1.3rem" }}>
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      minHeight: "400px",
+      color: "#666",
+      fontSize: "1.3rem",
+    }}
+  >
     Loading...
   </div>
 );
@@ -42,7 +67,11 @@ const ImpoundInsuranceContent = () => {
     mode: "onChange", // Enable real-time validation - errors disappear when fixed
   });
 
-  const { setValue, trigger, formState: { errors } } = form;
+  const {
+    setValue,
+    trigger,
+    formState: { errors },
+  } = form;
 
   // Handle step parameter from URL
   useEffect(() => {
@@ -75,7 +104,10 @@ const ImpoundInsuranceContent = () => {
       // Check if registration number was provided
       const registrationNumber = searchParams.get("registrationNumber");
       if (registrationNumber) {
-        setValue("vehicleDetails.registrationNumber", registrationNumber.toUpperCase());
+        setValue(
+          "vehicleDetails.registrationNumber",
+          registrationNumber.toUpperCase()
+        );
         // Auto-trigger vehicle lookup
         setShouldAutoTrigger(true);
       }
@@ -120,10 +152,21 @@ const ImpoundInsuranceContent = () => {
   };
 
   return (
-    <div suppressHydrationWarning>
+    <div
+      suppressHydrationWarning
+      style={{ position: "relative", minHeight: "100vh" }}
+    >
       <LoadingOverlay isVisible={showLoading} />
-      <GetQuoteHeaderWithNav title="Impound Insurance Quote" currentStep={currentStep} totalSteps={4} />
-      <div className="centeredContent" suppressHydrationWarning>
+      <GetQuoteHeaderWithNav
+        title="Impound Insurance Quote"
+        currentStep={currentStep}
+        totalSteps={4}
+      />
+      <div
+        className="centeredContent"
+        suppressHydrationWarning
+        style={{ position: "relative", zIndex: 1 }}
+      >
         <form
           className={styles.stepFormContainer}
           onSubmit={form.handleSubmit(onSubmit, onError)}
@@ -138,7 +181,9 @@ const ImpoundInsuranceContent = () => {
                 autoTriggerLookup={shouldAutoTrigger}
               />
             )}
-            {currentStep === STEPS.COVER && <ImpoundCoverDetailsForm form={form} />}
+            {currentStep === STEPS.COVER && (
+              <ImpoundCoverDetailsForm form={form} />
+            )}
             {currentStep === STEPS.PERSONAL && (
               <PersonalDetailsForm form={form} />
             )}

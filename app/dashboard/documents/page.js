@@ -31,12 +31,10 @@ const page = async () => {
 
     if (response.ok) {
       const result = await response.json();
-      const allInsurances = result.data?.data || [];
-
-      // Filter for paid insurances only
-      // insurances = allInsurances.filter(
-      //   (insurance) => insurance.quote?.paid === true
-      // );
+      const allInsurances =
+        result.data?.data.filter(
+          (insurance) => insurance.quote?.paid === true
+        ) || [];
       insurances = allInsurances;
     }
   } catch (error) {

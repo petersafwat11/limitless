@@ -6,6 +6,9 @@ html {
   padding: 0;
   scrollbar-gutter: stable;
   background: #000822;
+  /* iOS Safari sticky fix */
+  height: 100%;
+  position: relative;
 }
 
 body {
@@ -16,6 +19,11 @@ body {
   background: #ffffff;
   margin: 0;
   padding: 0;
+  /* iOS Safari sticky and over-scroll fixes */
+  position: relative;
+  min-height: 100vh;
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -30,11 +38,17 @@ body {
   html {
     width: 100%;
     overflow-x: hidden;
+    /* Prevent iOS bounce */
+    overscroll-behavior-y: none;
   }
 
   body {
     width: 100%;
     overflow-x: hidden;
+    /* Prevent iOS bounce on body */
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
   }
 
   /* Only add padding-top for pages with normal header */
@@ -72,7 +86,6 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 
 .headerContainer::before,
 .headerDashboardContainer::before {
@@ -374,7 +387,8 @@ body .react-datepicker__navigation--previous:hover {
   margin-bottom: 0;
   background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
   color: #ffffff;
-  box-shadow: 0 10px 40px rgba(220, 38, 38, 0.35), 0 4px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 40px rgba(220, 38, 38, 0.35),
+    0 4px 16px rgba(0, 0, 0, 0.25);
   border: none;
   font-size: 15px;
   font-weight: 500;
@@ -430,7 +444,6 @@ body .react-datepicker__navigation--previous:hover {
   align-items: center;
   justify-content: center;
 }
-
 
 .Toastify__close-button {
   display: none;

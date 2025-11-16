@@ -100,10 +100,9 @@ const Page = async () => {
       insurances.forEach((insurance) => {
         const policyData = {
           id: insurance._id,
-          policyNumber: `LC-${insurance._id
-            .toString()
-            .slice(-8)
-            .toUpperCase()}`,
+          policyNumber:
+            insurance.referenceNumber ||
+            `LC-${insurance._id.toString().slice(-8).toUpperCase()}`,
           remaining: calculateRemainingDays(insurance.coverDetails),
           name: insurance.userDetails
             ? `${insurance.userDetails.firstName} ${insurance.userDetails.surname}`

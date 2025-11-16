@@ -3,18 +3,31 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./dashboardClient.module.css";
 
-const DashboardClient = ({ activePoliciesCount = 0, pendingClaimsCount = 0 }) => {
+const DashboardClient = ({
+  activePoliciesCount = 0,
+  pendingClaimsCount = 0,
+}) => {
   const router = useRouter();
 
   const StatIcon = ({ type }) => {
     const icons = {
       shield: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
         </svg>
       ),
       document: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
           <polyline points="13 2 13 9 20 9" />
           <line x1="9" y1="13" x2="15" y2="13" />
@@ -22,7 +35,12 @@ const DashboardClient = ({ activePoliciesCount = 0, pendingClaimsCount = 0 }) =>
         </svg>
       ),
       clock: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <circle cx="12" cy="12" r="10" />
           <polyline points="12 6 12 12 16 14" />
         </svg>
@@ -30,7 +48,6 @@ const DashboardClient = ({ activePoliciesCount = 0, pendingClaimsCount = 0 }) =>
     };
     return <span className={styles.statIcon}>{icons[type]}</span>;
   };
-
 
   const stats = [
     {
@@ -43,7 +60,7 @@ const DashboardClient = ({ activePoliciesCount = 0, pendingClaimsCount = 0 }) =>
     {
       icon: <StatIcon type="document" />,
       label: "Documents",
-      value: activePoliciesCount, // Same as active policies since each policy has documents
+      value: activePoliciesCount * 4, // Same as active policies since each policy has documents
       color: "#049cff",
       action: () => router.push("/dashboard/documents"),
     },
@@ -55,9 +72,6 @@ const DashboardClient = ({ activePoliciesCount = 0, pendingClaimsCount = 0 }) =>
       action: () => router.push("/dashboard/claims"),
     },
   ];
-
-
-
 
   return (
     <div className={styles.container}>
@@ -92,7 +106,10 @@ const DashboardClient = ({ activePoliciesCount = 0, pendingClaimsCount = 0 }) =>
               onClick={stat.action}
               style={{ "--stat-color": stat.color }}
             >
-              <div className={styles.statIconWrapper} style={{ "--bg-color": stat.color }}>
+              <div
+                className={styles.statIconWrapper}
+                style={{ "--bg-color": stat.color }}
+              >
                 {stat.icon}
               </div>
               <div className={styles.statContent}>
@@ -104,20 +121,20 @@ const DashboardClient = ({ activePoliciesCount = 0, pendingClaimsCount = 0 }) =>
         </div>
       </section>
 
-
-
       {/* Info Section */}
       <section className={styles.infoSection}>
         <div className={styles.infoCard}>
           <h3 className={styles.infoTitle}>Your Data is Secure</h3>
           <p className={styles.infoDescription}>
-            We use industry-leading encryption to protect your personal and financial information
+            We use industry-leading encryption to protect your personal and
+            financial information
           </p>
         </div>
         <div className={styles.infoCard}>
           <h3 className={styles.infoTitle}>24/7 Support</h3>
           <p className={styles.infoDescription}>
-            Our support team is available round the clock to help with any questions
+            Our support team is available round the clock to help with any
+            questions
           </p>
         </div>
       </section>

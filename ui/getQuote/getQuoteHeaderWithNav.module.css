@@ -4,6 +4,8 @@
   box-sizing: border-box;
   background: #000822;
   margin-left: calc(-50vw + 50%);
+  position: relative;
+  z-index: 1;
 }
 
 .headerElement {
@@ -31,15 +33,22 @@
 }
 
 .navigationBar {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  z-index: 999;
   background: #000822;
   width: 100vw;
   padding: 1.8rem 0 0;
   border-bottom: 1px solid rgba(3, 136, 255, 0.1);
   margin-left: calc(-50vw + 50%);
-  left: 0;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .navContent {
@@ -313,9 +322,12 @@
 
 @media screen and (max-width: 900px) {
   .navigationBar {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    z-index: 999;
     background: #000822;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(3, 136, 255, 0.1);
@@ -324,6 +336,11 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   .logo {
@@ -369,7 +386,7 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
-  z-index: 1000;
+  z-index: 9998;
   cursor: pointer;
 }
 
@@ -382,7 +399,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1001;
+  z-index: 9999;
   padding: 1.6rem;
 }
 
