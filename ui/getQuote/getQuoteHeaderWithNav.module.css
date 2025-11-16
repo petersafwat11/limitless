@@ -38,7 +38,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
+  z-index: 9999;
   background: #000822;
   width: 100vw;
   padding: 1.8rem 0 0;
@@ -49,6 +49,35 @@
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scrolled state - smaller header */
+.navigationBar.scrolled {
+  padding: 1.2rem 0 0;
+  box-shadow: 0 4px 16px rgba(0, 8, 34, 0.2);
+}
+
+.navigationBar.scrolled .logo {
+  width: 50px !important;
+  height: 50px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navigationBar.scrolled .helpBtn {
+  width: 4.6rem;
+  height: 4.6rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navigationBar.scrolled .helpBtn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.navigationBar.scrolled .navContent {
+  padding: 0 1.2rem 0.8rem 1.2rem;
+  transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navContent {
@@ -59,6 +88,7 @@
   max-width: 130rem;
   margin: 0 auto;
   padding: 0 1.2rem 1rem 1.2rem;
+  transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logoContainer {
@@ -70,7 +100,7 @@
 
 .logo {
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width: 66px;
   height: 66px;
 }
@@ -198,6 +228,18 @@
     padding: 18px 3.2rem;
   }
 
+  .headerContent {
+    padding: 1.44rem 1.44rem 0;
+  }
+
+  .navigationBar {
+    padding: 1.44rem 0 0;
+  }
+
+  .navContent {
+    padding: 0 1.44rem 1rem 1.44rem;
+  }
+
   .menu {
     margin-left: -2rem;
   }
@@ -209,6 +251,11 @@
   .logo {
     width: 56px;
     height: 56px;
+  }
+
+  .navigationBar.scrolled .logo {
+    width: 50px !important;
+    height: 50px !important;
   }
 
   .menuLink {
