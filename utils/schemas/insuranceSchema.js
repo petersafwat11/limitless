@@ -69,20 +69,24 @@ const manualVehicleValidation = (schema) => {
           return true;
         }
 
-        // If no fields are filled, don't show error (user hasn't started yet)
-        const hasAnyField =
-          data.type ||
-          data.make ||
-          data.model ||
-          data.year ||
-          data.doors ||
-          data.fuel ||
-          data.transmission;
-        if (!hasAnyField) {
+        // Count how many manual fields are filled
+        const filledFields = [
+          data.type,
+          data.make,
+          data.model,
+          data.year,
+          data.doors,
+          data.fuel,
+          data.transmission,
+        ].filter((field) => field && field.length > 0);
+
+        // If less than 3 fields filled, user is still starting - don't show error
+        // This prevents error from showing when user just selects vehicle type
+        if (filledFields.length < 3) {
           return true;
         }
 
-        // If user has started filling fields, check if all required fields are complete
+        // If 3+ fields filled, check if ALL required fields are complete
         const hasManualFields =
           data.type &&
           data.type.length > 0 &&
