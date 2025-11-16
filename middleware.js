@@ -20,25 +20,26 @@ export function middleware(request) {
     pathname.startsWith(route)
   );
 
+  // DISABLED: Subdomain logic - serving all routes from main domain
   // Skip subdomain logic for localhost
-  if (!isLocalhost) {
-    // If portal subdomain but not a portal route, redirect to main site
-    if (isPortal && !isPortalRoute) {
-      const mainUrl = new URL(pathname, `https://www.limitlesscover.co.uk`);
-      mainUrl.search = request.nextUrl.search;
-      return NextResponse.redirect(mainUrl);
-    }
+  // if (!isLocalhost) {
+  //   // If portal subdomain but not a portal route, redirect to main site
+  //   if (isPortal && !isPortalRoute) {
+  //     const mainUrl = new URL(pathname, `https://www.limitlesscover.co.uk`);
+  //     mainUrl.search = request.nextUrl.search;
+  //     return NextResponse.redirect(mainUrl);
+  //   }
 
-    // If main site but accessing portal route, redirect to portal
-    if (!isPortal && isPortalRoute) {
-      const portalUrl = new URL(
-        pathname,
-        `https://portal.limitlesscover.co.uk`
-      );
-      portalUrl.search = request.nextUrl.search;
-      return NextResponse.redirect(portalUrl);
-    }
-  }
+  //   // If main site but accessing portal route, redirect to portal
+  //   if (!isPortal && isPortalRoute) {
+  //     const portalUrl = new URL(
+  //       pathname,
+  //       `https://portal.limitlesscover.co.uk`
+  //     );
+  //     portalUrl.search = request.nextUrl.search;
+  //     return NextResponse.redirect(portalUrl);
+  //   }
+  // }
 
   // Auth protection for dashboard routes
   if (pathname.startsWith("/dashboard")) {
