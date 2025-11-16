@@ -143,6 +143,18 @@ const Form = ({ claimReason }) => {
         }
       );
 
+      // Handle 401 Unauthorized - user needs to login
+      if (response.status === 401) {
+        setError("root", {
+          message: "Your session has expired. Please login again.",
+        });
+        // Redirect to login after 2 seconds
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 2000);
+        return;
+      }
+
       // Check if response is JSON before parsing
       const contentType = response.headers.get("content-type");
       let result;
@@ -161,7 +173,7 @@ const Form = ({ claimReason }) => {
         );
       }
 
-      if (response.ok) {
+      if (response.ok && result) {
         console.log("API Response:", result); // Debug: Full API response
 
         // Extract orderReference from API response

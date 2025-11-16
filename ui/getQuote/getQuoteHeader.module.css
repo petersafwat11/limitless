@@ -112,7 +112,18 @@
 
 @media screen and (max-width: 768px) {
   .headerContainer {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
     padding: 2.4rem 0 2rem;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   .centeredContent {
@@ -142,7 +153,18 @@
 
 @media screen and (max-width: 600px) {
   .headerContainer {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
     padding: 2rem 0 1.6rem;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   .centeredContent {

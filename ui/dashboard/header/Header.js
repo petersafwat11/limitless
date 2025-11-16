@@ -68,7 +68,13 @@ const Header = ({ page }) => {
   };
 
   return (
-    <div className={isMenuOpen ? `${styles.headerContainer} ${styles.menuOpen}` : styles.headerContainer}>
+    <div
+      className={
+        isMenuOpen
+          ? `${styles.headerContainer} ${styles.menuOpen}`
+          : styles.headerContainer
+      }
+    >
       <div className={styles.headerContent}>
         <div className={styles.logoWrapper}>
           <Image
@@ -83,15 +89,27 @@ const Header = ({ page }) => {
           <h1 className={styles.pageTitle}>{getTitle()}</h1>
         </div>
 
-        <div className={styles.headerRight} style={{ position: 'relative', zIndex: 20 }}>
+        <div
+          className={styles.headerRight}
+          style={{ position: "relative", zIndex: 20 }}
+        >
           <button
             className={styles.logoutBtn}
             onClick={async () => {
-              router.push("/login");
+              handleLogout();
             }}
             title="Logout"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
               <polyline points="16 17 21 12 16 7"></polyline>
               <line x1="21" y1="12" x2="9" y2="12"></line>
@@ -110,7 +128,12 @@ const Header = ({ page }) => {
               aria-label="Dashboard menu"
             >
               {isMenuOpen ? (
-                <Image src="/svg/close.svg" alt="close" width={20} height={20} />
+                <Image
+                  src="/svg/close.svg"
+                  alt="close"
+                  width={20}
+                  height={20}
+                />
               ) : (
                 <Image src="/svg/menu.svg" alt="menu" width={24} height={24} />
               )}
@@ -127,19 +150,34 @@ const Header = ({ page }) => {
             {/* Mobile Menu Dropdown */}
             {isMenuOpen && (
               <div className={styles.menuDropdown}>
-                <button className={styles.menuItem} onClick={() => handleNavigate("/dashboard")}>
+                <button
+                  className={styles.menuItem}
+                  onClick={() => handleNavigate("/dashboard")}
+                >
                   Dashboard
                 </button>
-                <button className={styles.menuItem} onClick={() => handleNavigate("/dashboard/policy")}>
+                <button
+                  className={styles.menuItem}
+                  onClick={() => handleNavigate("/dashboard/policy")}
+                >
                   Manage Policy
                 </button>
-                <button className={styles.menuItem} onClick={() => handleNavigate("/dashboard/documents")}>
+                <button
+                  className={styles.menuItem}
+                  onClick={() => handleNavigate("/dashboard/documents")}
+                >
                   Documents
                 </button>
-                <button className={styles.menuItem} onClick={() => handleNavigate("/dashboard/claims")}>
+                <button
+                  className={styles.menuItem}
+                  onClick={() => handleNavigate("/dashboard/claims")}
+                >
                   Manage Claims
                 </button>
-                <button className={styles.menuItem} onClick={() => handleNavigate("/dashboard/submit-claim")}>
+                <button
+                  className={styles.menuItem}
+                  onClick={() => handleNavigate("/dashboard/submit-claim")}
+                >
                   Submit a Claim
                 </button>
                 <button className={styles.menuItem} onClick={handleLogout}>
