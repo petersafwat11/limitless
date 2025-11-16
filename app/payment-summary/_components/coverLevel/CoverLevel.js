@@ -47,7 +47,6 @@ const CoverLevel = ({ data, insuranceType }) => {
       </div>
 
       <div className={styles.summery}>
-
         <div className={styles.content}>
           <div className={styles.total}>
             <Image
@@ -80,7 +79,7 @@ const CoverLevel = ({ data, insuranceType }) => {
           <p className={styles.headerItemTitle}>Quote Reference</p>
         </div>
         <p className={styles.headerItemValue}>
-          #{data?._id?.slice(-10).toUpperCase() || "N/A"}
+          #{data?.referenceNumber || "N/A"}
         </p>
       </div>
       <div className={styles.features}>

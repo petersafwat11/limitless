@@ -9,7 +9,7 @@ import GetQuoteHeaderWithNav from "@/ui/getQuote/GetQuoteHeaderWithNav";
 import StepActions from "@/app/temporary/get-quote/_components/StepActions";
 import LoadingOverlay from "@/ui/loadingSpinner/LoadingOverlay";
 import { useRouter, useSearchParams } from "next/navigation";
-import { toast } from "react-toastify";
+import toast from "@/utils/toast";
 import { annualDefaultValues, STEPS } from "@/utils/defaultValues";
 import {
   handleNextStep,

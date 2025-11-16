@@ -12,14 +12,18 @@
 }
 
 .container::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -40%;
   left: -10%;
   width: 50rem;
   height: 50rem;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(3, 136, 255, 0.08) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(3, 136, 255, 0.08) 0%,
+    transparent 70%
+  );
   pointer-events: none;
   z-index: 0;
 }

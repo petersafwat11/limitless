@@ -22,7 +22,7 @@
   width: 32.5%;
   margin: 0.4rem auto 27.2rem;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 .commingSoon {
   display: flex;

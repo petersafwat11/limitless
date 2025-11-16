@@ -5,7 +5,7 @@ import Image from "next/image";
 import TextInput from "@/ui/inputs/textInput/TextInput";
 import TextArea from "@/ui/inputs/textArea/TextArea";
 import Selection1 from "@/ui/inputs/selections/selection1/Selection1";
-import { toast } from "react-toastify";
+import toast from "@/utils/toast";
 const Form = () => {
   const [data, setData] = useState({
     fullName: "",
@@ -18,7 +18,7 @@ const Form = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!data.type) {
       newErrors.type = "Please select an option";
     }
@@ -33,37 +33,40 @@ const Form = () => {
     if (!data.message.trim()) {
       newErrors.message = "Message is required";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       toast.error("Please fill in all required fields");
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contacts`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: data.fullName,
-          email: data.email,
-          message: data.message,
-          type: data.type,
-        }),
-      });
-      
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/contacts`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: data.fullName,
+            email: data.email,
+            message: data.message,
+            type: data.type,
+          }),
+        }
+      );
+
       const result = await response.json();
-      
+
       if (response.ok) {
         toast.success("Message sent successfully! We'll get back to you soon.");
         // Reset form
@@ -75,7 +78,9 @@ const Form = () => {
         });
         setErrors({});
       } else {
-        toast.error(result.message || "Failed to send message. Please try again.");
+        toast.error(
+          result.message || "Failed to send message. Please try again."
+        );
       }
     } catch (error) {
       console.error("Error submitting contact form:", error);
@@ -89,7 +94,14 @@ const Form = () => {
       <div className={styles.inputGroup}>
         <label className={styles.label}>Select the Appropriate Option</label>
         <Selection1
-          items={["Marketing", "Policy Enquires", "Question", "Complaint", "Cancellations", "Other"]}
+          items={[
+            "Marketing",
+            "Policy Enquires",
+            "Question",
+            "Complaint",
+            "Cancellations",
+            "Other",
+          ]}
           selectedItem={data.type}
           setSelectedItem={(item) => {
             setData({ ...data, type: item });
@@ -130,7 +142,9 @@ const Form = () => {
             placeholder="Enter your Full Name"
             type="text"
           />
-          {errors.fullName && <span className={styles.error}>{errors.fullName}</span>}
+          {errors.fullName && (
+            <span className={styles.error}>{errors.fullName}</span>
+          )}
         </div>
         <div className={styles.inputWrapper}>
           <TextInput
@@ -157,7 +171,9 @@ const Form = () => {
           placeholder="Enter your Message"
           rows={5}
         />
-        {errors.message && <span className={styles.error}>{errors.message}</span>}
+        {errors.message && (
+          <span className={styles.error}>{errors.message}</span>
+        )}
       </div>
 
       <button type="submit" className={styles.button} disabled={isSubmitting}>

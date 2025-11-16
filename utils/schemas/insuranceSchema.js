@@ -64,62 +64,92 @@ const manualVehicleValidation = (schema) => {
   return schema
     .refine(
       (data) => {
+        // If API data exists, validation passes
         if (data.apiData && data.apiData.make && data.apiData.model) {
           return true;
         }
+
+        // If no fields are filled, don't show error (user hasn't started yet)
+        const hasAnyField =
+          data.type ||
+          data.make ||
+          data.model ||
+          data.year ||
+          data.doors ||
+          data.fuel ||
+          data.transmission;
+        if (!hasAnyField) {
+          return true;
+        }
+
+        // If user has started filling fields, check if all required fields are complete
         const hasManualFields =
-          data.type && data.type.length > 0 &&
-          data.make && data.make.length > 0 &&
-          data.model && data.model.length > 0 &&
-          data.year && data.year.length > 0 &&
-          data.doors && data.doors.length > 0 &&
-          data.fuel && data.fuel.length > 0 &&
-          data.transmission && data.transmission.length > 0;
+          data.type &&
+          data.type.length > 0 &&
+          data.make &&
+          data.make.length > 0 &&
+          data.model &&
+          data.model.length > 0 &&
+          data.year &&
+          data.year.length > 0 &&
+          data.doors &&
+          data.doors.length > 0 &&
+          data.fuel &&
+          data.fuel.length > 0 &&
+          data.transmission &&
+          data.transmission.length > 0;
         return hasManualFields;
       },
       {
-        message: "Please enter registration number to lookup vehicle OR manually select all vehicle details",
+        message:
+          "Please enter registration number to lookup vehicle OR manually select all vehicle details",
         path: ["type"],
       }
     )
     .refine(
       (data) => {
-        if (data.apiData && data.apiData.make && data.apiData.model) return true;
+        if (data.apiData && data.apiData.make && data.apiData.model)
+          return true;
         return data.make && data.make.length > 0;
       },
       { message: "Make is required", path: ["make"] }
     )
     .refine(
       (data) => {
-        if (data.apiData && data.apiData.make && data.apiData.model) return true;
+        if (data.apiData && data.apiData.make && data.apiData.model)
+          return true;
         return data.model && data.model.length > 0;
       },
       { message: "Model is required", path: ["model"] }
     )
     .refine(
       (data) => {
-        if (data.apiData && data.apiData.make && data.apiData.model) return true;
+        if (data.apiData && data.apiData.make && data.apiData.model)
+          return true;
         return data.year && data.year.length > 0;
       },
       { message: "Year is required", path: ["year"] }
     )
     .refine(
       (data) => {
-        if (data.apiData && data.apiData.make && data.apiData.model) return true;
+        if (data.apiData && data.apiData.make && data.apiData.model)
+          return true;
         return data.doors && data.doors.length > 0;
       },
       { message: "Doors is required", path: ["doors"] }
     )
     .refine(
       (data) => {
-        if (data.apiData && data.apiData.make && data.apiData.model) return true;
+        if (data.apiData && data.apiData.make && data.apiData.model)
+          return true;
         return data.fuel && data.fuel.length > 0;
       },
       { message: "Fuel type is required", path: ["fuel"] }
     )
     .refine(
       (data) => {
-        if (data.apiData && data.apiData.make && data.apiData.model) return true;
+        if (data.apiData && data.apiData.make && data.apiData.model)
+          return true;
         return data.transmission && data.transmission.length > 0;
       },
       { message: "Transmission is required", path: ["transmission"] }
@@ -131,24 +161,37 @@ const safetySecurityValidation = (schema) => {
   return schema
     .refine(
       (data) => data.trackingDevice && data.trackingDevice.trim().length > 0,
-      { message: "Tracking device selection is required", path: ["trackingDevice"] }
+      {
+        message: "Tracking device selection is required",
+        path: ["trackingDevice"],
+      }
     )
     .refine(
-      (data) => data.alarmImmobiliser && data.alarmImmobiliser.trim().length > 0,
-      { message: "Alarm / Immobiliser selection is required", path: ["alarmImmobiliser"] }
+      (data) =>
+        data.alarmImmobiliser && data.alarmImmobiliser.trim().length > 0,
+      {
+        message: "Alarm / Immobiliser selection is required",
+        path: ["alarmImmobiliser"],
+      }
     )
     .refine(
       (data) => data.importedVehicle && data.importedVehicle.trim().length > 0,
-      { message: "Imported vehicle selection is required", path: ["importedVehicle"] }
+      {
+        message: "Imported vehicle selection is required",
+        path: ["importedVehicle"],
+      }
     )
     .refine(
       (data) => data.vehicleModified && data.vehicleModified.trim().length > 0,
-      { message: "Vehicle modification status is required", path: ["vehicleModified"] }
+      {
+        message: "Vehicle modification status is required",
+        path: ["vehicleModified"],
+      }
     )
-    .refine(
-      (data) => data.worth && data.worth.trim().length > 0,
-      { message: "Vehicle worth is required", path: ["worth"] }
-    );
+    .refine((data) => data.worth && data.worth.trim().length > 0, {
+      message: "Vehicle worth is required",
+      path: ["worth"],
+    });
 };
 
 // Validation: Ownership fields (required for all insurance types)
@@ -171,7 +214,10 @@ const ownershipValidation = (schema) => {
         }
         return true;
       },
-      { message: "Please specify if you will be the legal and registered owner", path: ["legalOwner"] }
+      {
+        message: "Please specify if you will be the legal and registered owner",
+        path: ["legalOwner"],
+      }
     )
     .refine(
       (data) => {
@@ -185,11 +231,16 @@ const ownershipValidation = (schema) => {
     .refine(
       (data) => {
         if (data.legalOwner !== "Yes") {
-          return data.registeredKeeper && data.registeredKeeper.trim().length > 0;
+          return (
+            data.registeredKeeper && data.registeredKeeper.trim().length > 0
+          );
         }
         return true;
       },
-      { message: "Registered keeper selection is required", path: ["registeredKeeper"] }
+      {
+        message: "Registered keeper selection is required",
+        path: ["registeredKeeper"],
+      }
     )
     .refine(
       (data) => {
@@ -203,11 +254,17 @@ const ownershipValidation = (schema) => {
     .refine(
       (data) => {
         if (data.registeredKeeper === "Other") {
-          return data.registeredKeeperOther && data.registeredKeeperOther.trim().length > 0;
+          return (
+            data.registeredKeeperOther &&
+            data.registeredKeeperOther.trim().length > 0
+          );
         }
         return true;
       },
-      { message: "Please specify who the registered keeper is", path: ["registeredKeeperOther"] }
+      {
+        message: "Please specify who the registered keeper is",
+        path: ["registeredKeeperOther"],
+      }
     );
 };
 
@@ -219,7 +276,9 @@ const ownershipValidation = (schema) => {
 export const completeVehicleDetailsSchema = ownershipValidation(
   safetySecurityValidation(
     manualVehicleValidation(
-      baseVehicleFieldsSchema.merge(safetySecurityFieldsSchema).merge(ownershipFieldsSchema)
+      baseVehicleFieldsSchema
+        .merge(safetySecurityFieldsSchema)
+        .merge(ownershipFieldsSchema)
     )
   )
 );
@@ -282,13 +341,15 @@ export const annualCoverDetailsSchema = z.object({
 // STEP 2.5: OPTIONAL EXTRAS (Annual only)
 // ============================================
 
-export const optionalExtrasSchema = z.object({
-  protectedNCD: z.boolean().nullable().optional().default(false),
-  motorLegal: z.boolean().nullable().optional().default(false),
-  courtesyCar: z.boolean().nullable().optional().default(false),
-  breakdownCover: z.boolean().nullable().optional().default(false),
-  foreignUseCover: z.boolean().nullable().optional().default(false),
-}).optional();
+export const optionalExtrasSchema = z
+  .object({
+    protectedNCD: z.boolean().nullable().optional().default(false),
+    motorLegal: z.boolean().nullable().optional().default(false),
+    courtesyCar: z.boolean().nullable().optional().default(false),
+    breakdownCover: z.boolean().nullable().optional().default(false),
+    foreignUseCover: z.boolean().nullable().optional().default(false),
+  })
+  .optional();
 
 // ============================================
 // STEP 3: PERSONAL DETAILS SCHEMA (Shared across all insurance types)
@@ -325,7 +386,10 @@ export const userDetailsSchema = z
   })
   .refine(
     (data) => {
-      if (data.employmentStatus === "Retired" || data.employmentStatus === "Unemployed") {
+      if (
+        data.employmentStatus === "Retired" ||
+        data.employmentStatus === "Unemployed"
+      ) {
         return true;
       }
       return (
@@ -336,13 +400,17 @@ export const userDetailsSchema = z
       );
     },
     {
-      message: "Industry and occupation are required unless you are retired or unemployed",
+      message:
+        "Industry and occupation are required unless you are retired or unemployed",
       path: ["industry"],
     }
   )
   .refine(
     (data) => {
-      if (data.employmentStatus === "Retired" || data.employmentStatus === "Unemployed") {
+      if (
+        data.employmentStatus === "Retired" ||
+        data.employmentStatus === "Unemployed"
+      ) {
         return true;
       }
       return data.occupation && data.occupation.trim().length > 0;
@@ -396,22 +464,22 @@ export const carUsageSchema = z.object({
     }
   ),
   otherVehicles: z.boolean().nullable().optional(),
-  otherVehiclesType: z.enum(
-    [
+  otherVehiclesType: z
+    .enum([
       "Own another car or van",
       "Have use of another car",
       "Company car (including personal use)",
       "Company car (excluding personal use)",
-    ]
-  ).optional().or(z.literal("")).optional(),
+    ])
+    .optional()
+    .or(z.literal(""))
+    .optional(),
   hasAdditionalQualifications: z.boolean().nullable().optional(),
-  additionalQualificationType: z.enum(
-    [
-      "AA Proficiency",
-      "Institute of Advanced Motorists",
-      "Pass Plus",
-    ]
-  ).optional().or(z.literal("")).optional(),
+  additionalQualificationType: z
+    .enum(["AA Proficiency", "Institute of Advanced Motorists", "Pass Plus"])
+    .optional()
+    .or(z.literal(""))
+    .optional(),
   qualificationMonth: z.string().optional(),
   qualificationYear: z.string().optional(),
   ownsHome: z.boolean().nullable().optional(),
@@ -422,41 +490,57 @@ export const carUsageSchema = z.object({
   licenseNumber: z.string().optional(),
   NCB: z.string().min(1, "No claims bonus years is required"),
   voluntaryExcess: z.string().min(1, "Voluntary excess is required"),
-  criminalConvictions: z.boolean({
-    required_error: "Please select Yes or No for criminal convictions",
-    invalid_type_error: "Please select Yes or No for criminal convictions",
-  }).nullable().refine(val => val !== null && val !== undefined, {
-    message: "Please select Yes or No for criminal convictions"
-  }),
-  medicalConditions: z.boolean({
-    required_error: "Please select Yes or No for medical conditions",
-    invalid_type_error: "Please select Yes or No for medical conditions",
-  }).nullable().refine(val => val !== null && val !== undefined, {
-    message: "Please select Yes or No for medical conditions"
-  }),
-  insuranceCancelledOrClaimRefusedOrPolicyVoided: z.boolean({
-    required_error: "Please select Yes or No for insurance history",
-    invalid_type_error: "Please select Yes or No for insurance history",
-  }).nullable().refine(val => val !== null && val !== undefined, {
-    message: "Please select Yes or No for insurance history"
-  }),
+  criminalConvictions: z
+    .boolean({
+      required_error: "Please select Yes or No for criminal convictions",
+      invalid_type_error: "Please select Yes or No for criminal convictions",
+    })
+    .nullable()
+    .refine((val) => val !== null && val !== undefined, {
+      message: "Please select Yes or No for criminal convictions",
+    }),
+  medicalConditions: z
+    .boolean({
+      required_error: "Please select Yes or No for medical conditions",
+      invalid_type_error: "Please select Yes or No for medical conditions",
+    })
+    .nullable()
+    .refine((val) => val !== null && val !== undefined, {
+      message: "Please select Yes or No for medical conditions",
+    }),
+  insuranceCancelledOrClaimRefusedOrPolicyVoided: z
+    .boolean({
+      required_error: "Please select Yes or No for insurance history",
+      invalid_type_error: "Please select Yes or No for insurance history",
+    })
+    .nullable()
+    .refine((val) => val !== null && val !== undefined, {
+      message: "Please select Yes or No for insurance history",
+    }),
   hasAdditionalDrivers: z.boolean().nullable().default(null),
-  additionalDrivers: z.array(z.object({
-    relationship: z.string().min(1, "Relationship is required"),
-    title: z.string().min(1, "Title is required"),
-    firstName: z.string().min(1, "First name is required"),
-    lastName: z.string().min(1, "Last name is required"),
-    dateOfBirth: z.string().min(1, "Date of birth is required"),
-    relationshipStatus: z.string().min(1, "Relationship status is required"),
-    livedInUKSinceBirth: z.boolean().nullable(),
-    employmentStatus: z.string().min(1, "Employment status is required"),
-    licenseType: z.string().min(1, "License type is required"),
-    licenseHeld: z.string().min(1, "License held is required"),
-    otherVehicles: z.boolean().nullable(),
-    medicalConditions: z.boolean().nullable(),
-    insuranceHistory: z.boolean().nullable(),
-    criminalConvictions: z.boolean().nullable(),
-  })).default([]).optional(),
+  additionalDrivers: z
+    .array(
+      z.object({
+        relationship: z.string().min(1, "Relationship is required"),
+        title: z.string().min(1, "Title is required"),
+        firstName: z.string().min(1, "First name is required"),
+        lastName: z.string().min(1, "Last name is required"),
+        dateOfBirth: z.string().min(1, "Date of birth is required"),
+        relationshipStatus: z
+          .string()
+          .min(1, "Relationship status is required"),
+        livedInUKSinceBirth: z.boolean().nullable(),
+        employmentStatus: z.string().min(1, "Employment status is required"),
+        licenseType: z.string().min(1, "License type is required"),
+        licenseHeld: z.string().min(1, "License held is required"),
+        otherVehicles: z.boolean().nullable(),
+        medicalConditions: z.boolean().nullable(),
+        insuranceHistory: z.boolean().nullable(),
+        criminalConvictions: z.boolean().nullable(),
+      })
+    )
+    .default([])
+    .optional(),
 });
 
 // ============================================
@@ -489,7 +573,8 @@ const ncbValidationRefine = {
       }
 
       const maxNCBYears = Math.max(0, exactAge - 17);
-      const ncbValue = data.carUsage.NCB === "15+" ? 15 : parseInt(data.carUsage.NCB);
+      const ncbValue =
+        data.carUsage.NCB === "15+" ? 15 : parseInt(data.carUsage.NCB);
 
       if (ncbValue > maxNCBYears) {
         return false;
@@ -506,48 +591,54 @@ const ncbValidationRefine = {
 // ============================================
 
 // TEMPORARY INSURANCE SCHEMA
-export const temporaryInsuranceSchema = z.object({
-  type: z.enum(["Temp"], {
-    required_error: "Insurance type is required",
-  }),
-  vehicleDetails: completeVehicleDetailsSchema,
-  coverDetails: tempCoverDetailsSchema,
-  userDetails: userDetailsSchema.optional(),
-  carUsage: carUsageSchema,
-  terms: termsSchema,
-}).refine(ncbValidationRefine.refine, {
-  message: ncbValidationRefine.message,
-  path: ncbValidationRefine.path,
-});
+export const temporaryInsuranceSchema = z
+  .object({
+    type: z.enum(["Temp"], {
+      required_error: "Insurance type is required",
+    }),
+    vehicleDetails: completeVehicleDetailsSchema,
+    coverDetails: tempCoverDetailsSchema,
+    userDetails: userDetailsSchema.optional(),
+    carUsage: carUsageSchema,
+    terms: termsSchema,
+  })
+  .refine(ncbValidationRefine.refine, {
+    message: ncbValidationRefine.message,
+    path: ncbValidationRefine.path,
+  });
 
 // IMPOUND INSURANCE SCHEMA
-export const impoundInsuranceSchema = z.object({
-  type: z.literal("Impound"),
-  vehicleDetails: completeVehicleDetailsSchema,
-  coverDetails: impoundCoverDetailsSchema,
-  userDetails: userDetailsSchema.optional(),
-  carUsage: carUsageSchema,
-  terms: termsSchema,
-}).refine(ncbValidationRefine.refine, {
-  message: ncbValidationRefine.message,
-  path: ncbValidationRefine.path,
-});
+export const impoundInsuranceSchema = z
+  .object({
+    type: z.literal("Impound"),
+    vehicleDetails: completeVehicleDetailsSchema,
+    coverDetails: impoundCoverDetailsSchema,
+    userDetails: userDetailsSchema.optional(),
+    carUsage: carUsageSchema,
+    terms: termsSchema,
+  })
+  .refine(ncbValidationRefine.refine, {
+    message: ncbValidationRefine.message,
+    path: ncbValidationRefine.path,
+  });
 
 // ANNUAL INSURANCE SCHEMA
-export const annualInsuranceSchema = z.object({
-  type: z.enum(["Annual"], {
-    required_error: "Insurance type is required",
-  }),
-  vehicleDetails: completeVehicleDetailsSchema,
-  coverDetails: annualCoverDetailsSchema,
-  optionalExtras: optionalExtrasSchema,
-  userDetails: userDetailsSchema.optional(),
-  carUsage: carUsageSchema,
-  terms: termsSchema,
-}).refine(ncbValidationRefine.refine, {
-  message: ncbValidationRefine.message,
-  path: ncbValidationRefine.path,
-});
+export const annualInsuranceSchema = z
+  .object({
+    type: z.enum(["Annual"], {
+      required_error: "Insurance type is required",
+    }),
+    vehicleDetails: completeVehicleDetailsSchema,
+    coverDetails: annualCoverDetailsSchema,
+    optionalExtras: optionalExtrasSchema,
+    userDetails: userDetailsSchema.optional(),
+    carUsage: carUsageSchema,
+    terms: termsSchema,
+  })
+  .refine(ncbValidationRefine.refine, {
+    message: ncbValidationRefine.message,
+    path: ncbValidationRefine.path,
+  });
 
 // ============================================
 // LEGACY EXPORTS (for backward compatibility)

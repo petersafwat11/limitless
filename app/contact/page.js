@@ -1,6 +1,11 @@
 import React from "react";
 import Header from "./_components/header/Header";
 import styles from "./page.module.css";
+
+export const metadata = {
+  title: "Contact Us | Limitless Cover",
+};
+
 const page = () => {
   return (
     <div className={styles.page}>

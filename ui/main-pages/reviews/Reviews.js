@@ -1,7 +1,7 @@
 "use client";
 import React, { memo, useState } from "react";
 import styles from "./reviews.module.css";
-import { Jost, Poppins, Roboto } from "next/font/google";
+import { Jost, Poppins, Roboto, Plus_Jakarta_Sans } from "next/font/google";
 
 const jost = Jost({
   subsets: ["latin"],
@@ -18,48 +18,107 @@ const roboto = Roboto({
   weight: ["300", "400", "500"],
 });
 
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["700"],
+});
+
 const StarIcon = memo(() => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="20" height="20" fill="#00B67A"/>
-    <path d="M10 13.6761L13.0417 12.8616L14.3125 17L10 13.6761ZM17 8.32704H11.6458L10 3L8.35417 8.32704H3L7.33334 11.6289L5.6875 16.956L10.0208 13.6541L12.6875 11.6289L17 8.32704Z" fill="white"/>
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="20" height="20" fill="#00B67A" />
+    <path
+      d="M10 13.6761L13.0417 12.8616L14.3125 17L10 13.6761ZM17 8.32704H11.6458L10 3L8.35417 8.32704H3L7.33334 11.6289L5.6875 16.956L10.0208 13.6541L12.6875 11.6289L17 8.32704Z"
+      fill="white"
+    />
   </svg>
 ));
 
 const LargeStarIcon = memo(() => (
-  <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="33" height="34" fill="#00B67A"/>
-    <path d="M16.5 24.3522L22.5833 22.7233L25.125 31L16.5 24.3522ZM30.5 13.6541H19.7917L16.5 3L13.2083 13.6541H2.5L11.1667 20.2579L7.875 30.9119L16.5417 24.3082L21.875 20.2579L30.5 13.6541Z" fill="white"/>
+  <svg
+    width="33"
+    height="34"
+    viewBox="0 0 33 34"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="33" height="34" fill="#00B67A" />
+    <path
+      d="M16.5 24.3522L22.5833 22.7233L25.125 31L16.5 24.3522ZM30.5 13.6541H19.7917L16.5 3L13.2083 13.6541H2.5L11.1667 20.2579L7.875 30.9119L16.5417 24.3082L21.875 20.2579L30.5 13.6541Z"
+      fill="white"
+    />
   </svg>
 ));
 
 const HalfStarIcon = memo(() => (
-  <div style={{ width: '3.4rem', height: '3.4rem', flexShrink: 0, position: 'relative' }}>
-    <div style={{
-      display: 'flex',
-      width: '3.4rem',
-      height: '3.4rem',
-      padding: '3px',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
+  <div
+    style={{
+      width: "3.4rem",
+      height: "3.4rem",
       flexShrink: 0,
-      background: 'linear-gradient(90deg, #00B67A 0%, #00B67A 50%, rgba(0, 182, 122, 0.00) 50.01%, #D9D9D9 50.02%, #D9D9D9 99.98%, rgba(0, 182, 122, 0.00) 99.99%, #D9D9D9 100%)',
-      position: 'absolute',
-      left: '0px',
-      top: '0px'
-    }}></div>
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '2.8rem', height: '2.8rem', flexShrink: 0, fill: '#FFF', position: 'absolute', left: '3px', top: '3px' }}>
-      <path d="M14 21.3522L20.0833 19.7233L22.625 28L14 21.3522ZM28 10.6541H17.2917L14 0L10.7083 10.6541H0L8.66667 17.2579L5.375 27.9119L14.0417 21.3082L19.375 17.2579L28 10.6541Z" fill="white"/>
+      position: "relative",
+    }}
+  >
+    <div
+      style={{
+        display: "flex",
+        width: "3.4rem",
+        height: "3.4rem",
+        padding: "3px",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        flexShrink: 0,
+        background:
+          "linear-gradient(90deg, #00B67A 0%, #00B67A 50%, rgba(0, 182, 122, 0.00) 50.01%, #D9D9D9 50.02%, #D9D9D9 99.98%, rgba(0, 182, 122, 0.00) 99.99%, #D9D9D9 100%)",
+        position: "absolute",
+        left: "0px",
+        top: "0px",
+      }}
+    ></div>
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 28 28"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{
+        width: "2.8rem",
+        height: "2.8rem",
+        flexShrink: 0,
+        fill: "#FFF",
+        position: "absolute",
+        left: "3px",
+        top: "3px",
+      }}
+    >
+      <path
+        d="M14 21.3522L20.0833 19.7233L22.625 28L14 21.3522ZM28 10.6541H17.2917L14 0L10.7083 10.6541H0L8.66667 17.2579L5.375 27.9119L14.0417 21.3082L19.375 17.2579L28 10.6541Z"
+        fill="white"
+      />
     </svg>
   </div>
 ));
 
 const TrustpilotLogo = memo(() => (
-  <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12.6792 18.3019L18.1887 16.9057L20.4906 24L12.6792 18.3019ZM25.3585 9.13208H15.6604L12.6792 0L9.69811 9.13208H0L7.84906 14.7925L4.86792 23.9245L12.717 18.2641L17.5472 14.7925L25.3585 9.13208Z" fill="#00B67A"/>
+  <svg
+    width="26"
+    height="24"
+    viewBox="0 0 26 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12.6792 18.3019L18.1887 16.9057L20.4906 24L12.6792 18.3019ZM25.3585 9.13208H15.6604L12.6792 0L9.69811 9.13208H0L7.84906 14.7925L4.86792 23.9245L12.717 18.2641L17.5472 14.7925L25.3585 9.13208Z"
+      fill="#00B67A"
+    />
   </svg>
 ));
-
 
 const reviewsData = [
   {
@@ -263,19 +322,23 @@ const Reviews = () => {
       setIsMobile(window.innerWidth <= 900);
     };
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const reviewsPerPage = isMobile ? 1 : 3;
   const maxIndex = Math.max(0, reviewsData.length - reviewsPerPage);
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + reviewsPerPage > maxIndex ? 0 : prev + reviewsPerPage));
+    setCurrentIndex((prev) =>
+      prev + reviewsPerPage > maxIndex ? 0 : prev + reviewsPerPage
+    );
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - reviewsPerPage < 0 ? maxIndex : prev - reviewsPerPage));
+    setCurrentIndex((prev) =>
+      prev - reviewsPerPage < 0 ? maxIndex : prev - reviewsPerPage
+    );
   };
 
   const handleTouchStart = (e) => {
@@ -292,7 +355,10 @@ const Reviews = () => {
     }
   };
 
-  const displayedReviews = reviewsData.slice(currentIndex, currentIndex + reviewsPerPage);
+  const displayedReviews = reviewsData.slice(
+    currentIndex,
+    currentIndex + reviewsPerPage
+  );
   const isAtStart = currentIndex === 0;
   const isAtEnd = currentIndex >= maxIndex;
 
@@ -300,7 +366,7 @@ const Reviews = () => {
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={`${styles.title} ${poppins.className}`}>
+          <h2 className={`${styles.title} ${plusJakartaSans.className}`}>
             Trustpilot Reviews
           </h2>
         </div>
@@ -322,11 +388,17 @@ const Reviews = () => {
             </div>
             <div className={styles.trustpilotBadge}>
               <TrustpilotLogo />
-              <span className={`${styles.trustpilotText} ${roboto.className}`}>Trustpilot</span>
+              <span className={`${styles.trustpilotText} ${roboto.className}`}>
+                Trustpilot
+              </span>
             </div>
           </div>
 
-          <div className={styles.reviewsContainer} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+          <div
+            className={styles.reviewsContainer}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
             {displayedReviews.map((review) => (
               <ReviewCard key={review.id} review={review} />
             ))}
@@ -334,14 +406,52 @@ const Reviews = () => {
         </div>
 
         <div className={styles.navigation}>
-          <button className={`${styles.prevButton} ${!isAtStart ? styles.prevButtonActive : ''}`} onClick={handlePrev} aria-label="Previous review" disabled={isAtStart}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <button
+            className={`${styles.prevButton} ${
+              !isAtStart ? styles.prevButtonActive : ""
+            }`}
+            onClick={handlePrev}
+            aria-label="Previous review"
+            disabled={isAtStart}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 18L9 12L15 6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
-          <button className={`${styles.nextButton} ${!isAtEnd ? styles.nextButtonActive : ''}`} onClick={handleNext} aria-label="Next review" disabled={isAtEnd}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <button
+            className={`${styles.nextButton} ${
+              !isAtEnd ? styles.nextButtonActive : ""
+            }`}
+            onClick={handleNext}
+            aria-label="Next review"
+            disabled={isAtEnd}
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
         </div>

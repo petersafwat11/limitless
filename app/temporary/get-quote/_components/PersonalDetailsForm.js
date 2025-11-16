@@ -35,6 +35,8 @@ const PersonalDetailsForm = ({ form }) => {
   const [addresses, setAddresses] = useState([]);
   const [isLoadingAddresses, setIsLoadingAddresses] = useState(false);
   const [dynamicNcbOptions, setDynamicNcbOptions] = useState(ncbOptions);
+  const [dynamicLicenseHeldOptions, setDynamicLicenseHeldOptions] =
+    useState(licenseHeldOptions);
 
   const employmentStatus = watch("userDetails.employmentStatus");
   const isRetiredOrUnemployed =
@@ -63,18 +65,34 @@ const PersonalDetailsForm = ({ form }) => {
       }
 
       const maxNCBYears = Math.max(0, exactAge - 17);
+      const maxLicenseYears = Math.max(0, exactAge - 17);
 
-      const options = [];
+      // NCB Options
+      const ncbOpts = [];
       for (let i = 0; i <= Math.min(maxNCBYears, 14); i++) {
-        options.push(i.toString());
+        ncbOpts.push(i.toString());
       }
-
       if (maxNCBYears >= 15) {
-        options.push("15+");
+        ncbOpts.push("15+");
       }
+      setDynamicNcbOptions(ncbOpts);
 
-      setDynamicNcbOptions(options);
+      // License Held Options
+      const licenseOpts = [];
+      if (maxLicenseYears === 0) {
+        licenseOpts.push("0-1 years");
+      } else {
+        if (maxLicenseYears >= 1) licenseOpts.push("0-1 years");
+        for (let i = 2; i <= Math.min(maxLicenseYears, 14); i++) {
+          licenseOpts.push(`${i} years`);
+        }
+        if (maxLicenseYears >= 15) {
+          licenseOpts.push("15+ years");
+        }
+      }
+      setDynamicLicenseHeldOptions(licenseOpts);
 
+      // Validate current NCB
       const currentNCB = watch("carUsage.NCB");
       if (currentNCB) {
         const currentNCBValue =
@@ -83,8 +101,23 @@ const PersonalDetailsForm = ({ form }) => {
           setValue("carUsage.NCB", "");
         }
       }
+
+      // Validate current License Held
+      const currentLicenseHeld = watch("carUsage.licenseHeld");
+      if (currentLicenseHeld) {
+        const licenseYears =
+          currentLicenseHeld === "15+ years"
+            ? 15
+            : currentLicenseHeld === "0-1 years"
+            ? 0
+            : parseInt(currentLicenseHeld);
+        if (licenseYears > maxLicenseYears) {
+          setValue("carUsage.licenseHeld", "");
+        }
+      }
     } else {
       setDynamicNcbOptions(ncbOptions);
+      setDynamicLicenseHeldOptions(licenseHeldOptions);
     }
   }, [dateOfBirth, setValue, watch]);
 
@@ -187,14 +220,15 @@ const PersonalDetailsForm = ({ form }) => {
               type="date"
               allowPastDates={true}
               isDateOfBirth={true}
-              maxDate={
-                new Date(
-                  new Date().getFullYear() - 16,
-                  new Date().getMonth(),
-                  new Date().getDate()
-                )
-              }
-              defaultYear={2009}
+              maxDate={(() => {
+                const today = new Date();
+                const minDate = new Date(today);
+                // 17 years + 1 week ago
+                minDate.setFullYear(today.getFullYear() - 17);
+                minDate.setDate(today.getDate() - 7);
+                return minDate;
+              })()}
+              defaultYear={2007}
               reducedPadding={true}
               {...register("userDetails.dateOfBirth")}
               value={watch("userDetails.dateOfBirth")}
@@ -396,7 +430,7 @@ const PersonalDetailsForm = ({ form }) => {
             />
             <FormDropdown
               label="License Held"
-              options={licenseHeldOptions}
+              options={dynamicLicenseHeldOptions}
               placeholder="Select how long held"
               {...register("carUsage.licenseHeld")}
               error={errors.carUsage?.licenseHeld}
