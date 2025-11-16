@@ -18,13 +18,15 @@ export default function DownloadButton({
       // Use Next.js API route (same-origin) which will forward cookies to backend
       const downloadUrl = `/api/download-pdf/${insuranceId}/${pdfType}`;
 
-      console.log(`📥 Downloading PDF via Next.js API route - URL: ${downloadUrl}`);
+      console.log(
+        `📥 Downloading PDF via Next.js API route - URL: ${downloadUrl}`
+      );
 
       // Make request to Next.js API route (same-origin, cookies automatically included)
       const response = await fetch(downloadUrl, {
         method: "GET",
         headers: {
-          "Accept": "application/pdf",
+          Accept: "application/pdf",
         },
       });
 
@@ -51,7 +53,9 @@ export default function DownloadButton({
           toast.error("Document not found.");
           return;
         }
-        throw new Error(`Failed to download PDF: ${response.status} ${response.statusText}`);
+        throw new Error(
+          `Failed to download PDF: ${response.status} ${response.statusText}`
+        );
       }
 
       // Check if response is actually a PDF
@@ -64,7 +68,7 @@ export default function DownloadButton({
 
       // Get the blob from response
       const blob = await response.blob();
-      
+
       // Verify blob is not empty
       if (blob.size === 0) {
         toast.error("Downloaded file is empty.");
@@ -88,7 +92,7 @@ export default function DownloadButton({
       // Create a blob URL with explicit PDF type
       const pdfBlob = new Blob([blob], { type: "application/pdf" });
       const url = window.URL.createObjectURL(pdfBlob);
-      
+
       // Create a download link and trigger it
       const link = document.createElement("a");
       link.href = url;
@@ -103,7 +107,9 @@ export default function DownloadButton({
         window.URL.revokeObjectURL(url);
       }, 100);
 
-      toast.success("PDF downloaded successfully!");
+      toast.success("PDF downloaded successfully!", {
+        autoClose: 5000,
+      });
     } catch (error) {
       console.error("Download error:", error);
       toast.error("Failed to download PDF");

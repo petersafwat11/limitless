@@ -10,8 +10,11 @@ const Page = async () => {
   const token = cookieStore.get("jwt")?.value;
   const allCookies = cookieStore.getAll();
 
-  console.log("Dashboard Page - JWT Token present:", !!token);
-  console.log("Dashboard Page - All cookies:", allCookies.map(c => c.name));
+  // console.log("Dashboard Page - JWT Token present:", !!token);
+  // console.log(
+  //   "Dashboard Page - All cookies:",
+  //   allCookies.map((c) => c.name)
+  // );
 
   if (!token) {
     console.log("No JWT token found, redirecting to login");
@@ -22,48 +25,48 @@ const Page = async () => {
   let pendingClaimsCount = 0;
 
   try {
-    // Fetch dashboard stats from backend
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-    const fullUrl = `${apiUrl}/api/user-dashboard/stats`;
-    
-    console.log("Fetching dashboard stats from:", fullUrl);
-    console.log("API URL from env:", process.env.NEXT_PUBLIC_API_URL);
-    
-    const response = await serverFetch(fullUrl, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      cache: "no-store",
-    });
+    // Fetch active policies count
+    const insuranceResponse = await serverFetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/insurance/user/my-insurances`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        cache: "no-store",
+      }
+    );
 
-    console.log("Response received:", {
-      ok: response?.ok,
-      status: response?.status,
-      statusText: response?.statusText,
-    });
+    if (insuranceResponse.ok) {
+      const insuranceResult = await insuranceResponse.json();
+      const activeInsurances =
+        insuranceResult.data?.data.filter(
+          (insurance) => insurance.quote?.paid === true
+        ) || [];
+      activePoliciesCount = activeInsurances.length;
+    }
 
-    if (response && response.ok) {
-      const result = await response.json();
-      console.log("Dashboard stats data:", result);
-      activePoliciesCount = result.data?.activePolicies || 0;
-      pendingClaimsCount = result.data?.pendingClaims || 0;
-    } else if (response) {
-      const errorText = await response.text().catch(() => "Unable to read response");
-      console.error("Dashboard stats fetch failed:", {
-        status: response.status,
-        statusText: response.statusText,
-        url: fullUrl,
-        body: errorText,
-      });
-    } else {
-      console.error("No response received from server");
+    // Fetch pending claims count (same logic as claims page)
+    const claimsResponse = await serverFetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/claims`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        cache: "no-store",
+      }
+    );
+
+    if (claimsResponse.ok) {
+      const claimsResult = await claimsResponse.json();
+      const claims = claimsResult.data?.claims || [];
+      // Count only pending claims
+      const pendingClaims = claims.filter(
+        (claim) => claim.status === "Pending"
+      );
+      pendingClaimsCount = pendingClaims.length;
     }
   } catch (error) {
-    console.error("Error fetching dashboard stats:", {
-      message: error.message,
-      stack: error.stack,
-      error: error,
-    });
+    console.error("Error fetching dashboard data:", error);
     // Continue rendering with default values
   }
 

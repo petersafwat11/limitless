@@ -455,15 +455,25 @@ body .react-datepicker__navigation--previous:hover {
 
 @media (max-width: 640px) {
   .Toastify__toast {
-    max-width: calc(100vw - 2rem);
-    padding: 12px 24px;
-    font-size: 14px;
-    margin: 0 1rem;
+    max-width: calc(100vw - 3rem);
+    min-width: 280px;
+    padding: 1.2rem 2rem !important;
+    font-size: 1.3rem;
+    min-height: auto;
     border-radius: 50px;
+    margin: 0 auto;
   }
 
   .Toastify__toast-container--bottom-center {
-    width: auto;
-    bottom: 1rem;
+    width: calc(100vw - 3rem);
+    max-width: 90%;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .Toastify__toast-body {
+    font-size: 1.3rem;
+    line-height: 1.4;
   }
 }
