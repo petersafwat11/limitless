@@ -10,7 +10,8 @@ const defaultOptions = {
   autoClose: 3000,
   hideProgressBar: true,
   closeOnClick: false,
-  pauseOnHover: true,
+  pauseOnHover: false,
+  pauseOnFocusLoss: false,
   draggable: false,
   position: "bottom-center",
 };

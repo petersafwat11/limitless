@@ -47,11 +47,14 @@ export default function ClientLayout({ children }) {
         newestOnTop={true}
         closeOnClick={false}
         rtl={false}
-        pauseOnFocusLoss={true}
+        pauseOnFocusLoss={false}
         draggable={false}
-        pauseOnHover={true}
+        pauseOnHover={false}
         theme="light"
         limit={1}
+        style={{
+          fontSize: "16px",
+        }}
       />
     </>
   );
