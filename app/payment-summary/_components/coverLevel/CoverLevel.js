@@ -9,7 +9,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["700"],
 });
 
-const CoverLevel = ({ data, insuranceType }) => {
+const CoverLevel = ({ data, insuranceType, referenceNumber }) => {
   const getInsuranceTypeName = () => {
     if (!insuranceType) return "N/A";
     if (insuranceType === "Temp") return "Temporary Insurance";
@@ -93,9 +93,7 @@ const CoverLevel = ({ data, insuranceType }) => {
           <FaReceipt className={styles.headerItemIcon} />
           <p className={styles.headerItemTitle}>Quote Reference</p>
         </div>
-        <p className={styles.headerItemValue}>
-          #{data?.referenceNumber || "N/A"}
-        </p>
+        <p className={styles.headerItemValue}>#{referenceNumber || "N/A"}</p>
       </div>
       <div className={styles.features}>
         {features.map((feature, index) => (

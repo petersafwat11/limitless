@@ -27,7 +27,7 @@ const ImpoundCoverDetailsForm = dynamic(
   { loading: () => <StepFallback /> }
 );
 const PersonalDetailsForm = dynamic(
-  () => import("@/app/temporary/get-quote/_components/PersonalDetailsForm"),
+  () => import("@/app/annual/get-quote/_components/AnnualPersonalDetailsForm"),
   { loading: () => <StepFallback /> }
 );
 const ReviewQuote = dynamic(
@@ -185,7 +185,11 @@ const ImpoundInsuranceContent = () => {
               <ImpoundCoverDetailsForm form={form} />
             )}
             {currentStep === STEPS.PERSONAL && (
-              <PersonalDetailsForm form={form} />
+              <PersonalDetailsForm
+                form={form}
+                showAdditionalInfo={false}
+                showAdditionalDrivers={false}
+              />
             )}
             {currentStep === STEPS.REVIEW && (
               <ReviewQuote form={form} insuranceType="Impound" />

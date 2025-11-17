@@ -46,6 +46,7 @@ export default function PaymentSummaryClient({ insuranceData, id }) {
             <CoverLevel
               data={insuranceData.quote}
               insuranceType={insuranceData.type}
+              referenceNumber={insuranceData.referenceNumber}
             />
             <Actions insuranceId={id} insuranceType={insuranceData.type} onPayClick={handlePayClick} />
           </div>

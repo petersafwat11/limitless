@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import Header from "@/ui/layout/header/Header";
 import { ToastContainer } from "react-toastify";
 import { usePathname } from "next/navigation";
@@ -18,7 +19,7 @@ export default function ClientLayout({ children }) {
     "/terms-and-conditions",
     "/cookies-policy",
     "/complaints",
-    "/FAQ",
+    "/faq",
   ];
 
   const hasNormalHeader = !(
@@ -32,7 +33,9 @@ export default function ClientLayout({ children }) {
 
   return (
     <>
-      <Header />
+      <Suspense fallback={<div style={{ height: "80px" }} />}>
+        <Header />
+      </Suspense>
       <div className={hasNormalHeader ? "has-normal-header" : ""}>
         {children}
       </div>
