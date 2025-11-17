@@ -11,20 +11,24 @@ export default function DashboardChatWidget() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Add CSS to hide widget by default to prevent flash
+    // Add CSS to completely hide widget by default
     const style = document.createElement("style");
     style.id = "tawk-hide-style";
     style.innerHTML = `
       .tawk-min-container,
       #tawk-bubble-container,
-      iframe[title="chat widget"] {
+      iframe[title="chat widget"],
+      .widget-visible {
+        display: none !important;
         opacity: 0 !important;
         visibility: hidden !important;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        pointer-events: none !important;
       }
       .tawk-show {
+        display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
+        pointer-events: auto !important;
       }
     `;
     if (!document.getElementById("tawk-hide-style")) {
@@ -52,11 +56,10 @@ export default function DashboardChatWidget() {
       // Prevent auto-maximize
       window.Tawk_API.maximize = function () {};
 
-      // Show widget with CSS class after load
-      const containers = document.querySelectorAll(
-        '.tawk-min-container, #tawk-bubble-container, iframe[title="chat widget"]'
-      );
-      containers.forEach((el) => el.classList.add("tawk-show"));
+      // Keep hidden by default
+      if (window.Tawk_API.hideWidget) {
+        window.Tawk_API.hideWidget();
+      }
 
       setIsReady(true);
     };
@@ -70,11 +73,10 @@ export default function DashboardChatWidget() {
         // Prevent auto-maximize
         window.Tawk_API.maximize = function () {};
 
-        // Show widget with CSS class
-        const containers = document.querySelectorAll(
-          '.tawk-min-container, #tawk-bubble-container, iframe[title="chat widget"]'
-        );
-        containers.forEach((el) => el.classList.add("tawk-show"));
+        // Keep hidden by default
+        if (window.Tawk_API.hideWidget) {
+          window.Tawk_API.hideWidget();
+        }
 
         setIsReady(true);
         clearInterval(timer);
@@ -84,17 +86,23 @@ export default function DashboardChatWidget() {
 
   // Show/hide widget based on pathname
   useEffect(() => {
-    if (!isReady || typeof window === "undefined") return;
+    if (!isReady || typeof window === "undefined" || !window.Tawk_API) return;
 
     const containers = document.querySelectorAll(
-      '.tawk-min-container, #tawk-bubble-container, iframe[title="chat widget"]'
+      '.tawk-min-container, #tawk-bubble-container, iframe[title="chat widget"], .widget-visible'
     );
 
     if (isDashboard) {
       // Show widget on dashboard pages
+      if (window.Tawk_API.showWidget) {
+        window.Tawk_API.showWidget();
+      }
       containers.forEach((el) => el.classList.add("tawk-show"));
     } else {
       // Hide widget on non-dashboard pages
+      if (window.Tawk_API.hideWidget) {
+        window.Tawk_API.hideWidget();
+      }
       containers.forEach((el) => el.classList.remove("tawk-show"));
     }
   }, [isDashboard, isReady, pathname]);

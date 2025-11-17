@@ -9,6 +9,9 @@ html {
   /* iOS Safari sticky fix */
   height: 100%;
   position: relative;
+  /* Safe area support for mobile */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
@@ -24,6 +27,16 @@ body {
   min-height: 100vh;
   overscroll-behavior-y: none;
   -webkit-overflow-scrolling: touch;
+  /* Safe area background colors */
+  background: linear-gradient(
+    to bottom,
+    #000822 0%,
+    #000822 env(safe-area-inset-top),
+    #ffffff env(safe-area-inset-top),
+    #ffffff calc(100% - env(safe-area-inset-bottom)),
+    #000822 calc(100% - env(safe-area-inset-bottom)),
+    #000822 100%
+  );
 }
 
 body {
@@ -359,4 +372,3 @@ body .react-datepicker__navigation--next:hover,
 body .react-datepicker__navigation--previous:hover {
   border-color: #ffffff !important;
 }
-
