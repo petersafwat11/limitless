@@ -1,25 +1,40 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 
 export default function DashboardChatWidget() {
-  const pathname = usePathname();
-  const isDashboard = pathname?.startsWith("/dashboard");
-  const [isWidgetReady, setIsWidgetReady] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Load Tawk.to script
     if (typeof window === "undefined") return;
 
-    // Check if script already exists
+    // Add CSS to hide widget by default to prevent flash
+    const style = document.createElement("style");
+    style.id = "tawk-hide-style";
+    style.innerHTML = `
+      .tawk-min-container,
+      #tawk-bubble-container,
+      iframe[title="chat widget"] {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .tawk-show {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+    `;
+    if (!document.getElementById("tawk-hide-style")) {
+      document.head.appendChild(style);
+    }
+
+    // If already loaded
     if (document.getElementById("tawk-script")) {
-      // Script already loaded, just check if API is ready
-      checkTawkReady();
+      waitForTawk();
       return;
     }
 
-    // Create and inject script
+    // Inject script
     const script = document.createElement("script");
     script.id = "tawk-script";
     script.async = true;
@@ -27,53 +42,42 @@ export default function DashboardChatWidget() {
     script.charset = "UTF-8";
     script.setAttribute("crossorigin", "*");
 
-    // Initialize Tawk_API
     window.Tawk_API = window.Tawk_API || {};
     window.Tawk_LoadStart = new Date();
 
-    // Set up onLoad callback before script loads
-    window.Tawk_API.onLoad = function () {
-      console.log("Tawk.to loaded");
-      setIsWidgetReady(true);
+    window.Tawk_API.onLoad = () => {
+      // Prevent auto-maximize
+      window.Tawk_API.maximize = function () {};
+
+      // Show widget with CSS class after load
+      const containers = document.querySelectorAll(
+        '.tawk-min-container, #tawk-bubble-container, iframe[title="chat widget"]'
+      );
+      containers.forEach((el) => el.classList.add("tawk-show"));
+
+      setIsReady(true);
     };
 
     document.body.appendChild(script);
-
-    // Cleanup function
-    return () => {
-      // Don't remove script on unmount to prevent reload issues
-    };
   }, []);
 
-  // Separate effect to check if Tawk is ready (for when script was already loaded)
-  const checkTawkReady = () => {
-    const checkInterval = setInterval(() => {
-      if (window.Tawk_API && typeof window.Tawk_API.hideWidget === "function") {
-        setIsWidgetReady(true);
-        clearInterval(checkInterval);
+  const waitForTawk = () => {
+    const timer = setInterval(() => {
+      if (window.Tawk_API) {
+        // Prevent auto-maximize
+        window.Tawk_API.maximize = function () {};
+
+        // Show widget with CSS class
+        const containers = document.querySelectorAll(
+          '.tawk-min-container, #tawk-bubble-container, iframe[title="chat widget"]'
+        );
+        containers.forEach((el) => el.classList.add("tawk-show"));
+
+        setIsReady(true);
+        clearInterval(timer);
       }
     }, 100);
-
-    // Clear interval after 10 seconds to prevent infinite checking
-    setTimeout(() => clearInterval(checkInterval), 10000);
   };
 
-  // Control widget visibility based on pathname
-  useEffect(() => {
-    if (!isWidgetReady || typeof window === "undefined" || !window.Tawk_API) {
-      return;
-    }
-
-    console.log("Pathname changed:", pathname, "isDashboard:", isDashboard);
-
-    if (isDashboard) {
-      console.log("Showing Tawk widget");
-      window.Tawk_API.showWidget();
-    } else {
-      console.log("Hiding Tawk widget");
-      window.Tawk_API.hideWidget();
-    }
-  }, [pathname, isDashboard, isWidgetReady]);
-
-  return null; // This component doesn't render anything
+  return null;
 }

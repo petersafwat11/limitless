@@ -28,16 +28,18 @@ export default function ClientLayout({ children }) {
     pathname.includes("/get-quote")
   );
 
+  const isDashboard = pathname?.startsWith("/dashboard");
+
   return (
     <>
       <Header />
       <div className={hasNormalHeader ? "has-normal-header" : ""}>
         {children}
       </div>
-      <DashboardChatWidget />
+      {isDashboard && <DashboardChatWidget />}
       <ToastContainer
         position="bottom-center"
-        autoClose={5000}
+        autoClose={3000}
         hideProgressBar={true}
         newestOnTop={true}
         closeOnClick={false}

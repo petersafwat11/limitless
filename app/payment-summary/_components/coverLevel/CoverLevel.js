@@ -16,6 +16,11 @@ const CoverLevel = ({ data, insuranceType }) => {
     if (insuranceType === "Impound") return "Impound Insurance";
     return insuranceType;
   };
+
+  // Check if user filled Additional Information (for Annual insurance)
+  const hasAdditionalInfo =
+    data?.carUsage?.ownsHome !== null && data?.carUsage?.ownsHome !== undefined;
+
   const features =
     insuranceType === "Temp"
       ? [
@@ -26,13 +31,23 @@ const CoverLevel = ({ data, insuranceType }) => {
           "Loss, theft, fire or vandalism cover",
           "Legal liability cover",
         ]
-      : [
+      : insuranceType === "Impound"
+      ? [
           "Instant documents",
           "Uninsured driver promise",
           "Protected no claims",
           "Loss, theft, fire or vandalism cover",
           "Legal liability cover",
           "Impound Release",
+        ]
+      : [
+          "Instant documents",
+          "Uninsured driver promise",
+          "Loss, theft, fire or vandalism cover",
+          "Legal liability cover",
+          "Accidental damage",
+          "European coverage",
+          ...(hasAdditionalInfo ? ["Protected no claims"] : []),
         ];
   return (
     <div className={styles.container}>

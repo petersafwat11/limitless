@@ -27,7 +27,11 @@ import {
   yearOptions,
 } from "@/app/temporary/get-quote/data";
 
-const AnnualPersonalDetailsForm = ({ form }) => {
+const AnnualPersonalDetailsForm = ({
+  form,
+  showAdditionalInfo = true,
+  showAdditionalDrivers = true,
+}) => {
   const {
     register,
     formState: { errors },
@@ -76,17 +80,28 @@ const AnnualPersonalDetailsForm = ({ form }) => {
   ].includes(employmentStatus);
   const isRetiredOrUnemployed = isIndustryOccupationDisabled;
 
-  const getTileOrder = () => [
-    "about",
-    "location",
-    "employment",
-    "parking",
-    "usage",
-    "driving",
-    "additional",
-    "declarations",
-    "additionalDrivers",
-  ];
+  const getTileOrder = () => {
+    const baseTiles = [
+      "about",
+      "location",
+      "employment",
+      "parking",
+      "usage",
+      "driving",
+    ];
+
+    if (showAdditionalInfo) {
+      baseTiles.push("additional");
+    }
+
+    baseTiles.push("declarations");
+
+    if (showAdditionalDrivers) {
+      baseTiles.push("additionalDrivers");
+    }
+
+    return baseTiles;
+  };
 
   const getTileLabel = (tileKey) => {
     const labels = {
@@ -383,14 +398,44 @@ const AnnualPersonalDetailsForm = ({ form }) => {
     }
   }, [dateOfBirth, setValue, watch]);
 
+  const [addresses, setAddresses] = useState([]);
   const [isLoadingAddress, setIsLoadingAddress] = useState(false);
 
-  const handleFindAddress = () => {
+  const handleFindAddress = async () => {
+    const postcode = watch("userDetails.postCode");
+
+    if (!postcode || postcode.trim() === "") {
+      alert("Please enter a postcode first");
+      return;
+    }
+
     setIsLoadingAddress(true);
-    setTimeout(() => {
-      setValue("userDetails.address", "2 KINGS ROAD");
+
+    try {
+      const response = await fetch(
+        `${
+          process.env.NEXT_PUBLIC_API_URL
+        }/api/insurance/lookup-postcode/${encodeURIComponent(postcode.trim())}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to lookup postcode");
+      }
+
+      const result = await response.json();
+
+      if (result.status === "success" && result.data.addresses) {
+        setAddresses(result.data.addresses);
+        setValue("userDetails.address", "");
+      } else {
+        alert("No addresses found for this postcode");
+      }
+    } catch (error) {
+      console.error("Error looking up postcode:", error);
+      alert("Failed to lookup postcode. Please try again.");
+    } finally {
       setIsLoadingAddress(false);
-    }, 3000);
+    }
   };
 
   const isDriverComplete = (driver) => {
@@ -559,11 +604,14 @@ const AnnualPersonalDetailsForm = ({ form }) => {
                 <div className={styles.cleanFormGrid1Col}>
                   <FormDropdown
                     label="Select address"
-                    options={["2 KINGS ROAD"]}
-                    placeholder="Select your address"
+                    options={addresses}
+                    placeholder={
+                      addresses.length > 0
+                        ? "Select your address"
+                        : "No addresses found"
+                    }
                     {...register("userDetails.address")}
                     error={errors.userDetails?.address}
-                    disabled={!address}
                     inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
@@ -946,76 +994,83 @@ const AnnualPersonalDetailsForm = ({ form }) => {
           </section>
 
           {/* Additional Information Section */}
-          <section
-            className={`${modalButtonStyles.formSection} ${
-              isTileDisabled("additional") ? modalButtonStyles.disabled : ""
-            }`}
-          >
-            <button
-              type="button"
-              className={`${modalButtonStyles.tileHeader} ${
-                isTileExpanded("additional") ? modalButtonStyles.expanded : ""
-              } ${
+          {showAdditionalInfo && (
+            <section
+              className={`${modalButtonStyles.formSection} ${
                 isTileDisabled("additional") ? modalButtonStyles.disabled : ""
               }`}
-              onClick={() => toggleTile("additional")}
             >
-              <h3 className={modalButtonStyles.sectionLabel}>
-                Additional Information
-              </h3>
-              <span className={modalButtonStyles.expandIcon}>+</span>
-            </button>
-            {isTileExpanded("additional") && isTileDisabled("additional") && (
-              <div className={modalButtonStyles.errorMessage}>
-                <span className={modalButtonStyles.errorIcon}>!</span>
-                <span>Complete {getPreviousTileLabel("additional")} first</span>
-              </div>
-            )}
-            {isTileExpanded("additional") && !isTileDisabled("additional") && (
-              <>
-                <div className={styles.cleanAdditionalInfoContainer}>
-                  <div className={styles.cleanFormGrid1Col}>
-                    <p className={styles.cleanFormFieldLabel}>
-                      Do you own your home?
-                    </p>
-                    <YesORNo
-                      value={watch("carUsage.ownsHome")}
-                      onChange={(value) => setValue("carUsage.ownsHome", value)}
-                    />
-                  </div>
-
-                  <div className={styles.cleanFormGrid1Col}>
-                    <p className={styles.cleanFormFieldLabel}>
-                      Do any children under the age of 16 live with you?
-                    </p>
-                    <YesORNo
-                      value={watch("carUsage.childrenUnder16")}
-                      onChange={(value) =>
-                        setValue("carUsage.childrenUnder16", value)
-                      }
-                    />
-                  </div>
-
-                  <div className={styles.cleanFormGrid1Col}>
-                    <p className={styles.cleanFormFieldLabel}>
-                      Have you continuously lived in the UK since birth?
-                    </p>
-                    <p className={styles.cleanSubLabel}>
-                      Insurance providers need to know how long you&apos;ve
-                      lived in the UK on a continuous basis, without any breaks
-                      lasting 6 months or longer.
-                    </p>
-                    <YesORNo
-                      value={watch("carUsage.livedInUKSinceBirth")}
-                      onChange={(value) =>
-                        setValue("carUsage.livedInUKSinceBirth", value)
-                      }
-                    />
-                  </div>
+              <button
+                type="button"
+                className={`${modalButtonStyles.tileHeader} ${
+                  isTileExpanded("additional") ? modalButtonStyles.expanded : ""
+                } ${
+                  isTileDisabled("additional") ? modalButtonStyles.disabled : ""
+                }`}
+                onClick={() => toggleTile("additional")}
+              >
+                <h3 className={modalButtonStyles.sectionLabel}>
+                  Additional Information
+                </h3>
+                <span className={modalButtonStyles.expandIcon}>+</span>
+              </button>
+              {isTileExpanded("additional") && isTileDisabled("additional") && (
+                <div className={modalButtonStyles.errorMessage}>
+                  <span className={modalButtonStyles.errorIcon}>!</span>
+                  <span>
+                    Complete {getPreviousTileLabel("additional")} first
+                  </span>
                 </div>
-              </>
-            )}
-          </section>
+              )}
+              {isTileExpanded("additional") &&
+                !isTileDisabled("additional") && (
+                  <>
+                    <div className={styles.cleanAdditionalInfoContainer}>
+                      <div className={styles.cleanFormGrid1Col}>
+                        <p className={styles.cleanFormFieldLabel}>
+                          Do you own your home?
+                        </p>
+                        <YesORNo
+                          value={watch("carUsage.ownsHome")}
+                          onChange={(value) =>
+                            setValue("carUsage.ownsHome", value)
+                          }
+                        />
+                      </div>
+
+                      <div className={styles.cleanFormGrid1Col}>
+                        <p className={styles.cleanFormFieldLabel}>
+                          Do any children under the age of 16 live with you?
+                        </p>
+                        <YesORNo
+                          value={watch("carUsage.childrenUnder16")}
+                          onChange={(value) =>
+                            setValue("carUsage.childrenUnder16", value)
+                          }
+                        />
+                      </div>
+
+                      <div className={styles.cleanFormGrid1Col}>
+                        <p className={styles.cleanFormFieldLabel}>
+                          Have you continuously lived in the UK since birth?
+                        </p>
+                        <p className={styles.cleanSubLabel}>
+                          Insurance providers need to know how long you&apos;ve
+                          lived in the UK on a continuous basis, without any
+                          breaks lasting 6 months or longer.
+                        </p>
+                        <YesORNo
+                          value={watch("carUsage.livedInUKSinceBirth")}
+                          onChange={(value) =>
+                            setValue("carUsage.livedInUKSinceBirth", value)
+                          }
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+            </section>
+          )}
 
           {/* Declarations Section */}
           <section
@@ -1099,105 +1154,109 @@ const AnnualPersonalDetailsForm = ({ form }) => {
           </section>
 
           {/* Additional Drivers Section */}
-          <section
-            className={`${modalButtonStyles.formSection} ${
-              isTileDisabled("additionalDrivers")
-                ? modalButtonStyles.disabled
-                : ""
-            }`}
-          >
-            <button
-              type="button"
-              className={`${modalButtonStyles.tileHeader} ${
-                isTileExpanded("additionalDrivers")
-                  ? modalButtonStyles.expanded
-                  : ""
-              } ${
+          {showAdditionalDrivers && (
+            <section
+              className={`${modalButtonStyles.formSection} ${
                 isTileDisabled("additionalDrivers")
                   ? modalButtonStyles.disabled
                   : ""
               }`}
-              onClick={() => toggleTile("additionalDrivers")}
             >
-              <h3 className={modalButtonStyles.sectionLabel}>
-                Additional Drivers
-              </h3>
-              <span className={modalButtonStyles.expandIcon}>+</span>
-            </button>
-            {isTileExpanded("additionalDrivers") &&
-              isTileDisabled("additionalDrivers") && (
-                <div className={modalButtonStyles.errorMessage}>
-                  <span className={modalButtonStyles.errorIcon}>!</span>
-                  <span>
-                    Complete {getPreviousTileLabel("additionalDrivers")} first
-                  </span>
-                </div>
-              )}
-            {isTileExpanded("additionalDrivers") &&
-              !isTileDisabled("additionalDrivers") && (
-                <>
-                  <div className={styles.cleanAdditionalInfoContainer}>
-                    <div className={styles.cleanFormGrid1Col}>
-                      <p className={styles.cleanFormFieldLabel}>
-                        Additional Drivers
-                      </p>
-                      <p className={styles.cleanSubLabel}>
-                        Do you want to add any additional drivers? You can add
-                        up to 5 additional drivers. Include any drivers who
-                        share the car for business use.
-                      </p>
-                      <YesORNo
-                        value={watch("carUsage.hasAdditionalDrivers")}
-                        onChange={(value) => {
-                          setValue("carUsage.hasAdditionalDrivers", value);
-                          if (!value) {
-                            setValue("carUsage.additionalDrivers", []);
-                          }
-                        }}
-                      />
-
-                      {hasAdditionalDrivers && (
-                        <div
-                          className={modalButtonStyles.driversButtonContainer}
-                        >
-                          {completeDrivers.length > 0 && (
-                            <div
-                              className={modalButtonStyles.driverButtonsList}
-                            >
-                              {completeDrivers.map((driver, index) => (
-                                <button
-                                  key={index}
-                                  type="button"
-                                  className={modalButtonStyles.driverNameButton}
-                                  onClick={() => setIsModalOpen(true)}
-                                  title="Click to edit driver"
-                                >
-                                  {driver.firstName && driver.lastName
-                                    ? `${driver.firstName} ${driver.lastName}`
-                                    : `Driver`}
-                                </button>
-                              ))}
-                            </div>
-                          )}
-                          {completeDrivers.length < 5 && (
-                            <button
-                              type="button"
-                              className={modalButtonStyles.openModalButton}
-                              onClick={() => setIsModalOpen(true)}
-                            >
-                              + Add{" "}
-                              {completeDrivers.length === 0
-                                ? "Drivers"
-                                : "Another Driver"}
-                            </button>
-                          )}
-                        </div>
-                      )}
-                    </div>
+              <button
+                type="button"
+                className={`${modalButtonStyles.tileHeader} ${
+                  isTileExpanded("additionalDrivers")
+                    ? modalButtonStyles.expanded
+                    : ""
+                } ${
+                  isTileDisabled("additionalDrivers")
+                    ? modalButtonStyles.disabled
+                    : ""
+                }`}
+                onClick={() => toggleTile("additionalDrivers")}
+              >
+                <h3 className={modalButtonStyles.sectionLabel}>
+                  Additional Drivers
+                </h3>
+                <span className={modalButtonStyles.expandIcon}>+</span>
+              </button>
+              {isTileExpanded("additionalDrivers") &&
+                isTileDisabled("additionalDrivers") && (
+                  <div className={modalButtonStyles.errorMessage}>
+                    <span className={modalButtonStyles.errorIcon}>!</span>
+                    <span>
+                      Complete {getPreviousTileLabel("additionalDrivers")} first
+                    </span>
                   </div>
-                </>
-              )}
-          </section>
+                )}
+              {isTileExpanded("additionalDrivers") &&
+                !isTileDisabled("additionalDrivers") && (
+                  <>
+                    <div className={styles.cleanAdditionalInfoContainer}>
+                      <div className={styles.cleanFormGrid1Col}>
+                        <p className={styles.cleanFormFieldLabel}>
+                          Additional Drivers
+                        </p>
+                        <p className={styles.cleanSubLabel}>
+                          Do you want to add any additional drivers? You can add
+                          up to 5 additional drivers. Include any drivers who
+                          share the car for business use.
+                        </p>
+                        <YesORNo
+                          value={watch("carUsage.hasAdditionalDrivers")}
+                          onChange={(value) => {
+                            setValue("carUsage.hasAdditionalDrivers", value);
+                            if (!value) {
+                              setValue("carUsage.additionalDrivers", []);
+                            }
+                          }}
+                        />
+
+                        {hasAdditionalDrivers && (
+                          <div
+                            className={modalButtonStyles.driversButtonContainer}
+                          >
+                            {completeDrivers.length > 0 && (
+                              <div
+                                className={modalButtonStyles.driverButtonsList}
+                              >
+                                {completeDrivers.map((driver, index) => (
+                                  <button
+                                    key={index}
+                                    type="button"
+                                    className={
+                                      modalButtonStyles.driverNameButton
+                                    }
+                                    onClick={() => setIsModalOpen(true)}
+                                    title="Click to edit driver"
+                                  >
+                                    {driver.firstName && driver.lastName
+                                      ? `${driver.firstName} ${driver.lastName}`
+                                      : `Driver`}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                            {completeDrivers.length < 5 && (
+                              <button
+                                type="button"
+                                className={modalButtonStyles.openModalButton}
+                                onClick={() => setIsModalOpen(true)}
+                              >
+                                + Add{" "}
+                                {completeDrivers.length === 0
+                                  ? "Drivers"
+                                  : "Another Driver"}
+                              </button>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </>
+                )}
+            </section>
+          )}
         </div>
       </ComponentWrapper>
 

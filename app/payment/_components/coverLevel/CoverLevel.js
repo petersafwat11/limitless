@@ -9,6 +9,10 @@ const CoverLevel = ({ data, insuranceType }) => {
     return insuranceType;
   };
 
+  // Check if user filled Additional Information (for Annual insurance)
+  const hasAdditionalInfo =
+    data?.carUsage?.ownsHome !== null && data?.carUsage?.ownsHome !== undefined;
+
   const features =
     insuranceType === "Temp"
       ? [
@@ -19,13 +23,23 @@ const CoverLevel = ({ data, insuranceType }) => {
           "Loss, theft, fire or vandalism cover",
           "Legal liability cover",
         ]
-      : [
+      : insuranceType === "Impound"
+      ? [
           "Instant documents",
           "Uninsured driver promise",
           "Protected no claims",
           "Loss, theft, fire or vandalism cover",
           "Legal liability cover",
           "Impound Release",
+        ]
+      : [
+          "Instant documents",
+          "Uninsured driver promise",
+          "Loss, theft, fire or vandalism cover",
+          "Legal liability cover",
+          "Accidental damage",
+          "European coverage",
+          ...(hasAdditionalInfo ? ["Protected no claims"] : []),
         ];
 
   return (
@@ -52,8 +66,17 @@ const CoverLevel = ({ data, insuranceType }) => {
         <div className={styles.featuresList}>
           {features.map((feature, index) => (
             <div className={styles.featureItem} key={index}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#0388ff"/>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                  fill="#0388ff"
+                />
               </svg>
               <span className={styles.featureText}>{feature}</span>
             </div>

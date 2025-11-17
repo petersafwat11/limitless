@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import styles from "./header.module.css";
 import { useRouter } from "next/navigation";
@@ -66,6 +66,8 @@ const IconComponent = ({ type }) => {
 const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const vehicleType = searchParams.get("type");
   const isDashboard = pathname.startsWith("/dashboard");
   const isGetQuotePage = pathname.includes("/get-quote");
   const isFAQPage = pathname === "/FAQ";
@@ -122,20 +124,25 @@ const Header = () => {
     };
   }, [isOpen]);
 
-  // Function to open Tawk.to chat
-  const openLiveChat = () => {
-    if (typeof window !== "undefined" && window.Tawk_API) {
-      window.Tawk_API.maximize();
-    }
-  };
-
   const carVanItems = [
-    { label: "Annual car insurance", href: "/annual", icon: "calendar" },
-    { label: "Hourly car insurance", href: "/temporary", icon: "clock" },
-    { label: "Temporary car insurance", href: "/temporary", icon: "calendar" },
+    {
+      label: "Annual car insurance",
+      href: "/annual?type=car",
+      icon: "calendar",
+    },
+    {
+      label: "Hourly car insurance",
+      href: "/temporary?type=car",
+      icon: "clock",
+    },
+    {
+      label: "Temporary car insurance",
+      href: "/temporary?type=car",
+      icon: "calendar",
+    },
     {
       label: "International driving licenses",
-      href: "/annual/get-quote",
+      href: "/annual?type=car",
       icon: "globe",
     },
   ];
@@ -143,22 +150,22 @@ const Header = () => {
   const motorbakeItems = [
     {
       label: "Annual bike insurance",
-      href: "/annual/get-quote",
+      href: "/annual?type=motorbike",
       icon: "calendar",
     },
     {
       label: "Hourly bike insurance",
-      href: "/temporary/get-quote",
+      href: "/temporary?type=motorbike",
       icon: "clock",
     },
     {
       label: "Weekly bike insurance",
-      href: "/temporary/get-quote",
+      href: "/temporary?type=motorbike",
       icon: "calendar",
     },
     {
       label: "International driving licenses",
-      href: "/annual/get-quote",
+      href: "/annual?type=motorbike",
       icon: "globe",
     },
   ];
@@ -173,7 +180,7 @@ const Header = () => {
     "/terms-and-conditions",
     "/cookies-policy",
     "/complaints",
-    "/FAQ",
+    "/faq",
   ];
 
   const shouldHideHeader =
@@ -222,10 +229,11 @@ const Header = () => {
                         className={`${styles.stickyMenuButton} ${
                           openStickyDropdown === "carVan" ? styles.active : ""
                         } ${
+                          vehicleType === "car" &&
                           carVanItems.some(
                             (item) =>
-                              pathname === item.href ||
-                              pathname.startsWith(item.href + "/")
+                              pathname === item.href.split("?")[0] ||
+                              pathname.startsWith(item.href.split("?")[0] + "/")
                           )
                             ? styles.activeMenuLink
                             : ""
@@ -275,10 +283,11 @@ const Header = () => {
                             ? styles.active
                             : ""
                         } ${
+                          vehicleType === "motorbike" &&
                           motorbakeItems.some(
                             (item) =>
-                              pathname === item.href ||
-                              pathname.startsWith(item.href + "/")
+                              pathname === item.href.split("?")[0] ||
+                              pathname.startsWith(item.href.split("?")[0] + "/")
                           )
                             ? styles.activeMenuLink
                             : ""
@@ -401,10 +410,11 @@ const Header = () => {
                     className={`${styles.menuLink} ${
                       openDropdown === "carVan" ? styles.active : ""
                     } ${
+                      vehicleType === "car" &&
                       carVanItems.some(
                         (item) =>
-                          pathname === item.href ||
-                          pathname.startsWith(item.href + "/")
+                          pathname === item.href.split("?")[0] ||
+                          pathname.startsWith(item.href.split("?")[0] + "/")
                       )
                         ? styles.activeMenuLink
                         : ""
@@ -450,10 +460,11 @@ const Header = () => {
                     className={`${styles.menuLink} ${
                       openDropdown === "motorbike" ? styles.active : ""
                     } ${
+                      vehicleType === "motorbike" &&
                       motorbakeItems.some(
                         (item) =>
-                          pathname === item.href ||
-                          pathname.startsWith(item.href + "/")
+                          pathname === item.href.split("?")[0] ||
+                          pathname.startsWith(item.href.split("?")[0] + "/")
                       )
                         ? styles.activeMenuLink
                         : ""

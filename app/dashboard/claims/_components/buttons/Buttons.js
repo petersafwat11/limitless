@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
+import toast from "@/utils/toast";
 import styles from "./buttons.module.css";
 
 const Buttons = ({ claimId }) => {
@@ -13,7 +13,11 @@ const Buttons = ({ claimId }) => {
   };
 
   const handleCancel = async () => {
-    if (!confirm("Are you sure you want to cancel this claim? This action cannot be undone.")) {
+    if (
+      !confirm(
+        "Are you sure you want to cancel this claim? This action cannot be undone."
+      )
+    ) {
       return;
     }
 
@@ -35,17 +39,18 @@ const Buttons = ({ claimId }) => {
 
       toast.success("Claim cancelled successfully!", {
         position: "top-right",
-        autoClose: 3000,
       });
 
       setTimeout(() => {
         router.push("/dashboard/claims");
       }, 1000);
     } catch (error) {
-      toast.error(error.message || "Failed to cancel claim. Please try again.", {
-        position: "top-right",
-        autoClose: 3000,
-      });
+      toast.error(
+        error.message || "Failed to cancel claim. Please try again.",
+        {
+          position: "top-right",
+        }
+      );
     }
   };
 

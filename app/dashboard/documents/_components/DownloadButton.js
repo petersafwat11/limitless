@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { toast } from "react-toastify";
+import toast from "@/utils/toast";
 
 export default function DownloadButton({
   insuranceId,
@@ -107,9 +107,7 @@ export default function DownloadButton({
         window.URL.revokeObjectURL(url);
       }, 100);
 
-      toast.success("PDF downloaded successfully!", {
-        autoClose: 5000,
-      });
+      toast.success("PDF downloaded successfully!");
     } catch (error) {
       console.error("Download error:", error);
       toast.error("Failed to download PDF");
