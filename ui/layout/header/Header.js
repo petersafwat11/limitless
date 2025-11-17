@@ -326,19 +326,25 @@ const Header = () => {
                     </div>
 
                     <span
-                      className={styles.stickyMenuButton}
+                      className={`${styles.stickyMenuButton} ${
+                        pathname === "/impound" ? styles.activeMenuLink : ""
+                      }`}
                       onClick={() => router.push("/impound")}
                     >
                       Impound
                     </span>
                     <span
-                      className={styles.stickyMenuButton}
+                      className={`${styles.stickyMenuButton} ${
+                        pathname === "/coming-soon" ? styles.activeMenuLink : ""
+                      }`}
                       onClick={() => router.push("/coming-soon")}
                     >
                       Courier
                     </span>
                     <span
-                      className={styles.stickyMenuButton}
+                      className={`${styles.stickyMenuButton} ${
+                        pathname === "/contact" ? styles.activeMenuLink : ""
+                      }`}
                       onClick={() => router.push("/contact")}
                     >
                       Contact

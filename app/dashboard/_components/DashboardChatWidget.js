@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function DashboardChatWidget() {
   const [isReady, setIsReady] = useState(false);
+  const pathname = usePathname();
+  const isDashboard = pathname?.startsWith("/dashboard");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -78,6 +81,23 @@ export default function DashboardChatWidget() {
       }
     }, 100);
   };
+
+  // Show/hide widget based on pathname
+  useEffect(() => {
+    if (!isReady || typeof window === "undefined") return;
+
+    const containers = document.querySelectorAll(
+      '.tawk-min-container, #tawk-bubble-container, iframe[title="chat widget"]'
+    );
+
+    if (isDashboard) {
+      // Show widget on dashboard pages
+      containers.forEach((el) => el.classList.add("tawk-show"));
+    } else {
+      // Hide widget on non-dashboard pages
+      containers.forEach((el) => el.classList.remove("tawk-show"));
+    }
+  }, [isDashboard, isReady, pathname]);
 
   return null;
 }

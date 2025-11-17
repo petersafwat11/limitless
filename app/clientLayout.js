@@ -29,8 +29,6 @@ export default function ClientLayout({ children }) {
     pathname.includes("/get-quote")
   );
 
-  const isDashboard = pathname?.startsWith("/dashboard");
-
   return (
     <>
       <Suspense fallback={<div style={{ height: "80px" }} />}>
@@ -39,7 +37,7 @@ export default function ClientLayout({ children }) {
       <div className={hasNormalHeader ? "has-normal-header" : ""}>
         {children}
       </div>
-      {isDashboard && <DashboardChatWidget />}
+      <DashboardChatWidget />
       <ToastContainer
         position="bottom-center"
         autoClose={3000}
