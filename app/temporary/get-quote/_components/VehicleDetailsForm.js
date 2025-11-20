@@ -472,7 +472,7 @@ const VehicleDetailsForm = ({
       const response = await axios.get(apiUrl);
       if (response.data.status === "success" && response.data.data) {
         const vehicleData = response.data.data;
-
+        console.log(vehicleData, "vehicleData");
         setFoundVehicleData(vehicleData);
         setShowFoundData(true);
 
@@ -673,7 +673,7 @@ const VehicleDetailsForm = ({
                       {foundVehicleData.yearOfManufacture}
                     </p>
                     <p className={styles.vehicleDataRow}>
-                      {foundVehicleData.cylinderCapacity || "N/A"}cc{" "}
+                      {foundVehicleData.cylinderCapacity || "N/A"}
                       {foundVehicleData.colour || "N/A"}{" "}
                       {foundVehicleData.fuelType || "N/A"}{" "}
                       {foundVehicleData.transmission || "N/A"}

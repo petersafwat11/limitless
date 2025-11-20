@@ -21,11 +21,16 @@ const PolicyDetailsReview = ({ policy }) => {
       return value.length > 0 ? value.join(", ") : "N/A";
     return value;
   };
+  const formatDate = (dateString) => {
+    if (!dateString) return "N/A";
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB");
+  };
 
   const renderField = (label, value) => (
     <div className={styles.field}>
       <label>{label}</label>
-      <p>{formatValue(value)}</p>
+      <p>{label === "Date of Birth" ? formatDate(value) : formatValue(value)}</p>
     </div>
   );
 

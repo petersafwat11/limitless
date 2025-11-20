@@ -31,8 +31,12 @@ const CoverDetailsForm = ({ form, isImpound = false }) => {
       const currentDate = now.toISOString().split("T")[0];
       const currentTime = now.toTimeString().slice(0, 5);
 
-      form.setValue("coverDetails.startDate", currentDate, { shouldValidate: true });
-      form.setValue("coverDetails.startTime", currentTime, { shouldValidate: true });
+      form.setValue("coverDetails.startDate", currentDate, {
+        shouldValidate: true,
+      });
+      form.setValue("coverDetails.startTime", currentTime, {
+        shouldValidate: true,
+      });
     }
     setStartPolicyImmediately(!startPolicyImmediately);
   };
@@ -65,7 +69,8 @@ const CoverDetailsForm = ({ form, isImpound = false }) => {
 
   const durationOptions = getDurationOptions();
   const extraDurationOptions = getExtraDurationOptions();
-  const showDropdown = durationType === "Days" && extraDurationOptions.length > 0;
+  const showDropdown =
+    durationType === "Days" && extraDurationOptions.length > 0;
 
   const handleDurationTypeChange = (type) => {
     form.setValue("coverDetails.type", type);
@@ -79,10 +84,18 @@ const CoverDetailsForm = ({ form, isImpound = false }) => {
 
   const handleDateChange = (e) => {
     form.setValue("coverDetails.startDate", e.target.value);
+    // De-trigger start immediately when manually changing date
+    if (startPolicyImmediately) {
+      setStartPolicyImmediately(false);
+    }
   };
 
   const handleTimeChange = (e) => {
     form.setValue("coverDetails.startTime", e.target.value);
+    // De-trigger start immediately when manually changing time
+    if (startPolicyImmediately) {
+      setStartPolicyImmediately(false);
+    }
   };
 
   const handleDateInputChange = (e) => {
@@ -108,7 +121,9 @@ const CoverDetailsForm = ({ form, isImpound = false }) => {
           </div>
 
           {isImpound ? (
-            <div style={{ display: "flex", alignItems: "center", gap: "1.2rem" }}>
+            <div
+              style={{ display: "flex", alignItems: "center", gap: "1.2rem" }}
+            >
               <button
                 type="button"
                 style={{
@@ -128,7 +143,13 @@ const CoverDetailsForm = ({ form, isImpound = false }) => {
               >
                 30 Days
               </button>
-              <span style={{ fontSize: "1.2rem", color: "#7a8a9d", fontWeight: "500" }}>
+              <span
+                style={{
+                  fontSize: "1.2rem",
+                  color: "#7a8a9d",
+                  fontWeight: "500",
+                }}
+              >
                 (Fixed)
               </span>
             </div>
@@ -169,88 +190,94 @@ const CoverDetailsForm = ({ form, isImpound = false }) => {
 
               {/* Duration Value Selection - only show if a type is selected */}
               {durationType && (
-              <div className={styles.sparkDurationContainer}>
-                <p className={styles.sparkDurationLabel}>Select Duration</p>
-                <div className={styles.sparkDurationGrid}>
-                  {durationOptions.map((option) => (
-                    <button
-                      key={option}
-                      type="button"
-                      onClick={() => handleDurationChange(option)}
-                      className={`${styles.sparkDurationButton} ${
-                        duration === option
-                          ? styles.sparkDurationButtonActive
-                          : styles.sparkDurationButtonInactive
-                      }`}
-                    >
-                      {option}
-                    </button>
-                  ))}
-
-                  {/* Dropdown for more options - only show for Days */}
-                  {showDropdown && (
-                    <>
-                      {/* Native select for mobile only */}
-                      <select
-                        value={duration >= 9 ? duration : ""}
-                        onChange={(e) => handleDurationChange(parseInt(e.target.value))}
-                        className={`${styles.sparkNativeSelect} ${
-                          duration >= 9 ? styles.sparkNativeSelectActive : ""
+                <div className={styles.sparkDurationContainer}>
+                  <p className={styles.sparkDurationLabel}>Select Duration</p>
+                  <div className={styles.sparkDurationGrid}>
+                    {durationOptions.map((option) => (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => handleDurationChange(option)}
+                        className={`${styles.sparkDurationButton} ${
+                          duration === option
+                            ? styles.sparkDurationButtonActive
+                            : styles.sparkDurationButtonInactive
                         }`}
                       >
-                        <option value="">More...</option>
-                        {extraDurationOptions.map((option) => (
-                          <option key={option} value={option}>
-                            {option}
-                          </option>
-                        ))}
-                      </select>
+                        {option}
+                      </button>
+                    ))}
 
-                      {/* Custom dropdown for desktop only */}
-                      <div className={styles.sparkDropdownContainer}>
-                        <button
-                          type="button"
-                          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                          className={`${styles.sparkDurationButton} ${
-                            duration >= 9
-                              ? styles.sparkDurationButtonActive
-                              : styles.sparkDurationButtonInactive
+                    {/* Dropdown for more options - only show for Days */}
+                    {showDropdown && (
+                      <>
+                        {/* Native select for mobile only */}
+                        <select
+                          value={duration >= 9 ? duration : ""}
+                          onChange={(e) =>
+                            handleDurationChange(parseInt(e.target.value))
+                          }
+                          className={`${styles.sparkNativeSelect} ${
+                            duration >= 9 ? styles.sparkNativeSelectActive : ""
                           }`}
                         >
-                          {duration >= 9 ? duration : (
-                            <svg
-                              className={`${styles.sparkDropdownIcon} ${
-                                isDropdownOpen ? styles.sparkDropdownIconOpen : ""
-                              }`}
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                            >
-                              <polyline points="6 9 12 15 18 9" />
-                            </svg>
-                          )}
-                        </button>
+                          <option value="">More...</option>
+                          {extraDurationOptions.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </select>
 
-                        {isDropdownOpen && (
-                          <div className={styles.sparkDropdownContent}>
-                            {extraDurationOptions.map((option) => (
-                              <button
-                                key={option}
-                                type="button"
-                                onClick={() => handleDurationChange(option)}
-                                className={styles.sparkDropdownItem}
+                        {/* Custom dropdown for desktop only */}
+                        <div className={styles.sparkDropdownContainer}>
+                          <button
+                            type="button"
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            className={`${styles.sparkDurationButton} ${
+                              duration >= 9
+                                ? styles.sparkDurationButtonActive
+                                : styles.sparkDurationButtonInactive
+                            }`}
+                          >
+                            {duration >= 9 ? (
+                              duration
+                            ) : (
+                              <svg
+                                className={`${styles.sparkDropdownIcon} ${
+                                  isDropdownOpen
+                                    ? styles.sparkDropdownIconOpen
+                                    : ""
+                                }`}
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
                               >
-                                {option}
-                              </button>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    </>
-                  )}
+                                <polyline points="6 9 12 15 18 9" />
+                              </svg>
+                            )}
+                          </button>
+
+                          {isDropdownOpen && (
+                            <div className={styles.sparkDropdownContent}>
+                              {extraDurationOptions.map((option) => (
+                                <button
+                                  key={option}
+                                  type="button"
+                                  onClick={() => handleDurationChange(option)}
+                                  className={styles.sparkDropdownItem}
+                                >
+                                  {option}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </>
+                    )}
+                  </div>
                 </div>
-              </div>
               )}
             </div>
           )}
@@ -296,8 +323,12 @@ const CoverDetailsForm = ({ form, isImpound = false }) => {
             onClick={handleStartImmediately}
             style={{
               padding: "1.4rem 1.6rem",
-              background: startPolicyImmediately ? "rgba(3, 136, 255, 0.08)" : "transparent",
-              border: `1.5px solid ${startPolicyImmediately ? "#0388ff" : "rgba(3, 136, 255, 0.2)"}`,
+              background: startPolicyImmediately
+                ? "rgba(3, 136, 255, 0.08)"
+                : "transparent",
+              border: `1.5px solid ${
+                startPolicyImmediately ? "#0388ff" : "rgba(3, 136, 255, 0.2)"
+              }`,
               borderRadius: "10px",
               fontSize: "1.3rem",
               fontWeight: "500",
@@ -312,14 +343,26 @@ const CoverDetailsForm = ({ form, isImpound = false }) => {
             }}
             aria-pressed={startPolicyImmediately}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = startPolicyImmediately ? "#0270cc" : "rgba(3, 136, 255, 0.35)";
-              e.currentTarget.style.color = startPolicyImmediately ? "#0270cc" : "#000822";
-              e.currentTarget.style.backgroundColor = startPolicyImmediately ? "rgba(3, 136, 255, 0.12)" : "rgba(3, 136, 255, 0.02)";
+              e.currentTarget.style.borderColor = startPolicyImmediately
+                ? "#0270cc"
+                : "rgba(3, 136, 255, 0.35)";
+              e.currentTarget.style.color = startPolicyImmediately
+                ? "#0270cc"
+                : "#000822";
+              e.currentTarget.style.backgroundColor = startPolicyImmediately
+                ? "rgba(3, 136, 255, 0.12)"
+                : "rgba(3, 136, 255, 0.02)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = startPolicyImmediately ? "#0388ff" : "rgba(3, 136, 255, 0.2)";
-              e.currentTarget.style.color = startPolicyImmediately ? "#0388ff" : "#5a6b7d";
-              e.currentTarget.style.backgroundColor = startPolicyImmediately ? "rgba(3, 136, 255, 0.08)" : "transparent";
+              e.currentTarget.style.borderColor = startPolicyImmediately
+                ? "#0388ff"
+                : "rgba(3, 136, 255, 0.2)";
+              e.currentTarget.style.color = startPolicyImmediately
+                ? "#0388ff"
+                : "#5a6b7d";
+              e.currentTarget.style.backgroundColor = startPolicyImmediately
+                ? "rgba(3, 136, 255, 0.08)"
+                : "transparent";
             }}
           >
             {startPolicyImmediately && (

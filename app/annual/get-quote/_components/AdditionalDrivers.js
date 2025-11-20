@@ -12,8 +12,21 @@ import {
 } from "@/app/temporary/get-quote/data";
 
 const titleOptions = ["Mr", "Mrs", "Miss", "Ms", "Dr", "Mx"];
-const relationshipOptions = ["Spouse", "Child", "Parent", "Sibling", "Friend", "Other"];
-const relationshipStatusOptions = ["Single", "Married", "Divorced", "Widowed", "In a civil partnership"];
+const relationshipOptions = [
+  "Spouse",
+  "Child",
+  "Parent",
+  "Sibling",
+  "Friend",
+  "Other",
+];
+const relationshipStatusOptions = [
+  "Single",
+  "Married",
+  "Divorced",
+  "Widowed",
+  "In a civil partnership",
+];
 const licenseTypeOptions = [
   "Full UK Car Licence",
   "Provisional UK Car Licence",
@@ -23,12 +36,12 @@ const licenseTypeOptions = [
   "Full UK Car Licence (automatic only)",
 ];
 
-const AdditionalDrivers = ({ 
-  form, 
-  drivers = [], 
-  onAddDriver, 
+const AdditionalDrivers = ({
+  form,
+  drivers = [],
+  onAddDriver,
   onRemoveDriver,
-  onUpdateDriver 
+  onUpdateDriver,
 }) => {
   const { watch } = form;
 
@@ -63,16 +76,26 @@ const AdditionalDrivers = ({
 
               {/* Personal Information Section */}
               <div className={styles.cleanDriverSection}>
-                <h4 className={styles.cleanDriverSectionTitle}>Personal Information</h4>
-                
+                <h4 className={styles.cleanDriverSectionTitle}>
+                  Personal Information
+                </h4>
+
                 <div className={styles.cleanFormGrid1Col}>
-                  <p className={styles.cleanFormFieldLabel}>Relationship to you</p>
+                  <p className={styles.cleanFormFieldLabel}>
+                    Relationship to you
+                  </p>
                   <FormDropdown
                     label=""
                     options={relationshipOptions}
                     placeholder="Select relationship"
-                    value={watch(`carUsage.additionalDrivers.${index}.relationship`) || ""}
-                    onChange={(value) => onUpdateDriver(index, "relationship", value)}
+                    value={
+                      watch(
+                        `carUsage.additionalDrivers.${index}.relationship`
+                      ) || ""
+                    }
+                    onChange={(value) =>
+                      onUpdateDriver(index, "relationship", value)
+                    }
                     inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
@@ -80,7 +103,10 @@ const AdditionalDrivers = ({
                 <div className={styles.cleanFormGrid1Col}>
                   <p className={styles.cleanFormFieldLabel}>Full name</p>
                   <p className={styles.cleanSubLabel}>
-                    If you select &apos;Dr&apos; or &apos;Mx&apos; as their title, you may see fewer results. A small number of providers are still updating their systems to support these options.
+                    If you select &apos;Dr&apos; or &apos;Mx&apos; as their
+                    title, you may see fewer results. A small number of
+                    providers are still updating their systems to support these
+                    options.
                   </p>
                 </div>
 
@@ -89,22 +115,34 @@ const AdditionalDrivers = ({
                     label="Title"
                     options={titleOptions}
                     placeholder="Select..."
-                    value={watch(`carUsage.additionalDrivers.${index}.title`) || ""}
+                    value={
+                      watch(`carUsage.additionalDrivers.${index}.title`) || ""
+                    }
                     onChange={(value) => onUpdateDriver(index, "title", value)}
                     inputStyle={{ paddingLeft: "14px" }}
                   />
                   <FormTextInput
                     label="First name"
                     placeholder="First name"
-                    value={watch(`carUsage.additionalDrivers.${index}.firstName`) || ""}
-                    onChange={(e) => onUpdateDriver(index, "firstName", e.target.value)}
+                    value={
+                      watch(`carUsage.additionalDrivers.${index}.firstName`) ||
+                      ""
+                    }
+                    onChange={(e) =>
+                      onUpdateDriver(index, "firstName", e.target.value)
+                    }
                     inputStyle={{ paddingLeft: "14px" }}
                   />
                   <FormTextInput
                     label="Last name"
                     placeholder="Last name"
-                    value={watch(`carUsage.additionalDrivers.${index}.lastName`) || ""}
-                    onChange={(e) => onUpdateDriver(index, "lastName", e.target.value)}
+                    value={
+                      watch(`carUsage.additionalDrivers.${index}.lastName`) ||
+                      ""
+                    }
+                    onChange={(e) =>
+                      onUpdateDriver(index, "lastName", e.target.value)
+                    }
                     inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
@@ -118,18 +156,32 @@ const AdditionalDrivers = ({
                       allowPastDates={true}
                       isDateOfBirth={true}
                       reducedPadding={true}
-                      value={watch(`carUsage.additionalDrivers.${index}.dateOfBirth`) || ""}
-                      onChange={(value) => onUpdateDriver(index, "dateOfBirth", value)}
+                      value={
+                        watch(
+                          `carUsage.additionalDrivers.${index}.dateOfBirth`
+                        ) || ""
+                      }
+                      onChange={(value) =>
+                        onUpdateDriver(index, "dateOfBirth", value)
+                      }
                     />
                   </div>
                   <div>
-                    <p className={styles.cleanFormFieldLabel}>Relationship status</p>
+                    <p className={styles.cleanFormFieldLabel}>
+                      Relationship status
+                    </p>
                     <FormDropdown
                       label=""
                       options={relationshipStatusOptions}
                       placeholder="Select..."
-                      value={watch(`carUsage.additionalDrivers.${index}.relationshipStatus`) || ""}
-                      onChange={(value) => onUpdateDriver(index, "relationshipStatus", value)}
+                      value={
+                        watch(
+                          `carUsage.additionalDrivers.${index}.relationshipStatus`
+                        ) || ""
+                      }
+                      onChange={(value) =>
+                        onUpdateDriver(index, "relationshipStatus", value)
+                      }
                       inputStyle={{ paddingLeft: "14px" }}
                     />
                   </div>
@@ -137,21 +189,35 @@ const AdditionalDrivers = ({
 
                 <div className={styles.cleanFormGrid1Col}>
                   <p className={styles.cleanFormFieldLabel}>UK residency</p>
-                  <p className={styles.cleanSubLabel}>Have they continuously lived in the UK since birth?</p>
+                  <p className={styles.cleanSubLabel}>
+                    Have they continuously lived in the UK since birth?
+                  </p>
                   <YesORNo
-                    value={watch(`carUsage.additionalDrivers.${index}.livedInUKSinceBirth`)}
-                    onChange={(value) => onUpdateDriver(index, "livedInUKSinceBirth", value)}
+                    value={watch(
+                      `carUsage.additionalDrivers.${index}.livedInUKSinceBirth`
+                    )}
+                    onChange={(value) =>
+                      onUpdateDriver(index, "livedInUKSinceBirth", value)
+                    }
                   />
                 </div>
 
                 <div className={styles.cleanFormGrid1Col}>
-                  <p className={styles.cleanFormFieldLabel}>Employment status</p>
+                  <p className={styles.cleanFormFieldLabel}>
+                    Employment status
+                  </p>
                   <FormDropdown
                     label=""
                     options={employmentStatusOptions}
                     placeholder="Select..."
-                    value={watch(`carUsage.additionalDrivers.${index}.employmentStatus`) || ""}
-                    onChange={(value) => onUpdateDriver(index, "employmentStatus", value)}
+                    value={
+                      watch(
+                        `carUsage.additionalDrivers.${index}.employmentStatus`
+                      ) || ""
+                    }
+                    onChange={(value) =>
+                      onUpdateDriver(index, "employmentStatus", value)
+                    }
                     inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
@@ -159,11 +225,15 @@ const AdditionalDrivers = ({
 
               {/* Driving License Section */}
               <div className={styles.cleanDriverSection}>
-                <h4 className={styles.cleanDriverSectionTitle}>Driving License</h4>
-                
+                <h4 className={styles.cleanDriverSectionTitle}>
+                  Driving License
+                </h4>
+
                 <div className={styles.cleanFormGrid1Col}>
                   <p className={styles.cleanFormFieldLabel}>Type of license</p>
-                  <p className={styles.cleanSubLabel}>Choose the type of licence at the time this policy starts.</p>
+                  <p className={styles.cleanSubLabel}>
+                    Choose the type of licence at the time this policy starts.
+                  </p>
                   <div className={styles.cleanRadioGroup}>
                     {licenseTypeOptions.map((option) => (
                       <label key={option} className={styles.cleanRadioLabel}>
@@ -171,8 +241,14 @@ const AdditionalDrivers = ({
                           type="radio"
                           name={`licenseType_${index}`}
                           value={option}
-                          checked={watch(`carUsage.additionalDrivers.${index}.licenseType`) === option}
-                          onChange={(e) => onUpdateDriver(index, "licenseType", e.target.value)}
+                          checked={
+                            watch(
+                              `carUsage.additionalDrivers.${index}.licenseType`
+                            ) === option
+                          }
+                          onChange={(e) =>
+                            onUpdateDriver(index, "licenseType", e.target.value)
+                          }
                           className={styles.cleanRadioInput}
                         />
                         <span>{option}</span>
@@ -184,62 +260,79 @@ const AdditionalDrivers = ({
                 <div className={styles.cleanFormGrid1Col}>
                   <p className={styles.cleanFormFieldLabel}>How long held</p>
                   <p className={styles.cleanSubLabel}>
-                    Round down to the nearest full year. E.g., 6 years and 11 months = 6 years.
+                    Round down to the nearest full year. E.g., 6 years and 11
+                    months = 6 years.
                   </p>
                   <FormDropdown
                     label=""
                     options={licenseHeldOptions}
                     placeholder="Select..."
-                    value={watch(`carUsage.additionalDrivers.${index}.licenseHeld`) || ""}
-                    onChange={(value) => onUpdateDriver(index, "licenseHeld", value)}
+                    value={
+                      watch(
+                        `carUsage.additionalDrivers.${index}.licenseHeld`
+                      ) || ""
+                    }
+                    onChange={(value) =>
+                      onUpdateDriver(index, "licenseHeld", value)
+                    }
                     inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
 
                 <div className={styles.cleanFormGrid1Col}>
                   <p className={styles.cleanFormFieldLabel}>Other vehicles</p>
-                  <p className={styles.cleanSubLabel}>Do they use any other vehicles?</p>
+                  <p className={styles.cleanSubLabel}>
+                    Do they use any other vehicles?
+                  </p>
                   <YesORNo
-                    value={watch(`carUsage.additionalDrivers.${index}.otherVehicles`)}
-                    onChange={(value) => onUpdateDriver(index, "otherVehicles", value)}
+                    value={watch(
+                      `carUsage.additionalDrivers.${index}.otherVehicles`
+                    )}
+                    onChange={(value) =>
+                      onUpdateDriver(index, "otherVehicles", value)
+                    }
                   />
                 </div>
               </div>
 
               {/* Health & Safety Declaration Section */}
               <div className={styles.cleanDriverSection}>
-                <h4 className={styles.cleanDriverSectionTitle}>Health & Safety Declaration</h4>
-                
+                <h4 className={styles.cleanDriverSectionTitle}>
+                  Health & Safety Declaration
+                </h4>
+
                 <div className={styles.cleanFormGrid1Col}>
-                  <p className={styles.cleanFormFieldLabel}>Medical conditions or disabilities</p>
+                  <p className={styles.cleanFormFieldLabel}>
+                    Medical conditions or disabilities
+                  </p>
                   <p className={styles.cleanSubLabel}>
-                    Any conditions that need to be reported to the DVLA (or DVA)?
+                    Any conditions that need to be reported to the DVLA (or
+                    DVA)?
                   </p>
                   <YesORNo
-                    value={watch(`carUsage.additionalDrivers.${index}.medicalConditions`)}
-                    onChange={(value) => onUpdateDriver(index, "medicalConditions", value)}
+                    value={watch(
+                      `carUsage.additionalDrivers.${index}.medicalConditions`
+                    )}
+                    onChange={(value) =>
+                      onUpdateDriver(index, "medicalConditions", value)
+                    }
                   />
                 </div>
 
                 <div className={styles.cleanFormGrid1Col}>
-                  <p className={styles.cleanFormFieldLabel}>Insurance history</p>
-                  <p className={styles.cleanSubLabel}>
-                    Has an insurance provider ever declined, cancelled, or voided their policy or imposed special terms?
+                  <p className={styles.cleanFormFieldLabel}>
+                    Criminal convictions
                   </p>
-                  <YesORNo
-                    value={watch(`carUsage.additionalDrivers.${index}.insuranceHistory`)}
-                    onChange={(value) => onUpdateDriver(index, "insuranceHistory", value)}
-                  />
-                </div>
-
-                <div className={styles.cleanFormGrid1Col}>
-                  <p className={styles.cleanFormFieldLabel}>Criminal convictions</p>
                   <p className={styles.cleanSubLabel}>
                     Any unspent non-motoring-related criminal convictions?
                   </p>
                   <YesORNo
-                    value={watch(`carUsage.additionalDrivers.${index}.criminalConvictions`)}
-                    onChange={(value) => onUpdateDriver(index, "criminalConvictions", value)}
+                    value={watch(
+                      `carUsage.additionalDrivers.${index}.criminalConvictions`
+                    )}
+                    onChange={(value) =>
+                      onUpdateDriver(index, "criminalConvictions", value)
+                    }
                   />
                 </div>
               </div>
@@ -252,7 +345,9 @@ const AdditionalDrivers = ({
       {drivers.length < 5 && (
         <div className={styles.cleanAddDriverButtonContainer}>
           <ConfirmBtn
-            title={drivers.length === 0 ? "+ Add Driver" : "+ Add Another Driver"}
+            title={
+              drivers.length === 0 ? "+ Add Driver" : "+ Add Another Driver"
+            }
             onClick={handleAddDriver}
             type="button"
           />

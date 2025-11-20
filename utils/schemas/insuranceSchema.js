@@ -25,11 +25,25 @@ const baseVehicleFieldsSchema = z.object({
       make: z.string().optional(),
       model: z.string().optional(),
       year: z.string().optional(),
+      yearOfManufacture: z.string().optional(),
       fuel: z.string().optional(),
+      fuelType: z.string().optional(),
       transmission: z.string().optional(),
       colour: z.string().optional(),
       cylinderCapacity: z.string().optional(),
       insuranceGroup: z.string().optional(),
+      co2Emissions: z.string().optional(),
+      dateOfFirstRegistration: z.string().optional(),
+      dateOfLastV5CIssued: z.string().optional(),
+      mot: z.boolean().optional(),
+      motDetails: z.string().optional(),
+      revenueWeight: z.string().optional(),
+      taxDetails: z.string().optional(),
+      taxStatus: z.string().optional(),
+      taxed: z.boolean().optional(),
+      typeApproval: z.string().optional(),
+      vin: z.string().optional(),
+      wheelPlan: z.string().optional(),
     })
     .nullable()
     .optional(),
@@ -467,7 +481,7 @@ export const carUsageSchema = z.object({
       required_error: "Please specify how you use your car",
     }
   ),
-  otherVehicles: z.boolean().nullable().optional(),
+  otherVehicles: z.boolean(),
   otherVehiclesType: z
     .enum([
       "Own another car or van",

@@ -18,7 +18,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 // Helper function to calculate remaining days
-const calculateRemainingDays = (coverDetails) => {
+const calculateRemainingDays = (coverDetails, insuranceType) => {
   if (!coverDetails) return "N/A";
 
   const { startDate, startTime, type, period, impoundType } = coverDetails;
@@ -31,12 +31,15 @@ const calculateRemainingDays = (coverDetails) => {
     const [hours, minutes] = (startTime || "00:00").split(":");
     const startDateTime = new Date(year, month - 1, day, hours, minutes);
 
-    // Calculate end date based on type and period
+    // Calculate end date based on insurance type and period
     let endDateTime = new Date(startDateTime);
 
-    if (impoundType) {
-      // Impound insurance - typically 1 day
-      endDateTime.setDate(endDateTime.getDate() + 1);
+    if (insuranceType === "Annual") {
+      // Annual insurance - 1 year from start
+      endDateTime.setFullYear(endDateTime.getFullYear() + 1);
+    } else if (insuranceType === "Impound" || impoundType) {
+      // Impound insurance - 1 month from start
+      endDateTime.setMonth(endDateTime.getMonth() + 1);
     } else if (type === "Hours") {
       endDateTime.setHours(endDateTime.getHours() + period);
     } else if (type === "Days") {
@@ -97,13 +100,24 @@ const Page = async () => {
       const result = await response.json();
       const insurances = result.data?.data || [];
 
+      // Track which policies have been added to avoid duplicates
+      const addedPolicies = new Set();
+
       insurances.forEach((insurance) => {
+        // Skip if already added
+        if (addedPolicies.has(insurance._id)) {
+          return;
+        }
+
         const policyData = {
           id: insurance._id,
           policyNumber:
             insurance.referenceNumber ||
             `LC-${insurance._id.toString().slice(-8).toUpperCase()}`,
-          remaining: calculateRemainingDays(insurance.coverDetails),
+          remaining: calculateRemainingDays(
+            insurance.coverDetails,
+            insurance.type
+          ),
           name: insurance.userDetails
             ? `${insurance.userDetails.firstName} ${insurance.userDetails.surname}`
             : "N/A",
@@ -114,8 +128,12 @@ const Page = async () => {
           isPaid: insurance.quote?.paid || false,
         };
 
-        // Check if policy is active or expired
-        if (policyData.remaining === "Expired" || !policyData.isPaid) {
+        // Mark as added
+        addedPolicies.add(insurance._id);
+
+        // Check if policy is active or expired/unpaid
+        // A policy is in expired/unpaid if: not paid OR expired
+        if (!policyData.isPaid || policyData.remaining === "Expired") {
           expiredPolicies.push(policyData);
         } else {
           activePolicies.push(policyData);

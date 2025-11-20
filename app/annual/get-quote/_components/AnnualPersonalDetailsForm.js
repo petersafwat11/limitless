@@ -301,7 +301,6 @@ const AnnualPersonalDetailsForm = ({
       criminalConvictions: null,
       medicalConditions: null,
       insuranceCancelledOrClaimRefusedOrPolicyVoided: null,
-      insuranceHistory: null,
     };
     setValue("carUsage.additionalDrivers", [...additionalDrivers, newDriver]);
   };
@@ -546,6 +545,7 @@ const AnnualPersonalDetailsForm = ({
                 <div className={styles.cleanFormGrid1Col}>
                   <FormTextInput
                     label="Phone Number"
+                    type="tel"
                     placeholder="Enter your phone number"
                     {...register("userDetails.phone")}
                     error={errors.userDetails?.phone}

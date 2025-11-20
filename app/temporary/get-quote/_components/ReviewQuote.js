@@ -29,8 +29,59 @@ const ReviewQuote = ({ form, insuranceType = "Temp" }) => {
   const formatValue = (value) => {
     if (value === null || value === undefined || value === "") return "N/A";
     if (typeof value === "boolean") return value ? "Yes" : "No";
-    if (Array.isArray(value)) return value.length > 0 ? value.join(", ") : "N/A";
+    if (Array.isArray(value))
+      return value.length > 0 ? value.join(", ") : "N/A";
     return value;
+  };
+
+  const calculateEndDateTime = () => {
+    if (!coverDetails?.startDate || !coverDetails?.startTime) return "N/A";
+
+    try {
+      const [year, month, day] = coverDetails.startDate.split("-");
+      const [hours, minutes] = coverDetails.startTime.split(":");
+      const startDateTime = new Date(year, month - 1, day, hours, minutes);
+
+      let endDateTime = new Date(startDateTime);
+
+      if (insuranceType === "Impound") {
+        // Impound: 30 days from start
+        endDateTime.setDate(endDateTime.getDate() + 30);
+      } else if (insuranceType === "Annual") {
+        // Annual: 1 year from start
+        endDateTime.setFullYear(endDateTime.getFullYear() + 1);
+      } else if (insuranceType === "Temp") {
+        // Temporary: based on period and type
+        if (coverDetails.type === "Hours") {
+          endDateTime.setHours(
+            endDateTime.getHours() + (coverDetails.period || 0)
+          );
+        } else if (coverDetails.type === "Days") {
+          endDateTime.setDate(
+            endDateTime.getDate() + (coverDetails.period || 0)
+          );
+        } else if (coverDetails.type === "Weeks") {
+          endDateTime.setDate(
+            endDateTime.getDate() + (coverDetails.period || 0) * 7
+          );
+        } else if (coverDetails.type === "Months") {
+          endDateTime.setMonth(
+            endDateTime.getMonth() + (coverDetails.period || 0)
+          );
+        }
+      }
+
+      const endDate = endDateTime.toLocaleDateString("en-GB");
+      const endTime = endDateTime.toLocaleTimeString("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+
+      return `${endDate} ${endTime}`;
+    } catch (error) {
+      console.error("Error calculating end date/time:", error);
+      return "N/A";
+    }
   };
 
   const renderField = (label, value) => (
@@ -74,20 +125,39 @@ const ReviewQuote = ({ form, insuranceType = "Temp" }) => {
             {insuranceType === "Annual" && (
               <>
                 <div className={styles.row}>
-                  {renderField("Tracking Device", vehicleDetails?.trackingDevice)}
-                  {renderField("Alarm/Immobiliser", vehicleDetails?.alarmImmobiliser)}
-                  {renderField("Imported Vehicle", vehicleDetails?.importedVehicle)}
+                  {renderField(
+                    "Tracking Device",
+                    vehicleDetails?.trackingDevice
+                  )}
+                  {renderField(
+                    "Alarm/Immobiliser",
+                    vehicleDetails?.alarmImmobiliser
+                  )}
+                  {renderField(
+                    "Imported Vehicle",
+                    vehicleDetails?.importedVehicle
+                  )}
                 </div>
                 <div className={styles.row}>
-                  {renderField("Vehicle Modified", vehicleDetails?.vehicleModified)}
-                  {vehicleDetails?.vehicleModifications && vehicleDetails.vehicleModifications.length > 0 && 
-                    renderField("Modifications", vehicleDetails.vehicleModifications.join(", "))}
+                  {renderField(
+                    "Vehicle Modified",
+                    vehicleDetails?.vehicleModified
+                  )}
+                  {vehicleDetails?.vehicleModifications &&
+                    vehicleDetails.vehicleModifications.length > 0 &&
+                    renderField(
+                      "Modifications",
+                      vehicleDetails.vehicleModifications.join(", ")
+                    )}
                   {renderField("Purchase Date", vehicleDetails?.purchaseDate)}
                 </div>
                 <div className={styles.row}>
                   {renderField("Legal Owner", vehicleDetails?.legalOwner)}
                   {renderField("Owner", vehicleDetails?.owner)}
-                  {renderField("Registered Keeper", vehicleDetails?.registeredKeeper)}
+                  {renderField(
+                    "Registered Keeper",
+                    vehicleDetails?.registeredKeeper
+                  )}
                 </div>
               </>
             )}
@@ -99,16 +169,31 @@ const ReviewQuote = ({ form, insuranceType = "Temp" }) => {
           <h3 className={styles.sectionTitle}>Cover Details</h3>
           <div className={styles.sectionContent}>
             {insuranceType === "Annual" ? (
-              <div className={styles.row}>
-                {renderField("Cover Level", coverDetails?.level)}
-                {renderField("Start Date", coverDetails?.startDate)}
-              </div>
+              <>
+                <div className={styles.row}>
+                  {renderField("Cover Level", coverDetails?.level)}
+                  {renderField("Start Date", coverDetails?.startDate)}
+                </div>
+                <div className={styles.row}>
+                  {renderField("End Date & Time", calculateEndDateTime())}
+                </div>
+              </>
             ) : (
-              <div className={styles.row}>
-                {renderField("Duration", `${coverDetails?.period || "N/A"} ${coverDetails?.type || ""}`)}
-                {renderField("Start Date", coverDetails?.startDate)}
-                {renderField("Start Time", coverDetails?.startTime)}
-              </div>
+              <>
+                <div className={styles.row}>
+                  {renderField(
+                    "Duration",
+                    `${coverDetails?.period || "N/A"} ${
+                      coverDetails?.type || ""
+                    }`
+                  )}
+                  {renderField("Start Date", coverDetails?.startDate)}
+                  {renderField("Start Time", coverDetails?.startTime)}
+                </div>
+                <div className={styles.row}>
+                  {renderField("End Date & Time", calculateEndDateTime())}
+                </div>
+              </>
             )}
           </div>
         </div>
@@ -150,8 +235,14 @@ const ReviewQuote = ({ form, insuranceType = "Temp" }) => {
           <h3 className={styles.sectionTitle}>Car Parking & Usage</h3>
           <div className={styles.sectionContent}>
             <div className={styles.row}>
-              {renderField("Keeping Car During Day", carUsage?.keepingCarDuringDay)}
-              {renderField("Keeping Car During Night", carUsage?.keepingCarDuringNight)}
+              {renderField(
+                "Keeping Car During Day",
+                carUsage?.keepingCarDuringDay
+              )}
+              {renderField(
+                "Keeping Car During Night",
+                carUsage?.keepingCarDuringNight
+              )}
               {renderField("What Do You Use Car For", carUsage?.usageType)}
             </div>
 
@@ -160,13 +251,28 @@ const ReviewQuote = ({ form, insuranceType = "Temp" }) => {
               <>
                 <div className={styles.row}>
                   {renderField("Own Other Vehicles", carUsage?.otherVehicles)}
-                  {carUsage?.otherVehicles === "Yes" && renderField("Other Vehicles Type", carUsage?.otherVehiclesType)}
-                  {renderField("Additional Qualifications", carUsage?.hasAdditionalQualifications)}
+                  {carUsage?.otherVehicles === "Yes" &&
+                    renderField(
+                      "Other Vehicles Type",
+                      carUsage?.otherVehiclesType
+                    )}
+                  {renderField(
+                    "Additional Qualifications",
+                    carUsage?.hasAdditionalQualifications
+                  )}
                 </div>
                 {carUsage?.hasAdditionalQualifications === "Yes" && (
                   <div className={styles.row}>
-                    {renderField("Qualification Type", carUsage?.additionalQualificationType)}
-                    {renderField("Month/Year", `${carUsage?.qualificationMonth || "N/A"} ${carUsage?.qualificationYear || ""}`)}
+                    {renderField(
+                      "Qualification Type",
+                      carUsage?.additionalQualificationType
+                    )}
+                    {renderField(
+                      "Month/Year",
+                      `${carUsage?.qualificationMonth || "N/A"} ${
+                        carUsage?.qualificationYear || ""
+                      }`
+                    )}
                   </div>
                 )}
               </>
@@ -195,9 +301,15 @@ const ReviewQuote = ({ form, insuranceType = "Temp" }) => {
           <h3 className={styles.sectionTitle}>Declarations</h3>
           <div className={styles.sectionContent}>
             <div className={styles.row}>
-              {renderField("Criminal Convictions", carUsage?.criminalConvictions)}
+              {renderField(
+                "Criminal Convictions",
+                carUsage?.criminalConvictions
+              )}
               {renderField("Medical Conditions", carUsage?.medicalConditions)}
-              {renderField("Insurance Cancelled or Claim Refused", carUsage?.insuranceCancelledOrClaimRefusedOrPolicyVoided)}
+              {renderField(
+                "Insurance Cancelled or Claim Refused",
+                carUsage?.insuranceCancelledOrClaimRefusedOrPolicyVoided
+              )}
             </div>
           </div>
         </div>
@@ -205,63 +317,112 @@ const ReviewQuote = ({ form, insuranceType = "Temp" }) => {
         {/* ANNUAL-SPECIFIC ADDITIONAL INFO */}
         {insuranceType === "Annual" && (
           <>
-            {(carUsage?.ownsHome !== undefined || carUsage?.childrenUnder16 !== undefined || carUsage?.livedInUKSinceBirth !== undefined || carUsage?.hasAdditionalDrivers === true) && (
+            {(carUsage?.ownsHome !== undefined ||
+              carUsage?.childrenUnder16 !== undefined ||
+              carUsage?.livedInUKSinceBirth !== undefined ||
+              carUsage?.hasAdditionalDrivers === true) && (
               <div className={styles.section}>
                 <h3 className={styles.sectionTitle}>Additional Information</h3>
                 <div className={styles.sectionContent}>
-                  {(carUsage?.ownsHome !== undefined || carUsage?.childrenUnder16 !== undefined || carUsage?.livedInUKSinceBirth !== undefined) && (
+                  {(carUsage?.ownsHome !== undefined ||
+                    carUsage?.childrenUnder16 !== undefined ||
+                    carUsage?.livedInUKSinceBirth !== undefined) && (
                     <div className={styles.row}>
-                      {carUsage?.ownsHome !== undefined && renderField("Own Home", carUsage?.ownsHome)}
-                      {carUsage?.childrenUnder16 !== undefined && renderField("Children Under 16", carUsage?.childrenUnder16)}
-                      {carUsage?.livedInUKSinceBirth !== undefined && renderField("Lived in UK Since Birth", carUsage?.livedInUKSinceBirth)}
+                      {carUsage?.ownsHome !== undefined &&
+                        renderField("Own Home", carUsage?.ownsHome)}
+                      {carUsage?.childrenUnder16 !== undefined &&
+                        renderField(
+                          "Children Under 16",
+                          carUsage?.childrenUnder16
+                        )}
+                      {carUsage?.livedInUKSinceBirth !== undefined &&
+                        renderField(
+                          "Lived in UK Since Birth",
+                          carUsage?.livedInUKSinceBirth
+                        )}
                     </div>
                   )}
 
                   {/* ADDITIONAL DRIVERS - NESTED UNDER ADDITIONAL INFO */}
-                  {carUsage?.hasAdditionalDrivers === true && carUsage?.additionalDrivers?.length > 0 && (
-                    <div className={styles.driversContainer}>
-                      <h4 className={styles.additionalInfoSubtitle}>Additional Drivers</h4>
-                      {carUsage.additionalDrivers.map((driver, index) => (
-                        <div key={index} className={styles.driverCard}>
-                          <h5 className={styles.driverTitle}>Driver {index + 2}</h5>
-                          <div className={styles.row}>
-                            {renderField("First Name", driver?.firstName)}
-                            {renderField("Last Name", driver?.lastName)}
-                            {renderField("Date of Birth", driver?.dateOfBirth)}
-                          </div>
-                          <div className={styles.row}>
-                            {renderField("License Type", driver?.licenseType)}
-                            {renderField("License Held", driver?.licenseHeld)}
-                            {renderField("Employment Status", driver?.employmentStatus)}
-                          </div>
-                          <div className={styles.row}>
-                            {renderField("Occupation", driver?.occupation)}
-                            {renderField("Industry", driver?.industry)}
-                          </div>
-                          {(driver?.criminalConvictions !== undefined || driver?.medicalConditions !== undefined || driver?.insuranceCancelledOrClaimRefusedOrPolicyVoided !== undefined) && (
+                  {carUsage?.hasAdditionalDrivers === true &&
+                    carUsage?.additionalDrivers?.length > 0 && (
+                      <div className={styles.driversContainer}>
+                        <h4 className={styles.additionalInfoSubtitle}>
+                          Additional Drivers
+                        </h4>
+                        {carUsage.additionalDrivers.map((driver, index) => (
+                          <div key={index} className={styles.driverCard}>
+                            <h5 className={styles.driverTitle}>
+                              Driver {index + 2}
+                            </h5>
                             <div className={styles.row}>
-                              {driver?.criminalConvictions !== undefined && renderField("Criminal Convictions", driver?.criminalConvictions)}
-                              {driver?.medicalConditions !== undefined && renderField("Medical Conditions", driver?.medicalConditions)}
-                              {driver?.insuranceCancelledOrClaimRefusedOrPolicyVoided !== undefined && renderField("Insurance Cancelled/Refused", driver?.insuranceCancelledOrClaimRefusedOrPolicyVoided)}
+                              {renderField("First Name", driver?.firstName)}
+                              {renderField("Last Name", driver?.lastName)}
+                              {renderField(
+                                "Date of Birth",
+                                driver?.dateOfBirth
+                              )}
                             </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                            <div className={styles.row}>
+                              {renderField("License Type", driver?.licenseType)}
+                              {renderField("License Held", driver?.licenseHeld)}
+                              {renderField(
+                                "Employment Status",
+                                driver?.employmentStatus
+                              )}
+                            </div>
+                            <div className={styles.row}>
+                              {renderField("Occupation", driver?.occupation)}
+                              {renderField("Industry", driver?.industry)}
+                            </div>
+                            {(driver?.criminalConvictions !== undefined ||
+                              driver?.medicalConditions !== undefined ||
+                              driver?.insuranceCancelledOrClaimRefusedOrPolicyVoided !==
+                                undefined) && (
+                              <div className={styles.row}>
+                                {driver?.criminalConvictions !== undefined &&
+                                  renderField(
+                                    "Criminal Convictions",
+                                    driver?.criminalConvictions
+                                  )}
+                                {driver?.medicalConditions !== undefined &&
+                                  renderField(
+                                    "Medical Conditions",
+                                    driver?.medicalConditions
+                                  )}
+                                {driver?.insuranceCancelledOrClaimRefusedOrPolicyVoided !==
+                                  undefined &&
+                                  renderField(
+                                    "Insurance Cancelled/Refused",
+                                    driver?.insuranceCancelledOrClaimRefusedOrPolicyVoided
+                                  )}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                 </div>
               </div>
             )}
 
             {/* OPTIONAL EXTRAS SECTION */}
-            {(optionalExtras?.courtesyCar === true || optionalExtras?.breakdownCover === true || optionalExtras?.foreignUseCover === true) && (
+            {(optionalExtras?.courtesyCar === true ||
+              optionalExtras?.breakdownCover === true ||
+              optionalExtras?.foreignUseCover === true) && (
               <div className={styles.section}>
                 <h3 className={styles.sectionTitle}>Optional Extras</h3>
                 <div className={styles.sectionContent}>
                   <div className={styles.row}>
                     {renderField("Courtesy Car", optionalExtras?.courtesyCar)}
-                    {renderField("Breakdown Cover", optionalExtras?.breakdownCover)}
-                    {renderField("Foreign Use Cover", optionalExtras?.foreignUseCover)}
+                    {renderField(
+                      "Breakdown Cover",
+                      optionalExtras?.breakdownCover
+                    )}
+                    {renderField(
+                      "Foreign Use Cover",
+                      optionalExtras?.foreignUseCover
+                    )}
                   </div>
                 </div>
               </div>
@@ -292,7 +453,7 @@ const ReviewQuote = ({ form, insuranceType = "Temp" }) => {
                   {form.formState.errors.terms.acceptTerms.message}
                 </p>
               )}
-              
+
               <label className={styles.checkboxLabel}>
                 <input
                   type="checkbox"

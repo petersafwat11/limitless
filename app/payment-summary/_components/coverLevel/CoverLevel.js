@@ -74,7 +74,9 @@ const CoverLevel = ({ data, insuranceType, referenceNumber }) => {
               Total Price
             </p>
           </div>
-          <p className={styles.totalPrice}>{`£${data?.priceAmount}`} </p>
+          <p className={styles.totalPrice}>
+            {data?.priceAmount ? `£${data?.priceAmount}.00` : "N/A"}
+          </p>
           <p className={styles.totalPriceDescription}>
             Including all additional fees
           </p>

@@ -50,17 +50,34 @@ const Form = () => {
       const result = await response.json();
 
       if (response.ok && result.success) {
-        toast.success("Quote retrieved successfully! Redirecting...");
+        // Check payment/expiry status
+        if (result.status === "paid") {
+          toast.success(
+            "Quote retrieved successfully! Redirecting to your policy..."
+          );
+        } else if (result.status === "unpaid") {
+          toast.success(
+            "Quote retrieved successfully! Redirecting to your policy..."
+          );
+        }
         reset();
         setTimeout(() => {
           // Redirect to policy detail page
-          window.location.href = `/dashboard/policy/${result.data.insuranceId}`;
+          window.location.href = `/your-policy/${result.data.insuranceId}`;
         }, 1500);
       } else {
-        toast.error(
-          result.message ||
-            "Unable to retrieve quote. Please check your details and try again."
-        );
+        // Handle expired or error status
+        if (result.status === "expired") {
+          toast.error(
+            result.message ||
+              "This quote has expired. Please create a new quote."
+          );
+        } else {
+          toast.error(
+            result.message ||
+              "Unable to retrieve quote. Please check your details and try again."
+          );
+        }
       }
     } catch (error) {
       console.error("Retrieve quote error:", error);

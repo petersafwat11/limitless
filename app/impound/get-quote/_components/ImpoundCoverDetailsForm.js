@@ -63,7 +63,13 @@ const ImpoundCoverDetailsForm = ({ form }) => {
         <div className={styles.formSection}>
           <div className={styles.inputGroup}>
             <Title title="How Long Will You Need It?" />
-            <p style={{ color: "#5a6b7d", fontSize: "1.4rem", margin: "0 0 1.6rem 0" }}>
+            <p
+              style={{
+                color: "#5a6b7d",
+                fontSize: "1.4rem",
+                margin: "0 0 1.6rem 0",
+              }}
+            >
               Select your preferred coverage duration
             </p>
             <div
@@ -105,11 +111,15 @@ const ImpoundCoverDetailsForm = ({ form }) => {
                     dateLabel="Start Date"
                     name="coverDetails.startDate"
                     value={startDate}
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setValue("coverDetails.startDate", e.target.value, {
                         shouldValidate: true,
-                      })
-                    }
+                      });
+                      // De-trigger start immediately when manually changing date
+                      if (startPolicyImmediately) {
+                        setStartPolicyImmediately(false);
+                      }
+                    }}
                     error={errors.coverDetails?.startDate}
                     forceShowAbove={true}
                   />
@@ -120,11 +130,15 @@ const ImpoundCoverDetailsForm = ({ form }) => {
                     timeLabel="Start Time"
                     name="coverDetails.startTime"
                     value={startTime}
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setValue("coverDetails.startTime", e.target.value, {
                         shouldValidate: true,
-                      })
-                    }
+                      });
+                      // De-trigger start immediately when manually changing time
+                      if (startPolicyImmediately) {
+                        setStartPolicyImmediately(false);
+                      }
+                    }}
                     error={errors.coverDetails?.startTime}
                     forceShowAbove={true}
                   />
@@ -154,7 +168,8 @@ const ImpoundCoverDetailsForm = ({ form }) => {
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(3, 136, 255, 0.4)";
                 e.currentTarget.style.color = "#000822";
-                e.currentTarget.style.backgroundColor = "rgba(3, 136, 255, 0.04)";
+                e.currentTarget.style.backgroundColor =
+                  "rgba(3, 136, 255, 0.04)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = "rgba(3, 136, 255, 0.2)";

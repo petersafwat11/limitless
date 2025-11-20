@@ -74,15 +74,19 @@ const AdditionalDriversModal = ({
       if (!driver) return false;
 
       const requiredFields = {
-        about: ["relationship", "title", "firstName", "lastName", "dateOfBirth", "relationshipStatus", "livedInUKSinceBirth"],
+        about: [
+          "relationship",
+          "title",
+          "firstName",
+          "lastName",
+          "dateOfBirth",
+          "relationshipStatus",
+          "livedInUKSinceBirth",
+        ],
         employment: ["employmentStatus"],
         usage: ["otherVehicles"],
         driving: ["licenseType", "licenseHeld"],
-        declarations: [
-          "criminalConvictions",
-          "medicalConditions",
-          "insuranceHistory",
-        ],
+        declarations: ["criminalConvictions", "medicalConditions"],
       };
 
       const fieldsToCheck = requiredFields[tileKey] || [];
@@ -109,7 +113,6 @@ const AdditionalDriversModal = ({
       "licenseHeld",
       "criminalConvictions",
       "medicalConditions",
-      "insuranceHistory",
     ];
 
     return requiredFields.every((field) => {
@@ -420,7 +423,14 @@ const AdditionalDriversModal = ({
                             <div className={modalStyles.field}>
                               <FormDropdown
                                 label="Relationship to you"
-                                options={["Spouse", "Child", "Parent", "Sibling", "Friend", "Other"]}
+                                options={[
+                                  "Spouse",
+                                  "Child",
+                                  "Parent",
+                                  "Sibling",
+                                  "Friend",
+                                  "Other",
+                                ]}
                                 placeholder="Select relationship"
                                 value={
                                   watch(
@@ -441,7 +451,14 @@ const AdditionalDriversModal = ({
                               <div className={modalStyles.field}>
                                 <FormDropdown
                                   label="Title"
-                                  options={["Mr", "Mrs", "Miss", "Ms", "Dr", "Mx"]}
+                                  options={[
+                                    "Mr",
+                                    "Mrs",
+                                    "Miss",
+                                    "Ms",
+                                    "Dr",
+                                    "Mx",
+                                  ]}
                                   placeholder="Select..."
                                   value={
                                     watch(
@@ -530,7 +547,13 @@ const AdditionalDriversModal = ({
                               <div className={modalStyles.field}>
                                 <FormDropdown
                                   label="Relationship Status"
-                                  options={["Single", "Married", "Divorced", "Widowed", "In a civil partnership"]}
+                                  options={[
+                                    "Single",
+                                    "Married",
+                                    "Divorced",
+                                    "Widowed",
+                                    "In a civil partnership",
+                                  ]}
                                   placeholder="Select..."
                                   value={
                                     watch(
@@ -1071,23 +1094,6 @@ const AdditionalDriversModal = ({
                                   onUpdateDriver(
                                     index,
                                     "insuranceCancelledOrClaimRefusedOrPolicyVoided",
-                                    value
-                                  )
-                                }
-                              />
-                            </div>
-                            <div className={modalStyles.field}>
-                              <label className={modalStyles.inputLabel}>
-                                Has an insurance provider ever declined, cancelled, or voided their policy or imposed special terms?
-                              </label>
-                              <YesORNo
-                                value={watch(
-                                  `carUsage.additionalDrivers.${index}.insuranceHistory`
-                                )}
-                                onChange={(value) =>
-                                  onUpdateDriver(
-                                    index,
-                                    "insuranceHistory",
                                     value
                                   )
                                 }
