@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 export async function GET(request, { params }) {
   try {
-    const { id, type } = params;
+    const { id, type } = await params;
     const cookieStore = await cookies();
     const token = cookieStore.get("jwt")?.value;
 
