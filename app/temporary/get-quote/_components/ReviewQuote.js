@@ -106,12 +106,19 @@ const ReviewQuote = ({ form, insuranceType = "Temp" }) => {
               {renderField("Model", vehicleDetails?.model)}
             </div>
             <div className={styles.row}>
-              {renderField("Year", vehicleDetails?.year)}
+              {renderField(
+                "Year",
+                vehicleDetails?.year ||
+                  vehicleDetails?.apiData?.yearOfManufacture
+              )}
               {renderField("Type", vehicleDetails?.type)}
               {renderField("Colour", vehicleDetails?.colour)}
             </div>
             <div className={styles.row}>
-              {renderField("Fuel Type", vehicleDetails?.fuel)}
+              {renderField(
+                "Fuel Type",
+                vehicleDetails?.fuel || vehicleDetails?.apiData?.fuelType
+              )}
               {renderField("Transmission", vehicleDetails?.transmission)}
               {renderField("Doors", vehicleDetails?.doors)}
             </div>

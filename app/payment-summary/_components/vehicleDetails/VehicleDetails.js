@@ -14,9 +14,13 @@ const VehicleDetails = ({ data, carUsage, insuranceType }) => {
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   };
-
+  console.log(data);
   return (
-    <ComponentWrapper title="Vehicle Details" icon={{ width: 62, height: 62 }} isPaymentPage={true}>
+    <ComponentWrapper
+      title="Vehicle Details"
+      icon={{ width: 62, height: 62 }}
+      isPaymentPage={true}
+    >
       <div className={styles.content}>
         <VehicleCovered data={data} hideIcon={true} />
         <div className={styles.vehicleInfoSection}>
@@ -32,7 +36,7 @@ const VehicleDetails = ({ data, carUsage, insuranceType }) => {
               <InputWithData2
                 item={{
                   label: "Fuel Type",
-                  value: data?.fuel || "N/A",
+                  value: data?.fuel || data?.apiData?.fuelType || "N/A",
                 }}
               />
               <InputWithData2
@@ -67,7 +71,9 @@ const VehicleDetails = ({ data, carUsage, insuranceType }) => {
         {insuranceType === "Annual" && (
           <>
             <div className={styles.vehicleInfoSection}>
-              <h3 className={styles.sectionTitle}>Vehicle Worth & Purchase Details</h3>
+              <h3 className={styles.sectionTitle}>
+                Vehicle Worth & Purchase Details
+              </h3>
               <div className={styles.sectionContent}>
                 <div className={styles.row}>
                   <InputWithData2
@@ -92,7 +98,9 @@ const VehicleDetails = ({ data, carUsage, insuranceType }) => {
               </div>
             </div>
             <div className={styles.vehicleInfoSection}>
-              <h3 className={styles.sectionTitle}>Safety & Security Features</h3>
+              <h3 className={styles.sectionTitle}>
+                Safety & Security Features
+              </h3>
               <div className={styles.sectionContent}>
                 <div className={styles.row}>
                   <InputWithData2
@@ -121,14 +129,15 @@ const VehicleDetails = ({ data, carUsage, insuranceType }) => {
                       value: data?.vehicleModified || "N/A",
                     }}
                   />
-                  {data?.vehicleModifications && data?.vehicleModifications.length > 0 && (
-                    <InputWithData2
-                      item={{
-                        label: "Modifications",
-                        value: data?.vehicleModifications.join(", "),
-                      }}
-                    />
-                  )}
+                  {data?.vehicleModifications &&
+                    data?.vehicleModifications.length > 0 && (
+                      <InputWithData2
+                        item={{
+                          label: "Modifications",
+                          value: data?.vehicleModifications.join(", "),
+                        }}
+                      />
+                    )}
                 </div>
               </div>
             </div>
