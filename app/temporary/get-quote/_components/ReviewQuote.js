@@ -35,7 +35,26 @@ const ReviewQuote = ({ form, insuranceType = "Temp" }) => {
   };
 
   const calculateEndDateTime = () => {
-    if (!coverDetails?.startDate || !coverDetails?.startTime) return "N/A";
+    if (!coverDetails?.startDate) return "N/A";
+
+    // Annual insurance doesn't have startTime, only startDate
+    if (insuranceType === "Annual" && !coverDetails?.startTime) {
+      try {
+        const [year, month, day] = coverDetails.startDate.split("-");
+        const startDateTime = new Date(year, month - 1, day, 0, 0);
+        const endDateTime = new Date(startDateTime);
+        endDateTime.setFullYear(endDateTime.getFullYear() + 1);
+
+        const endDate = endDateTime.toLocaleDateString("en-GB");
+        return endDate;
+      } catch (error) {
+        console.error("Error calculating end date for Annual:", error);
+        return "N/A";
+      }
+    }
+
+    // For Temp and Impound, startTime is required
+    if (!coverDetails?.startTime) return "N/A";
 
     try {
       const [year, month, day] = coverDetails.startDate.split("-");
@@ -159,7 +178,7 @@ const ReviewQuote = ({ form, insuranceType = "Temp" }) => {
                   {renderField("Purchase Date", vehicleDetails?.purchaseDate)}
                 </div>
                 <div className={styles.row}>
-                  {renderField("Legal Owner", vehicleDetails?.legalOwner)}
+                  {/* {renderField("Legal Owner", vehicleDetails?.legalOwner)} */}
                   {renderField("Owner", vehicleDetails?.owner)}
                   {renderField(
                     "Registered Keeper",

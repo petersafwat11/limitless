@@ -1,9 +1,10 @@
 .headerContainer {
   width: 100vw;
-  position: relative;
+  position: sticky;
+  top: 0;
   overflow: hidden;
   box-sizing: border-box;
-  z-index: 2;
+  z-index: 100;
   background: #000822;
   margin-left: calc(-50vw + 50%);
 }
@@ -184,7 +185,7 @@
   border-radius: 12px;
   padding: 1rem;
   min-width: 280px;
-  z-index: 1000;
+  z-index: 101;
   margin-top: 0.5rem;
   box-shadow: 0 10px 40px rgba(0, 8, 34, 0.2);
   backdrop-filter: blur(12px);
@@ -253,7 +254,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(3, 136, 255, 0.1) 0%, transparent 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(3, 136, 255, 0.1) 0%,
+    transparent 100%
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -304,7 +309,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    transparent 100%
+  );
   opacity: 0;
   transition: opacity 0.25s ease;
   pointer-events: none;

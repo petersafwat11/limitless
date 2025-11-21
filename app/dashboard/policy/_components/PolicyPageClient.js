@@ -185,7 +185,7 @@ const PolicyPageClient = ({
         />
       )}
 
-      {expiredPolicies.length > 0 && (
+      {/* {expiredPolicies.length > 0 && (
         <Table
           title="Expired/Unpaid Policies"
           tableType="inactive"
@@ -199,7 +199,7 @@ const PolicyPageClient = ({
           data={expiredPolicies}
           theme="expired"
         />
-      )}
+      )} */}
 
       {activePolicies.length === 0 && expiredPolicies.length === 0 && (
         <div style={{ padding: "40px", textAlign: "center" }}>
