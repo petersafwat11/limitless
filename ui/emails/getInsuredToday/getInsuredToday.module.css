@@ -1,0 +1,666 @@
+.emailWrapper {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.background {
+  width: 100%;
+  min-height: 100vh;
+  padding: 32px;
+  background: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.emailCard {
+  width: 100%;
+  max-width: 672px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardShadow {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.decorTop {
+  position: absolute;
+  right: -66px;
+  top: -40px;
+  width: 192px;
+  height: 255px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.decorBottom {
+  position: absolute;
+  right: -16px;
+  bottom: -40px;
+  width: 128px;
+  height: 170px;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header {
+  width: 100%;
+  padding: 16px 16px 20px;
+  background: #ffffff;
+  border-bottom: 4px solid #0388ff;
+  position: relative;
+  z-index: 1;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.companyName {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #0388ff;
+  font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.tagline {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 14.29px;
+  color: #4a5565;
+  font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.mainContent {
+  width: 100%;
+  padding: 24px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mainTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #0388ff;
+  margin: 0;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.divider {
+  flex: 1;
+  height: 1px;
+  background: #d1d5dc;
+}
+
+.price {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 32px;
+  color: #0388ff;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.descriptionSection {
+  margin: 0;
+}
+
+.description {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #364153;
+  margin: 0;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.ctaSection {
+  display: flex;
+  justify-content: center;
+}
+
+.ctaButton {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: #0388ff;
+  border: none;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  transition: background 0.2s ease;
+}
+
+.ctaButton:hover {
+  background: #0265c9;
+}
+
+.quoteDetails {
+  width: 100%;
+}
+
+.detailsTable {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.detailRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+}
+
+.detailLabel {
+  padding: 8px;
+  background: #0388ff;
+  border-right: 1px solid #0265c9;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 13.33px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  position: relative;
+}
+
+.detailLabel::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid #0388ff;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.detailRow:nth-child(even) .detailLabel {
+  background: #026dd6;
+  border-right: 1px solid #0265c9;
+}
+
+.detailRow:nth-child(even) .detailLabel::after {
+  border-left-color: #026dd6;
+}
+
+.detailRow:nth-child(1) .detailValue {
+  background: #f3f4f6;
+}
+
+.detailRow:nth-child(2) .detailValue {
+  background: #f9fafb;
+}
+
+.detailRow:nth-child(3) .detailValue {
+  background: #f3f4f6;
+}
+
+.detailRow:nth-child(4) .detailValue {
+  background: #f9fafb;
+}
+
+.detailValue {
+  padding: 8px;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 13.33px;
+  color: #0a0a0a;
+  display: flex;
+  align-items: center;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.coverSection {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: #0388ff;
+  margin: 0;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.coverIntro {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #364153;
+  margin: 0;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.coverDetails {
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coverSubtitle {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  color: #0a0a0a;
+  margin: 0;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.coverList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.coverItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.coverItem svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.coverItem span {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #364153;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.optionalExtras {
+  padding-bottom: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coverLink {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #0388ff;
+  text-decoration: underline;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.excessSection {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.excessTable {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.excessRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.excessRow:last-child {
+  border-bottom: none;
+}
+
+.excessLabel {
+  padding: 8px;
+  background: #0388ff;
+  border-right: 1px solid #0265c9;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 13.33px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  position: relative;
+}
+
+.excessLabel::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid #0388ff;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.excessRow:nth-child(even) .excessLabel {
+  background: #026dd6;
+  border-right: 1px solid #0265c9;
+}
+
+.excessRow:nth-child(even) .excessLabel::after {
+  border-left-color: #026dd6;
+}
+
+.excessRow:nth-child(1) .excessValue {
+  background: #f3f4f6;
+}
+
+.excessRow:nth-child(2) .excessValue {
+  background: #f9fafb;
+}
+
+.excessRow:nth-child(3) .excessValue {
+  background: #f3f4f6;
+}
+
+.excessRow:nth-child(4) .excessValue {
+  background: #f9fafb;
+}
+
+.excessValue {
+  padding: 6px 8px;
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 13.33px;
+  color: #0a0a0a;
+  display: flex;
+  align-items: center;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.setupSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.setupTitle {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #0388ff;
+  margin: 0;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.setupDescription {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #364153;
+  margin: 0;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.contactText {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #364153;
+  margin: 4px 0 0;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.phoneLink {
+  color: #0388ff;
+  text-decoration: none;
+}
+
+.hoursText {
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 13.33px;
+  color: #4a5565;
+  margin: 0;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.trustBadges {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 21px 16px 13px;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.badgeIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: #e3f2fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badgeText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badgeValue {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 15.6px;
+  color: #1a1a1a;
+  text-align: center;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.badgeLabel {
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 10.8px;
+  color: #666666;
+  text-align: center;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.footer {
+  width: 100%;
+  padding: 12px 16px;
+  background: #026dd6;
+  position: relative;
+  z-index: 1;
+}
+
+.footerMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footerBrand {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #ffffff;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.chatButton {
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: #0265c9;
+  border: none;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  transition: background 0.2s ease;
+}
+
+.chatButton:hover {
+  background: #0255b3;
+}
+
+.legalFooter {
+  padding: 15px 16px 16px;
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  gap: 6.8px;
+  position: relative;
+  z-index: 1;
+}
+
+.legalFooter p {
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 12.6px;
+  color: #4a5565;
+  margin: 0;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.copyright {
+  padding-top: 8px;
+  text-align: center;
+}
+
+/* @media (max-width: 480px) {
+  .background {
+    padding: 16px;
+  }
+
+  .mainTitle {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .trustBadges {
+    gap: 16px;
+    padding: 16px 8px 12px;
+  }
+
+  .badgeValue {
+    font-size: 10px;
+  }
+
+  .badgeLabel {
+    font-size: 8px;
+  }
+
+  .footerMain {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .background {
+    padding: 8px;
+  }
+
+  .mainContent {
+    padding: 16px 12px 0;
+  }
+
+  .header {
+    padding: 12px;
+  }
+
+  .mainTitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .trustBadges {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+} */
