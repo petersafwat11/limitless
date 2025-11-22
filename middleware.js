@@ -46,7 +46,15 @@ export function middleware(request) {
     const token = request.cookies.get("jwt");
 
     // Redirect to login if no valid token
-    if (!token || !token.value || token.value === "loggedout") {
+    // Check for missing token, empty value, or logout placeholder
+    if (
+      !token ||
+      !token.value ||
+      token.value.trim() === "" ||
+      token.value === "loggedout" ||
+      token.value === "null" ||
+      token.value === "undefined"
+    ) {
       const loginUrl = new URL("/login", request.url);
       loginUrl.searchParams.set(
         "message",

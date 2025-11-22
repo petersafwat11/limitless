@@ -388,13 +388,12 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Check auth status once on mount if on dashboard
+  // Check auth status when pathname changes to dashboard routes
   useEffect(() => {
-    if (pathname.startsWith("/dashboard")) {
+    if (pathname?.startsWith("/dashboard")) {
       checkAuthStatus();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Only run once on mount
+  }, [pathname]); // Re-run when pathname changes
 
   const value = {
     ...state,

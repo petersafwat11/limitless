@@ -1,6 +1,6 @@
 .emailWrapper {
   width: 100%;
-  background: #F3F4F6;
+  background: #f3f4f6;
   font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
 }
 
@@ -11,14 +11,15 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background: #F3F4F6;
+  background: #f3f4f6;
 }
 
 .emailCard {
   width: 100%;
   max-width: 672px;
-  background: #FFFFFF;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.10), 0 4px 6px -4px rgba(0, 0, 0, 0.10);
+  background: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
 }
@@ -27,7 +28,7 @@
 .header {
   padding: 28px 40px 32px;
   background: rgba(255, 255, 255, 0);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
@@ -37,7 +38,7 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: #0388FF;
+  background: #0388ff;
 }
 
 .headerContent {
@@ -59,7 +60,7 @@
 }
 
 .companyName {
-  color: #0388FF;
+  color: #0388ff;
   font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -67,7 +68,7 @@
 }
 
 .tagline {
-  color: #4A5565;
+  color: #4a5565;
   font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -89,7 +90,7 @@
 }
 
 .mainTitle {
-  color: #0388FF;
+  color: #0388ff;
   font-size: 32px;
   font-weight: 400;
   line-height: 51px;
@@ -107,7 +108,7 @@
 /* CTA Section */
 .ctaSection {
   padding: 24px;
-  background: #0088FF;
+  background: #0088ff;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -115,7 +116,7 @@
 }
 
 .sectionHeading {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 19px;
   font-weight: 400;
   line-height: 28px;
@@ -123,7 +124,7 @@
 }
 
 .ctaText {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 400;
   line-height: 24px;
@@ -140,7 +141,7 @@
 }
 
 .featureList li {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 400;
   line-height: 24px;
@@ -149,8 +150,8 @@
 
 .ctaButton {
   padding: 12px 24px;
-  background: #FFFFFF;
-  color: #0088FF;
+  background: #ffffff;
+  color: #0088ff;
   border: none;
   border-radius: 10px;
   font-size: 15px;
@@ -172,7 +173,7 @@
 }
 
 .sectionTitle {
-  color: #0088FF;
+  color: #0088ff;
   font-size: 19px;
   font-weight: 400;
   line-height: 28px;
@@ -181,9 +182,9 @@
 
 .changesCard {
   padding: 21px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -223,7 +224,7 @@
 
 .effectiveDate {
   padding-top: 13px;
-  border-top: 1px solid #F3F4F6;
+  border-top: 1px solid #f3f4f6;
   color: #364153;
   font-size: 14px;
   font-weight: 400;
@@ -249,16 +250,16 @@
 
 .detailCard {
   padding: 17px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
 .detailCard.highlighted {
-  border: 1px solid rgba(0, 136, 255, 0.20);
+  border: 1px solid rgba(0, 136, 255, 0.2);
 }
 
 .detailLabel {
@@ -280,14 +281,14 @@
 }
 
 .detailCard.highlighted .detailValue {
-  color: #0088FF;
+  color: #0088ff;
 }
 
 .vehicleCard {
   padding: 17px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -302,23 +303,23 @@
 
 .priceHighlight {
   padding: 16px 20px;
-  background: #0088FF;
+  background: #0088ff;
   border-radius: 10px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .priceLabel {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 400;
   line-height: 24px;
 }
 
 .priceAmount {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
@@ -326,9 +327,9 @@
 
 .priceBreakdown {
   padding: 21px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -336,7 +337,7 @@
 
 .priceRow {
   padding-bottom: 9px;
-  border-bottom: 1px solid #F3F4F6;
+  border-bottom: 1px solid #f3f4f6;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -360,11 +361,11 @@
 }
 
 .totalLabel {
-  color: #0088FF;
+  color: #0088ff;
 }
 
 .totalAmount {
-  color: #0088FF;
+  color: #0088ff;
   font-size: 17px;
   line-height: 28px;
 }
@@ -378,9 +379,9 @@
 
 .coverageCard {
   padding: 21px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -441,9 +442,9 @@
 
 .excessCard {
   padding: 17px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -451,7 +452,7 @@
 
 .totalExcess {
   padding: 17px;
-  border: 1px solid rgba(0, 136, 255, 0.20);
+  border: 1px solid rgba(0, 136, 255, 0.2);
   border-radius: 10px;
   background: rgba(0, 136, 255, 0.05);
   display: flex;
@@ -464,7 +465,7 @@
 }
 
 .totalExcessAmount {
-  color: #0088FF;
+  color: #0088ff;
   font-size: 16px;
   line-height: 28px;
 }
@@ -478,9 +479,9 @@
 
 .documentsCard {
   padding: 21px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -517,7 +518,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #0088FF;
+  background: #0088ff;
   flex-shrink: 0;
 }
 
@@ -530,9 +531,9 @@
 
 .infoCard {
   padding: 21px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -561,7 +562,7 @@
 }
 
 .link {
-  color: #0088FF;
+  color: #0088ff;
   text-decoration: underline;
 }
 
@@ -574,9 +575,9 @@
 
 .paymentCard {
   padding: 21px;
-  border: 1px solid #E5E7EB;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -592,7 +593,7 @@
 
 .paymentRow {
   padding: 8px 0 9px;
-  border-bottom: 1px solid #F3F4F6;
+  border-bottom: 1px solid #f3f4f6;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -608,7 +609,7 @@
 
 .paymentTotal {
   padding: 12px;
-  background: #F8F9FA;
+  background: #f8f9fa;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
@@ -620,7 +621,7 @@
 }
 
 .totalPayment {
-  color: #0088FF;
+  color: #0088ff;
 }
 
 .paymentNote {
@@ -634,16 +635,16 @@
 /* Help Section */
 .helpSection {
   padding: 21px;
-  border: 1px solid #B3E0FF;
+  border: 1px solid #b3e0ff;
   border-radius: 10px;
-  background: #E3F5FF;
+  background: #e3f5ff;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
 .helpSection h3 {
-  color: #0088FF;
+  color: #0088ff;
   font-size: 17px;
   font-weight: 400;
   line-height: 28px;
@@ -673,7 +674,7 @@
   width: 256px;
   height: 430px;
   opacity: 0.12;
-  background: linear-gradient(180deg, #0168FF 0%, rgba(5, 175, 255, 0) 100%);
+  background: linear-gradient(180deg, #0168ff 0%, rgba(5, 175, 255, 0) 100%);
   pointer-events: none;
 }
 
@@ -684,7 +685,7 @@
   width: 289px;
   height: 363px;
   opacity: 0.18;
-  background: linear-gradient(135deg, #0168FF 0%, rgba(5, 175, 255, 0) 100%);
+  background: linear-gradient(135deg, #0168ff 0%, rgba(5, 175, 255, 0) 100%);
   transform: rotate(-12deg);
   pointer-events: none;
 }
@@ -692,7 +693,7 @@
 /* Footer */
 .footer {
   padding: 16px 24px;
-  background: #026DD6;
+  background: #026dd6;
   display: flex;
   flex-direction: column;
 }
@@ -707,7 +708,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -720,8 +721,8 @@
 
 .chatButton {
   padding: 8px 16px;
-  background: #0265C9;
-  color: #FFFFFF;
+  background: #0265c9;
+  color: #ffffff;
   border: none;
   border-radius: 4px;
   font-size: 13px;
@@ -738,14 +739,14 @@
 /* Legal Footer */
 .legalFooter {
   padding: 22.795px 32px 24px;
-  background: #F9FAFB;
+  background: #f9fafb;
   display: flex;
   flex-direction: column;
   gap: 11px;
 }
 
 .legalFooter p {
-  color: #4A5565;
+  color: #4a5565;
   font-size: 8px;
   font-weight: 400;
   line-height: 12.6px;
@@ -756,107 +757,331 @@
   padding-top: 4px;
   text-align: center;
 }
-
-/* Responsive Design */
-/* @media screen and (max-width: 768px) {
+@media (min-width: 768px) {
   .background {
-    padding: 16px 12px;
+    padding: 2.5% 5%;
   }
-
   .header {
-    padding: 20px;
+    padding: 35px 50px 40px;
   }
-
+  .logo svg {
+    width: 60px;
+    height: 60px;
+  }
+  .headerText {
+    gap: 2.5px;
+  }
+  .companyName {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .tagline {
+    font-size: 15px;
+    line-height: 21.43px;
+  }
   .mainContent {
-    padding: 16px;
-    gap: 16px;
+    padding: 30px 40px;
+    gap: 30px;
   }
-
+  .titleSection {
+    gap: 10px;
+  }
   .mainTitle {
-    font-size: 22px;
-    line-height: 36px;
+    font-size: 40px;
+    line-height: 63.75px;
   }
-
   .subtitle {
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 18.75px;
+    line-height: 30px;
   }
-
   .ctaSection {
-    padding: 16px;
-    gap: 12px;
+    padding: 30px;
+    border-radius: 12.5px;
+    gap: 20px;
   }
-
   .sectionHeading {
-    font-size: 17px;
+    font-size: 23.75px;
+    line-height: 35px;
   }
-
-  .ctaText,
+  .ctaText {
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .featureList {
+    gap: 12.5px;
+  }
   .featureList li {
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 18.75px;
+    line-height: 30px;
   }
-
   .ctaButton {
-    padding: 10px 16px;
-    font-size: 13px;
-    line-height: 20px;
+    padding: 15px 30px;
+    border-radius: 12.5px;
+    font-size: 18.75px;
+    line-height: 30px;
   }
-
+  .changesSection {
+    gap: 15px;
+  }
   .sectionTitle {
-    font-size: 17px;
+    font-size: 23.75px;
+    line-height: 35px;
   }
-
-  .changesCard,
-  .coverageCard,
-  .documentsCard,
-  .infoCard,
-  .paymentCard {
-    padding: 17px;
+  .changesCard {
+    padding: 26.25px;
+    border-radius: 12.5px;
+    gap: 15px;
   }
-
+  .changesIntro {
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .changesList {
+    gap: 12.5px;
+  }
+  .changeItem {
+    gap: 12.5px;
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .changeItem svg {
+    margin-top: 2.5px;
+  }
+  .effectiveDate {
+    padding-top: 16.25px;
+    font-size: 17.5px;
+    line-height: 25px;
+  }
+  .keyDetailsSection {
+    gap: 15px;
+  }
   .detailsGrid {
-    grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 15px;
   }
-
-  .detailCard,
-  .vehicleCard,
-  .excessCard {
-    padding: 13px;
+  .detailCard {
+    padding: 21.25px;
+    border-radius: 12.5px;
+    gap: 5px;
   }
-
-  .excessGrid {
-    grid-template-columns: 1fr;
-    gap: 8px;
+  .detailLabel {
+    font-size: 16.25px;
+    line-height: 25px;
   }
-
+  .detailValue {
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .vehicleCard {
+    padding: 21.25px;
+    border-radius: 12.5px;
+    gap: 5px;
+  }
+  .pricingSection {
+    gap: 15px;
+  }
+  .priceHighlight {
+    padding: 20px 25px;
+    border-radius: 12.5px;
+  }
+  .priceLabel {
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .priceAmount {
+    font-size: 22.5px;
+    line-height: 35px;
+  }
   .priceBreakdown {
-    padding: 17px;
+    padding: 26.25px;
+    border-radius: 12.5px;
+    gap: 12.5px;
   }
-
+  .priceRow {
+    padding-bottom: 11.25px;
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .totalRow {
+    padding-top: 5px;
+  }
+  .totalAmount {
+    font-size: 21.25px;
+    line-height: 35px;
+  }
+  .coverageSection {
+    gap: 15px;
+  }
+  .coverageCard {
+    padding: 26.25px;
+    border-radius: 12.5px;
+    gap: 15px;
+  }
+  .subsectionTitle {
+    font-size: 21.25px;
+    line-height: 35px;
+  }
+  .coverageList {
+    gap: 12.5px;
+  }
+  .coverageItem {
+    gap: 12.5px;
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .coverageItem svg {
+    margin-top: 2.5px;
+  }
+  .excessSection {
+    gap: 15px;
+  }
+  .excessIntro {
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .excessGrid {
+    gap: 15px;
+  }
+  .excessCard {
+    padding: 21.25px;
+    border-radius: 12.5px;
+    gap: 5px;
+  }
+  .totalExcess {
+    padding: 21.25px;
+    border-radius: 12.5px;
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .totalExcessAmount {
+    font-size: 20px;
+    line-height: 35px;
+  }
+  .documentsSection {
+    gap: 15px;
+  }
+  .documentsCard {
+    padding: 26.25px;
+    border-radius: 12.5px;
+    gap: 12.5px;
+  }
+  .documentsCard p {
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .documentsList {
+    gap: 10px;
+  }
+  .documentsList li {
+    gap: 12.5px;
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .bullet {
+    width: 7.5px;
+    height: 7.5px;
+  }
+  .infoSection {
+    gap: 15px;
+  }
+  .infoCard {
+    padding: 26.25px;
+    border-radius: 12.5px;
+    gap: 20px;
+  }
+  .infoBlock {
+    gap: 7.5px;
+  }
+  .infoBlock h3 {
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .infoBlock p {
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .paymentSection {
+    gap: 15px;
+  }
+  .paymentCard {
+    padding: 26.25px;
+    border-radius: 12.5px;
+    gap: 15px;
+  }
+  .paymentIntro {
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .paymentRow {
+    padding: 10px 0 11.25px;
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .paymentTotal {
+    padding: 15px;
+    border-radius: 12.5px;
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .paymentNote {
+    font-size: 18.75px;
+    line-height: 30px;
+  }
   .helpSection {
-    padding: 17px;
+    padding: 26.25px;
+    border-radius: 12.5px;
+    gap: 10px;
   }
-
+  .helpSection h3 {
+    font-size: 21.25px;
+    line-height: 35px;
+  }
+  .helpSection p {
+    font-size: 18.75px;
+    line-height: 30px;
+  }
+  .contactInfo {
+    padding-top: 5px;
+    gap: 7.5px;
+  }
+  .decorativeTop {
+    top: -100px;
+    right: -160px;
+    width: 320px;
+    height: 537.5px;
+  }
+  .decorativeBottom {
+    bottom: 125px;
+    right: -80px;
+    width: 361.25px;
+    height: 453.75px;
+  }
   .footer {
-    padding: 12px 16px;
+    padding: 20px 30px;
   }
-
+  .footerLogo {
+    gap: 15px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .footerLogo svg {
+    width: 50px;
+    height: 50px;
+  }
+  .chatButton {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16.25px;
+    line-height: 25px;
+  }
   .legalFooter {
-    padding: 15.295px 16px 16px;
-    gap: 10.3px;
+    padding: 28.49px 40px 30px;
+    gap: 13.75px;
+  }
+  .legalFooter p {
+    font-size: 10px;
+    line-height: 15.75px;
+  }
+  .copyright {
+    padding-top: 5px;
   }
 }
-
-@media screen and (max-width: 480px) {
-  .mainTitle {
-    font-size: 20px;
-    line-height: 32px;
-  }
-
-  .detailsGrid,
-  .excessGrid {
-    gap: 8px;
-  }
-} */

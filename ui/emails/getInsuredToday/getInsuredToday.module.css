@@ -25,7 +25,8 @@
 .cardShadow {
   width: 100%;
   background: #ffffff;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
 }
@@ -217,7 +218,7 @@
 }
 
 .detailLabel::after {
-  content: '';
+  content: "";
   position: absolute;
   right: -6px;
   top: 50%;
@@ -389,7 +390,7 @@
 }
 
 .excessLabel::after {
-  content: '';
+  content: "";
   position: absolute;
   right: -6px;
   top: 50%;
@@ -607,60 +608,225 @@
   padding-top: 8px;
   text-align: center;
 }
-
-/* @media (max-width: 480px) {
+@media (min-width: 768px) {
   .background {
-    padding: 16px;
+    padding: 40px;
   }
-
-  .mainTitle {
+  .decorTop {
+    right: -82.5px;
+    top: -50px;
+    width: 240px;
+    height: 318.75px;
+  }
+  .decorBottom {
+    right: -20px;
+    bottom: -50px;
+    width: 160px;
+    height: 212.5px;
+  }
+  .header {
+    padding: 20px 20px 25px;
+    border-bottom: 5px solid #0388ff;
+  }
+  .headerContainer {
+    gap: 15px;
+  }
+  .headerText {
+    gap: 0;
+  }
+  .companyName {
     font-size: 20px;
-    line-height: 28px;
+    line-height: 30px;
   }
-
+  .tagline {
+    font-size: 12.5px;
+    line-height: 17.86px;
+  }
+  .mainContent {
+    padding: 30px 20px 0;
+    gap: 20px;
+  }
+  .heroSection {
+    gap: 15px;
+  }
+  .mainTitle {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .priceContainer {
+    gap: 10px;
+  }
   .price {
-    font-size: 18px;
+    font-size: 26.25px;
+    line-height: 40px;
   }
-
+  .description {
+    font-size: 13.75px;
+    line-height: 20px;
+  }
+  .ctaButton {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+  .detailsTable {
+    border-radius: 12.5px;
+  }
+  .detailLabel {
+    padding: 10px;
+    font-size: 11.25px;
+    line-height: 16.66px;
+  }
+  .detailLabel::after {
+    right: -7.5px;
+    border-left: 7.5px solid #0388ff;
+    border-top: 7.5px solid transparent;
+    border-bottom: 7.5px solid transparent;
+  }
+  .detailRow:nth-child(even) .detailLabel::after {
+    border-left-color: #026dd6;
+  }
+  .detailValue {
+    padding: 10px;
+    font-size: 12.5px;
+    line-height: 16.66px;
+  }
+  .coverSection {
+    padding-top: 10px;
+    gap: 10px;
+  }
+  .sectionTitle {
+    font-size: 15px;
+    line-height: 20px;
+  }
+  .coverIntro {
+    font-size: 13.75px;
+    line-height: 20px;
+  }
+  .coverDetails {
+    padding-top: 5px;
+    gap: 10px;
+  }
+  .coverSubtitle {
+    font-size: 13.75px;
+    line-height: 20px;
+  }
+  .coverList {
+    gap: 7.5px;
+  }
+  .coverItem {
+    gap: 10px;
+  }
+  .coverItem svg {
+    margin-top: 2.5px;
+  }
+  .coverItem span {
+    font-size: 13.75px;
+    line-height: 20px;
+  }
+  .optionalExtras {
+    padding-bottom: 3.75px;
+    gap: 10px;
+  }
+  .coverLink {
+    font-size: 13.75px;
+    line-height: 20px;
+  }
+  .excessSection {
+    padding-top: 10px;
+    gap: 10px;
+  }
+  .excessTable {
+    border-radius: 12.5px;
+  }
+  .excessLabel {
+    padding: 10px;
+    font-size: 11.25px;
+    line-height: 16.66px;
+  }
+  .excessLabel::after {
+    right: -7.5px;
+    border-left: 7.5px solid #0388ff;
+    border-top: 7.5px solid transparent;
+    border-bottom: 7.5px solid transparent;
+  }
+  .excessRow:nth-child(even) .excessLabel::after {
+    border-left-color: #026dd6;
+  }
+  .excessValue {
+    padding: 7.5px 10px;
+    font-size: 11.25px;
+    line-height: 16.66px;
+  }
+  .setupSection {
+    gap: 15px;
+  }
+  .setupTitle {
+    font-size: 17.5px;
+    line-height: 25px;
+  }
+  .setupDescription {
+    font-size: 13.75px;
+    line-height: 20px;
+  }
+  .contactText {
+    font-size: 13.75px;
+    line-height: 20px;
+    margin: 5px 0 0;
+  }
+  .hoursText {
+    font-size: 11.25px;
+    line-height: 16.66px;
+  }
   .trustBadges {
-    gap: 16px;
-    padding: 16px 8px 12px;
+    gap: 30px;
+    padding: 26.25px 20px 16.25px;
   }
-
+  .badge {
+    gap: 6.25px;
+  }
+  .badgeIcon {
+    width: 35px;
+    height: 35px;
+    border-radius: 12.5px;
+  }
   .badgeValue {
-    font-size: 10px;
+    font-size: 13.75px;
+    line-height: 19.5px;
   }
-
   .badgeLabel {
-    font-size: 8px;
+    font-size: 11.25px;
+    line-height: 13.5px;
   }
-
+  .footer {
+    padding: 15px 20px;
+  }
   .footerMain {
-    flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+  }
+  .footerLogo {
+    gap: 10px;
+  }
+  .footerBrand {
+    font-size: 17.5px;
+    line-height: 25px;
+  }
+  .chatButton {
+    padding: 7.5px 15px;
+    border-radius: 5px;
+    font-size: 13.75px;
+    line-height: 20px;
+  }
+  .legalFooter {
+    padding: 18.75px 20px 20px;
+    gap: 8.5px;
+  }
+  .legalFooter p {
+    font-size: 10px;
+    line-height: 15.75px;
+  }
+  .copyright {
+    padding-top: 10px;
   }
 }
-
-@media (max-width: 360px) {
-  .background {
-    padding: 8px;
-  }
-
-  .mainContent {
-    padding: 16px 12px 0;
-  }
-
-  .header {
-    padding: 12px;
-  }
-
-  .mainTitle {
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  .trustBadges {
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-} */
