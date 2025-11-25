@@ -1,35 +1,61 @@
 .emailWrapper {
   width: 100%;
-  background: #f3f4f6;
+  min-height: 100vh;
+  background: #F3F4F6;
+  padding: 1.6rem 1.2rem;
   font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  line-height: 2rem;
 }
 
 .background {
   width: 100%;
-  min-height: 100vh;
-  padding: 2% 4%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background: #f3f4f6;
+  max-width: 67.2rem;
+  margin: 0 auto;
 }
 
 .emailCard {
   width: 100%;
-  max-width: 672px;
-  background: #ffffff;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  background: #FFFFFF;
+  box-shadow: 0 1rem 1.5rem -0.3rem rgba(0, 0, 0, 0.10), 0 0.4rem 0.6rem -0.4rem rgba(0, 0, 0, 0.10);
   position: relative;
   overflow: hidden;
 }
 
-/* Header */
+.bgShapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgShapeTop {
+  position: absolute;
+  right: -10rem;
+  top: -8rem;
+  width: 38.4rem;
+  height: 50.9rem;
+}
+
+.bgShapeBottom {
+  position: absolute;
+  left: 7.8rem;
+  bottom: -3rem;
+  width: 32.1rem;
+  height: 38.5rem;
+  transform: rotate(-12deg);
+}
+
 .header {
-  padding: 28px 40px 32px;
-  background: rgba(255, 255, 255, 0);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
   position: relative;
+  width: 100%;
+  padding: 2rem 2rem 2.4rem 2rem;
+  background: rgba(255, 255, 255, 0.00);
+  box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.10), 0 0.1rem 0.2rem -0.1rem rgba(0, 0, 0, 0.10);
+  z-index: 1;
 }
 
 .headerBorder {
@@ -37,468 +63,502 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: #0388ff;
+  height: 0.3rem;
+  background: #0388FF;
 }
 
 .headerContent {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
-.logo svg {
-  width: 48px;
-  height: 48px;
-  display: block;
+.logo {
+  display: flex;
+  width: 4.8rem;
+  height: 4.8rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .headerText {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0.2rem;
 }
 
 .companyName {
-  color: #0388ff;
+  color: #0388FF;
   font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.4rem;
 }
 
 .tagline {
-  color: #4a5565;
+  color: #4A5565;
   font-family: Poppins, -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 1.2rem;
   font-weight: 400;
-  line-height: 17.14px;
+  line-height: 1.714rem;
 }
 
-/* Main Content */
 .mainContent {
-  padding: 24px 32px;
+  padding: 1.6rem;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.6rem;
+  position: relative;
+  z-index: 1;
 }
 
-.titleSection {
+.heroSection {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.8rem;
 }
 
 .mainTitle {
-  color: #0388ff;
-  font-size: 32px;
+  color: #0388FF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 2.2rem;
   font-weight: 400;
-  line-height: 51px;
+  line-height: 3.6rem;
   margin: 0;
 }
 
-.subtitle {
+.description {
   color: #364153;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
   margin: 0;
 }
 
-/* CTA Section */
-.ctaSection {
-  padding: 24px;
-  background: #0088ff;
-  border-radius: 10px;
+.myAccountSection {
   display: flex;
+  padding: 1.6rem;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.2rem;
+  border-radius: 1rem;
+  background: #0088FF;
 }
 
 .sectionHeading {
-  color: #ffffff;
-  font-size: 19px;
+  color: #FFFFFF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.7rem;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 2.8rem;
   margin: 0;
 }
 
-.ctaText {
-  color: #ffffff;
-  font-size: 15px;
+.myAccountIntro {
+  color: #FFFFFF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
   margin: 0;
 }
 
 .featureList {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.8rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .featureList li {
-  color: #ffffff;
-  font-size: 15px;
+  color: #FFFFFF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
   padding-left: 0;
 }
 
-.ctaButton {
-  padding: 12px 24px;
-  background: #ffffff;
-  color: #0088ff;
-  border: none;
-  border-radius: 10px;
-  font-size: 15px;
+.myAccountButton {
+  display: flex;
+  padding: 1rem 1.6rem;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 1rem;
+  background: #FFFFFF;
+  color: #0088FF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
-  cursor: pointer;
-  transition: opacity 0.2s;
+  line-height: 2rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
-.ctaButton:hover {
-  opacity: 0.9;
+.myAccountButton:hover {
+  background: #F3F4F6;
 }
 
-/* Changes Section */
 .changesSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .sectionTitle {
-  color: #0088ff;
-  font-size: 19px;
+  color: #0088FF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.7rem;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 2.8rem;
   margin: 0;
 }
 
 .changesCard {
-  padding: 21px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #ffffff;
   display: flex;
+  padding: 1.7rem;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
+  border-radius: 1rem;
+  border: 0.1rem solid #E5E7EB;
+  background: #FFFFFF;
 }
 
 .changesIntro {
   color: #364153;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
   margin: 0;
 }
 
 .changesList {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.changeItem {
+.changesList li {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  color: #333333;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 24px;
+  gap: 0.8rem;
 }
 
-.changeItem svg {
+.changesList li svg {
+  width: 1.6rem;
+  height: 1.6rem;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 0.2rem;
+}
+
+.changesList li span {
+  flex: 1;
+  color: #333333;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 2rem;
+  white-space: pre-line;
 }
 
 .effectiveDate {
-  padding-top: 13px;
-  border-top: 1px solid #f3f4f6;
+  padding-top: 1.3rem;
+  border-top: 0.1rem solid #F3F4F6;
   color: #364153;
-  font-size: 14px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.2rem;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.6rem;
 }
 
 .effectiveDate strong {
   font-weight: 700;
 }
 
-/* Key Details */
-.keyDetailsSection {
+.detailsSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .detailsGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .detailCard {
-  padding: 17px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #ffffff;
   display: flex;
+  padding: 1.3rem;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.4rem;
+  border-radius: 1rem;
+  border: 0.1rem solid #E5E7EB;
+  background: #FFFFFF;
 }
 
 .detailCard.highlighted {
-  border: 1px solid rgba(0, 136, 255, 0.2);
+  border: 0.1rem solid rgba(0, 136, 255, 0.20);
 }
 
-.detailLabel {
+.label {
   color: #999999;
-  font-size: 13px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.1rem;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.6rem;
 }
 
-.detailCard.highlighted .detailLabel {
-  color: #999999;
-}
-
-.detailValue {
+.value {
   color: #333333;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
 }
 
-.detailCard.highlighted .detailValue {
-  color: #0088ff;
+.detailCard.highlighted .value {
+  color: #0088FF;
 }
 
-.vehicleCard {
-  padding: 17px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #ffffff;
+.priceChangeSection {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 1.2rem;
 }
 
-/* Pricing */
-.pricingSection {
+.priceChangeCard {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.priceHighlight {
-  padding: 16px 20px;
-  background: #0088ff;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  display: flex;
+  padding: 1.2rem 1.6rem;
   justify-content: space-between;
   align-items: center;
+  border-radius: 1rem;
+  background: #0088FF;
+  box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.10), 0 0.1rem 0.2rem -0.1rem rgba(0, 0, 0, 0.10);
 }
 
-.priceLabel {
-  color: #ffffff;
-  font-size: 15px;
+.priceChangeCard span:first-child {
+  color: #FFFFFF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
 }
 
-.priceAmount {
-  color: #ffffff;
-  font-size: 18px;
+.priceChangeAmount {
+  color: #FFFFFF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.7rem;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 2.8rem;
 }
 
 .priceBreakdown {
-  padding: 21px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #ffffff;
   display: flex;
+  padding: 1.7rem;
   flex-direction: column;
-  gap: 10px;
+  gap: 1rem;
+  border-radius: 1rem;
+  border: 0.1rem solid #E5E7EB;
+  background: #FFFFFF;
 }
 
 .priceRow {
-  padding-bottom: 9px;
-  border-bottom: 1px solid #f3f4f6;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #364153;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 24px;
+  padding-bottom: 0.9rem;
+  border-bottom: 0.1rem solid #F3F4F6;
 }
 
-.priceRow:last-child {
-  border-bottom: none;
+.priceRow span:first-child {
+  color: #364153;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 2rem;
 }
 
 .priceRow span:last-child {
   color: #333333;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 2rem;
 }
 
-.totalRow {
-  padding-top: 4px;
-  padding-bottom: 0;
+.priceTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.4rem;
 }
 
-.totalLabel {
-  color: #0088ff;
+.priceTotal span:first-child {
+  color: #0088FF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 2rem;
 }
 
-.totalAmount {
-  color: #0088ff;
-  font-size: 17px;
-  line-height: 28px;
+.newPremiumAmount {
+  color: #0088FF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.4rem;
 }
 
-/* Coverage */
 .coverageSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .coverageCard {
-  padding: 21px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #ffffff;
   display: flex;
+  padding: 1.7rem;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.8rem;
+  border-radius: 1rem;
+  border: 0.1rem solid #E5E7EB;
+  background: #FFFFFF;
 }
 
-.subsectionTitle {
+.coverageHeading {
   color: #333333;
-  font-size: 17px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.5rem;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 2.4rem;
   margin: 0;
 }
 
 .coverageList {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.8rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.coverageItem {
+.coverageList li {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  color: #364153;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 24px;
+  gap: 0.8rem;
 }
 
-.coverageItem svg {
+.coverageList li svg {
+  width: 1.6rem;
+  height: 1.6rem;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 0.2rem;
 }
 
-/* Excess */
+.coverageList li span {
+  flex: 1;
+  color: #364153;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
 .excessSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
-.excessIntro {
+.excessDescription {
   color: #364153;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
   margin: 0;
 }
 
 .excessGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .excessCard {
-  padding: 17px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #ffffff;
   display: flex;
+  padding: 1.3rem;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.4rem;
+  border-radius: 1rem;
+  border: 0.1rem solid #E5E7EB;
+  background: #FFFFFF;
 }
 
-.totalExcess {
-  padding: 17px;
-  border: 1px solid rgba(0, 136, 255, 0.2);
-  border-radius: 10px;
-  background: rgba(0, 136, 255, 0.05);
+.totalExcessCard {
   display: flex;
+  padding: 1.3rem;
   justify-content: space-between;
   align-items: center;
+  border-radius: 1rem;
+  border: 0.1rem solid rgba(0, 136, 255, 0.20);
+  background: rgba(0, 136, 255, 0.05);
+}
+
+.totalExcessCard span:first-child {
   color: #364153;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
 }
 
-.totalExcessAmount {
-  color: #0088ff;
-  font-size: 16px;
-  line-height: 28px;
+.totalExcessValue {
+  color: #0088FF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.4rem;
 }
 
-/* Documents */
 .documentsSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .documentsCard {
-  padding: 21px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #ffffff;
   display: flex;
+  padding: 1.7rem;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.8rem;
+  border-radius: 1rem;
+  border: 0.1rem solid #E5E7EB;
+  background: #FFFFFF;
 }
 
 .documentsCard p {
   color: #364153;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
   margin: 0;
 }
 
 .documentsList {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.8rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -507,195 +567,219 @@
 .documentsList li {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #364153;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 24px;
+  gap: 0.8rem;
 }
 
-.bullet {
-  width: 6px;
-  height: 6px;
+.docBullet {
+  width: 0.6rem;
+  height: 0.6rem;
   border-radius: 50%;
-  background: #0088ff;
+  background: #0088FF;
   flex-shrink: 0;
 }
 
-/* Info Section */
-.infoSection {
+.documentsList li span:last-child {
+  color: #364153;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
+.importantSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .infoCard {
-  padding: 21px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #ffffff;
   display: flex;
+  padding: 1.7rem;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.2rem;
+  border-radius: 1rem;
+  border: 0.1rem solid #E5E7EB;
+  background: #FFFFFF;
 }
 
 .infoBlock {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.6rem;
 }
 
 .infoBlock h3 {
   color: #333333;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
   margin: 0;
 }
 
 .infoBlock p {
   color: #364153;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
   margin: 0;
 }
 
-.link {
-  color: #0088ff;
+.infoBlock a {
+  color: #0088FF;
   text-decoration: underline;
 }
 
-/* Payment */
 .paymentSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .paymentCard {
-  padding: 21px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  background: #ffffff;
   display: flex;
+  padding: 1.7rem;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
+  border-radius: 1rem;
+  border: 0.1rem solid #E5E7EB;
+  background: #FFFFFF;
 }
 
 .paymentIntro {
   color: #364153;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
   margin: 0;
 }
 
+.paymentBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
 .paymentRow {
-  padding: 8px 0 9px;
-  border-bottom: 1px solid #f3f4f6;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.8rem 0 0.9rem 0;
+  border-bottom: 0.1rem solid #F3F4F6;
+}
+
+.paymentRow span:first-child {
   color: #364153;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
 }
 
 .paymentRow span:last-child {
   color: #333333;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 2rem;
 }
 
 .paymentTotal {
-  padding: 12px;
-  background: #f8f9fa;
-  border-radius: 10px;
   display: flex;
+  padding: 1.2rem;
   justify-content: space-between;
   align-items: center;
-  color: #364153;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 24px;
+  border-radius: 1rem;
+  background: #F8F9FA;
 }
 
-.totalPayment {
-  color: #0088ff;
+.paymentTotal span:first-child {
+  color: #364153;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
+.totalAmount {
+  color: #0088FF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 2rem;
 }
 
 .paymentNote {
   color: #364153;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
   margin: 0;
 }
 
-/* Help Section */
 .helpSection {
-  padding: 21px;
-  border: 1px solid #b3e0ff;
-  border-radius: 10px;
-  background: #e3f5ff;
   display: flex;
+  padding: 1.7rem;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.8rem;
+  border-radius: 1rem;
+  border: 0.1rem solid #B3E0FF;
+  background: #E3F5FF;
 }
 
 .helpSection h3 {
-  color: #0088ff;
-  font-size: 17px;
+  color: #0088FF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.5rem;
   font-weight: 400;
-  line-height: 28px;
+  line-height: 2.4rem;
   margin: 0;
 }
 
 .helpSection p {
   color: #364153;
-  font-size: 15px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.3rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2rem;
   margin: 0;
 }
 
 .contactInfo {
-  padding-top: 4px;
   display: flex;
+  padding-top: 0.4rem;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.6rem;
 }
 
-/* Decorative Graphics */
-.decorativeTop {
-  position: absolute;
-  top: -80px;
-  right: -128px;
-  width: 256px;
-  height: 430px;
-  opacity: 0.12;
-  background: linear-gradient(180deg, #0168ff 0%, rgba(5, 175, 255, 0) 100%);
-  pointer-events: none;
+.contactEmail {
+  color: #364153;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  margin: 0;
 }
 
-.decorativeBottom {
-  position: absolute;
-  bottom: 100px;
-  right: -64px;
-  width: 289px;
-  height: 363px;
-  opacity: 0.18;
-  background: linear-gradient(135deg, #0168ff 0%, rgba(5, 175, 255, 0) 100%);
-  transform: rotate(-12deg);
-  pointer-events: none;
+.contactHours {
+  color: #364153;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  margin: 0;
 }
 
-/* Footer */
 .footer {
-  padding: 16px 24px;
-  background: #026dd6;
   display: flex;
+  padding: 1.2rem 1.6rem;
   flex-direction: column;
+  background: #026DD6;
+  position: relative;
+  z-index: 1;
 }
 
 .footerMain {
@@ -707,381 +791,145 @@
 .footerLogo {
   display: flex;
   align-items: center;
-  gap: 12px;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
+  gap: 1.2rem;
 }
 
 .footerLogo svg {
-  width: 40px;
-  height: 40px;
+  width: 4rem;
+  height: 4rem;
+  flex-shrink: 0;
+}
+
+.footerLogo span {
+  color: #FFFFFF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.4rem;
 }
 
 .chatButton {
-  padding: 8px 16px;
-  background: #0265c9;
-  color: #ffffff;
-  border: none;
-  border-radius: 4px;
-  font-size: 13px;
+  display: flex;
+  padding: 0.6rem 1.2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.4rem;
+  background: #0265C9;
+  color: #FFFFFF;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 1.1rem;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 1.6rem;
+  border: none;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: all 0.2s ease;
 }
 
 .chatButton:hover {
-  opacity: 0.9;
+  background: #0157B0;
 }
 
-/* Legal Footer */
 .legalFooter {
-  padding: 22.795px 32px 24px;
-  background: #f9fafb;
   display: flex;
+  padding: 1.5rem 1.6rem;
   flex-direction: column;
-  gap: 11px;
+  gap: 1rem;
+  background: #F9FAFB;
+  position: relative;
+  z-index: 1;
 }
 
 .legalFooter p {
-  color: #4a5565;
-  font-size: 8px;
+  color: #4A5565;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 0.8rem;
   font-weight: 400;
-  line-height: 12.6px;
+  line-height: 1.26rem;
   margin: 0;
 }
 
 .copyright {
-  padding-top: 4px;
   text-align: center;
+  padding-top: 0.4rem;
 }
+
 @media (min-width: 768px) {
-  .background {
-    padding: 2.5% 5%;
+  .emailWrapper {
+    padding: 3.2rem 2.4rem;
   }
-  .header {
-    padding: 35px 50px 40px;
-  }
-  .logo svg {
-    width: 60px;
-    height: 60px;
-  }
-  .headerText {
-    gap: 2.5px;
-  }
-  .companyName {
-    font-size: 20px;
-    line-height: 30px;
-  }
-  .tagline {
-    font-size: 15px;
-    line-height: 21.43px;
-  }
+
   .mainContent {
-    padding: 30px 40px;
-    gap: 30px;
+    padding: 2.4rem 3.2rem;
+    gap: 2.4rem;
   }
-  .titleSection {
-    gap: 10px;
+
+  .heroSection {
+    gap: 1.2rem;
   }
+
   .mainTitle {
-    font-size: 40px;
-    line-height: 63.75px;
+    font-size: 2.8rem;
+    line-height: 4.2rem;
   }
-  .subtitle {
-    font-size: 18.75px;
-    line-height: 30px;
+
+  .description {
+    font-size: 1.5rem;
+    line-height: 2.4rem;
   }
-  .ctaSection {
-    padding: 30px;
-    border-radius: 12.5px;
-    gap: 20px;
+
+  .myAccountSection {
+    padding: 2.4rem;
   }
+
   .sectionHeading {
-    font-size: 23.75px;
-    line-height: 35px;
+    font-size: 2rem;
+    line-height: 3.2rem;
   }
-  .ctaText {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .featureList {
-    gap: 12.5px;
-  }
-  .featureList li {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .ctaButton {
-    padding: 15px 30px;
-    border-radius: 12.5px;
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .changesSection {
-    gap: 15px;
-  }
+
   .sectionTitle {
-    font-size: 23.75px;
-    line-height: 35px;
+    font-size: 2rem;
+    line-height: 3.2rem;
   }
-  .changesCard {
-    padding: 26.25px;
-    border-radius: 12.5px;
-    gap: 15px;
-  }
-  .changesIntro {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .changesList {
-    gap: 12.5px;
-  }
-  .changeItem {
-    gap: 12.5px;
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .changeItem svg {
-    margin-top: 2.5px;
-  }
-  .effectiveDate {
-    padding-top: 16.25px;
-    font-size: 17.5px;
-    line-height: 25px;
-  }
-  .keyDetailsSection {
-    gap: 15px;
-  }
+
   .detailsGrid {
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
   }
-  .detailCard {
-    padding: 21.25px;
-    border-radius: 12.5px;
-    gap: 5px;
-  }
-  .detailLabel {
-    font-size: 16.25px;
-    line-height: 25px;
-  }
-  .detailValue {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .vehicleCard {
-    padding: 21.25px;
-    border-radius: 12.5px;
-    gap: 5px;
-  }
-  .pricingSection {
-    gap: 15px;
-  }
-  .priceHighlight {
-    padding: 20px 25px;
-    border-radius: 12.5px;
-  }
-  .priceLabel {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .priceAmount {
-    font-size: 22.5px;
-    line-height: 35px;
-  }
-  .priceBreakdown {
-    padding: 26.25px;
-    border-radius: 12.5px;
-    gap: 12.5px;
-  }
-  .priceRow {
-    padding-bottom: 11.25px;
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .totalRow {
-    padding-top: 5px;
-  }
-  .totalAmount {
-    font-size: 21.25px;
-    line-height: 35px;
-  }
-  .coverageSection {
-    gap: 15px;
-  }
-  .coverageCard {
-    padding: 26.25px;
-    border-radius: 12.5px;
-    gap: 15px;
-  }
-  .subsectionTitle {
-    font-size: 21.25px;
-    line-height: 35px;
-  }
-  .coverageList {
-    gap: 12.5px;
-  }
-  .coverageItem {
-    gap: 12.5px;
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .coverageItem svg {
-    margin-top: 2.5px;
-  }
-  .excessSection {
-    gap: 15px;
-  }
-  .excessIntro {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
+
   .excessGrid {
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
   }
-  .excessCard {
-    padding: 21.25px;
-    border-radius: 12.5px;
-    gap: 5px;
+
+  .bgShapeTop {
+    right: -5rem;
+    top: -8rem;
   }
-  .totalExcess {
-    padding: 21.25px;
-    border-radius: 12.5px;
-    font-size: 18.75px;
-    line-height: 30px;
+
+  .bgShapeBottom {
+    left: 10rem;
+    bottom: 2rem;
   }
-  .totalExcessAmount {
-    font-size: 20px;
-    line-height: 35px;
+}
+
+@media (min-width: 1024px) {
+  .emailWrapper {
+    padding: 4.8rem 3.2rem;
   }
-  .documentsSection {
-    gap: 15px;
+
+  .mainContent {
+    padding: 3.2rem 4.8rem;
   }
-  .documentsCard {
-    padding: 26.25px;
-    border-radius: 12.5px;
-    gap: 12.5px;
+
+  .bgShapeTop {
+    right: 0;
+    top: -8rem;
   }
-  .documentsCard p {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .documentsList {
-    gap: 10px;
-  }
-  .documentsList li {
-    gap: 12.5px;
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .bullet {
-    width: 7.5px;
-    height: 7.5px;
-  }
-  .infoSection {
-    gap: 15px;
-  }
-  .infoCard {
-    padding: 26.25px;
-    border-radius: 12.5px;
-    gap: 20px;
-  }
-  .infoBlock {
-    gap: 7.5px;
-  }
-  .infoBlock h3 {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .infoBlock p {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .paymentSection {
-    gap: 15px;
-  }
-  .paymentCard {
-    padding: 26.25px;
-    border-radius: 12.5px;
-    gap: 15px;
-  }
-  .paymentIntro {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .paymentRow {
-    padding: 10px 0 11.25px;
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .paymentTotal {
-    padding: 15px;
-    border-radius: 12.5px;
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .paymentNote {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .helpSection {
-    padding: 26.25px;
-    border-radius: 12.5px;
-    gap: 10px;
-  }
-  .helpSection h3 {
-    font-size: 21.25px;
-    line-height: 35px;
-  }
-  .helpSection p {
-    font-size: 18.75px;
-    line-height: 30px;
-  }
-  .contactInfo {
-    padding-top: 5px;
-    gap: 7.5px;
-  }
-  .decorativeTop {
-    top: -100px;
-    right: -160px;
-    width: 320px;
-    height: 537.5px;
-  }
-  .decorativeBottom {
-    bottom: 125px;
-    right: -80px;
-    width: 361.25px;
-    height: 453.75px;
-  }
-  .footer {
-    padding: 20px 30px;
-  }
-  .footerLogo {
-    gap: 15px;
-    font-size: 20px;
-    line-height: 30px;
-  }
-  .footerLogo svg {
-    width: 50px;
-    height: 50px;
-  }
-  .chatButton {
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16.25px;
-    line-height: 25px;
-  }
-  .legalFooter {
-    padding: 28.49px 40px 30px;
-    gap: 13.75px;
-  }
-  .legalFooter p {
-    font-size: 10px;
-    line-height: 15.75px;
-  }
-  .copyright {
-    padding-top: 5px;
+
+  .bgShapeBottom {
+    left: 12rem;
+    bottom: 5rem;
   }
 }

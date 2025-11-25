@@ -7,17 +7,20 @@ export default function PolicyUpdated({
     policyholder: 'Mr. James Anderson',
     vehicleReg: 'AB12 CDE',
     coverType: 'Comprehensive',
-    policyStartDate: '08/11/2025',
-    policyEndDate: '07/11/2026',
-    vehicleModel: 'BMW 3 Series 320d M Sport',
-    previousPremium: '£822.50',
-    adjustmentAmount: '+£25.00',
-    newPremium: '£847.50',
+    startDate: '08/11/2025',
+    endDate: '07/11/2026',
+    vehicleMake: 'BMW 3 Series 320d M Sport',
     effectiveDate: '14/11/2025 at 11:45 AM',
     changeDate: '14/11/2025',
+    previousPremium: '£822.50',
+    priceChange: '+£25.00',
+    newPremium: '£847.50',
+    compulsoryExcess: '£250',
+    voluntaryExcess: '£100',
+    totalExcess: '£350',
     changes: [
       'Updated main driver details',
-      'Changed annual mileage from 8,000 to 10,000 miles'
+      'Changed annual mileage from 8,000 to\n10,000 miles'
     ]
   }
 }) {
@@ -25,6 +28,34 @@ export default function PolicyUpdated({
     <div className={styles.emailWrapper}>
       <div className={styles.background}>
         <div className={styles.emailCard}>
+          
+          {/* Decorative Background Shapes */}
+          <div className={styles.bgShapes}>
+            <svg className={styles.bgShapeTop} width="256" height="430" viewBox="0 0 256 430" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.12">
+                <path d="M312.708 192.855L160.477 261.413V352.821L145.317 337.611L97.6531 289.784L71.3542 263.396L160.48 223.211L223.517 194.839L353.468 136.259C386.468 121.331 394.435 77.8894 368.84 52.2087L253.057 -63.972C218.93 -98.2161 160.477 -73.9493 160.477 -25.5535V47.6026L0.416654 119.768V189.032L63.4531 160.66L206.167 96.4184L223.936 88.4257V19.0195L223.513 19.2299V-4.18794L312.708 85.3098L273.151 103.139L273.223 103.28L104.492 179.48L104.351 179.196L30.5975 212.451C29.3288 213.016 28.1288 213.583 27.0011 214.221C11.6288 222.569 2.39377 237.428 0.420268 253.274C-1.48456 268.416 3.09859 284.402 15.1565 296.501L131.004 412.675C165.132 446.918 223.513 422.652 223.513 374.187V302.304L312.708 262.119L383.992 230.069V160.663L312.708 192.855Z" fill="url(#paint0_linear_top)"/>
+              </g>
+              <defs>
+                <linearGradient id="paint0_linear_top" x1="191.998" y1="-80" x2="191.998" y2="428.7" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#0168FF"/>
+                  <stop offset="1" stopColor="#05AFFF" stopOpacity="0"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            
+            <svg className={styles.bgShapeBottom} width="289" height="363" viewBox="0 0 289 363" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.18">
+                <path d="M241.733 187.818L151.968 253.626L164.639 313.236L152.645 305.418L114.934 280.836L94.1265 267.273L146.675 228.714L183.848 201.474L260.467 145.261C279.918 130.952 279.091 101.518 258.841 88.3176L167.236 28.6014C140.235 11.0002 105.482 34.9272 112.191 66.4875L122.331 114.194L27.96 183.442L37.5608 228.61L74.7337 201.371L158.891 139.696L169.37 132.021L159.749 86.7591L159.504 86.9547L156.258 71.6832L226.825 117.684L203.503 134.794L203.569 134.876L104.103 207.955L103.972 207.79L60.4877 239.699C59.7387 240.243 59.0346 240.779 58.3878 241.351C49.5208 248.926 45.5584 259.896 46.468 270.504C47.3248 280.642 52.5292 290.432 62.0692 296.651L153.716 356.353C180.717 373.954 215.424 350.037 208.706 318.432L198.742 271.555L251.334 232.986L293.375 202.206L283.755 156.945L241.733 187.818Z" fill="url(#paint0_linear_bottom)"/>
+              </g>
+              <defs>
+                <linearGradient id="paint0_linear_bottom" x1="125.198" y1="26.6124" x2="195.711" y2="358.35" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#0168FF"/>
+                  <stop offset="1" stopColor="#05AFFF" stopOpacity="0"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
           {/* Header */}
           <header className={styles.header}>
             <div className={styles.headerBorder}></div>
@@ -44,36 +75,39 @@ export default function PolicyUpdated({
 
           {/* Main Content */}
           <main className={styles.mainContent}>
-            {/* Title Section */}
-            <section className={styles.titleSection}>
+            
+            {/* Hero Section */}
+            <section className={styles.heroSection}>
               <h1 className={styles.mainTitle}>Policy successfully updated</h1>
-              <p className={styles.subtitle}>
+              <p className={styles.description}>
                 Thank you for updating your policy details. Your changes have been processed and your policy has been updated. Below is a summary of your updated cover.
               </p>
             </section>
 
-            {/* MyAccount CTA */}
-            <section className={styles.ctaSection}>
+            {/* MyAccount Section */}
+            <section className={styles.myAccountSection}>
               <h2 className={styles.sectionHeading}>Manage your policy in MyAccount</h2>
-              <p className={styles.ctaText}>With MyAccount, you can easily:</p>
+              <p className={styles.myAccountIntro}>With MyAccount, you can easily:</p>
               <ul className={styles.featureList}>
                 <li>View your updated policy documents instantly</li>
                 <li>Track all changes made to your policy</li>
                 <li>Make additional changes whenever you need</li>
                 <li>Access your payment history and manage future payments</li>
               </ul>
-              <button className={styles.ctaButton}>Go to MyAccount</button>
+              <a href="#" className={styles.myAccountButton}>Go to MyAccount</a>
             </section>
 
-            {/* Changes Section */}
+            {/* Changes Made Section */}
             <section className={styles.changesSection}>
               <h2 className={styles.sectionTitle}>Changes made to your policy</h2>
               <div className={styles.changesCard}>
-                <p className={styles.changesIntro}>The following changes were made to your policy on {policyData.changeDate}:</p>
+                <p className={styles.changesIntro}>
+                  The following changes were made to your policy on {policyData.changeDate}:
+                </p>
                 <ul className={styles.changesList}>
                   {policyData.changes.map((change, index) => (
-                    <li key={index} className={styles.changeItem}>
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <li key={index}>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13.3346 4L6.0013 11.3333L2.66797 8" stroke="#0088FF" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                       <span>{change}</span>
@@ -87,46 +121,47 @@ export default function PolicyUpdated({
             </section>
 
             {/* Key Details */}
-            <section className={styles.keyDetailsSection}>
+            <section className={styles.detailsSection}>
               <h2 className={styles.sectionTitle}>Key details</h2>
               <div className={styles.detailsGrid}>
                 <div className={`${styles.detailCard} ${styles.highlighted}`}>
-                  <div className={styles.detailLabel}>Policy number</div>
-                  <div className={styles.detailValue}>{policyData.policyNumber}</div>
+                  <div className={styles.label}>Policy number</div>
+                  <div className={styles.value}>{policyData.policyNumber}</div>
                 </div>
                 <div className={styles.detailCard}>
-                  <div className={styles.detailLabel}>Policyholder</div>
-                  <div className={styles.detailValue}>{policyData.policyholder}</div>
+                  <div className={styles.label}>Policyholder</div>
+                  <div className={styles.value}>{policyData.policyholder}</div>
                 </div>
                 <div className={styles.detailCard}>
-                  <div className={styles.detailLabel}>Vehicle registration</div>
-                  <div className={styles.detailValue}>{policyData.vehicleReg}</div>
+                  <div className={styles.label}>Vehicle registration</div>
+                  <div className={styles.value}>{policyData.vehicleReg}</div>
                 </div>
                 <div className={styles.detailCard}>
-                  <div className={styles.detailLabel}>Cover type</div>
-                  <div className={styles.detailValue}>{policyData.coverType}</div>
+                  <div className={styles.label}>Cover type</div>
+                  <div className={styles.value}>{policyData.coverType}</div>
                 </div>
                 <div className={styles.detailCard}>
-                  <div className={styles.detailLabel}>Policy start date</div>
-                  <div className={styles.detailValue}>{policyData.policyStartDate}</div>
+                  <div className={styles.label}>Policy start date</div>
+                  <div className={styles.value}>{policyData.startDate}</div>
                 </div>
                 <div className={styles.detailCard}>
-                  <div className={styles.detailLabel}>Policy end date</div>
-                  <div className={styles.detailValue}>{policyData.policyEndDate}</div>
+                  <div className={styles.label}>Policy end date</div>
+                  <div className={styles.value}>{policyData.endDate}</div>
                 </div>
               </div>
-              <div className={styles.vehicleCard}>
-                <div className={styles.detailLabel}>Vehicle make and model</div>
-                <div className={styles.detailValue}>{policyData.vehicleModel}</div>
+              <div className={styles.detailCard}>
+                <div className={styles.label}>Vehicle make and model</div>
+                <div className={styles.value}>{policyData.vehicleMake}</div>
               </div>
             </section>
 
-            {/* Pricing */}
-            <section className={styles.pricingSection}>
-              <div className={styles.priceHighlight}>
-                <span className={styles.priceLabel}>Price of changes</span>
-                <span className={styles.priceAmount}>{policyData.adjustmentAmount}</span>
+            {/* Price of Changes */}
+            <section className={styles.priceChangeSection}>
+              <div className={styles.priceChangeCard}>
+                <span>Price of changes</span>
+                <span className={styles.priceChangeAmount}>{policyData.priceChange}</span>
               </div>
+              
               <div className={styles.priceBreakdown}>
                 <div className={styles.priceRow}>
                   <span>Previous annual premium</span>
@@ -134,11 +169,11 @@ export default function PolicyUpdated({
                 </div>
                 <div className={styles.priceRow}>
                   <span>Adjustment for changes</span>
-                  <span>{policyData.adjustmentAmount}</span>
+                  <span>{policyData.priceChange}</span>
                 </div>
-                <div className={`${styles.priceRow} ${styles.totalRow}`}>
-                  <span className={styles.totalLabel}>New annual premium</span>
-                  <span className={styles.totalAmount}>{policyData.newPremium}</span>
+                <div className={styles.priceTotal}>
+                  <span>New annual premium</span>
+                  <span className={styles.newPremiumAmount}>{policyData.newPremium}</span>
                 </div>
               </div>
             </section>
@@ -147,46 +182,46 @@ export default function PolicyUpdated({
             <section className={styles.coverageSection}>
               <h2 className={styles.sectionTitle}>Summary of what's covered</h2>
               <div className={styles.coverageCard}>
-                <h3 className={styles.subsectionTitle}>Standard cover</h3>
+                <h3 className={styles.coverageHeading}>Standard cover</h3>
                 <ul className={styles.coverageList}>
-                  <li className={styles.coverageItem}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13.3346 4L6.0013 11.3333L2.66797 8" stroke="#00D084" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <span>Loss or damage to your vehicle</span>
                   </li>
-                  <li className={styles.coverageItem}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13.3346 4L6.0013 11.3333L2.66797 8" stroke="#00D084" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <span>Fire and theft</span>
                   </li>
-                  <li className={styles.coverageItem}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13.3346 4L6.0013 11.3333L2.66797 8" stroke="#00D084" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <span>Windscreen cover (repair £75 excess, replacement £150 excess)</span>
                   </li>
-                  <li className={styles.coverageItem}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13.3346 4L6.0013 11.3333L2.66797 8" stroke="#00D084" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <span>Courtesy car while yours is being repaired</span>
                   </li>
-                  <li className={styles.coverageItem}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13.3346 4L6.0013 11.3333L2.66797 8" stroke="#00D084" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <span>Personal accident cover (driver only - £5,000)</span>
                   </li>
-                  <li className={styles.coverageItem}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13.3346 4L6.0013 11.3333L2.66797 8" stroke="#00D084" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <span>Legal expenses cover up to £100,000</span>
                   </li>
-                  <li className={styles.coverageItem}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <li>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M13.3346 4L6.0013 11.3333L2.66797 8" stroke="#00D084" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     <span>EU cover for up to 90 days</span>
@@ -195,23 +230,25 @@ export default function PolicyUpdated({
               </div>
             </section>
 
-            {/* Excess Section */}
+            {/* Excess Amounts */}
             <section className={styles.excessSection}>
               <h2 className={styles.sectionTitle}>Excess amounts</h2>
-              <p className={styles.excessIntro}>The excess is the amount you'll need to pay towards any claim you make.</p>
+              <p className={styles.excessDescription}>
+                The excess is the amount you'll need to pay towards any claim you make.
+              </p>
               <div className={styles.excessGrid}>
                 <div className={styles.excessCard}>
-                  <div className={styles.detailLabel}>Compulsory excess</div>
-                  <div className={styles.detailValue}>£250</div>
+                  <div className={styles.label}>Compulsory excess</div>
+                  <div className={styles.value}>{policyData.compulsoryExcess}</div>
                 </div>
                 <div className={styles.excessCard}>
-                  <div className={styles.detailLabel}>Voluntary excess</div>
-                  <div className={styles.detailValue}>£100</div>
+                  <div className={styles.label}>Voluntary excess</div>
+                  <div className={styles.value}>{policyData.voluntaryExcess}</div>
                 </div>
               </div>
-              <div className={styles.totalExcess}>
+              <div className={styles.totalExcessCard}>
                 <span>Total excess for claims</span>
-                <span className={styles.totalExcessAmount}>£350</span>
+                <span className={styles.totalExcessValue}>{policyData.totalExcess}</span>
               </div>
             </section>
 
@@ -221,15 +258,24 @@ export default function PolicyUpdated({
               <div className={styles.documentsCard}>
                 <p>Your policy documents have been sent to your registered email address. You can also access them anytime by logging into your account.</p>
                 <ul className={styles.documentsList}>
-                  <li><span className={styles.bullet}></span>Statement of Fact</li>
-                  <li><span className={styles.bullet}></span>Insurance Product Information Document (IPID)</li>
-                  <li><span className={styles.bullet}></span>Certificate of motor insurance</li>
+                  <li>
+                    <span className={styles.docBullet}></span>
+                    <span>Statement of Fact</span>
+                  </li>
+                  <li>
+                    <span className={styles.docBullet}></span>
+                    <span>Insurance Product Information Document (IPID)</span>
+                  </li>
+                  <li>
+                    <span className={styles.docBullet}></span>
+                    <span>Certificate of motor insurance</span>
+                  </li>
                 </ul>
               </div>
             </section>
 
             {/* Important Information */}
-            <section className={styles.infoSection}>
+            <section className={styles.importantSection}>
               <h2 className={styles.sectionTitle}>Important information</h2>
               <div className={styles.infoCard}>
                 <div className={styles.infoBlock}>
@@ -242,7 +288,7 @@ export default function PolicyUpdated({
                 </div>
                 <div className={styles.infoBlock}>
                   <h3>Making a claim</h3>
-                  <p>Did you know you can claim online? You can head to <span className={styles.link}>Your Account</span> to register your claim. Our claims team are always here to help 24 hours a day online. If any problems arise, feel free to email us at support@limitlesscover.co.uk</p>
+                  <p>Did you know you can claim online? You can head to <a href="#">Your Account</a> to register your claim. Our claims team are always here to help 24 hours a day online. If any problems arise, feel free to email us at support@limitlesscover.co.uk</p>
                 </div>
               </div>
             </section>
@@ -252,15 +298,17 @@ export default function PolicyUpdated({
               <h2 className={styles.sectionTitle}>Payment schedule</h2>
               <div className={styles.paymentCard}>
                 <p className={styles.paymentIntro}>You've chosen to pay annually. Your payment has been taken in full.</p>
-                <div className={styles.paymentRow}>
-                  <span>Annual payment (paid today)</span>
-                  <span>{policyData.newPremium}</span>
+                <div className={styles.paymentBreakdown}>
+                  <div className={styles.paymentRow}>
+                    <span>Annual payment (paid today)</span>
+                    <span>{policyData.newPremium}</span>
+                  </div>
+                  <div className={styles.paymentTotal}>
+                    <span>Total amount payable</span>
+                    <span className={styles.totalAmount}>{policyData.newPremium}</span>
+                  </div>
+                  <p className={styles.paymentNote}>No interest charges apply for annual payment</p>
                 </div>
-                <div className={styles.paymentTotal}>
-                  <span>Total amount payable</span>
-                  <span className={styles.totalPayment}>{policyData.newPremium}</span>
-                </div>
-                <p className={styles.paymentNote}>No interest charges apply for annual payment</p>
               </div>
             </section>
 
@@ -269,21 +317,18 @@ export default function PolicyUpdated({
               <h3>Need help?</h3>
               <p>If you have any questions about your policy changes, our customer service team is here to help.</p>
               <div className={styles.contactInfo}>
-                <p>Email: support@limitlesscover.co.uk</p>
-                <p>Available: 24/7 online support</p>
+                <p className={styles.contactEmail}>Email: support@limitlesscover.co.uk</p>
+                <p className={styles.contactHours}>Available: 24/7 online support</p>
               </div>
             </section>
-          </main>
 
-          {/* Decorative Graphics */}
-          <div className={styles.decorativeTop}></div>
-          <div className={styles.decorativeBottom}></div>
+          </main>
 
           {/* Footer */}
           <footer className={styles.footer}>
             <div className={styles.footerMain}>
               <div className={styles.footerLogo}>
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M34.0299 0H5.97015C2.67293 0 0 2.67293 0 5.97015V34.0299C0 37.3271 2.67293 40 5.97015 40H34.0299C37.3271 40 40 37.3271 40 34.0299V5.97015C40 2.67293 37.3271 0 34.0299 0Z" fill="#0388FF"/>
                   <path d="M25.9881 21.1543L18.4368 24.5556V29.0907L17.6848 28.3361L15.3204 25.9632L14.0159 24.654L18.4369 22.6604L21.5639 21.2527L28.01 18.3464C29.647 17.6058 30.0422 15.4505 28.7726 14.1764L23.0292 8.4124C21.3363 6.71343 18.4368 7.91737 18.4368 10.3184V13.9479L10.497 17.5283V20.9646L13.6239 19.557L20.7032 16.3698L21.5846 15.9732V12.5298L21.5637 12.5403V11.3784L25.9881 15.8187L24.0259 16.7032L24.0295 16.7103L15.6597 20.4907L15.6526 20.4767L11.9942 22.1265C11.9312 22.1546 11.8717 22.1826 11.8157 22.2143C11.0532 22.6285 10.5951 23.3657 10.4972 24.1518C10.4027 24.903 10.63 25.6962 11.2282 26.2965L16.9748 32.0602C18.6677 33.7591 21.5637 32.5552 21.5637 30.1507V26.5844L25.9881 24.5907L29.5242 23.0006V19.5572L25.9881 21.1543Z" fill="white"/>
                 </svg>
@@ -303,6 +348,7 @@ export default function PolicyUpdated({
             <p>Limitless Cover is a trading name of Limitless Services Limited which is authorised and regulated by the Financial Conduct Authority – firm reference number 987654. Calls may be recorded for our mutual protection. All policies sold are underwritten by our insurance partners.</p>
             <p className={styles.copyright}>©2025 Limitless Cover</p>
           </div>
+
         </div>
       </div>
     </div>
