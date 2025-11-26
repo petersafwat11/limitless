@@ -1,20 +1,12 @@
 import React from "react";
 import styles from "./page.module.css";
 
-import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
+import { notFound, redirect } from "next/navigation";
 import { serverFetch } from "@/utils/serverFetch";
 import PolicyDetailsReview from "../dashboard/policy/_components/PolicyDetailsReview";
 
-const page = async ({ params }) => {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("jwt")?.value;
-
-  if (!token) {
-    redirect("/login");
-  }
-
-  const { id } = await params;
+const page = async ({ searchParams }) => {
+  const { id } = await searchParams;
   let insurance = null;
 
   try {
@@ -37,7 +29,8 @@ const page = async ({ params }) => {
   }
 
   if (!insurance) {
-    redirect("/dashboard/policy");
+    notFound();
+    // redirect("/dashboard/policy");
   }
 
   return (

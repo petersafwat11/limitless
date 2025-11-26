@@ -63,7 +63,7 @@ const Form = () => {
         reset();
         setTimeout(() => {
           // Redirect to policy detail page
-          window.location.href = `/your-policy/${result.data.insuranceId}`;
+          window.location.href = `/your-policy?id=${result.data.insuranceId}`;
         }, 1500);
       } else {
         // Handle expired or error status
