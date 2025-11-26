@@ -501,14 +501,12 @@ const AnnualPersonalDetailsForm = ({
                     placeholder="Enter your first name"
                     {...register("userDetails.firstName")}
                     error={errors.userDetails?.firstName}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                   <FormTextInput
                     label="Last Name"
                     placeholder="Enter your last name"
                     {...register("userDetails.surname")}
                     error={errors.userDetails?.surname}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
 
@@ -538,7 +536,6 @@ const AnnualPersonalDetailsForm = ({
                     placeholder="Enter your email address"
                     {...register("userDetails.email")}
                     error={errors.userDetails?.email}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
 
@@ -549,7 +546,6 @@ const AnnualPersonalDetailsForm = ({
                     placeholder="Enter your phone number"
                     {...register("userDetails.phone")}
                     error={errors.userDetails?.phone}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
               </>
@@ -589,7 +585,6 @@ const AnnualPersonalDetailsForm = ({
                     {...register("userDetails.postCode")}
                     error={errors.userDetails?.postCode}
                     disabled={isLoadingAddress}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                   <button
                     className={styles.findAddressButton}
@@ -612,7 +607,6 @@ const AnnualPersonalDetailsForm = ({
                     }
                     {...register("userDetails.address")}
                     error={errors.userDetails?.address}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
               </>
@@ -654,7 +648,6 @@ const AnnualPersonalDetailsForm = ({
                     placeholder="Select employment status"
                     {...register("userDetails.employmentStatus")}
                     error={errors.userDetails?.employmentStatus}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                   <FormAutocomplete
                     label="Occupation"
@@ -671,7 +664,6 @@ const AnnualPersonalDetailsForm = ({
                       setValue("userDetails.occupation", value);
                     }}
                     disabled={isRetiredOrUnemployed}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
 
@@ -691,7 +683,6 @@ const AnnualPersonalDetailsForm = ({
                       setValue("userDetails.industry", value);
                     }}
                     disabled={isRetiredOrUnemployed}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
               </>
@@ -849,7 +840,6 @@ const AnnualPersonalDetailsForm = ({
                       placeholder="Select vehicle type"
                       {...register("carUsage.otherVehiclesType")}
                       error={errors.carUsage?.otherVehiclesType}
-                      inputStyle={{ paddingLeft: "14px" }}
                     />
                   </div>
                 )}
@@ -895,7 +885,6 @@ const AnnualPersonalDetailsForm = ({
                     placeholder="Select license type"
                     {...register("carUsage.licenseType")}
                     error={errors.carUsage?.licenseType}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                   <FormDropdown
                     label="License Held"
@@ -903,14 +892,12 @@ const AnnualPersonalDetailsForm = ({
                     placeholder="Select how long held"
                     {...register("carUsage.licenseHeld")}
                     error={errors.carUsage?.licenseHeld}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                   <FormTextInput
                     label="License Number (Optional)"
                     placeholder="Enter license number"
                     {...register("carUsage.licenseNumber")}
                     error={errors.carUsage?.licenseNumber}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
 
@@ -921,7 +908,6 @@ const AnnualPersonalDetailsForm = ({
                     placeholder="Select NCB years"
                     {...register("carUsage.NCB")}
                     error={errors.carUsage?.NCB}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                   <FormDropdown
                     label="Voluntary Excess"
@@ -929,7 +915,6 @@ const AnnualPersonalDetailsForm = ({
                     placeholder="Select excess amount"
                     {...register("carUsage.voluntaryExcess")}
                     error={errors.carUsage?.voluntaryExcess}
-                    inputStyle={{ paddingLeft: "14px" }}
                   />
                 </div>
 
@@ -965,7 +950,6 @@ const AnnualPersonalDetailsForm = ({
                         placeholder="Select qualification type"
                         {...register("carUsage.additionalQualificationType")}
                         error={errors.carUsage?.additionalQualificationType}
-                        inputStyle={{ paddingLeft: "14px" }}
                       />
                     </div>
 
@@ -976,7 +960,6 @@ const AnnualPersonalDetailsForm = ({
                         placeholder="Select month"
                         {...register("carUsage.qualificationMonth")}
                         error={errors.carUsage?.qualificationMonth}
-                        inputStyle={{ paddingLeft: "14px" }}
                       />
                       <FormDropdown
                         label="Year"
@@ -984,7 +967,6 @@ const AnnualPersonalDetailsForm = ({
                         placeholder="Select year"
                         {...register("carUsage.qualificationYear")}
                         error={errors.carUsage?.qualificationYear}
-                        inputStyle={{ paddingLeft: "14px" }}
                       />
                     </div>
                   </>
