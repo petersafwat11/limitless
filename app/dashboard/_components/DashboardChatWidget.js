@@ -1,45 +1,36 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 export default function DashboardChatWidget() {
-  const [isReady, setIsReady] = useState(false);
-  const pathname = usePathname();
-  const isDashboard = pathname?.startsWith("/dashboard");
+  const isInitialized = useRef(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Add CSS to completely hide widget by default
-    const style = document.createElement("style");
-    style.id = "tawk-hide-style";
-    style.innerHTML = `
-      .tawk-min-container,
-      #tawk-bubble-container,
-      iframe[title="chat widget"],
-      .widget-visible {
-        display: none !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
-      }
-      .tawk-show {
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-      }
-    `;
-    if (!document.getElementById("tawk-hide-style")) {
-      document.head.appendChild(style);
-    }
-
-    // If already loaded
-    if (document.getElementById("tawk-script")) {
-      waitForTawk();
+    // Show widget if already loaded
+    if (window.Tawk_API?.showWidget) {
+      window.Tawk_API.showWidget();
       return;
     }
+
+    // Prevent double initialization
+    if (isInitialized.current || document.getElementById("tawk-script")) {
+      // Script exists, just show the widget
+      const checkAndShow = setInterval(() => {
+        if (window.Tawk_API?.showWidget) {
+          window.Tawk_API.showWidget();
+          clearInterval(checkAndShow);
+        }
+      }, 100);
+      return;
+    }
+
+    isInitialized.current = true;
+
+    // Initialize Tawk_API
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
 
     // Inject script
     const script = document.createElement("script");
@@ -49,63 +40,24 @@ export default function DashboardChatWidget() {
     script.charset = "UTF-8";
     script.setAttribute("crossorigin", "*");
 
-    window.Tawk_API = window.Tawk_API || {};
-    window.Tawk_LoadStart = new Date();
+    document.body.appendChild(script);
 
-    window.Tawk_API.onLoad = () => {
-      // Prevent auto-maximize
-      window.Tawk_API.maximize = function () {};
-
-      // Keep hidden by default
-      if (window.Tawk_API.hideWidget) {
+    // Cleanup: hide widget when leaving dashboard
+    return () => {
+      if (window.Tawk_API?.hideWidget) {
         window.Tawk_API.hideWidget();
       }
-
-      setIsReady(true);
     };
-
-    document.body.appendChild(script);
   }, []);
 
-  const waitForTawk = () => {
-    const timer = setInterval(() => {
-      if (window.Tawk_API) {
-        // Prevent auto-maximize
-        window.Tawk_API.maximize = function () {};
-
-        // Keep hidden by default
-        if (window.Tawk_API.hideWidget) {
-          window.Tawk_API.hideWidget();
-        }
-
-        setIsReady(true);
-        clearInterval(timer);
-      }
-    }, 100);
-  };
-
-  // Show/hide widget based on pathname
+  // Cleanup on unmount (when navigating away from dashboard)
   useEffect(() => {
-    if (!isReady || typeof window === "undefined" || !window.Tawk_API) return;
-
-    const containers = document.querySelectorAll(
-      '.tawk-min-container, #tawk-bubble-container, iframe[title="chat widget"], .widget-visible'
-    );
-
-    if (isDashboard) {
-      // Show widget on dashboard pages
-      if (window.Tawk_API.showWidget) {
-        window.Tawk_API.showWidget();
-      }
-      containers.forEach((el) => el.classList.add("tawk-show"));
-    } else {
-      // Hide widget on non-dashboard pages
-      if (window.Tawk_API.hideWidget) {
+    return () => {
+      if (window.Tawk_API?.hideWidget) {
         window.Tawk_API.hideWidget();
       }
-      containers.forEach((el) => el.classList.remove("tawk-show"));
-    }
-  }, [isDashboard, isReady, pathname]);
+    };
+  }, []);
 
   return null;
 }

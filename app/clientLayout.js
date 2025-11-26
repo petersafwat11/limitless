@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import Header from "@/ui/layout/header/Header";
 import { ToastContainer } from "react-toastify";
 import { usePathname } from "next/navigation";
-import DashboardChatWidget from "./dashboard/_components/DashboardChatWidget";
 
 export default function ClientLayout({ children }) {
   const pathname = usePathname();
@@ -37,7 +36,6 @@ export default function ClientLayout({ children }) {
       <div className={hasNormalHeader ? "has-normal-header" : ""}>
         {children}
       </div>
-      <DashboardChatWidget />
       <ToastContainer
         position="bottom-center"
         autoClose={3000}
