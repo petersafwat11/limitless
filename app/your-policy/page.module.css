@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   gap: 2.8rem;
-  margin: 5.8rem 0;
-  width: 100%;
+  margin: 5.8rem auto;
+  width: min(95%, 120rem);
 }
 .header {
   display: flex;
@@ -19,7 +19,7 @@
 }
 @media screen and (max-width: 900px) {
   .page {
-    margin: 3.8rem 0;
+    margin: 3.8rem auto;
   }
   .header {
     margin: 0 0.6rem;
